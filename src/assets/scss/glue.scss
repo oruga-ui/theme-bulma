@@ -1,8 +1,9 @@
 
 @import "~bulma/sass/utilities/_all";
-@import "~bulma/sass/form/shared";
+@import "~bulma/sass/form/_all";
 
-.has-icons {
+select.has-icons,
+input.has-icons {
     & ~ .icon {
         color: $input-icon-color;
         height: $input-height;
@@ -26,7 +27,8 @@
     }
 }
 
-.has-icons-left {
+select.has-icons-left,
+input.has-icons-left {
     padding-left: $input-height;
     & ~ .icon {
         &.is-left {
@@ -35,7 +37,8 @@
     }
 }
 
-.has-icons-right {
+select.has-icons-right,
+input.has-icons-right {
     padding-right: $input-height;
     & ~ .icon {
         &.is-right {
@@ -43,4 +46,3 @@
         }
     }
 }
-
