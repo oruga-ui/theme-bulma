@@ -70,5 +70,18 @@ export const bulmaConfig: any = {
     radio: {
         override: true,
         rootClass: 'radio'
+    },
+    autocomplete: {
+        override: true,
+        rootClass: 'autocomplete control',
+        menuClass: 'dropdown-menu dropdown-content',
+        itemClass: 'dropdown-item'
+    },
+    inputitems: {
+        override: true,
+        rootClass: 'taginput control',
+        containerClass: 'taginput-container is-focusable',
+        itemClass: 'tag',
+        closeClass: 'delete'
     }
 }

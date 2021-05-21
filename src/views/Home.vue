@@ -1,6 +1,32 @@
 <template>
   <div class="section">
 
+    <p class="content"><b>Selected:</b> {{ selected }}</p>
+        <o-field label="Find a JS framework">
+            <o-autocomplete
+                rounded
+                v-model="name"
+                :data="filteredDataArray"
+                placeholder="e.g. jQuery"
+                icon="search"
+                clearable
+                @select="option => selected = option">
+                <template #empty>No results found</template>
+            </o-autocomplete>
+        </o-field>
+
+
+        <o-field label="Add some tags">
+            <o-inputitems
+                v-model="tags"
+                ellipsis
+                icon="tag"
+                placeholder="Add a tag"
+                aria-close-label="Delete this tag">
+            </o-inputitems>
+        </o-field>
+        <p class="content"><b>Tags:</b> {{ tags }}</p>
+
     <o-field label="Name"  variant="danger" message="Invalid field">
       <o-input icon="user" size="large" :has-counter="true" maxlength="10"></o-input>
     </o-field>
@@ -76,12 +102,37 @@ export default defineComponent({
   data() {
     return {
       tmp: 'a',
-      rounded: true
+      rounded: true,
+      data: [
+          'Angular',
+          'Angular 2',
+          'Aurelia',
+          'Backbone',
+          'Ember',
+          'jQuery',
+          'Meteor',
+          'Node.js',
+          'Polymer',
+          'React',
+          'RxJS',
+          'Vue.js'
+      ],
+      name: '',
+      selected: null,
+      tags: ['Pistoia']
     }
   },
   computed: {
     hello(): string {
       return this.tmp
+    },
+    filteredDataArray(): string[] {
+        return this.data.filter((option) => {
+            return option
+                .toString()
+                .toLowerCase()
+                .indexOf(this.name.toLowerCase()) >= 0
+        })
     }
   },
   mounted() {
