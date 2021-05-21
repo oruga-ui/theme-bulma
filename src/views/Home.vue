@@ -12,10 +12,12 @@
       </o-select>
     </o-field>
 
+    <o-field label="Name">
      <o-select size="large">
       <option>Select dropdown</option>
       <option>With options</option>
     </o-select>
+     </o-field>
 
      <o-select placeholder="Select a value" icon="user">
       <option>Select dropdown</option>

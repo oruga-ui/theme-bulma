@@ -15,25 +15,33 @@ export const bulmaConfig: any = {
     },
     input: {
         override: true,
-        rootClass: 'control',
+        rootClass: (_: string, { props, instance }: any) => {
+            const classes = ['control']
+            if (props.icon) classes.push('has-icons-left')
+            if (instance.hasIconRight) classes.push('has-icons-right')
+            return classes.join(' ').trim()
+        },
         inputClass: 'input',
         roundedClass: 'is-rounded',
         variantClass: 'is-',
         sizeClass: 'is-',
         expandedClass: 'is-expanded',
-        iconLeftSpaceClass: 'has-icons has-icons-left',
+        // iconLeftSpaceClass: 'has-icons has-icons-left',
         iconLeftClass: 'is-left',
         iconRightClass: 'is-right',
-        iconRightSpaceClass: 'has-icons has-icons-right',
+        // iconRightSpaceClass: 'has-icons has-icons-right',
         counterClass: 'help counter'
     },
     select: {
         override: true,
         rootClass: (_: string, { props, instance }: any) => {
-            const classes = ['select']
+            const classes = ['control', 'select']
             if (props.size) classes.push(`is-${props.size}`)
             if (instance.rounded) classes.push('is-rounded')
             if (instance.statusVariant) classes.push(`is-${instance.statusVariant}`)
+            if (props.multipe) classes.push('is-multiple')
+            if (props.icon) classes.push('has-icons-left')
+            if (props.iconRight) classes.push('has-icons-right')
             return classes.join(' ').trim()
         },
         // selectClass: '',
@@ -41,11 +49,12 @@ export const bulmaConfig: any = {
         // variantClass: 'is-',
         // sizeClass: 'is-',
         expandedClass: 'is-fullwidth',
-        iconLeftSpaceClass: 'has-icons has-icons-left',
+        // iconLeftSpaceClass: 'has-icons has-icons-left',
         iconLeftClass: 'is-left',
         iconRightClass: 'is-right',
-        iconRightSpaceClass: 'has-icons has-icons-right',
+        // iconRightSpaceClass: 'has-icons has-icons-right',
         // arrowClass: '',
+        // multipleClass: 'is-multiple',
         placeholderClass: 'is-empty'
     },
     icon: {
