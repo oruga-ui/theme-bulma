@@ -70,5 +70,13 @@ input.has-icons-right {
                 left: 0;
             }
         }
-    }   
+    }
+    .has-icons-right {
+        padding-right: $input-height;
+        .icon {
+            &.is-right {
+                right: 0;
+            }
+        }
+    } 
 }

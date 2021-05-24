@@ -53,7 +53,9 @@ $dropdown-content-max-height: 200px !default;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        &.is-hovered {
+        // added due to div instead of a
+        cursor: pointer;
+        &.is-hovered, &:hover {
             background: $dropdown-item-hover-background-color;
             color: $dropdown-item-hover-color;
         }
@@ -61,15 +63,6 @@ $dropdown-content-max-height: 200px !default;
             opacity: 0.5;
             cursor: not-allowed;
         }
-    }
-    &.is-small {
-        @include control-small;
-    }
-    &.is-medium{
-        @include control-medium;
-    }
-    &.is-large {
-        @include control-large;
     }
 }
 

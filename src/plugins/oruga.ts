@@ -75,7 +75,10 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: 'autocomplete control',
         menuClass: 'dropdown-menu dropdown-content',
-        itemClass: 'dropdown-item'
+        menuPositionClass: 'is-opened-',
+        itemClass: 'dropdown-item',
+        itemHoverClass: 'is-hovered',
+        itemGroupTitleClass: 'is-disabled'
     },
     inputitems: {
         override: true,
