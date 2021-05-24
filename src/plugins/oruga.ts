@@ -78,7 +78,8 @@ export const bulmaConfig: any = {
         menuPositionClass: 'is-opened-',
         itemClass: 'dropdown-item',
         itemHoverClass: 'is-hovered',
-        itemGroupTitleClass: 'is-disabled'
+        itemEmptyClasses: 'is-disabled',
+        itemGroupTitleClass: 'has-text-weight-bold'
     },
     inputitems: {
         override: true,
