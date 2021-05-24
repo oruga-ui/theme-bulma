@@ -71,6 +71,13 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: 'radio'
     },
+    switch: {
+        override: true,
+        rootClass: 'switch',
+        roundedClass: 'is-rounded',
+        checkClaselementsWrapperClasss: 'check',
+        labelClass: 'control-label'
+    },
     autocomplete: {
         override: true,
         rootClass: 'autocomplete control',
@@ -86,6 +93,6 @@ export const bulmaConfig: any = {
         rootClass: 'taginput control',
         containerClass: 'taginput-container is-focusable',
         itemClass: 'tag',
-        closeClass: 'delete'
+        closeClass: 'delete is-small'
     }
 }
