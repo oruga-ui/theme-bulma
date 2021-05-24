@@ -15,10 +15,10 @@ export const bulmaConfig: any = {
     },
     input: {
         override: true,
-        rootClass: (_: string, { props, instance }: any) => {
+        rootClass: (_: string, { props, computed }: any) => {
             const classes = ['control']
             if (props.icon) classes.push('has-icons-left')
-            if (instance.hasIconRight) classes.push('has-icons-right')
+            if (computed.hasIconRight) classes.push('has-icons-right')
             return classes.join(' ').trim()
         },
         inputClass: 'input',
@@ -34,11 +34,11 @@ export const bulmaConfig: any = {
     },
     select: {
         override: true,
-        rootClass: (_: string, { props, instance }: any) => {
+        rootClass: (_: string, { props, computed }: any) => {
             const classes = ['control', 'select']
             if (props.size) classes.push(`is-${props.size}`)
-            if (instance.rounded) classes.push('is-rounded')
-            if (instance.statusVariant) classes.push(`is-${instance.statusVariant}`)
+            if (computed.rounded) classes.push('is-rounded')
+            if (computed.statusVariant) classes.push(`is-${computed.statusVariant}`)
             if (props.multipe) classes.push('is-multiple')
             if (props.icon) classes.push('has-icons-left')
             if (props.iconRight) classes.push('has-icons-right')
@@ -73,9 +73,13 @@ export const bulmaConfig: any = {
     },
     switch: {
         override: true,
-        rootClass: 'switch',
-        roundedClass: 'is-rounded',
-        checkClaselementsWrapperClasss: 'check',
+        rootClass: (_: string, { props }: any ) => {
+            const classes = ['switch'];
+            if (props.rounded) classes.push('is-rounded')
+            return classes.join(' ')
+        },
+        // roundedClass: 'is-rounded',
+        elementsWrapperClass: 'check',
         labelClass: 'control-label'
     },
     autocomplete: {
