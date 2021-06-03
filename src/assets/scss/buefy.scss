@@ -190,7 +190,10 @@ $switch-colors: $form-colors !default;
         opacity: 0;
         outline: none;
         z-index: -1;
-        + .check {
+        + .check-wrapper {
+            display: flex;
+        }
+        + .check-wrapper .check {
             display: flex;
             align-items: center;
             flex-shrink: 0;
@@ -226,7 +229,7 @@ $switch-colors: $form-colors !default;
                 border-radius: $radius;
             }
         }
-        &:checked + .check {
+        &:checked + .check-wrapper .check {
             background: $switch-active-background-color;
             @each $name, $pair in $switch-colors {
                 $color: nth($pair, 1);
@@ -244,7 +247,7 @@ $switch-colors: $form-colors !default;
         }
         &:focus, &:active {
             outline: none;
-            + .check {
+            + .check-wrapper .check {
                 box-shadow: 0 0 0.5em rgba($grey, 0.6);
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
@@ -253,7 +256,7 @@ $switch-colors: $form-colors !default;
                     }
                 }
             }
-            &:checked + .check {
+            &:checked + .check-wrapper .check {
                 box-shadow: 0 0 0.5em rgba($switch-active-background-color, 0.8);
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
@@ -266,7 +269,9 @@ $switch-colors: $form-colors !default;
     }
 
     &.has-left-label {
-        flex-direction: row-reverse;
+        .check-wrapper {
+            flex-direction: row-reverse;
+        }
         .control-label {
             padding-right: $control-padding-horizontal;
         }
@@ -279,7 +284,7 @@ $switch-colors: $form-colors !default;
     }
 
     &:hover {
-        input[type=checkbox] + .check {
+        input[type=checkbox] + .check-wrapper .check {
             background: rgba($grey-light, 0.9);
             @each $name, $pair in $switch-colors {
                 $color: nth($pair, 1);
@@ -288,7 +293,7 @@ $switch-colors: $form-colors !default;
                 }
             }
         }
-        input[type=checkbox]:checked + .check {
+        input[type=checkbox]:checked + .check-wrapper .check {
             background: rgba($switch-active-background-color, 0.9);
             @each $name, $pair in $switch-colors {
                 $color: nth($pair, 1);
@@ -300,7 +305,7 @@ $switch-colors: $form-colors !default;
     }
     &.is-rounded {
         input[type=checkbox] {
-            + .check {
+            + .check-wrapper .check {
                 border-radius: $radius-rounded;
                 &:before {
                     border-radius: $radius-rounded;
@@ -314,7 +319,7 @@ $switch-colors: $form-colors !default;
     }
     &.is-outlined {
         input[type=checkbox] {
-            + .check {
+            + .check-wrapper .check {
                 background: transparent;
                 border: .1rem solid $grey-light;
                 @each $name, $pair in $switch-colors {
@@ -333,7 +338,7 @@ $switch-colors: $form-colors !default;
                     background: $grey-light;
                 }
             }
-            &:checked + .check {
+            &:checked + .check-wrapper .check {
                 border-color: $switch-active-background-color;
                 @each $name, $pair in $switch-colors {
                     $color: nth($pair, 1);
@@ -351,11 +356,11 @@ $switch-colors: $form-colors !default;
             }
         }
         &:hover {
-            input[type=checkbox] + .check {
+            input[type=checkbox] + .check-wrapper .check {
                 background: transparent;
                 border-color: rgba($grey-light, 0.9);
             }
-            input[type=checkbox]:checked + .check {
+            input[type=checkbox]:checked + .check-wrapper .check {
                 background: transparent;
                 border-color: rgba($switch-active-background-color, 0.9);
                 @each $name, $pair in $switch-colors {

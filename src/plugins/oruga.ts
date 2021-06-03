@@ -76,11 +76,26 @@ export const bulmaConfig: any = {
         rootClass: (_: string, { props }: any ) => {
             const classes = ['switch'];
             if (props.rounded) classes.push('is-rounded')
+            if (props.leftLabel) classes.push('has-left-label')
             return classes.join(' ')
         },
         // roundedClass: 'is-rounded',
-        elementsWrapperClass: 'check',
-        labelClass: 'control-label'
+        checkClass: (_: string, { props }: any ) => {
+            const classes = ['check'];
+            if (props.variant) classes.push(`is-${props.variant}`)
+            if (props.passiveVariant) classes.push(`is-${props.passiveVariant}-passive`)
+            return classes.join(' ')
+        },
+        elementsWrapperClass: 'check-wrapper',
+        labelClass: 'control-label',
+        // leftLabelClass: 'has-left-label',
+        sizeClass: 'is-',
+        // variantClass: 'is-',
+        /*
+        passiveVariantClass: (passiveVariant: string) => {
+            return `is-${passiveVariant}-passive`
+        }
+        */
     },
     autocomplete: {
         override: true,
