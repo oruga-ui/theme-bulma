@@ -91,11 +91,7 @@ export const bulmaConfig: any = {
         // leftLabelClass: 'has-left-label',
         sizeClass: 'is-',
         // variantClass: 'is-',
-        /*
-        passiveVariantClass: (passiveVariant: string) => {
-            return `is-${passiveVariant}-passive`
-        }
-        */
+        // passiveVariantClass: (passiveVariant: string) => (`is-${passiveVariant}-passive`)
     },
     autocomplete: {
         override: true,
@@ -113,5 +109,38 @@ export const bulmaConfig: any = {
         containerClass: 'taginput-container is-focusable',
         itemClass: 'tag',
         closeClass: 'delete is-small'
+    },
+    pagination: {
+        override: true,
+        rootClass: (_: string, { props }: any ) => {
+            const classes = ['pagination'];
+            if (props.rounded) classes.push('is-rounded')
+            return classes.join(' ')
+        },
+        sizeClass: 'is-',
+        simpleClass: 'is-simple',
+        orderClass: 'is-',
+        listClass: 'pagination-list',
+        linkClass: 'pagination-link',
+        linkCurrentClass: 'is-current',
+        linkDisabledClass: 'is-disabled',
+        nextBtnClass: 'pagination-next',
+        prevBtnClass: 'pagination-previous',
+        infoClass: 'info'
+    },
+    table: {
+        override: true,
+        wrapperClass: 'b-table',
+        tableClass: 'table',
+        borderedClass: 'is-bordered',
+        stripedClass: 'is-striped',
+        narrowedClass: 'is-narrow',
+        hoverableClass: 'is-hoverable',
+        emptyClass: 'is-empty',
+        detailedClass: 'detail',
+        footerClass: 'table-footer',
+        paginationWrapperClass: '',
+        scrollableClass: 'is-scrollable',
+        
     }
 }
