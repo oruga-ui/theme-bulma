@@ -5,7 +5,7 @@ export const bulmaConfig: any = {
         rootClass: 'field',
         labelClass: 'label',
         messageClass: 'help',
-        variantClass: 'is-', 
+        variantClass: 'is-',
         addonsClass: 'has-addons',
         groupedClass: 'is-grouped',
         groupMultilineClass: 'is-grouped-multiline',
@@ -73,14 +73,14 @@ export const bulmaConfig: any = {
     },
     switch: {
         override: true,
-        rootClass: (_: string, { props }: any ) => {
+        rootClass: (_: string, { props }: any) => {
             const classes = ['switch'];
             if (props.rounded) classes.push('is-rounded')
             if (props.leftLabel) classes.push('has-left-label')
             return classes.join(' ')
         },
         // roundedClass: 'is-rounded',
-        checkClass: (_: string, { props }: any ) => {
+        checkClass: (_: string, { props }: any) => {
             const classes = ['check'];
             if (props.variant) classes.push(`is-${props.variant}`)
             if (props.passiveVariant) classes.push(`is-${props.passiveVariant}-passive`)
@@ -112,7 +112,7 @@ export const bulmaConfig: any = {
     },
     pagination: {
         override: true,
-        rootClass: (_: string, { props }: any ) => {
+        rootClass: (_: string, { props }: any) => {
             const classes = ['pagination'];
             if (props.rounded) classes.push('is-rounded')
             return classes.join(' ')
@@ -141,6 +141,37 @@ export const bulmaConfig: any = {
         footerClass: 'table-footer',
         paginationWrapperClass: '',
         scrollableClass: 'is-scrollable',
-        
+
+    },
+    tooltip: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['b-tooltip'];
+            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.position) classes.push(`is-${props.position}`)
+            return classes.join(' ')
+        },
+        contentClass: 'tooltip-content',
+        triggerClass: 'tooltip-trigger',
+        alwaysClass: 'is-always',
+        multilineClass: 'is-multiline',
+        variantClass: 'is-',
+        orderClass: 'is-'
+    },
+    slider: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['b-slider'];
+            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.rounded) classes.push('is-rounded')
+            if (props.disables) classes.push('is-disabled')
+            return classes.join(' ')
+        },
+        trackClass: 'b-slider-track',
+        fillClass: 'b-slider-fill',
+        thumbWrapperClass: 'b-slider-thumb-wrapper',
+        thumbClass: 'b-slider-thumb',
+        thumbDraggingClass: 'is-dragging',
+        tickClass: 'b-slider-tick'
     }
 }
