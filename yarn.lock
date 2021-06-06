@@ -25,10 +25,10 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.3.tgz#c36ffa64a2a239bf948541a97b6ae8d729e09a9a"
   integrity sha512-rFnSUN/QOtnOAgqFRooTA3H57JLDm0QEG/jPdk+tLQNL/eWd+Aok8g3qCI+Q1xuDPWpGW/i9JySpJVsq8Q0s9w==
 
-"@oruga-ui/oruga-next@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@oruga-ui/oruga-next/-/oruga-next-0.4.0.tgz#4228bb05d59031cf10e96a5eff2be0e9f4550ef1"
-  integrity sha512-8njMH1LdpwilKxZb+2HY+b5mYK0uAGJgxxkwBFt0M5jRqOxz0kZqlP9FrXcz5Vo9SvakhpydsXjQTe5+bx28kw==
+"@oruga-ui/oruga-next@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@oruga-ui/oruga-next/-/oruga-next-0.4.1.tgz#7fa66089c3fec2e339b3da68da5693ebe21a127a"
+  integrity sha512-t0n16i3rnB5ulLwLZHZ402ZwyUPe+9FUsuZ5pSqAOYYL2WlMrCM1jxmx13iJ7JCJ4UyM0QhsyQglzhNbFZtZ7Q==
 
 "@types/json-schema@^7.0.5":
   version "7.0.7"
