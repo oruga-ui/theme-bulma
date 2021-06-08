@@ -1,6 +1,25 @@
 <template>
   <div class="section">
 
+    <o-field label="Simple">
+      <o-slider size="medium" rounded :tooltip="false" :min="0" :max="10" variant="primary" v-model="slideVal">
+         <template v-for="val in [3, 5, 8]"  :key="val">
+            <o-slider-tick :value="val">{{ val }}</o-slider-tick>
+        </template>
+      </o-slider>
+
+      
+    </o-field>
+    {{ slideVal }}
+
+    <o-slider :min="0" :max="3" variant="primary" aria-label="Fan" :tooltip="false">
+                <o-slider-tick :value="0">Off</o-slider-tick>
+                <o-slider-tick :value="1">Low</o-slider-tick>
+                <o-slider-tick :value="2">High</o-slider-tick>
+                <o-slider-tick :value="3">Auto</o-slider-tick>
+            </o-slider>
+      
+
     <o-field grouped group-multiline>
       <o-field label="Total">
         <o-input type="number" v-model="total"></o-input>
@@ -92,6 +111,8 @@
       :loading="isLoading"
       :focusable="isFocusable"
       :mobile-cards="hasMobileCards"
+      v-model:checked-rows="checkedRows"
+      checkable
     >
       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
@@ -374,6 +395,7 @@ export default defineComponent({
           'Vue.js'
       ],
       name: '',
+      slideVal: 0,
       selected: null,
        filteredTags: data,
         tags: [],
@@ -413,7 +435,8 @@ export default defineComponent({
         isSimple: false,
         isRounded: false,
         prevIcon: 'chevron-left',
-        nextIcon: 'chevron-right'
+        nextIcon: 'chevron-right',
+        checkedRows: []
     }
   },
   computed: {

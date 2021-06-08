@@ -128,6 +128,31 @@ export const bulmaConfig: any = {
         prevBtnClass: 'pagination-previous',
         infoClass: 'info'
     },
+    slider: {
+        override: true,
+        rootClass: (_: string, { props }: any ) => {
+            const classes = ['b-slider'];
+            if (props.variant) classes.push(`is-${props.variant}`)
+            if (props.rounded) classes.push('is-rounded')
+            return classes.join(' ')
+        },
+        disabledClass: 'is-disabled',
+        // variantClass: 'is-',
+        trackClass: 'b-slider-track',
+        fillClass: 'b-slider-fill',
+        thumbWrapperClass: (_: string, { data }: any ) => {
+            const classes = ['b-slider-thumb-wrapper'];
+            if (data.dragging) classes.push(`is-dragging`)
+            return classes.join(' ')
+        },
+        sizeClass: 'is-',
+        thumbClass: 'b-slider-thumb',
+        tickLabelClass: 'b-slider-tick-label',
+        tickHiddenClass: 'is-tick-hidden',
+        tickClass: 'b-slider-tick',
+        // thumbRoundedClass: 'is-rounded'
+        // thumbDraggingClass: 'is-dragging'
+    },
     table: {
         override: true,
         wrapperClass: 'b-table',
