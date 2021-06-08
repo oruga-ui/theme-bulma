@@ -153,6 +153,22 @@ export const bulmaConfig: any = {
         // thumbRoundedClass: 'is-rounded'
         // thumbDraggingClass: 'is-dragging'
     },
+    tabs: {
+        override: true,
+        rootClass: 'b-tabs',
+        contentClass: 'tab-content',
+        multilineClass: 'is-multiline',
+        navTabsClass: 'tabs',
+        expandedClass: 'is-fullwidth',
+        verticalClass: 'is-vertical',
+        positionClass: 'is-',
+        navSizeClass: 'is-',
+        navPositionClass: 'is-',
+        transitioningClass: 'is-transitioning',
+        itemClass: 'tab-item',
+        itemHeaderActiveClass: () => 'is-active',
+        itemHeaderDisabledClass: () => 'is-disabled'
+    },
     table: {
         override: true,
         wrapperClass: 'b-table',
