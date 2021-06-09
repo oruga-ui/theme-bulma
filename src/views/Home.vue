@@ -1,5 +1,53 @@
 <template>
   <div class="section">
+
+    <o-tabs v-model="activeTab" multiline>
+      <o-tab-item :value="0" label="Pictures">
+        Lorem ipsum dolor sit amet.
+      </o-tab-item>
+
+      <o-tab-item :value="1" label="Music">
+        Lorem <br />
+        ipsum <br />
+        dolor <br />
+        sit <br />
+        amet.
+      </o-tab-item>
+
+      <o-tab-item :value="2"  label="Books">
+        What light is light, if Silvia be not seen? <br />
+        What joy is joy, if Silvia be not by— <br />
+        Unless it be to think that she is by <br />
+        And feed upon the shadow of perfection? <br />
+        Except I be by Silvia in the night, <br />
+        There is no music in the nightingale.
+      </o-tab-item>
+
+      <o-tab-item :value="3" label="Videos" icon="video" disabled>
+        Nunc nec velit nec libero vestibulum eleifend. Curabitur pulvinar congue luctus. Nullam hendrerit iaculis augue vitae ornare. Maecenas vehicula pulvinar tellus, id sodales
+        felis lobortis eget.
+      </o-tab-item>
+    </o-tabs>
+
+    <o-field label="Simple">
+      <o-slider size="medium" rounded :tooltip="false" :min="0" :max="10" variant="primary" v-model="slideVal">
+         <template v-for="val in [3, 5, 8]"  :key="val">
+            <o-slider-tick :value="val">{{ val }}</o-slider-tick>
+        </template>
+      </o-slider>
+
+      
+    </o-field>
+    {{ slideVal }}
+
+    <o-slider :min="0" :max="3" variant="primary" aria-label="Fan" :tooltip="false">
+                <o-slider-tick :value="0">Off</o-slider-tick>
+                <o-slider-tick :value="1">Low</o-slider-tick>
+                <o-slider-tick :value="2">High</o-slider-tick>
+                <o-slider-tick :value="3">Auto</o-slider-tick>
+            </o-slider>
+      
+
     <o-field grouped group-multiline>
       <o-field label="Total">
         <o-input type="number" v-model="total"></o-input>
@@ -93,6 +141,8 @@
       :loading="isLoading"
       :focusable="isFocusable"
       :mobile-cards="hasMobileCards"
+      v-model:checked-rows="checkedRows"
+      checkable
     >
       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
@@ -738,7 +788,8 @@ export default defineComponent({
         "RxJS",
         "Vue.js",
       ],
-      name: "",
+      name: '',
+      slideVal: 0,
       selected: null,
       filteredTags: data,
       tags: [],
@@ -760,26 +811,28 @@ export default defineComponent({
         },
       ],
       dataTable,
-      isEmpty: false,
-      isBordered: false,
-      isStriped: false,
-      isNarrowed: false,
-      isHoverable: false,
-      isFocusable: false,
-      isLoading: false,
-      hasMobileCards: true,
-      total: 200,
-      current: 10,
-      perPage: 10,
-      rangeBefore: 3,
-      rangeAfter: 1,
-      order: "",
-      size: "",
-      isSimple: false,
-      isRounded: false,
-      prevIcon: "chevron-left",
-      nextIcon: "chevron-right",
-    };
+        isEmpty: false,
+        isBordered: false,
+        isStriped: false,
+        isNarrowed: false,
+        isHoverable: false,
+        isFocusable: false,
+        isLoading: false,
+        hasMobileCards: true,
+        total: 200,
+        current: 10,
+        perPage: 10,
+        rangeBefore: 3,
+        rangeAfter: 1,
+        order: '',
+        size: '',
+        isSimple: false,
+        isRounded: false,
+        prevIcon: 'chevron-left',
+        nextIcon: 'chevron-right',
+        checkedRows: [],
+        activeTab: 0,
+    }
   },
   computed: {
     hello(): string {

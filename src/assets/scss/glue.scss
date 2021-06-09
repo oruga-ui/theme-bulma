@@ -77,3 +77,81 @@ input.has-icons-right {
         }
     } 
 }
+
+// ul or li -> div
+// a -> button 
+// next step add classes..
+
+$tabs-border-bottom-color: $border !default;
+$tabs-border-bottom-style: solid !default;
+$tabs-border-bottom-width: 1px !default;
+$tabs-link-color: $text !default;
+$tabs-link-hover-border-bottom-color: $text-strong !default;
+$tabs-link-hover-color: $text-strong !default;
+$tabs-link-active-border-bottom-color: $link !default;
+$tabs-link-active-color: $link !default;
+$tabs-link-padding: 0.5em 1em !default;
+
+$tabs-boxed-link-radius: $radius !default;
+$tabs-boxed-link-hover-background-color: $background !default;
+$tabs-boxed-link-hover-border-bottom-color: $border !default;
+
+$tabs-boxed-link-active-background-color: $scheme-main !default;
+$tabs-boxed-link-active-border-color: $border !default;
+$tabs-boxed-link-active-border-bottom-color: transparent !default;
+
+$tabs-toggle-link-border-color: $border !default;
+$tabs-toggle-link-border-style: solid !default;
+$tabs-toggle-link-border-width: 1px !default;
+$tabs-toggle-link-hover-background-color: $background !default;
+$tabs-toggle-link-hover-border-color: $border-hover !default;
+$tabs-toggle-link-radius: $radius !default;
+$tabs-toggle-link-active-background-color: $link !default;
+$tabs-toggle-link-active-border-color: $link !default;
+$tabs-toggle-link-active-color: $link-invert !default;
+
+.tabs {
+    button {
+
+        // reset button
+        -webkit-appearance: none;
+        text-decoration: none;
+        outline: 0;
+        border: 1px solid transparent;
+        background-color: transparent;
+        cursor: pointer;
+
+        height: 100%;
+
+        align-items: center;
+        border-bottom-color: $tabs-border-bottom-color;
+        border-bottom-style: $tabs-border-bottom-style;
+        border-bottom-width: $tabs-border-bottom-width;
+        color: $tabs-link-color;
+        display: flex;
+        justify-content: center;
+        margin-bottom: -#{$tabs-border-bottom-width};
+        padding: $tabs-link-padding;
+        vertical-align: top;
+        &:hover {
+            border-bottom-color: $tabs-link-hover-border-bottom-color;
+            color: $tabs-link-hover-color;
+        }
+
+        &.is-active {
+            border-bottom-color: $tabs-link-active-border-bottom-color;
+            color: $tabs-link-active-color;
+        }
+    } 
+
+    // ul classes -> nav
+ 
+    border-bottom-color: $tabs-border-bottom-color;
+    border-bottom-style: $tabs-border-bottom-style;
+    border-bottom-width: $tabs-border-bottom-width;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    
+}
