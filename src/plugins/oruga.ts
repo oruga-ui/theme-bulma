@@ -214,5 +214,20 @@ export const bulmaConfig: any = {
         thumbClass: 'b-slider-thumb',
         thumbDraggingClass: 'is-dragging',
         tickClass: 'b-slider-tick'
+    },
+    steps: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['b-steps'];
+            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.disables) classes.push('is-disabled')
+            return classes.join(' ')
+        },
+        stepsClass: 'steps',
+        itemClass: 'step-items',
+        itemHeaderClass: 'step-item',
+        stepLinkClass: 'step-link',
+        stepMarkerClass: 'step-marker',
+        stepContentClass: 'step-content'
     }
 }

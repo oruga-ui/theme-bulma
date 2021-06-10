@@ -355,6 +355,131 @@
       >
       </o-slider>
     </o-field>
+
+    <section>
+      <h2 class="is-size-3">Steps</h2>
+      <p>
+        <o-field grouped group-multiline>
+          <div class="control">
+            <o-switch v-model="showSocial"> Show Social step </o-switch>
+          </div>
+          <div class="control">
+            <o-switch v-model="isAnimated"> Animated </o-switch>
+          </div>
+          <div class="control">
+            <o-switch v-model="stepsIsRounded"> Rounded </o-switch>
+          </div>
+          <div class="control">
+            <o-switch v-model="isStepsClickable"> Clickable Marker </o-switch>
+          </div>
+        </o-field>
+        <o-field grouped group-multiline>
+          <div class="control">
+            <o-switch v-model="hasNavigation"> Navigation Buttons </o-switch>
+          </div>
+          <div class="control">
+            <o-switch v-model="customNavigation"> Custom Navigation </o-switch>
+          </div>
+          <div class="control">
+            <o-switch v-model="isProfileSuccess">
+              Set <code>success</code> for profile
+            </o-switch>
+          </div>
+        </o-field>
+        <o-field v-if="hasNavigation" grouped group-multiline>
+          <o-field label="Prev icon">
+            <o-select v-model="stepPrevIcon">
+              <option value="chevron-left">Chevron</option>
+              <option value="arrow-left">Arrow</option>
+            </o-select>
+          </o-field>
+          <o-field label="Next icon">
+            <o-select v-model="stepNextIcon">
+              <option value="chevron-right">Chevron</option>
+              <option value="arrow-right">Arrow</option>
+            </o-select>
+          </o-field>
+          <o-field label="Label position">
+            <o-select v-model="labelPosition">
+              <option value="bottom">Bottom</option>
+              <option value="right">Right</option>
+              <option value="left">Left</option>
+            </o-select>
+          </o-field>
+        </o-field>
+      </p>
+      <o-steps
+        v-model="activeStep"
+        :animated="isAnimated"
+        :rounded="stepsIsRounded"
+        :has-navigation="hasNavigation"
+        :icon-prev="stepPrevIcon"
+        :icon-next="stepNextIcon"
+        :label-position="labelPosition"
+      >
+        <o-step-item step="1" label="Account" :clickable="isStepsClickable">
+          <h1 class="title has-text-centered">Account</h1>
+          Lorem Account dolor sit amet.
+        </o-step-item>
+
+        <o-step-item
+          step="2"
+          label="Profile"
+          :clickable="isStepsClickable"
+          :variant="{ success: isProfileSuccess }"
+        >
+          <h1 class="title has-text-centered">Profile</h1>
+          Lorem Profile dolor sit amet.
+        </o-step-item>
+
+        <o-step-item
+          step="3"
+          :visible="showSocial"
+          label="Social"
+          :clickable="isStepsClickable"
+        >
+          <h1 class="title has-text-centered">Social</h1>
+          Lorem Social dolor sit amet.
+        </o-step-item>
+
+        <o-step-item
+          :step="showSocial ? '4' : '3'"
+          label="Finish"
+          :clickable="isStepsClickable"
+          disabled
+        >
+          <h1 class="title has-text-centered">Finish</h1>
+          Lorem Finish dolor sit amet.
+        </o-step-item>
+
+        <template
+          v-if="customNavigation"
+          slot="navigation"
+          slot-scope="{ previous, next }"
+        >
+          <o-button
+            outlined
+            variant="danger"
+            icon-pack="fas"
+            icon-left="backward"
+            :disabled="previous.disabled"
+            @click.prevent="previous.action"
+          >
+            Previous
+          </o-button>
+          <o-button
+            outlined
+            variant="success"
+            icon-pack="fas"
+            icon-right="forward"
+            :disabled="next.disabled"
+            @click.prevent="next.action"
+          >
+            Next
+          </o-button>
+        </template>
+      </o-steps>
+    </section>
   </div>
 </template>
 
@@ -774,6 +899,22 @@ export default defineComponent({
       data2: data,
       sliderValue: 12,
       numbers2: [2, 6],
+      // Steps start
+      activeStep: 0,
+
+      showSocial: false,
+      isAnimated: true,
+      stepsIsRounded: true,
+      isStepsClickable: false,
+
+      hasNavigation: true,
+      customNavigation: false,
+      isProfileSuccess: false,
+
+      stepPrevIcon: "chevron-left",
+      stepNextIcon: "chevron-right",
+      labelPosition: "bottom",
+      // Steps end
       data: [
         "Angular",
         "Angular 2",
