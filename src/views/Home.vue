@@ -1,52 +1,34 @@
 <template>
   <div class="section">
-
-    <o-tabs v-model="activeTab" multiline>
-      <o-tab-item :value="0" label="Pictures">
-        Lorem ipsum dolor sit amet.
-      </o-tab-item>
-
-      <o-tab-item :value="1" label="Music">
-        Lorem <br />
-        ipsum <br />
-        dolor <br />
-        sit <br />
-        amet.
-      </o-tab-item>
-
-      <o-tab-item :value="2"  label="Books">
-        What light is light, if Silvia be not seen? <br />
-        What joy is joy, if Silvia be not by— <br />
-        Unless it be to think that she is by <br />
-        And feed upon the shadow of perfection? <br />
-        Except I be by Silvia in the night, <br />
-        There is no music in the nightingale.
-      </o-tab-item>
-
-      <o-tab-item :value="3" label="Videos" icon="video" disabled>
-        Nunc nec velit nec libero vestibulum eleifend. Curabitur pulvinar congue luctus. Nullam hendrerit iaculis augue vitae ornare. Maecenas vehicula pulvinar tellus, id sodales
-        felis lobortis eget.
-      </o-tab-item>
-    </o-tabs>
-
     <o-field label="Simple">
-      <o-slider size="medium" rounded :tooltip="false" :min="0" :max="10" variant="primary" v-model="slideVal">
-         <template v-for="val in [3, 5, 8]"  :key="val">
-            <o-slider-tick :value="val">{{ val }}</o-slider-tick>
+      <o-slider
+        size="medium"
+        rounded
+        :tooltip="false"
+        :min="0"
+        :max="10"
+        variant="primary"
+        v-model="slideVal"
+      >
+        <template v-for="val in [3, 5, 8]" :key="val">
+          <o-slider-tick :value="val">{{ val }}</o-slider-tick>
         </template>
       </o-slider>
-
-      
     </o-field>
     {{ slideVal }}
 
-    <o-slider :min="0" :max="3" variant="primary" aria-label="Fan" :tooltip="false">
-                <o-slider-tick :value="0">Off</o-slider-tick>
-                <o-slider-tick :value="1">Low</o-slider-tick>
-                <o-slider-tick :value="2">High</o-slider-tick>
-                <o-slider-tick :value="3">Auto</o-slider-tick>
-            </o-slider>
-      
+    <o-slider
+      :min="0"
+      :max="3"
+      variant="primary"
+      aria-label="Fan"
+      :tooltip="false"
+    >
+      <o-slider-tick :value="0">Off</o-slider-tick>
+      <o-slider-tick :value="1">Low</o-slider-tick>
+      <o-slider-tick :value="2">High</o-slider-tick>
+      <o-slider-tick :value="3">Auto</o-slider-tick>
+    </o-slider>
 
     <o-field grouped group-multiline>
       <o-field label="Total">
@@ -252,109 +234,168 @@
     </o-field>
     <p class="content"><b>Items:</b> {{ tags }}</p>
 
-    <o-field label="Name" variant="danger" message="Invalid field">
-      <o-input
-        icon="user"
-        size="large"
-        :has-counter="true"
-        maxlength="10"
-      ></o-input>
-    </o-field>
+    <section>
+      <h2 class="is-size-3">Fields:</h2>
+      <o-field label="Name" variant="danger" message="Invalid field">
+        <o-input
+          icon="user"
+          size="large"
+          :has-counter="true"
+          maxlength="10"
+        ></o-input>
+      </o-field>
 
-    <o-field label="Name" variant="danger" message="Invalid field">
-      <o-select :rounded="rounded" expanded>
+      <o-field label="Name" variant="danger" message="Invalid field">
+        <o-select :rounded="rounded" expanded>
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </o-select>
+      </o-field>
+
+      <o-field label="Name">
+        <o-select size="large">
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </o-select>
+      </o-field>
+
+      <o-select placeholder="Select a value" icon="user">
         <option>Select dropdown</option>
         <option>With options</option>
       </o-select>
-    </o-field>
 
-    <o-field label="Name">
-      <o-select size="large">
-        <option>Select dropdown</option>
-        <option>With options</option>
-      </o-select>
-    </o-field>
+      <o-field label="Name">
+        <o-input icon="user"></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
 
-    <o-select placeholder="Select a value" icon="user">
-      <option>Select dropdown</option>
-      <option>With options</option>
-    </o-select>
+      <o-field label="Name" grouped>
+        <o-input icon="user"></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
 
-    <o-field label="Name">
-      <o-input icon="user"></o-input>
-      <div class="control">
-        <a class="button is-info"> Search </a>
+      <o-field label="Name">
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+        <o-input icon="user" expanded></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
+
+      <o-field horizontal label="Name">
+        <o-input icon="user" expanded></o-input>
+        <o-input icon="user" rounded expanded></o-input>
+      </o-field>
+
+      <o-field label="Grouped">
+        <o-select placeholder="Select a character" icon="user">
+          <optgroup label="Black Sails">
+            <option value="flint">Flint</option>
+            <option value="silver">Silver</option>
+            <option value="vane">Vane</option>
+            <option value="billy">Billy</option>
+            <option value="jack">Jack</option>
+          </optgroup>
+
+          <optgroup label="Breaking Bad">
+            <option value="heisenberg">Heisenberg</option>
+            <option value="jesse">Jesse</option>
+            <option value="saul">Saul</option>
+            <option value="mike">Mike</option>
+          </optgroup>
+
+          <optgroup label="Game of Thrones">
+            <option value="tyrion-lannister">Tyrion Lannister</option>
+            <option value="jamie-lannister">Jamie Lannister</option>
+            <option value="daenerys-targaryen">Daenerys Targaryen</option>
+            <option value="jon-snow">Jon Snow</option>
+          </optgroup>
+        </o-select>
+      </o-field>
+    </section>
+
+    <section>
+      <h2 class="is-size-3">Slider:</h2>
+      <o-field label="Simple">
+        <o-slider v-model="sliderValue"></o-slider>
+      </o-field>
+      <o-field label="Rounded thumb">
+        <o-slider rounded></o-slider>
+      </o-field>
+      <o-field label="Disabled">
+        <o-slider :value="30" disabled></o-slider>
+      </o-field>
+      <o-field label="Danger range">
+        <o-slider
+          v-model="numbers2"
+          variant="danger"
+          :min="-2"
+          :max="8"
+          :step="2"
+        >
+        </o-slider>
+      </o-field>
+    </section>
+
+    <section>
+      <h2 class="is-size-3">Tabs</h2>
+      <o-tabs v-model="activeTab" multiline>
+        <o-tab-item :value="0" label="Pictures">
+          Lorem ipsum dolor sit amet.
+        </o-tab-item>
+
+        <o-tab-item :value="1" label="Music">
+          Lorem <br />
+          ipsum <br />
+          dolor <br />
+          sit <br />
+          amet.
+        </o-tab-item>
+
+        <o-tab-item :value="2" label="Books">
+          What light is light, if Silvia be not seen? <br />
+          What joy is joy, if Silvia be not by— <br />
+          Unless it be to think that she is by <br />
+          And feed upon the shadow of perfection? <br />
+          Except I be by Silvia in the night, <br />
+          There is no music in the nightingale.
+        </o-tab-item>
+
+        <o-tab-item :value="3" label="Videos" icon="video" disabled>
+          Nunc nec velit nec libero vestibulum eleifend. Curabitur pulvinar
+          congue luctus. Nullam hendrerit iaculis augue vitae ornare. Maecenas
+          vehicula pulvinar tellus, id sodales felis lobortis eget.
+        </o-tab-item>
+      </o-tabs>
+    </section>
+
+    <section>
+      <h2 class="is-size-3">Buttons</h2>
+      <div class="buttons">
+        <o-button variant="primary">Primary</o-button>
+        <o-button variant="success">Success</o-button>
+        <o-button variant="danger">Danger</o-button>
+        <o-button variant="warning">Warning</o-button>
+        <o-button variant="info">Info</o-button>
       </div>
-    </o-field>
 
-    <o-field label="Name" grouped>
-      <o-input icon="user"></o-input>
-      <div class="control">
-        <a class="button is-info"> Search </a>
+      <div class="buttons">
+        <o-button>Normal</o-button>
+        <o-button disabled>Disabled</o-button>
+        <o-button rounded>Rounded</o-button>
       </div>
-    </o-field>
 
-    <o-field label="Name">
-      <div class="control">
-        <a class="button is-info"> Search </a>
+      <div class="buttons">
+        <o-button variant="primary" outlined>Outlined</o-button>
+        <o-button variant="primary" inverted>Inverted</o-button>
       </div>
-      <o-input icon="user" expanded></o-input>
-      <div class="control">
-        <a class="button is-info"> Search </a>
-      </div>
-    </o-field>
-
-    <o-field horizontal label="Name">
-      <o-input icon="user" expanded></o-input>
-      <o-input icon="user" rounded expanded></o-input>
-    </o-field>
-
-    <o-field label="Grouped">
-      <o-select placeholder="Select a character" icon="user">
-        <optgroup label="Black Sails">
-          <option value="flint">Flint</option>
-          <option value="silver">Silver</option>
-          <option value="vane">Vane</option>
-          <option value="billy">Billy</option>
-          <option value="jack">Jack</option>
-        </optgroup>
-
-        <optgroup label="Breaking Bad">
-          <option value="heisenberg">Heisenberg</option>
-          <option value="jesse">Jesse</option>
-          <option value="saul">Saul</option>
-          <option value="mike">Mike</option>
-        </optgroup>
-
-        <optgroup label="Game of Thrones">
-          <option value="tyrion-lannister">Tyrion Lannister</option>
-          <option value="jamie-lannister">Jamie Lannister</option>
-          <option value="daenerys-targaryen">Daenerys Targaryen</option>
-          <option value="jon-snow">Jon Snow</option>
-        </optgroup>
-      </o-select>
-    </o-field>
-
-    <h2 class="is-size-3">Slider:</h2>
-    <o-field label="Simple">
-      <o-slider v-model="sliderValue"></o-slider>
-    </o-field>
-    <o-field label="Rounded thumb">
-      <o-slider rounded></o-slider>
-    </o-field>
-    <o-field label="Disabled">
-      <o-slider :value="30" disabled></o-slider>
-    </o-field>
-    <o-field label="Danger range">
-      <o-slider
-        v-model="numbers2"
-        variant="danger"
-        :min="-2"
-        :max="8"
-        :step="2"
-      >
-      </o-slider>
-    </o-field>
+    </section>
 
     <section>
       <h2 class="is-size-3">Steps</h2>
@@ -452,11 +493,14 @@
           Lorem Finish dolor sit amet.
         </o-step-item>
 
+        {{ customNavigation }}
+
         <template
           v-if="customNavigation"
           slot="navigation"
-          slot-scope="{ previous, next }"
+          #scope="{ previous, next }"
         >
+          {{ previous }}
           <o-button
             outlined
             variant="danger"
@@ -929,7 +973,7 @@ export default defineComponent({
         "RxJS",
         "Vue.js",
       ],
-      name: '',
+      name: "",
       slideVal: 0,
       selected: null,
       filteredTags: data,
@@ -952,28 +996,28 @@ export default defineComponent({
         },
       ],
       dataTable,
-        isEmpty: false,
-        isBordered: false,
-        isStriped: false,
-        isNarrowed: false,
-        isHoverable: false,
-        isFocusable: false,
-        isLoading: false,
-        hasMobileCards: true,
-        total: 200,
-        current: 10,
-        perPage: 10,
-        rangeBefore: 3,
-        rangeAfter: 1,
-        order: '',
-        size: '',
-        isSimple: false,
-        isRounded: false,
-        prevIcon: 'chevron-left',
-        nextIcon: 'chevron-right',
-        checkedRows: [],
-        activeTab: 0,
-    }
+      isEmpty: false,
+      isBordered: false,
+      isStriped: false,
+      isNarrowed: false,
+      isHoverable: false,
+      isFocusable: false,
+      isLoading: false,
+      hasMobileCards: true,
+      total: 200,
+      current: 10,
+      perPage: 10,
+      rangeBefore: 3,
+      rangeAfter: 1,
+      order: "",
+      size: "",
+      isSimple: false,
+      isRounded: false,
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      checkedRows: [],
+      activeTab: 0,
+    };
   },
   computed: {
     hello(): string {
@@ -1006,3 +1050,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+section {
+  margin-top: 40px;
+}
+</style>

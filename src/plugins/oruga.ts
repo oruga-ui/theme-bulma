@@ -130,7 +130,7 @@ export const bulmaConfig: any = {
     },
     slider: {
         override: true,
-        rootClass: (_: string, { props }: any ) => {
+        rootClass: (_: string, { props }: any) => {
             const classes = ['b-slider'];
             if (props.variant) classes.push(`is-${props.variant}`)
             if (props.rounded) classes.push('is-rounded')
@@ -140,7 +140,7 @@ export const bulmaConfig: any = {
         // variantClass: 'is-',
         trackClass: 'b-slider-track',
         fillClass: 'b-slider-fill',
-        thumbWrapperClass: (_: string, { data }: any ) => {
+        thumbWrapperClass: (_: string, { data }: any) => {
             const classes = ['b-slider-thumb-wrapper'];
             if (data.dragging) classes.push(`is-dragging`)
             return classes.join(' ')
@@ -199,22 +199,22 @@ export const bulmaConfig: any = {
         variantClass: 'is-',
         orderClass: 'is-'
     },
-    slider: {
-        override: true,
-        rootClass: (_: string, { props }: any) => {
-            const classes = ['b-slider'];
-            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
-            if (props.rounded) classes.push('is-rounded')
-            if (props.disables) classes.push('is-disabled')
-            return classes.join(' ')
-        },
-        trackClass: 'b-slider-track',
-        fillClass: 'b-slider-fill',
-        thumbWrapperClass: 'b-slider-thumb-wrapper',
-        thumbClass: 'b-slider-thumb',
-        thumbDraggingClass: 'is-dragging',
-        tickClass: 'b-slider-tick'
-    },
+    // slider: {
+    //     override: true,
+    //     rootClass: (_: string, { props }: any) => {
+    //         const classes = ['b-slider'];
+    //         if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+    //         if (props.rounded) classes.push('is-rounded')
+    //         if (props.disables) classes.push('is-disabled')
+    //         return classes.join(' ')
+    //     },
+    //     trackClass: 'b-slider-track',
+    //     fillClass: 'b-slider-fill',
+    //     thumbWrapperClass: 'b-slider-thumb-wrapper',
+    //     thumbClass: 'b-slider-thumb',
+    //     thumbDraggingClass: 'is-dragging',
+    //     tickClass: 'b-slider-tick'
+    // },
     steps: {
         override: true,
         rootClass: (_: string, { props }: any) => {
@@ -223,11 +223,25 @@ export const bulmaConfig: any = {
             if (props.disables) classes.push('is-disabled')
             return classes.join(' ')
         },
-        stepsClass: 'steps',
-        itemClass: 'step-items',
-        itemHeaderClass: 'step-item',
+        stepsClass: (_: string, { props }: any) => {
+            const classes = ['steps-items'];
+            // if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.animated) classes.push('is-animated')
+            if (props.rounded) classes.push('is-rounded')
+            return classes.join(' ')
+        },
+        itemClass: 'step-link',
+        itemHeaderClass: 'step-link',
         stepLinkClass: 'step-link',
         stepMarkerClass: 'step-marker',
         stepContentClass: 'step-content'
-    }
+    },
+    button: {
+        override: true,
+        rootClass: 'button',
+        variantClass: 'is-',
+        roundedClass: 'is-rounded',
+        outlinedClass: () => 'is-outlined',
+        invertedClass: () => 'is-inverted'
+    },
 }
