@@ -1,0 +1,115 @@
+<template>
+      <o-field label="Name" variant="danger" message="Invalid field">
+        <o-input
+          icon="user"
+          size="large"
+          :has-counter="true"
+          maxlength="10"
+        ></o-input>
+      </o-field>
+
+      <o-field label="Name" variant="danger" message="Invalid field">
+        <o-select rounded expanded>
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </o-select>
+      </o-field>
+
+      <o-field label="Name">
+        <o-select size="large">
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </o-select>
+      </o-field>
+
+      <o-select placeholder="Select a value" icon="user">
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </o-select>
+
+      <o-field label="Name">
+        <o-input icon="user"></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
+
+      <o-switch variant="primary"
+    >
+        Yes
+    </o-switch>
+
+      <o-switch
+        variant="danger"
+        root-class="is-outlined"
+        passive-variant="warning"
+    >
+        Allow new items
+    </o-switch>
+    <o-switch
+        variant="danger"
+        passive-variant="warning"
+        left-label
+        :rounded="false"
+    >
+        Open on focus
+    </o-switch>
+
+      <o-field label="Name" grouped>
+        <o-input icon="user"></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
+
+      <o-field label="Name">
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+        <o-input icon="user" expanded></o-input>
+        <div class="control">
+          <a class="button is-info"> Search </a>
+        </div>
+      </o-field>
+
+      <o-field horizontal label="Name">
+        <o-input icon="user" expanded></o-input>
+        <o-input icon="user" rounded expanded></o-input>
+      </o-field>
+
+      <o-field label="Grouped">
+        <o-select placeholder="Select a character" icon="user">
+          <optgroup label="Black Sails">
+            <option value="flint">Flint</option>
+            <option value="silver">Silver</option>
+            <option value="vane">Vane</option>
+            <option value="billy">Billy</option>
+            <option value="jack">Jack</option>
+          </optgroup>
+
+          <optgroup label="Breaking Bad">
+            <option value="heisenberg">Heisenberg</option>
+            <option value="jesse">Jesse</option>
+            <option value="saul">Saul</option>
+            <option value="mike">Mike</option>
+          </optgroup>
+
+          <optgroup label="Game of Thrones">
+            <option value="tyrion-lannister">Tyrion Lannister</option>
+            <option value="jamie-lannister">Jamie Lannister</option>
+            <option value="daenerys-targaryen">Daenerys Targaryen</option>
+            <option value="jon-snow">Jon Snow</option>
+          </optgroup>
+        </o-select>
+      </o-field>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

@@ -1,15 +1,26 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/steps">Steps</router-link>
+    <router-link to="/steps">Steps</router-link> |
+    <router-link to="/slider">Slider</router-link> |
+    <router-link to="/pagination">Pagination</router-link> |
+    <router-link to="/collapse">Collapse</router-link> |
+    <router-link to="/form">Form</router-link> |
+    <router-link to="/autocomplete">Autocomplete</router-link> |
+    <router-link to="/tagsinput">Tagsinput</router-link> |
+    <router-link to="/button">Button</router-link> |
+    <router-link to="/tabs">Tabs</router-link> |
   </div>
-  <div class="title">{{ $route.name }}</div>
-  <router-view/>
+ 
+  <section class="section">
+    <router-view/>
+  </section>
+  
 </template>
 
 <style lang="scss">
 #nav {
-  padding: 30px;
+  padding: 10px;
   a {
     font-weight: bold;
     color: #2c3e50;
