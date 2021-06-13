@@ -4,8 +4,7 @@
 @import "~bulma/sass/form/all";
 */
 
-$speed-slow: 150ms !default;
-$speed-slower: 250ms !default;
+@import "./buefy/utils/_all";
 
 @import './buefy/autocomplete.scss';
 @import './buefy/form.scss';

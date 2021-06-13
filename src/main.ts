@@ -12,10 +12,14 @@ import '@fortawesome/fontawesome-free/scss/fontawesome.scss'
 import '@fortawesome/fontawesome-free/scss/regular.scss'
 import '@fortawesome/fontawesome-free/scss/solid.scss'
 
+import Steps from './components/Steps.vue'
+
+
 createApp(App)
     .use(router)
     .use(Oruga, {
         iconPack: 'fas',
         ...bulmaConfig
     })
+    .component('steps', Steps)
     .mount('#app')

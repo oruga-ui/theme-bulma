@@ -1,10 +1,26 @@
 <template>
+
+  <div class="columns is-mobile is-centered is-vcentered">
+    <div class="column is-narrow">
+      <img class="image__oruga" src="https://preview.oruga.io/logo.png">
+    </div>
+    <div class="column is-narrow">
+      <p class="title is-1">=></p>
+    </div>
+    <div class="column is-narrow">
+      <img class="image__bulma" src="https://bulma.io/images/bulma-logo.png">
+    </div>
+  </div>
+
+
+
+
+
   <div class="section">
     <o-field label="Simple">
       <o-slider
         size="medium"
         rounded
-        :tooltip="false"
         :min="0"
         :max="10"
         variant="primary"
@@ -397,133 +413,7 @@
       </div>
     </section>
 
-    <section>
-      <h2 class="is-size-3">Steps</h2>
-      <p>
-        <o-field grouped group-multiline>
-          <div class="control">
-            <o-switch v-model="showSocial"> Show Social step </o-switch>
-          </div>
-          <div class="control">
-            <o-switch v-model="isAnimated"> Animated </o-switch>
-          </div>
-          <div class="control">
-            <o-switch v-model="stepsIsRounded"> Rounded </o-switch>
-          </div>
-          <div class="control">
-            <o-switch v-model="isStepsClickable"> Clickable Marker </o-switch>
-          </div>
-        </o-field>
-        <o-field grouped group-multiline>
-          <div class="control">
-            <o-switch v-model="hasNavigation"> Navigation Buttons </o-switch>
-          </div>
-          <div class="control">
-            <o-switch v-model="customNavigation"> Custom Navigation </o-switch>
-          </div>
-          <div class="control">
-            <o-switch v-model="isProfileSuccess">
-              Set <code>success</code> for profile
-            </o-switch>
-          </div>
-        </o-field>
-        <o-field v-if="hasNavigation" grouped group-multiline>
-          <o-field label="Prev icon">
-            <o-select v-model="stepPrevIcon">
-              <option value="chevron-left">Chevron</option>
-              <option value="arrow-left">Arrow</option>
-            </o-select>
-          </o-field>
-          <o-field label="Next icon">
-            <o-select v-model="stepNextIcon">
-              <option value="chevron-right">Chevron</option>
-              <option value="arrow-right">Arrow</option>
-            </o-select>
-          </o-field>
-          <o-field label="Label position">
-            <o-select v-model="labelPosition">
-              <option value="bottom">Bottom</option>
-              <option value="right">Right</option>
-              <option value="left">Left</option>
-            </o-select>
-          </o-field>
-        </o-field>
-      </p>
-      <o-steps
-        v-model="activeStep"
-        :animated="isAnimated"
-        :rounded="stepsIsRounded"
-        :has-navigation="hasNavigation"
-        :icon-prev="stepPrevIcon"
-        :icon-next="stepNextIcon"
-        :label-position="labelPosition"
-      >
-        <o-step-item step="1" label="Account" :clickable="isStepsClickable">
-          <h1 class="title has-text-centered">Account</h1>
-          Lorem Account dolor sit amet.
-        </o-step-item>
-
-        <o-step-item
-          step="2"
-          label="Profile"
-          :clickable="isStepsClickable"
-          :variant="{ success: isProfileSuccess }"
-        >
-          <h1 class="title has-text-centered">Profile</h1>
-          Lorem Profile dolor sit amet.
-        </o-step-item>
-
-        <o-step-item
-          step="3"
-          :visible="showSocial"
-          label="Social"
-          :clickable="isStepsClickable"
-        >
-          <h1 class="title has-text-centered">Social</h1>
-          Lorem Social dolor sit amet.
-        </o-step-item>
-
-        <o-step-item
-          :step="showSocial ? '4' : '3'"
-          label="Finish"
-          :clickable="isStepsClickable"
-          disabled
-        >
-          <h1 class="title has-text-centered">Finish</h1>
-          Lorem Finish dolor sit amet.
-        </o-step-item>
-
-        {{ customNavigation }}
-
-        <template
-          v-if="customNavigation"
-          slot="navigation"
-          #scope="{ previous, next }"
-        >
-          {{ previous }}
-          <o-button
-            outlined
-            variant="danger"
-            icon-pack="fas"
-            icon-left="backward"
-            :disabled="previous.disabled"
-            @click.prevent="previous.action"
-          >
-            Previous
-          </o-button>
-          <o-button
-            outlined
-            variant="success"
-            icon-pack="fas"
-            icon-right="forward"
-            :disabled="next.disabled"
-            @click.prevent="next.action"
-          >
-            Next
-          </o-button>
-        </template>
-      </o-steps>
-    </section>
+  
   </div>
 </template>
 
@@ -1052,7 +942,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-section {
-  margin-top: 40px;
+.image__oruga {
+ height: 128px;
+}
+.image__bulma {
+ height: 64px;
 }
 </style>

@@ -188,7 +188,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['b-tooltip'];
-            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.variant) classes.push(`is-${props.variant}`);
             if (props.position) classes.push(`is-${props.position}`)
             return classes.join(' ')
         },
@@ -199,42 +199,36 @@ export const bulmaConfig: any = {
         variantClass: 'is-',
         orderClass: 'is-'
     },
-    // slider: {
-    //     override: true,
-    //     rootClass: (_: string, { props }: any) => {
-    //         const classes = ['b-slider'];
-    //         if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
-    //         if (props.rounded) classes.push('is-rounded')
-    //         if (props.disables) classes.push('is-disabled')
-    //         return classes.join(' ')
-    //     },
-    //     trackClass: 'b-slider-track',
-    //     fillClass: 'b-slider-fill',
-    //     thumbWrapperClass: 'b-slider-thumb-wrapper',
-    //     thumbClass: 'b-slider-thumb',
-    //     thumbDraggingClass: 'is-dragging',
-    //     tickClass: 'b-slider-tick'
-    // },
     steps: {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['b-steps'];
-            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            if (props.variant) classes.push(`is-${props.variant}`);
             if (props.disables) classes.push('is-disabled')
             return classes.join(' ')
         },
         stepsClass: (_: string, { props }: any) => {
-            const classes = ['steps-items'];
-            // if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
+            const classes = ['steps'];
             if (props.animated) classes.push('is-animated')
             if (props.rounded) classes.push('is-rounded')
+            if (props.labelPosition === 'left') classes.push('has-label-left')
+            if (props.labelPosition === 'right') classes.push('has-label-right')
             return classes.join(' ')
         },
         itemClass: 'step-link',
-        itemHeaderClass: 'step-link',
+        itemHeaderClass: 'step-item',
+        itemHeaderActiveClass: 'is-active',
+        itemHeaderPreviousClass: 'is-previous',
         stepLinkClass: 'step-link',
+        stepLinkLabelClass: 'step-title',
+        stepLinkClickableClass: 'is-clickable',
+        // stepLinkLabelPositionClass: 'is-',
         stepMarkerClass: 'step-marker',
-        stepContentClass: 'step-content'
+        stepContentClass: 'step-content',
+        verticalClass: 'is-vertical',
+        stepContentTransitioningClass: 'is-transitioning',
+        sizeClass: 'is-',
+        variantClass: 'is-'
     },
     button: {
         override: true,
