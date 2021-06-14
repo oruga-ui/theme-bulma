@@ -188,7 +188,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['b-tooltip'];
-            if (props.variant) classes.push(`is-${props.variant}`);
+            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
             if (props.position) classes.push(`is-${props.position}`)
             return classes.join(' ')
         },

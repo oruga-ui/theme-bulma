@@ -10,12 +10,12 @@
     <router-link to="/tagsinput">Tagsinput</router-link> |
     <router-link to="/button">Button</router-link> |
     <router-link to="/tabs">Tabs</router-link> |
+    <router-link to="/tooltip">Tooltip</router-link> |
   </div>
- 
+
   <section class="section">
-    <router-view/>
+    <router-view />
   </section>
-  
 </template>
 
 <style lang="scss">
