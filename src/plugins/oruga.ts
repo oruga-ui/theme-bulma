@@ -245,11 +245,6 @@ export const bulmaConfig: any = {
             if (props.animated) classes.push('is-animated')
             return classes.join(' ')
         },
-        // itemClass: (_: string, { props }: any) => {
-        //     const classes = ['b-skeleton-item'];
-        //     if (props.rounded) classes.push('is-rounded')
-        //     return classes.join(' ')
-        // },
         itemClass: 'b-skeleton-item',
         itemRoundedClass: 'is-rounded'
     }
