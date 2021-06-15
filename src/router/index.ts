@@ -61,7 +61,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/skeleton',
     name: 'Skeleton',
     component: () => import('../components/Skeleton.vue')
-  }
+  },
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import('../components/Notification.vue')
+  },
+
 ]
 
 const router = createRouter({

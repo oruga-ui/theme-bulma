@@ -247,5 +247,17 @@ export const bulmaConfig: any = {
         },
         itemClass: 'b-skeleton-item',
         itemRoundedClass: 'is-rounded'
+    },
+    notification: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['notification'];
+            if (props.variant) classes.push(`is-${props.variant}`);
+            return classes.join(' ')
+        },
+        wrapperClass: 'media',
+        contentClass: 'media-content',
+        iconClass: 'media-left',
+        closeClass: 'delete'
     }
 }
