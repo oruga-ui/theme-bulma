@@ -11,6 +11,7 @@
     <router-link to="/button">Button</router-link> |
     <router-link to="/tabs">Tabs</router-link> |
     <router-link to="/tooltip">Tooltip</router-link> |
+    <router-link to="/skeleton">Skeleton</router-link> |
   </div>
 
   <section class="section">

@@ -238,4 +238,19 @@ export const bulmaConfig: any = {
         outlinedClass: () => 'is-outlined',
         invertedClass: () => 'is-inverted'
     },
+    skeleton: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['b-skeleton'];
+            if (props.animated) classes.push('is-animated')
+            return classes.join(' ')
+        },
+        // itemClass: (_: string, { props }: any) => {
+        //     const classes = ['b-skeleton-item'];
+        //     if (props.rounded) classes.push('is-rounded')
+        //     return classes.join(' ')
+        // },
+        itemClass: 'b-skeleton-item',
+        itemRoundedClass: 'is-rounded'
+    }
 }

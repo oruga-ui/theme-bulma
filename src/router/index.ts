@@ -56,6 +56,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tooltip',
     name: 'Tooltip',
     component: () => import('../components/Tooltip.vue')
+  },
+  {
+    path: '/skeleton',
+    name: 'Skeleton',
+    component: () => import('../components/Skeleton.vue')
   }
 ]
 
