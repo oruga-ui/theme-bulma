@@ -72,6 +72,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Dropdown',
     component: () => import('../components/Dropdown.vue')
   },
+  {
+    path: '/datepicker',
+    name: 'Datepicker',
+    component: () => import('../components/Datepicker.vue')
+  },
 
 ]
 

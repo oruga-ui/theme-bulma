@@ -14,6 +14,7 @@
     <router-link to="/skeleton">Skeleton</router-link> |
     <router-link to="/notification">Notification</router-link> |
     <router-link to="/dropdown">Dropdown</router-link> |
+    <router-link to="/datepicker">Datepicker</router-link> |
   </div>
 
   <section class="section">

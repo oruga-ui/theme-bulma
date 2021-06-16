@@ -266,5 +266,37 @@ export const bulmaConfig: any = {
         triggerClass: 'dropdown-trigger',
         menuClass: 'dropdown-menu',
         itemClass: 'dropdown-item'
+    },
+    datepicker: {
+        override: true,
+        rootClass: 'datepicker',
+        headerClass: 'datepicker-header',
+        tableClass: 'datepicker-table',
+        tableHeadClass: 'datepicker-header',
+        tableHeadCellClass: 'datepicker-cell',
+        headerButtonsClass: 'pagination field is-centered',
+        prevBtnClass: 'pagination-previous',
+        nextBtnClass: 'pagination-next',
+        listsClass: 'pagination-list',
+        // tableBodyClass: 'datepicker-body',
+        tableBodyClass: (_: string, { props }: any) => {
+            const classes = ['datepicker-body'];
+            if (props.events) classes.push(`has-events`);
+            return classes.join(' ')
+        },
+        tableRowClass: 'datepicker-row',
+        tableCellClass: 'datepicker-cell',
+        tableCellSelectableClass: 'is-selectable',
+        tableCellUnselectableClass: 'is-unselectable',
+        tableCellTodayClass: 'is-today',
+        tableCellSelectedClass: 'is-selected',
+        tableCellEventsClass: (_: string, { props }: any) => {
+            const classes = ['has-event'];
+            if (props.indicators) classes.push(`${props.indicators}`);
+            return classes.join(' ')
+        },
+        tableEventVariantClass: 'is-',
+        tableEventsClass: 'events',
+        tableEventClass: 'event'
     }
 }
