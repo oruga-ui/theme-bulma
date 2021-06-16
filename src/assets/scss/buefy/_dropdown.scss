@@ -3,6 +3,7 @@ $dropdown-background-color: rgba($scheme-invert, 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 
 .dropdown {
+
     & + .dropdown {
         margin-left: 0.5em;
     }
@@ -22,6 +23,11 @@ $dropdown-disabled-opacity: 0.5 !default;
         }
     }
     .dropdown-menu {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0.5em 1em -0.125em hsl(0deg 0% 4% / 10%), 0 0 0 1px hsl(0deg 0% 4% / 2%);
+        padding-bottom: .5rem;
+        padding-top: .5rem;
         .dropdown-item {
             &.is-disabled {
                 cursor: not-allowed;
