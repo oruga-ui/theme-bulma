@@ -67,6 +67,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Notification',
     component: () => import('../components/Notification.vue')
   },
+  {
+    path: '/dropdown',
+    name: 'Dropdown',
+    component: () => import('../components/Dropdown.vue')
+  },
 
 ]
 

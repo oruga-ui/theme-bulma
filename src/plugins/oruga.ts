@@ -259,5 +259,12 @@ export const bulmaConfig: any = {
         contentClass: 'media-content',
         iconClass: 'media-left',
         closeClass: 'delete'
+    },
+    dropdown: {
+        override: true,
+        rootClass: 'dropdown is-active',
+        triggerClass: 'dropdown-trigger',
+        menuClass: 'dropdown-menu',
+        itemClass: 'dropdown-item'
     }
 }
