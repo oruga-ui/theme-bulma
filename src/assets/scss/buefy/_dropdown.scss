@@ -124,11 +124,11 @@ $dropdown-disabled-opacity: 0.5 !default;
                 white-space: normal;
                 overflow-y: auto;
                 z-index: 50 !important;
-                > .dropdown-content {
+                /* > .dropdown-content { */
                     > .dropdown-item, > .has-link a {
                         padding: 1rem 1.5rem;
                     }
-                }
+                /* } */
             }
         }
     }

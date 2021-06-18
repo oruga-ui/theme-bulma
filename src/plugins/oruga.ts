@@ -252,7 +252,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['notification'];
-            if (props.variant) classes.push(`is-${props.variant}`);
+            if (props.variant) classes.push(`is-${props.variant}`)
             return classes.join(' ')
         },
         wrapperClass: 'media',
@@ -263,14 +263,25 @@ export const bulmaConfig: any = {
     dropdown: {
         override: true,
         itemTag: 'a',
-        rootClass: (_: string, { data }: any) => {
-            const classes = ['dropdown', 'is-active'];
+        rootClass: (_: string, { props, data, computed }: any) => {
+            const classes = ['dropdown', 'dropdown-menu-animation'];
+            if (data.isActive || props.inline) classes.push('is-active')
+            if (computed.hoverable) classes.push('is-hoverable')
+            if (props.position) classes.push(`is-${props.position}`)
             return classes.join(' ')
         },
         triggerClass: 'dropdown-trigger',
         menuClass: 'dropdown-content dropdown-menu',
+        disabledClass: 'is-disabled',
+        expandedClass: 'is-expanded',
+        inlineClass: 'is-inline',
+        // menuPositionClass: 'is-',
+        // menuActiveClass: 'is-active'
         itemClass: 'dropdown-item',
-        itemActiveClass: 'is-active'
+        itemActiveClass: 'is-active',
+        itemDisabledClass: 'is-disabled',
+        mobileClass: 'is-mobile-modal',
+        menuMobileOverlayClass: 'background'
     },
     datepicker: {
         override: true,
