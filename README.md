@@ -1,9 +1,5 @@
 
- 
-
-
-
- <table align="center">
+ <table align="center" >
     <tr>
         <td vlign="center">
             <a href="https://oruga.io">
@@ -11,7 +7,7 @@
             </a>
         </td>
         <td vlign="center">
-            <span style="font-size: 2em;"> => </span>
+            =>
         </td>
         <td vlign="center">
             <a href="https://bulma.io">
