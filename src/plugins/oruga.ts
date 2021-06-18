@@ -262,10 +262,15 @@ export const bulmaConfig: any = {
     },
     dropdown: {
         override: true,
-        rootClass: 'dropdown is-active',
+        itemTag: 'a',
+        rootClass: (_: string, { data }: any) => {
+            const classes = ['dropdown', 'is-active'];
+            return classes.join(' ')
+        },
         triggerClass: 'dropdown-trigger',
-        menuClass: 'dropdown-menu',
-        itemClass: 'dropdown-item'
+        menuClass: 'dropdown-content dropdown-menu',
+        itemClass: 'dropdown-item',
+        itemActiveClass: 'is-active'
     },
     datepicker: {
         override: true,

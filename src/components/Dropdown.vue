@@ -47,7 +47,6 @@
         <o-icon
           variant="success"
           icon="caret-down"
-          slot="trigger"
           role="button"
         >
         </o-icon>
@@ -87,10 +86,8 @@
     >
       <template #trigger>
         <o-button variant="primary" type="button">
-          <template>
-            <o-icon :icon="currentMenu.icon"></o-icon>
+          <o-icon :icon="currentMenu.icon"></o-icon>
             <span>{{ currentMenu.text }}</span>
-          </template>
           <o-icon icon="caret-down"></o-icon>
         </o-button>
       </template>
@@ -129,7 +126,7 @@ export default {
         { icon: "cog", text: "Configuration" },
       ],
     };
-  },
+  }
 };
 </script>
 
