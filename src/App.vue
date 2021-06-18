@@ -10,12 +10,16 @@
     <router-link to="/tagsinput">Tagsinput</router-link> |
     <router-link to="/button">Button</router-link> |
     <router-link to="/tabs">Tabs</router-link> |
+    <router-link to="/tooltip">Tooltip</router-link> |
+    <router-link to="/skeleton">Skeleton</router-link> |
+    <router-link to="/notification">Notification</router-link> |
+    <router-link to="/dropdown">Dropdown</router-link> |
+    <router-link to="/datepicker">Datepicker</router-link> |
   </div>
- 
+
   <section class="section">
-    <router-view/>
+    <router-view />
   </section>
-  
 </template>
 
 <style lang="scss">

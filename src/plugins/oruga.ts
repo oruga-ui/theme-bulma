@@ -188,7 +188,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['b-tooltip'];
-            if (props.variant) classes.push(`is-${props.variant}`);
+            if (props.variant) classes.push(`is-${props.variant}`); else classes.push(`is-primary`)
             if (props.position) classes.push(`is-${props.position}`)
             return classes.join(' ')
         },
@@ -238,4 +238,65 @@ export const bulmaConfig: any = {
         outlinedClass: () => 'is-outlined',
         invertedClass: () => 'is-inverted'
     },
+    skeleton: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['b-skeleton'];
+            if (props.animated) classes.push('is-animated')
+            return classes.join(' ')
+        },
+        itemClass: 'b-skeleton-item',
+        itemRoundedClass: 'is-rounded'
+    },
+    notification: {
+        override: true,
+        rootClass: (_: string, { props }: any) => {
+            const classes = ['notification'];
+            if (props.variant) classes.push(`is-${props.variant}`);
+            return classes.join(' ')
+        },
+        wrapperClass: 'media',
+        contentClass: 'media-content',
+        iconClass: 'media-left',
+        closeClass: 'delete'
+    },
+    dropdown: {
+        override: true,
+        rootClass: 'dropdown is-active',
+        triggerClass: 'dropdown-trigger',
+        menuClass: 'dropdown-menu',
+        itemClass: 'dropdown-item'
+    },
+    datepicker: {
+        override: true,
+        rootClass: 'datepicker',
+        headerClass: 'datepicker-header',
+        tableClass: 'datepicker-table',
+        tableHeadClass: 'datepicker-header',
+        tableHeadCellClass: 'datepicker-cell',
+        headerButtonsClass: 'pagination field is-centered',
+        prevBtnClass: 'pagination-previous',
+        nextBtnClass: 'pagination-next',
+        listsClass: 'pagination-list',
+        // tableBodyClass: 'datepicker-body',
+        tableBodyClass: (_: string, { props }: any) => {
+            const classes = ['datepicker-body'];
+            if (props.events) classes.push(`has-events`);
+            return classes.join(' ')
+        },
+        tableRowClass: 'datepicker-row',
+        tableCellClass: 'datepicker-cell',
+        tableCellSelectableClass: 'is-selectable',
+        tableCellUnselectableClass: 'is-unselectable',
+        tableCellTodayClass: 'is-today',
+        tableCellSelectedClass: 'is-selected',
+        tableCellEventsClass: (_: string, { props }: any) => {
+            const classes = ['has-event'];
+            if (props.indicators) classes.push(`${props.indicators}`);
+            return classes.join(' ')
+        },
+        tableEventVariantClass: 'is-',
+        tableEventsClass: 'events',
+        tableEventClass: 'event'
+    }
 }

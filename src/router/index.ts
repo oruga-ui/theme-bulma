@@ -51,7 +51,33 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tabs',
     name: 'Tabs',
     component: () => import('../components/Tabs.vue')
-  }
+  },
+  {
+    path: '/tooltip',
+    name: 'Tooltip',
+    component: () => import('../components/Tooltip.vue')
+  },
+  {
+    path: '/skeleton',
+    name: 'Skeleton',
+    component: () => import('../components/Skeleton.vue')
+  },
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import('../components/Notification.vue')
+  },
+  {
+    path: '/dropdown',
+    name: 'Dropdown',
+    component: () => import('../components/Dropdown.vue')
+  },
+  {
+    path: '/datepicker',
+    name: 'Datepicker',
+    component: () => import('../components/Datepicker.vue')
+  },
+
 ]
 
 const router = createRouter({
