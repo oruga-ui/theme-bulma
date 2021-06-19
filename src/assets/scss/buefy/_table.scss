@@ -89,6 +89,11 @@ $table-sticky-header-height: 300px !default;
         @include tablet {
             display: none;
         }
+        // addition
+        .button {
+            background-color: $primary;
+            color: $primary-invert;
+        }
     }
 
     .icon {
@@ -245,7 +250,8 @@ $table-sticky-header-height: 300px !default;
         padding-bottom: 1.5rem;
     }
 
-    .table-wrapper {
+    // .table-wrapper {
+    &.table-wrapper {
         position: relative;
         &.has-sticky-header {
             height: $table-sticky-header-height;

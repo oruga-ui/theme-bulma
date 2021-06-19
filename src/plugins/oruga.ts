@@ -171,7 +171,7 @@ export const bulmaConfig: any = {
     },
     table: {
         override: true,
-        wrapperClass: 'b-table',
+        wrapperClass: 'b-table table-wrapper',
         tableClass: 'table',
         borderedClass: 'is-bordered',
         stripedClass: 'is-striped',
@@ -182,7 +182,8 @@ export const bulmaConfig: any = {
         footerClass: 'table-footer',
         paginationWrapperClass: '',
         scrollableClass: 'is-scrollable',
-
+        mobileClass: 'has-mobile-cards',
+        mobileSortClass: 'table-mobile-sort field'
     },
     tooltip: {
         override: true,
