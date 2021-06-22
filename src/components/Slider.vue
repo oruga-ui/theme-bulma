@@ -30,11 +30,9 @@
     </o-field>
 
     <o-field label="Range">
-     
       <o-slider v-model="numbers" variant="primary" :min="1" :max="15" :step="0.5"> </o-slider>
     </o-field>
 
-     {{ numbers }}
 </template>
 
 <script>

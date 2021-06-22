@@ -21,8 +21,9 @@
         :mobile-cards="hasMobileCards"
         v-model:checked-rows="checkedRows"
         checkable
+        detailed
     >
-        <o-table-column field="id" label="ID" width="40" sortable numeric v-slot="props">
+        <o-table-column field="id" label="ID" width="40" sortable position="right" v-slot="props">
             {{ props.row.id }}
         </o-table-column>
 
@@ -53,7 +54,60 @@
             {{ props.row.gender }}
             </span>
         </o-table-column>
+
+        <template v-slot:detail="props">
+        <tr>
+          <td>{{ props.row.id }}</td>
+          <td>{{ props.row.first_name }}</td>
+          <td>{{ props.row.last_name }}</td>
+          <td>{{ props.row.gender }}</td>
+        </tr>
+      </template>
+
+         <template #bottom-left>
+                        <b>Total checked</b>: {{ checkedRows.length }}
+                    </template>
     </o-table>
+
+    <section>
+        <o-button variant="danger" @click="selected = null" :disabled="!selected" icon-left="times">
+            <span>Clear selected</span>
+        </o-button>
+        <p>{{ selected }}</p>
+        <o-table :data="dataTable"  v-model:selected="selected" focusable>
+           <o-table-column field="id" label="ID" width="40" sortable position="right" v-slot="props">
+            {{ props.row.id }}
+        </o-table-column>
+
+        <o-table-column field="first_name" label="First Name" sortable v-slot="props">
+            {{ props.row.first_name }}
+        </o-table-column>
+
+        <o-table-column field="last_name" label="Last Name" sortable v-slot="props">
+            {{ props.row.last_name }}
+        </o-table-column>
+
+        <o-table-column
+            field="date"
+            label="Date"
+            position="centered"
+            v-slot="props"
+        >
+            {{ new Date(props.row.date).toLocaleDateString() }}
+        </o-table-column>
+
+        <o-table-column label="Gender" v-slot="props">
+            <span>
+            <o-icon
+                pack="fas"
+                :icon="props.row.gender === 'Male' ? 'mars' : 'venus'"
+            >
+            </o-icon>
+            {{ props.row.gender }}
+            </span>
+        </o-table-column>
+        </o-table>
+    </section>
 
 </template>
 
@@ -112,6 +166,32 @@ export default defineComponent({
             hasMobileCards: true,
             
             checkedRows: [],
+            selected: undefined,
+            columns: [
+          {
+            field: 'id',
+            label: 'ID',
+            width: '40',
+            numeric: true
+          },
+          {
+            field: 'first_name',
+            label: 'First Name'
+          },
+          {
+            field: 'last_name',
+            label: 'Last Name'
+          },
+          {
+            field: 'date',
+            label: 'Date',
+            position: 'centered'
+          },
+          {
+            field: 'gender',
+            label: 'Gender'
+          }
+        ]
         }
     }
 })

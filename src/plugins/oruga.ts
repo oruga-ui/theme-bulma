@@ -61,7 +61,8 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: 'icon',
         variantClass: 'has-text-',
-        sizeClass: 'is-'
+        sizeClass: 'is-',
+        clickableClass: 'is-clickable'
     },
     checkbox: {
         override: true,
@@ -182,6 +183,24 @@ export const bulmaConfig: any = {
         footerClass: 'table-footer',
         paginationWrapperClass: '',
         scrollableClass: 'is-scrollable',
+        trSelectedClass: 'is-selected',
+        thSortableClass: 'is-sortable',
+        thCurrentSortClass: 'is-current-sort',
+        thSortIconClass: 'th-wrap sort-icon',
+        thUnselectableClass: 'is-unselectable',
+        thStickyClass: 'is-sticky',
+        thDetailedClass: '',
+        tdDetailedChevronClass: 'chevron-cell',
+        thPositionClass: (position: string) => {
+            if (position === 'centered') return 'is-centered'
+            else if (position === 'right') return 'is-right'
+            return
+        },
+        tdPositionClass: (position: string) => {
+            if (position === 'centered') return 'has-text-centered'
+            else if (position === 'right') return 'has-text-right'
+            return
+        },
         mobileClass: 'has-mobile-cards',
         mobileSortClass: 'table-mobile-sort field'
     },
