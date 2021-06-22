@@ -82,6 +82,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Table',
     component: () => import('../components/Table.vue')
   },
+  {
+    path: '/modal',
+    name: 'Modal',
+    component: () => import('../components/Modal.vue')
+  },
 ]
 
 const router = createRouter({

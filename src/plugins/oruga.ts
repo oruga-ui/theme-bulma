@@ -334,5 +334,17 @@ export const bulmaConfig: any = {
         tableEventVariantClass: 'is-',
         tableEventsClass: 'events',
         tableEventClass: 'event'
+    },
+    modal: {
+        override: true,
+        rootClass: (_: string, { props, data, computed }: any) => {
+            const classes = ['modal'];
+            if (props.active) classes.push('is-active')
+            return classes.join(' ')
+        },
+        overlayClass: 'modal-background',
+        contentClass: 'animation-content',
+        closeClass: 'modal-close is-large',
+        fullScreenClass: 'is-full-screen'
     }
 }
