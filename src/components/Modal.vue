@@ -26,51 +26,46 @@
     </o-modal>
 
     <o-modal v-model:active="isCardModalActive" :width="640" scroll="clip">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sodales
-        leo nec convallis rutrum. Vivamus pharetra molestie arcu at dictum.
-        Nulla faucibus leo eget enim egestas, in tempus justo venenatis. Duis
-        dictum suscipit erat, a dapibus eros lobortis ac. Praesent tempor
-        rhoncus convallis. Nullam in ipsum convallis, rutrum elit eget, dictum
-        ipsum. Nunc sagittis aliquet massa. Etiam lacus sapien, eleifend non
-        eros quis, finibus ornare nisl. Ut laoreet sit amet lacus non dignissim.
-        Sed convallis mattis enim, sed interdum risus molestie ut. Praesent vel
-        ex hendrerit, cursus lectus a, blandit felis. Nam luctus orci nec varius
-        commodo.
-      </p>
-      <p>
-        Sed vulputate metus purus, ut egestas erat congue et. Donec tellus orci,
-        malesuada eget dolor sed, pellentesque bibendum nunc. In eu egestas
-        diam. Integer sed congue massa. Sed a urna quam. Morbi vulputate dolor
-        eleifend ligula lobortis venenatis. Aenean pellentesque risus sit amet
-        faucibus molestie. Aliquam eu lorem aliquet, aliquam nulla in,
-        vestibulum lorem. Donec mollis mi at sollicitudin tristique. Nullam id
-        nibh pulvinar, dignissim nisl id, gravida risus. Nulla arcu elit,
-        scelerisque in sollicitudin et, laoreet et metus. Aenean placerat turpis
-        nec tincidunt tempus.
-      </p>
-      <p>
-        Sed vulputate metus purus, ut egestas erat congue et. Donec tellus orci,
-        malesuada eget dolor sed, pellentesque bibendum nunc. In eu egestas
-        diam. Integer sed congue massa. Sed a urna quam. Morbi vulputate dolor
-        eleifend ligula lobortis venenatis. Aenean pellentesque risus sit amet
-        faucibus molestie. Aliquam eu lorem aliquet, aliquam nulla in,
-        vestibulum lorem. Donec mollis mi at sollicitudin tristique. Nullam id
-        nibh pulvinar, dignissim nisl id, gravida risus. Nulla arcu elit,
-        scelerisque in sollicitudin et, laoreet et metus. Aenean placerat turpis
-        nec tincidunt tempus.
-      </p>
-      <p>
-        Sed vulputate metus purus, ut egestas erat congue et. Donec tellus orci,
-        malesuada eget dolor sed, pellentesque bibendum nunc. In eu egestas
-        diam. Integer sed congue massa. Sed a urna quam. Morbi vulputate dolor
-        eleifend ligula lobortis venenatis. Aenean pellentesque risus sit amet
-        faucibus molestie. Aliquam eu lorem aliquet, aliquam nulla in,
-        vestibulum lorem. Donec mollis mi at sollicitudin tristique. Nullam id
-        nibh pulvinar, dignissim nisl id, gravida risus. Nulla arcu elit,
-        scelerisque in sollicitudin et, laoreet et metus. Aenean placerat turpis
-        nec tincidunt tempus.
-      </p>
+      <form action="">
+                <div class="modal-card" style="width: auto">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Login</p>
+                        <o-icon
+                            clickable
+                            native-type="button"
+                            icon="times"
+                            @click="isCardModalActive = false"/>
+                    </header>
+                    <section class="modal-card-body">
+                        <o-field label="Email">
+                            <o-input
+                                type="email"
+                                :value="email"
+                                placeholder="Your email"
+                                required>
+                            </o-input>
+                        </o-field>
+
+                        <o-field label="Password">
+                            <o-input
+                                type="password"
+                                :value="password"
+                                password-reveal
+                                placeholder="Your password"
+                                required>
+                            </o-input>
+                        </o-field>
+
+                        <o-field>
+                            <o-checkbox>Remember me</o-checkbox>
+                        </o-field>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <o-button type="button" @click="isCardModalActive = false">Close</o-button>
+                        <o-button variant="primary">Login</o-button>
+                    </footer>
+                </div>
+            </form>
     </o-modal>
   </section>
 </template>
