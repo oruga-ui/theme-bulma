@@ -1,0 +1,32 @@
+.modal {
+    &.is-full-screen {
+        > .animation-content,
+        > .animation-content > .modal-card {
+            width: 100%;
+            height: 100%;
+            max-height: 100vh;
+            margin: 0;
+            background-color: $background;
+        }
+    }
+    .animation-content {
+        margin: 0 20px;
+
+        // Some extra stiles (Start)
+        background-color: white;
+        padding: 10px;
+        z-index: 999;
+        overflow: auto;
+        // Some extra stiles (End)
+
+        .modal-card {
+            margin: 0;
+        }
+        @include mobile {
+            width: 100%;
+        }
+    }
+    .modal-content {
+        width: 100%;
+    }
+}
