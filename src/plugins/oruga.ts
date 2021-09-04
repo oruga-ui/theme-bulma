@@ -307,6 +307,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: 'datepicker',
         headerClass: 'datepicker-header',
+        footerClass: 'datepicker-footer',
         tableClass: 'datepicker-table',
         tableHeadClass: 'datepicker-header',
         tableHeadCellClass: 'datepicker-cell',
@@ -326,6 +327,14 @@ export const bulmaConfig: any = {
         tableCellUnselectableClass: 'is-unselectable',
         tableCellTodayClass: 'is-today',
         tableCellSelectedClass: 'is-selected',
+        tableCellWithinHoveredClass: 'is-within-hovered',
+        tableCellFirstHoveredClass: 'is-first-hovered',
+        tableCellLastHoveredClass: 'is-last-hovered',
+        tableCellFirstSelectedClass: 'is-first-selected',
+        tableCellLastSelectedClass: 'is-last-selected',
+        tableCellWithinSelectedClass: 'is-within-selected',
+        tableCellInvisibleClass: '',
+        tableCellNearbyClass: 'is-nearby',
         tableCellEventsClass: (_: string, { props }: any) => {
             const classes = ['has-event'];
             if (props.indicators) classes.push(`${props.indicators}`);
@@ -333,7 +342,7 @@ export const bulmaConfig: any = {
         },
         tableEventVariantClass: 'is-',
         tableEventsClass: 'events',
-        tableEventClass: 'event'
+        tableEventClass: 'event',
     },
     modal: {
         override: true,

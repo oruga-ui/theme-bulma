@@ -52,6 +52,27 @@
       </span>
     </div>
   </div>
+  <div class="columns">
+    <div class="column">
+      <o-datepicker
+          range
+          v-model="dates"
+        >
+       </o-datepicker>
+    </div>
+    <div class="column">
+      <o-datepicker
+          v-model="date1"
+        >
+        <o-button icon-left="calendar" variant="primary" @click="date1 = new Date()">
+          Today
+        </o-button>
+        <o-button icon-left="times" variant="danger" @click="date1 = null">
+         Clear
+        </o-button>
+       </o-datepicker>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -69,6 +90,8 @@ export default {
       showWeekNumber: false,
       locale: undefined, // Browser locale
       date: new Date(2017, thisMonth, 1),
+      dates: [],
+      date1: undefined,
       events: [
         new Date(2017, thisMonth, 2),
         new Date(2017, thisMonth, 6),

@@ -39,6 +39,10 @@ $datepicker-item-selected-background-color: $primary !default;
     }
     .dropdown-item {
         font-size: inherit;
+        &:hover {
+            background-color: unset;
+            color: unset;
+        }
     }
     .datepicker-header {
         padding-bottom: 0.875rem;
@@ -94,30 +98,23 @@ $datepicker-item-selected-background-color: $primary !default;
                 }
                 &.is-selectable {
                     color: $datepicker-item-color;
-                    &:hover:not(.is-selected),
-                    &:focus:not(.is-selected) {
+                    
+                    &.is-first-hovered {
+                        background-color: $grey;
+                        color: $grey-lighter;
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+                    &.is-within-hovered {
                         background-color: $datepicker-item-hover-background-color;
                         color: $datepicker-item-hover-color;
-                        cursor: pointer;
+                        border-radius: 0;
                     }
-                    &.is-within-hovered-range {
-                        &.is-first-hovered {
-                            background-color: $grey;
-                            color: $grey-lighter;
-                            border-bottom-right-radius: 0;
-                            border-top-right-radius: 0;
-                        }
-                        &.is-within-hovered {
-                            background-color: $datepicker-item-hover-background-color;
-                            color: $datepicker-item-hover-color;
-                            border-radius: 0;
-                        }
-                        &.is-last-hovered {
-                            background-color: $grey;
-                            color: $grey-lighter;
-                            border-bottom-left-radius: 0;
-                            border-top-left-radius: 0;
-                        }
+                    &.is-last-hovered {
+                        background-color: $grey;
+                        color: $grey-lighter;
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
                     }
                 }
                 &.is-selected {
