@@ -17,9 +17,10 @@
       </o-button>
     </div>
 
-    <o-modal v-model:active="isImageModalActive">
+    <o-modal v-model:active="isImageModalActive" content-class="modal-content">
       <p style="text-align: center">
         <img
+          style="background-color: white;"
           src="https://avatars2.githubusercontent.com/u/66300512?s=200&v=4"
         />
       </p>

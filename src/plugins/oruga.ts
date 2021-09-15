@@ -346,7 +346,7 @@ export const bulmaConfig: any = {
     },
     modal: {
         override: true,
-        rootClass: (_: string, { props, data, computed }: any) => {
+        rootClass: (_: string, { props }: any) => {
             const classes = ['modal'];
             if (props.active) classes.push('is-active')
             return classes.join(' ')
