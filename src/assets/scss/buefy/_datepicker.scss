@@ -98,7 +98,6 @@ $datepicker-item-selected-background-color: $primary !default;
                 }
                 &.is-selectable {
                     color: $datepicker-item-color;
-                    
                     &.is-first-hovered {
                         background-color: $grey;
                         color: $grey-lighter;
@@ -117,20 +116,20 @@ $datepicker-item-selected-background-color: $primary !default;
                         border-top-left-radius: 0;
                     }
                 }
-                &.is-selected {
+                &.is-selected:not(.is-first-hovered):not(.is-within-hovered):not(.is-last-hovered)  {
                     background-color: $datepicker-item-selected-background-color;
                     color: $datepicker-item-selected-color;
-                    &.is-first-selected {
+                    &.is-first-selected:not(.is-first-hovered):not(.is-within-hovered):not(.is-last-hovered)  {
                         background-color: $datepicker-item-selected-background-color;
                         color: $datepicker-item-selected-color;
                         border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
                     }
-                    &.is-within-selected {
+                    &.is-within-selected:not(.is-first-hovered):not(.is-within-hovered):not(.is-last-hovered)  {
                         background-color: rgba($datepicker-item-selected-background-color, 0.5);
                         border-radius: 0;
                     }
-                    &.is-last-selected {
+                    &.is-last-selected:not(.is-first-hovered):not(.is-within-hovered):not(.is-last-hovered)  {
                         background-color: $datepicker-item-selected-background-color;
                         color: $datepicker-item-selected-color;
                         border-bottom-left-radius: 0;
