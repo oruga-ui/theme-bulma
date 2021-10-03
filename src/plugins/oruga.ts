@@ -156,6 +156,7 @@ export const bulmaConfig: any = {
     },
     tabs: {
         override: true,
+        itemTag: 'a',
         rootClass: 'b-tabs',
         contentClass: 'tab-content',
         multilineClass: 'is-multiline',

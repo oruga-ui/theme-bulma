@@ -38,9 +38,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../components/Autocomplete.vue')
   },
   {
-    path: '/tagsinput',
-    name: 'Tagsinput',
-    component: () => import('../components/Tagsinput.vue')
+    path: '/taginput',
+    name: 'Taginput',
+    component: () => import('../components/Taginput.vue')
   },
   {
     path: '/button',

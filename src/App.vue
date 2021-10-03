@@ -7,7 +7,7 @@
     <router-link to="/collapse">Collapse</router-link> |
     <router-link to="/form">Form</router-link> |
     <router-link to="/autocomplete">Autocomplete</router-link> |
-    <router-link to="/tagsinput">Tagsinput</router-link> |
+    <router-link to="/taginput">Taginput</router-link> |
     <router-link to="/button">Button</router-link> |
     <router-link to="/tabs">Tabs</router-link> |
     <router-link to="/tooltip">Tooltip</router-link> |

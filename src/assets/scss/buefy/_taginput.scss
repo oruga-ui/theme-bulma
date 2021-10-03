@@ -47,7 +47,7 @@ $taginput-height: calc(2em - 1px) !default;
             }
         }
 
-        .tag:not(body) .icon {
+        .tag:not(body) .icon.delete {
             margin-left: 0.275rem;
             margin-bottom: calc(0.275em - 1px);
         }

@@ -111,18 +111,8 @@ $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
 
 .tabs {
-    button {
-
-        // reset button
-        -webkit-appearance: none;
-        text-decoration: none;
-        outline: 0;
-        border: 1px solid transparent;
-        background-color: transparent;
-        cursor: pointer;
-
+    a {
         height: 100%;
-
         align-items: center;
         border-bottom-color: $tabs-border-bottom-color;
         border-bottom-style: $tabs-border-bottom-style;
