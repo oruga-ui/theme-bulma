@@ -45,7 +45,7 @@ $dropdown-disabled-opacity: 0.5 !default;
     &.is-hoverable {
         &:hover {
             .dropdown-menu {
-                display: inherit;
+                display: block;
             }
         }
     }
