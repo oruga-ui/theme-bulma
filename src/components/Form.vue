@@ -66,6 +66,78 @@
     </o-field>
   </section>
 
+  <section class="mt-4 mb-4">
+    <o-field>
+      <o-checkbox :value="true"> Default </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox :value="true" variant="primary"> Primary </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox :value="true" variant="info"> Info </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox :value="true" variant="success"> Success </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox :value="true" variant="danger"> Danger </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox :value="true" variant="warning"> Warning </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox disabled> Disabled </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox indeterminate>
+        Default Indeterminate
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox variant="primary" indeterminate>
+        Primary Indeterminate
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox variant="info" indeterminate> Info Indeterminate </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox variant="success" indeterminate>
+        Success Indeterminate
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox variant="danger" indeterminate>
+        Danger Indeterminate
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox variant="warning" indeterminate>
+        Warning Indeterminate
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox size="small">
+        Small
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox>
+        Default
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox size="medium">
+        Medium
+      </o-checkbox>
+    </o-field>
+    <o-field>
+      <o-checkbox size="large">
+        Large
+      </o-checkbox>
+    </o-field>
+  </section>
+
   <o-field label="Name" grouped>
     <o-input icon="user"></o-input>
     <div class="control">
@@ -119,5 +191,4 @@
 export default {};
 </script>
 
-<style>
-</style>
+<style></style>

@@ -66,7 +66,12 @@ export const bulmaConfig: any = {
     },
     checkbox: {
         override: true,
-        rootClass: 'checkbox'
+        rootClass: 'b-checkbox checkbox',
+        disabledClass: 'is-disabled',
+        checkClass: 'check',
+        labelClass: 'control-label',
+        variantClass: 'is-',
+        sizeClass: 'is-'
     },
     radio: {
         override: true,
@@ -356,5 +361,5 @@ export const bulmaConfig: any = {
         contentClass: 'animation-content',
         closeClass: 'modal-close is-large',
         fullScreenClass: 'is-full-screen'
-    }
+    },
 }
