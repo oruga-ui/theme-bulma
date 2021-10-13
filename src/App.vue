@@ -17,6 +17,7 @@
     <router-link to="/datepicker">Datepicker</router-link> |
     <router-link to="/table">Table</router-link> |
     <router-link to="/modal">Modal</router-link> |
+    <router-link to="/sidebar">Sidebar</router-link> |
   </div>
 
   <section class="section">

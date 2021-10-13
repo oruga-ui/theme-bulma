@@ -87,6 +87,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Modal',
     component: () => import('../components/Modal.vue')
   },
+  {
+    path: '/sidebar',
+    name: 'Sidebar',
+    component: () => import('../components/Sidebar.vue')
+  },
 ]
 
 const router = createRouter({
