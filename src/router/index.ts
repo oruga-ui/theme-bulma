@@ -87,6 +87,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Modal',
     component: () => import('../components/Modal.vue')
   },
+  {
+    path: '/timepicker',
+    name: 'Timepicker',
+    component: () => import('../components/Timepicker.vue')
+  },
 ]
 
 const router = createRouter({

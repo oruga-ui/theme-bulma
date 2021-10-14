@@ -362,4 +362,14 @@ export const bulmaConfig: any = {
         closeClass: 'modal-close is-large',
         fullScreenClass: 'is-full-screen'
     },
+    timepicker: {
+        override: true,
+        rootClass: 'timepicker',
+        boxClass: 'dropdown-content',
+        dropdownClasses: 'dropdown-menu',
+        footerClass: 'timepicker-footer',
+        inputClasses: 'input',
+        selectClass: 'control select',
+        separatorClass: 'is-colon'
+    },
 }
