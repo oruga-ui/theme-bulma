@@ -386,11 +386,14 @@ export const bulmaConfig: any = {
     timepicker: {
         override: true,
         rootClass: 'timepicker',
-        boxClass: 'dropdown-content',
-        dropdownClasses: 'dropdown-menu',
-        footerClass: 'timepicker-footer',
         inputClasses: 'input',
-        selectClass: 'control select',
+        dropdownClasses: 'dropdown-menu',
+        boxClass: 'dropdown-content',
+        selectClass: 'select',
         separatorClass: 'is-colon',
+        footerClass: 'timepicker-footer',
+        sizeClass: (_: string, { props }: any) => {
+            return `is-${props.size}`
+        },
     },
 }
