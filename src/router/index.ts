@@ -92,6 +92,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Timepicker',
     component: () => import('../components/Timepicker.vue')
   },
+  {
+    path: '/sidebar',
+    name: 'Sidebar',
+    component: () => import('../components/Sidebar.vue')
+  }
 ]
 
 const router = createRouter({

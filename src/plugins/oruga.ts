@@ -362,6 +362,27 @@ export const bulmaConfig: any = {
         closeClass: 'modal-close is-large',
         fullScreenClass: 'is-full-screen'
     },
+    sidebar: {
+        override: true,
+        rootClass: 'b-sidebar',
+        variantClass: 'is-',
+        contentClass: 'sidebar-content',
+        staticClass: 'is-static',
+        absoluteClass: 'is-absolute',
+        fixedClass: 'is-fixed',
+        expandOnHoverClass: 'is-mini-expand',
+        expandOnHoverFixedClass: 'is-mini-expand',
+        fullheightClass: 'is-fullheight',
+        fullwidthClass: 'is-fullwidth',
+        mobileClass: (_: string, { props }: any) => {
+            if (props.mobile && props.mobile !== 'reduce') {
+                return `is-${props.mobile}-mobile`
+            }
+        },
+        overlayClass: 'sidebar-background',
+        reduceClass: 'is-mini-mobile',
+        rightClass: 'is-right'
+    },
     timepicker: {
         override: true,
         rootClass: 'timepicker',
@@ -370,6 +391,6 @@ export const bulmaConfig: any = {
         footerClass: 'timepicker-footer',
         inputClasses: 'input',
         selectClass: 'control select',
-        separatorClass: 'is-colon'
+        separatorClass: 'is-colon',
     },
 }
