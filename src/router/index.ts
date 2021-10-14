@@ -92,6 +92,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Sidebar',
     component: () => import('../components/Sidebar.vue')
   },
+  {
+    path: '/loading',
+    name: 'Loading',
+    component: () => import('../components/Loading.vue')
+  }
 ]
 
 const router = createRouter({

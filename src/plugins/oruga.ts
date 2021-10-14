@@ -383,4 +383,10 @@ export const bulmaConfig: any = {
         reduceClass: 'is-mini-mobile',
         rightClass: 'is-right'
     },
+    loading: {
+        fullPageClass: 'is-full-page',
+        overlayClass: 'loading-overlay',
+        iconClass: 'icon',
+        rootClass: 'loading'
+    }
 }
