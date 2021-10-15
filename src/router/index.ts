@@ -88,6 +88,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../components/Modal.vue')
   },
   {
+    path: '/timepicker',
+    name: 'Timepicker',
+    component: () => import('../components/Timepicker.vue')
+  },
+  {
     path: '/sidebar',
     name: 'Sidebar',
     component: () => import('../components/Sidebar.vue')

@@ -388,4 +388,15 @@ export const bulmaConfig: any = {
         reduceClass: 'is-mini-mobile',
         rightClass: 'is-right'
     },
+    timepicker: {
+        override: true,
+        rootClass: 'timepicker',
+        inputClasses: 'input',
+        dropdownClasses: 'dropdown-menu',
+        boxClass: 'dropdown-content',
+        selectClass: 'select',
+        separatorClass: 'is-colon',
+        footerClass: 'timepicker-footer',
+        sizeClass: 'is-',
+    },
 }
