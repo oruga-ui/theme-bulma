@@ -319,6 +319,7 @@ export const bulmaConfig: any = {
         rootClass: 'datepicker',
         headerClass: 'datepicker-header',
         footerClass: 'datepicker-footer',
+        boxClass: 'dropdown-item',
         tableClass: 'datepicker-table',
         tableHeadClass: 'datepicker-header',
         tableHeadCellClass: 'datepicker-cell',
@@ -396,12 +397,12 @@ export const bulmaConfig: any = {
     },
     timepicker: {
         override: true,
-        rootClass: 'timepicker',
-        inputClasses: 'input',
-        dropdownClasses: 'dropdown-menu',
-        boxClass: 'dropdown-content',
-        selectClass: 'select',
-        separatorClass: 'is-colon',
+        rootClass: 'timepicker control',
+        boxClass: 'dropdown-item',
+        selectClasses: {
+            rootClass: 'select control'
+        },
+        separatorClass: 'is-colon control',
         footerClass: 'timepicker-footer',
         sizeClass: 'is-',
     }

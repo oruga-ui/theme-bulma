@@ -102,7 +102,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Loading',
     component: () => import('../components/Loading.vue')
   },
-  }
+  {
     path: '/radio',
     name: 'Radio',
     component: () => import('../components/Radio.vue')

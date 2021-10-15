@@ -25,6 +25,8 @@
   .dropdown-item {
       font-size: inherit;
       padding: 0;
+      justify-content: center;
+      display: flex;
   }
   .timepicker-footer {
       padding: 0 0.5rem 0 0.5rem;
@@ -33,7 +35,7 @@
       .control {
           font-size: 1.25em;
           margin-right: 0 !important;
-          .select {
+          &.select {
               margin: 0 0.125em;
 
               select {

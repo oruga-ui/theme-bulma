@@ -23,6 +23,8 @@
         checkable
         detailed
     >
+       
+
         <o-table-column field="id" label="ID" width="40" sortable position="right" v-slot="props">
             {{ props.row.id }}
         </o-table-column>
