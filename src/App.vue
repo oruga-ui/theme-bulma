@@ -19,6 +19,7 @@
     <router-link to="/modal">Modal</router-link> |
     <router-link to="/sidebar">Sidebar</router-link> |
     <router-link to="/timepicker">Timepicker</router-link> |
+    <router-link to="/radio">Radio</router-link> |
   </div>
 
   <section class="section">

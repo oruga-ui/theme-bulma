@@ -75,7 +75,12 @@ export const bulmaConfig: any = {
     },
     radio: {
         override: true,
-        rootClass: 'radio'
+        rootClass: 'b-radio radio',
+        disabledClass: 'is-disabled',
+        checkClass: 'check',
+        labelClass: 'control-label',
+        variantClass: 'is-',
+        sizeClass: 'is-'
     },
     switch: {
         override: true,
