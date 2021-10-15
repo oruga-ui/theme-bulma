@@ -388,6 +388,12 @@ export const bulmaConfig: any = {
         reduceClass: 'is-mini-mobile',
         rightClass: 'is-right'
     },
+    loading: {
+        fullPageClass: 'is-full-page',
+        overlayClass: 'loading-overlay',
+        iconClass: 'icon',
+        rootClass: 'loading'
+    },
     timepicker: {
         override: true,
         rootClass: 'timepicker',
@@ -398,5 +404,5 @@ export const bulmaConfig: any = {
         separatorClass: 'is-colon',
         footerClass: 'timepicker-footer',
         sizeClass: 'is-',
-    },
+    }
 }

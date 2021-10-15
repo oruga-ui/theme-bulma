@@ -98,10 +98,15 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../components/Sidebar.vue')
   },
   {
+    path: '/loading',
+    name: 'Loading',
+    component: () => import('../components/Loading.vue')
+  },
+  }
     path: '/radio',
     name: 'Radio',
     component: () => import('../components/Radio.vue')
-  },
+  }
 ]
 
 const router = createRouter({
