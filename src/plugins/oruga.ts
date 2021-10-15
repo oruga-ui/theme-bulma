@@ -390,10 +390,8 @@ export const bulmaConfig: any = {
         dropdownClasses: 'dropdown-menu',
         boxClass: 'dropdown-content',
         selectClass: 'select',
-        separatorClass: 'is-',
+        separatorClass: 'is-colon',
         footerClass: 'timepicker-footer',
-        sizeClass: (_: string, { props }: any) => {
-            return `is-${props.size}`
-        },
+        sizeClass: 'is-',
     },
 }
