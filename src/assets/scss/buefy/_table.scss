@@ -182,6 +182,12 @@ $table-sticky-header-height: 300px !default;
                 z-index: 3 !important;
                 background: $table-head-background-color;
             }
+            &.th-checkbox {
+                width: 40px;
+            }
+            &.th-chevron-cell {
+                width: 40px;
+            }
         }
         tr {
             &.is-selected {

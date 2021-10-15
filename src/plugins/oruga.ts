@@ -200,7 +200,8 @@ export const bulmaConfig: any = {
         thSortIconClass: 'th-wrap sort-icon',
         thUnselectableClass: 'is-unselectable',
         thStickyClass: 'is-sticky',
-        thDetailedClass: '',
+        thCheckboxClass: 'th-checkbox',
+        thDetailedClass: 'th-chevron-cell',
         tdDetailedChevronClass: 'chevron-cell',
         thPositionClass: (position: string) => {
             if (position === 'centered') return 'is-centered'
