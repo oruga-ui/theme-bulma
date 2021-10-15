@@ -19,3 +19,35 @@
         }
     }
 }
+
+// hack to restore missing Bulma wrapper .control
+.select {
+    display: table;
+    .icon {
+        color: $input-icon-color;
+        height: $input-height;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: $input-height;
+        z-index: 4;
+    }
+    &.has-icons-left {
+        select {
+            padding-left: $input-height;
+        }
+        .icon {
+            &.is-left {
+                left: 0;
+            }
+        }
+    }
+    .has-icons-right {
+        padding-right: $input-height;
+        .icon {
+            &.is-right {
+                right: 0;
+            }
+        }
+    } 
+}
