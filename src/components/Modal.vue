@@ -79,6 +79,8 @@ export default defineComponent({
     return {
       isImageModalActive: false,
       isCardModalActive: false,
+      email:'',
+      password:''
     };
   },
 });

@@ -75,12 +75,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 const thisMonth = new Date().getMonth();
 
-export default {
+
+import { defineComponent } from "@vue/runtime-core";
+
+export default defineComponent({
   computed: {
-    indicators() {
+    indicators(): string {
       return this.bars ? "bars" : "dots";
     },
   },
@@ -91,7 +94,7 @@ export default {
       locale: undefined, // Browser locale
       date: new Date(2017, thisMonth, 1),
       dates: [],
-      date1: undefined,
+      date1: null as Date | null,
       events: [
         new Date(2017, thisMonth, 2),
         new Date(2017, thisMonth, 6),
@@ -137,5 +140,5 @@ export default {
       bars: false,
     };
   },
-};
+});
 </script>

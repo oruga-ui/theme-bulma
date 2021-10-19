@@ -8,7 +8,7 @@
         placeholder="e.g. jQuery"
         icon="search"
         clearable
-        @select="(option) => (selected = option)"
+        @select="select"
       >
         <template #empty>No results found</template>
       </o-autocomplete>
@@ -16,7 +16,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "@vue/runtime-core";
+
+export default defineComponent({
     data() {
         return {
             data: [
@@ -39,12 +41,17 @@ export default {
     },
     computed: {
         filteredDataArray(): string[] {
-            return this.data.filter((option) => {
+            return this.data.filter((option:any) => {
                 return (option.toString().toLowerCase().indexOf(this.name.toLowerCase()) >= 0);
             })
         }
     },
-}
+    methods: {
+        select(option: any){
+            this.selected = option;
+        }
+    }
+})
 </script>
 
 <style>

@@ -168,7 +168,7 @@ export default defineComponent({
             hasMobileCards: true,
             
             checkedRows: [],
-            selected: undefined,
+            selected: null,
             columns: [
           {
             field: 'id',
