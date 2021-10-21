@@ -16,7 +16,7 @@ const entries = {
 }
 
 const exits = {
-  scss: "dist",
+  directory: "dist",
   css: "dist/oruga-bulma.css",
   esm: `dist/${pkg.module}`,
   umd: `dist/${pkg.main}`,
@@ -53,8 +53,8 @@ export default function() {
       plugins: [
         copy({
           targets: [
-            { src: `${entries.scss}`, dest: `${exits.scss}` },
-            { src: "package.json", dest: "dist" },
+            { src: `${entries.scss}`, dest: `${exits.directory}` },
+            { src: "package.json", dest: `${exits.directory}` },
           ],
         }),
         cjs(),
