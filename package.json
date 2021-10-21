@@ -1,5 +1,5 @@
 {
-  "name": "Oruga Bulma",
+  "name": "oruga-bulma",
   "version": "0.0.0",
   "main": "oruga-bulma.js",
   "module": "oruga-bulma.esm.js",
@@ -29,6 +29,7 @@
     "rollup-plugin-sass": "^1.2.9",
     "sass": "1.27.0",
     "sass-loader": "^8.0.2",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.2",
     "vite": "^2.3.7",
     "vue-tsc": "^0.1.7"
