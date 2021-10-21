@@ -1,4 +1,4 @@
-# Oruga contributors
+# Oruga Bulma contributors
 
 Thank you to everyone involved for improving this project, day by day 💚
 
