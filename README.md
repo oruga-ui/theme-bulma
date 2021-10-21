@@ -1,22 +1,30 @@
+<p align="center">
+    <img width="240" src="https://raw.githubusercontent.com/oruga-ui/oruga-bulma/master/public/logo-3.svg" />
+</p>
 
- <table align="center" >
-    <tr>
-        <td vlign="center">
-            <a href="https://oruga.io">
-                <img width="72" src="https://github.com/oruga-ui/oruga/raw/master/packages/docs/.vuepress/public/logo.png" />
-            </a>
-        </td>
-        <td vlign="center">
-            =>
-        </td>
-        <td vlign="center">
-            <a href="https://bulma.io">
-                <img width="128" src="https://bulma.io/images/bulma-logo.png" />
-            </a>
-        </td>
-    </tr>
-</table>
+<p align="center">
+  <i>Bulma plugin for Oruga. Warning: this project is currently a work in progress.</i>
+</p>
 
 ## Documentation
 
-WIP
+To do.
+
+## Contributors
+Thank you to everyone involved for improving this project, day by day 💚
+
+<a href="https://github.com/oruga-ui/oruga-bulma">
+  <img
+  src="https://contrib.rocks/image?repo=oruga-ui/oruga-bulma"
+  />
+</a>
+
+[Complete list](CONTRIBUTORS.md).
+
+## Credits
+
+Logo designed by [Rubjo](https://github.com/rubjo)
+
+## License
+
+Code released under [MIT](https://github.com/oruga-ui/oruga-bulma/blob/master/LICENSE) license.
