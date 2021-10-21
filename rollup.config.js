@@ -40,20 +40,27 @@ function createDirectoryIfDoesNotExist(filePath) {
   createDirectoryIfDoesNotExist(directoryName)
   fs.mkdirSync(directoryName)
 }
-function kebabCaseToSentenceCase(string){
-  return string.split('-')
-  .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
-  .join(' ')
+function kebabCaseToPascalCase(string) {
+  return string
+    .split("-")
+    .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join("")
 }
 export default function() {
   const config = [
     {
       input: entries.index,
-      output: {
-        format: "umd",
-        name: `${kebabCaseToSentenceCase(pkg.name)}`,
-        file: `${exits.umd}`,
-      },
+      output: [
+        {
+          format: "umd",
+          name: `${kebabCaseToPascalCase(pkg.name)}`,
+          file: `${exits.umd}`,
+        },
+        {
+          format: "esm",
+          file: `${exits.esm}`,
+        },
+      ],
       plugins: [
         copy({
           targets: [
@@ -78,18 +85,6 @@ export default function() {
           },
           ...commonSassPluginOptions,
         }),
-        typescript(typescriptPluginOptions),
-      ],
-    },
-    {
-      input: entries.index,
-      output: {
-        format: "esm",
-        file: `${exits.esm}`,
-      },
-      plugins: [
-        cjs(),
-        sass(commonSassPluginOptions),
         typescript(typescriptPluginOptions),
       ],
     },
