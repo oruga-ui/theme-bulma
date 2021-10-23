@@ -60,6 +60,12 @@ function createMinifiedFileName(fileName){
   const minifiedFileName = [...fileNameParts.slice(0, fileExtIndex), "min", fileNameParts[fileExtIndex]].join(".")
   return minifiedFileName
 }
+
+function writeCssFile(fileName, styles){
+  createDirectoryIfDoesNotExist(exits.css)
+  fs.writeFileSync(fileName, styles)
+}
+
 export default function() {
   const config = [
     {
@@ -98,15 +104,13 @@ export default function() {
         sass({
           ...commonSassPluginOptions,
           output(styles) {
-            createDirectoryIfDoesNotExist(exits.css)
-            fs.writeFileSync(`${exits.css}`, styles)
+            writeCssFile(`${exits.css}`, styles)
           },
         }),
         sass({
           ...commonSassPluginOptions,
           output(styles) {
-            createDirectoryIfDoesNotExist(exits.css)
-            fs.writeFileSync(`${createMinifiedFileName(exits.css)}`, styles)
+            writeCssFile(`${createMinifiedFileName(exits.css)}`, styles)
           },
           ...{
             options: {
