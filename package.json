@@ -1,9 +1,12 @@
 {
-  "name": "my-vue-app",
+  "name": "oruga-bulma",
   "version": "0.0.0",
+  "main": "oruga-bulma.js",
+  "module": "oruga-bulma.esm.js",
   "scripts": {
     "dev": "vite --force",
     "build": "vue-tsc --noEmit && vite build",
+    "build:lib": "rimraf dist && rollup -c",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -15,10 +18,20 @@
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.5",
+    "autoprefixer": "^10.3.7",
+    "postcss": "^8.3.10",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-sass": "^1.2.9",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "1.27.0",
     "sass-loader": "^8.0.2",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.2",
     "vite": "^2.3.7",
     "vue-tsc": "^0.1.7"

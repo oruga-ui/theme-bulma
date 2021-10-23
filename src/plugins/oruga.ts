@@ -1,3 +1,4 @@
+import "../assets/scss/plugin.scss"
 
 export const bulmaConfig: any = {
     field: {
