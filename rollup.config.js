@@ -99,6 +99,13 @@ export default function() {
           ...commonSassPluginOptions,
           output(styles) {
             createDirectoryIfDoesNotExist(exits.css)
+            fs.writeFileSync(`${exits.css}`, styles)
+          },
+        }),
+        sass({
+          ...commonSassPluginOptions,
+          output(styles) {
+            createDirectoryIfDoesNotExist(exits.css)
             fs.writeFileSync(`${createMinifiedFileName(exits.css)}`, styles)
           },
           ...{
@@ -106,13 +113,6 @@ export default function() {
               outputStyle: "compressed",
               ...commonSassPluginOptions.options,
             },
-          },
-        }),
-        sass({
-          ...commonSassPluginOptions,
-          output(styles) {
-            createDirectoryIfDoesNotExist(exits.css)
-            fs.writeFileSync(`${exits.css}`, styles)
           },
         }),
         typescript(typescriptPluginOptions),
