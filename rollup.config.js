@@ -2,6 +2,7 @@ import cjs from "@rollup/plugin-commonjs"
 import copy from "rollup-plugin-copy"
 import sass from "rollup-plugin-sass"
 import typescript from "@rollup/plugin-typescript"
+import { terser } from "rollup-plugin-terser"
 
 import autoprefixer from "autoprefixer"
 import fs from "fs"
@@ -23,6 +24,12 @@ const exits = {
 }
 
 const commonSassPluginOptions = {
+  processor: async (css) => {
+    const { css: processedCss } = await postcss([autoprefixer]).process(css, {
+      from: undefined,
+    })
+    return processedCss
+  },
   options: {
     includePaths: ["node_modules"],
   },
@@ -46,6 +53,13 @@ function kebabCaseToPascalCase(string) {
     .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
     .join("")
 }
+
+function createMinifiedFileName(fileName){
+  const fileNameParts = fileName.split(".")
+  const fileExtIndex = fileNameParts.length - 1
+  const minifiedFileName = [...fileNameParts.slice(0, fileExtIndex), "min", fileNameParts[fileExtIndex]].join(".")
+  return minifiedFileName
+}
 export default function() {
   const config = [
     {
@@ -53,13 +67,24 @@ export default function() {
       external: ["vue", "oruga"],
       output: [
         {
+          format: "esm",
+          file: `${exits.esm}`,
+        },
+        {
+          format: "esm",
+          file: `${createMinifiedFileName(exits.esm)}`,
+          plugins: [terser()],
+        },
+        {
           format: "umd",
           name: `${kebabCaseToPascalCase(pkg.name)}`,
           file: `${exits.umd}`,
         },
         {
-          format: "esm",
-          file: `${exits.esm}`,
+          format: "umd",
+          name: `${kebabCaseToPascalCase(pkg.name)}`,
+          file: `${createMinifiedFileName(exits.umd)}`,
+          plugins: [terser()],
         },
       ],
       plugins: [
@@ -71,20 +96,24 @@ export default function() {
         }),
         cjs(),
         sass({
-          processor: async (css) => {
-            const { css: processedCss } = await postcss([autoprefixer]).process(
-              css,
-              {
-                from: undefined,
-              }
-            )
-            return processedCss
-          },
+          ...commonSassPluginOptions,
           output(styles) {
             createDirectoryIfDoesNotExist(exits.css)
-            fs.writeFileSync(exits.css, styles)
+            fs.writeFileSync(`${createMinifiedFileName(exits.css)}`, styles)
           },
+          ...{
+            options: {
+              outputStyle: "compressed",
+              ...commonSassPluginOptions.options,
+            },
+          },
+        }),
+        sass({
           ...commonSassPluginOptions,
+          output(styles) {
+            createDirectoryIfDoesNotExist(exits.css)
+            fs.writeFileSync(`${exits.css}`, styles)
+          },
         }),
         typescript(typescriptPluginOptions),
       ],
