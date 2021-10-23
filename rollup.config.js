@@ -50,6 +50,7 @@ export default function() {
   const config = [
     {
       input: entries.index,
+      external: ["vue", "oruga"],
       output: [
         {
           format: "umd",
