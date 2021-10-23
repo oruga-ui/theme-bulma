@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --force",
     "build": "vue-tsc --noEmit && vite build",
-    "build:lib": "rollup -c",
+    "build:lib": "rimraf dist && rollup -c",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.3.7",
     "postcss": "^8.3.10",
+    "rimraf": "^3.0.2",
     "rollup": "^2.58.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-sass": "^1.2.9",
