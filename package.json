@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --force",
     "build": "vue-tsc --noEmit && vite build",
-    "build:dist": "rollup -c",
+    "build:lib": "rollup -c",
     "serve": "vite preview"
   },
   "dependencies": {
