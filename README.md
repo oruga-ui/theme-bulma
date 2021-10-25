@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="240" src="https://raw.githubusercontent.com/oruga-ui/oruga-bulma/master/public/logo-3.svg" />
+    <img width="240" src="https://raw.githubusercontent.com/oruga-ui/oruga-bulma/master/public/logo.svg" />
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@ Thank you to everyone involved for improving this project, day by day 💚
 
 ## Credits
 
-Logo designed by [Rubjo](https://github.com/rubjo)
+Logo designed by [rubjo](https://github.com/rubjo)
 
 ## License
 
