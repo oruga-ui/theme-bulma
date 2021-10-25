@@ -294,7 +294,13 @@ export const bulmaConfig: any = {
         wrapperClass: 'media',
         contentClass: 'media-content',
         iconClass: 'media-left',
-        closeClass: 'delete'
+        closeClass: 'delete',
+        positionClass: 'is-'
+    },
+    notice: {
+        override: true,
+        rootClass: 'b-notices',
+        positionClass: 'is-',
     },
     dropdown: {
         override: true,
