@@ -266,10 +266,12 @@ export const bulmaConfig: any = {
     button: {
         override: true,
         rootClass: 'button',
+        sizeClass: 'is-',
         variantClass: 'is-',
         roundedClass: 'is-rounded',
         outlinedClass: () => 'is-outlined',
-        invertedClass: () => 'is-inverted'
+        invertedClass: () => 'is-inverted',
+        elementsWrapperClass: 'button-wrapper'
     },
     skeleton: {
         override: true,
