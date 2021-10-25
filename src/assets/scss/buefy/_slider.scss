@@ -1,5 +1,6 @@
 $slider-radius: $radius !default;
 $slider-track-background: $grey-lighter !default;
+$slider-fill-background: $primary !default;
 $slider-track-radius: $radius !default;
 $slider-track-border: 0px solid $grey !default;
 $slider-track-shadow: 0px 0px 0px $grey !default;
@@ -59,7 +60,7 @@ $slider-colors: $colors !default;
         position: absolute;
         height: 100%;
         box-shadow: $slider-track-shadow;
-        background: $slider-track-background;
+        background: $slider-fill-background;
         border-radius: $slider-track-radius;
         border: $slider-track-border;
         // Fix alignment in IE 11. Cancel out for others
