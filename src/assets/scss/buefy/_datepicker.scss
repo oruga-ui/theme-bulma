@@ -9,6 +9,7 @@ $datepicker-item-hover-color: $scheme-invert !default;
 $datepicker-item-hover-background-color: $background !default;
 $datepicker-item-selected-color: $primary-invert !default;
 $datepicker-item-selected-background-color: $primary !default;
+$datepicker-event-background-color: $grey-light !default;
 
 .datepicker {
     font-size: 0.875rem;
@@ -157,6 +158,7 @@ $datepicker-item-selected-background-color: $primary !default;
                             position: absolute;
                             width: 100%;
                             .event {
+                                background-color: $datepicker-event-background-color;
                                 @each $name, $pair in $form-colors {
                                     $color: nth($pair, 1);
                                     &.is-#{$name} {
