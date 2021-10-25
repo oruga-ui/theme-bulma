@@ -1,10 +1,6 @@
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
-$tooltip-multiline-sizes: (
-    small: 180px,
-    medium: 240px,
-    large: 300px
-) !default;
+$tooltip-content-multiline-width: 300px !default;
 $tooltip-colors: $colors !default;
 
 @mixin tooltip-arrow-color($direction, $color) {
@@ -157,25 +153,15 @@ $tooltip-colors: $colors !default;
             }
         }
     }
-    &.is-always {
-        .tooltip-content::before,
-        .tooltip-content {
+    & .tooltip-content {
+        &.is-always{
             opacity: 1;
             visibility: visible;
         }
-    }
-    &.is-multiline {
-        .tooltip-content {
-            display: flex-block;
+        &.is-multiline {
             text-align: center;
             white-space: normal;
-        }
-        @each $name, $size in $tooltip-multiline-sizes {
-            &.is-#{$name} {
-                .tooltip-content {
-                    width: $size;
-                }
-            }
+            width: $tooltip-content-multiline-width;
         }
     }
     &.is-dashed {
