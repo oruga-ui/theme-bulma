@@ -18,6 +18,16 @@ import Steps from './components/Steps.vue'
 createApp(App)
     .use(router)
     .use(Oruga, {
+        customIconPacks: {
+            fas: {
+                sizes: {
+                    default: '',
+                    small: 'fa-sm',
+                    medium: 'fa-lg',
+                    large: 'fa-2x'
+                }
+            }
+        },
         iconPack: 'fas',
         ...bulmaConfig
     })

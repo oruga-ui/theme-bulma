@@ -106,6 +106,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/radio',
     name: 'Radio',
     component: () => import('../components/Radio.vue')
+  },
+  {
+    path: '/icon',
+    name: 'Icon',
+    component: () => import('../components/Icon.vue')
   }
 ]
 
