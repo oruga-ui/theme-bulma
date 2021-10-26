@@ -111,6 +111,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/icon',
     name: 'Icon',
     component: () => import('../components/Icon.vue')
+  },
+  {
+    path: '/select',
+    name: 'Select',
+    component: () => import('../components/Select.vue')
   }
 ]
 

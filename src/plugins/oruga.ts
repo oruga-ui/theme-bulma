@@ -38,9 +38,9 @@ export const bulmaConfig: any = {
         rootClass: (_: string, { props, computed }: any) => {
             const classes = ['control', 'select']
             if (props.size) classes.push(`is-${props.size}`)
-            if (computed.rounded) classes.push('is-rounded')
+            if (props.rounded) classes.push('is-rounded')
             if (computed.statusVariant) classes.push(`is-${computed.statusVariant}`)
-            if (props.multipe) classes.push('is-multiple')
+            if (props.multiple) classes.push('is-multiple')
             if (props.icon) classes.push('has-icons-left')
             if (props.iconRight) classes.push('has-icons-right')
             return classes.join(' ').trim()
