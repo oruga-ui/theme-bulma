@@ -23,6 +23,7 @@ export const bulmaConfig: any = {
             return classes.join(' ').trim()
         },
         inputClass: 'input',
+        textareaClass: 'textarea',
         roundedClass: 'is-rounded',
         variantClass: 'is-',
         sizeClass: 'is-',
