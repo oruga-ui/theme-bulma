@@ -63,7 +63,8 @@ export const bulmaConfig: any = {
         rootClass: 'icon',
         variantClass: 'has-text-',
         sizeClass: 'is-',
-        clickableClass: 'is-clickable'
+        clickableClass: 'is-clickable',
+        spinClass: 'is-spin',
     },
     checkbox: {
         override: true,
