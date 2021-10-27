@@ -1,17 +1,10 @@
 <template>
-
   <div class="columns is-mobile is-centered is-vcentered">
     <div class="column is-narrow">
-      <img class="image__oruga" src="https://github.com/oruga-ui/oruga/raw/master/packages/docs/.vuepress/public/logo.png">
+      <img class="image__oruga" src="https://raw.githubusercontent.com/oruga-ui/oruga-bulma/master/public/logo.svg">
     </div>
-    <div class="column is-narrow">
-      <p class="title is-1">=></p>
-    </div>
-    <div class="column is-narrow">
-      <img class="image__bulma" src="https://bulma.io/images/bulma-logo.png">
-    </div>
+    <h1>Oruga-Bulma demo page</h1>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -25,8 +18,5 @@ export default defineComponent({
 <style scoped>
 .image__oruga {
  height: 128px;
-}
-.image__bulma {
- height: 64px;
 }
 </style>
