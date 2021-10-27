@@ -23,6 +23,7 @@ export const bulmaConfig: any = {
             return classes.join(' ').trim()
         },
         inputClass: 'input',
+        textareaClass: 'textarea',
         roundedClass: 'is-rounded',
         variantClass: 'is-',
         sizeClass: 'is-',
@@ -251,6 +252,7 @@ export const bulmaConfig: any = {
         },
         itemClass: 'step-link',
         itemHeaderClass: 'step-item',
+        itemHeaderVariantClass: 'is-',
         itemHeaderActiveClass: 'is-active',
         itemHeaderPreviousClass: 'is-previous',
         stepLinkClass: 'step-link',
@@ -258,8 +260,10 @@ export const bulmaConfig: any = {
         stepLinkClickableClass: 'is-clickable',
         // stepLinkLabelPositionClass: 'is-',
         stepMarkerClass: 'step-marker',
+        stepNavigationClass: 'step-navigation',
         stepContentClass: 'step-content',
         verticalClass: 'is-vertical',
+        positionClass: 'is-',
         stepContentTransitioningClass: 'is-transitioning',
         sizeClass: 'is-',
         variantClass: 'is-'
@@ -294,7 +298,13 @@ export const bulmaConfig: any = {
         wrapperClass: 'media',
         contentClass: 'media-content',
         iconClass: 'media-left',
-        closeClass: 'delete'
+        closeClass: 'delete',
+        positionClass: 'is-'
+    },
+    notice: {
+        override: true,
+        rootClass: 'b-notices',
+        positionClass: 'is-',
     },
     dropdown: {
         override: true,
