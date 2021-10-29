@@ -99,6 +99,12 @@ $datepicker-event-background-color: $grey-light !default;
                 }
                 &.is-selectable {
                     color: $datepicker-item-color;
+                    &:hover:not(.is-selected):not(.is-last-hovered),
+                    &:focus:not(.is-selected):not(.is-last-hovered) {
+                        background-color: $datepicker-item-hover-background-color;
+                        color: $datepicker-item-hover-color;
+                        cursor: pointer;
+                    }
                     &.is-first-hovered {
                         background-color: $grey;
                         color: $grey-lighter;
