@@ -274,6 +274,7 @@ export const bulmaConfig: any = {
         sizeClass: 'is-',
         variantClass: 'is-',
         roundedClass: 'is-rounded',
+        expandedClass: 'is-fullwidth',
         outlinedClass: () => 'is-outlined',
         invertedClass: () => 'is-inverted',
         elementsWrapperClass: 'button-wrapper'
