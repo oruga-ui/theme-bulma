@@ -23,6 +23,7 @@
     <router-link to="/radio">Radio</router-link> |
     <router-link to="/icon">Icon</router-link> |
     <router-link to="/select">Select</router-link> |
+    <router-link to="/field">Field</router-link> |
   </div>
 
   <section class="section">

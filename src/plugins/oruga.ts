@@ -12,7 +12,8 @@ export const bulmaConfig: any = {
         groupMultilineClass: 'is-grouped-multiline',
         horizontalClass: 'is-horizontal',
         labelHorizontalClass: 'field-label',
-        bodyHorizontalClass: 'field-body'
+        bodyHorizontalClass: 'field-body',
+        bodyClass: 'control'
     },
     input: {
         override: true,

@@ -2,6 +2,13 @@ $floating-in-height: 3.25em !default;
 
 .field {
     &.is-grouped {
+        & > :not(:last-child) {
+            margin-bottom: 0;
+            margin-right: 0.75rem;
+        }
+        &.is-grouped-multiline > :not(:last-child) {
+            margin-bottom: 0.75rem;
+        }
         .field {
             flex-shrink: 0;
             &:not(:last-child) {
@@ -10,6 +17,38 @@ $floating-in-height: 3.25em !default;
             &.is-expanded {
                 flex-grow: 1;
                 flex-shrink: 1;
+            }
+        }
+    }
+    &.has-addons {
+        .button {
+            &:not(:last-child) {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+            &:not(:first-child) {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+        .select {
+            &:not(:last-child) select{
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+            &:not(:first-child) select{
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+        .dropdown {
+            &:not(:last-child) .button{
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+            &:not(:first-child) .button{
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
             }
         }
     }

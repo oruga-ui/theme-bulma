@@ -116,6 +116,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/select',
     name: 'Select',
     component: () => import('../components/Select.vue')
+  },
+  {
+    path: '/field',
+    name: 'Field',
+    component: () => import('../components/Field.vue')
   }
 ]
 
