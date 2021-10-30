@@ -30,4 +30,7 @@
     <o-button variant="danger" icon-right="trash">Delete</o-button>
     <o-button variant="danger" icon-right="trash"/>
   </div>
+  <div class="buttons">
+    <o-button variant="primary" expanded>Expanded</o-button>
+  </div>
 </template>
