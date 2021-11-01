@@ -4,16 +4,13 @@ import App from './App.vue'
 import router from './router'
 
 import Oruga from '@oruga-ui/oruga-next'
-import { bulmaConfig } from './plugins/oruga'
+import { bulmaConfig } from './plugins/bulma'
 
-import './assets/scss/plugin.scss'
+import './assets/scss/bulma-build.scss'
 
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss'
 import '@fortawesome/fontawesome-free/scss/regular.scss'
 import '@fortawesome/fontawesome-free/scss/solid.scss'
-
-import Steps from './components/Steps.vue'
-
 
 createApp(App)
     .use(router)
@@ -31,5 +28,4 @@ createApp(App)
         iconPack: 'fas',
         ...bulmaConfig
     })
-    .component('steps', Steps)
     .mount('#app')

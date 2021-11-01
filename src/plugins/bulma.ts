@@ -1,4 +1,4 @@
-import "../assets/scss/plugin.scss"
+import "../assets/scss/bulma-build.scss"
 
 export const bulmaConfig: any = {
     field: {

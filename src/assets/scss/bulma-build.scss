@@ -1,10 +1,8 @@
-
-
 @import "bulma/sass/utilities/functions";
 @import "bulma/sass/utilities/initial-variables";
 
-@import "buefy/utils/_all";
+@import "components/utils/_all";
 
 @import "bulma/bulma";
 
-@import 'buefy.scss';
+@import 'bulma';

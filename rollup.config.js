@@ -12,13 +12,13 @@ import postcss from "postcss"
 import pkg from "./package.json"
 
 const entries = {
-  index: "src/plugins/oruga.ts",
+  index: "src/plugins/bulma.ts",
   scss: "src/assets/scss",
 }
 
 const exits = {
   directory: "dist",
-  css: "dist/oruga-bulma.css",
+  css: "dist/bulma.css",
   esm: `dist/${pkg.module}`,
   umd: `dist/${pkg.main}`,
 }
@@ -96,8 +96,7 @@ export default function() {
       plugins: [
         copy({
           targets: [
-            { src: `${entries.scss}`, dest: `${exits.directory}` },
-            { src: "package.json", dest: `${exits.directory}` },
+            { src: `${entries.scss}`, dest: `${exits.directory}` }
           ],
         }),
         cjs(),
