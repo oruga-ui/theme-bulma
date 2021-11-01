@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <i>Bulma plugin for Oruga. WARNING: this project is currently a work in progress.</i>
+  <i>Bulma theme for Oruga. WARNING: this project is currently a work in progress.</i>
 </p>
 
 <p align="center">
@@ -46,7 +46,7 @@ createApp(App)
 
 ### Customization (SASS/SCSS)
 
-Using the following sample code you don't need `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file to customize Bulma and plugin variables.
+Using the following sample code you don't need `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file to customize Bulma and theme variables.
 
 ```scss
 @import "~bulma/sass/utilities/_all";
