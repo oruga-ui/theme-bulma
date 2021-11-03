@@ -19,8 +19,8 @@ const entries = {
 const exits = {
   directory: "dist",
   css: "dist/bulma.css",
-  esm: `dist/${pkg.module}`,
-  umd: `dist/${pkg.main}`,
+  esm: `${pkg.module}`,
+  umd: `${pkg.main}`,
 }
 
 const commonSassPluginOptions = {
