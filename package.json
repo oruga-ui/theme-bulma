@@ -1,11 +1,11 @@
 {
   "name": "@oruga-ui/theme-bulma",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bulma theme for Oruga",
   "license": "MIT",
   "main": "dist/bulma.js",
   "module": "dist/bulma.js",
-  "unpkg": "dist/bulma.js",
+  "unpkg": "dist/bulma.min.js",
   "sideEffects": [
     "*.css",
     "*.scss"
