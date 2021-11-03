@@ -13,10 +13,6 @@
     <a href="https://ko-fi.com/orugaui"><img src="https://img.shields.io/badge/donate-support%20us-00AA00.svg?logo=ko-fi" /></a>
 </p>
 
-## Documentation
-
-Description to do.
-
 ### Install (not available yet)
 
 ```sh
@@ -130,6 +126,32 @@ $link-focus-border: $primary;
 @import "~bulma/bulma";
 @import '~@oruga-ui/theme-bulma/dist/scss/bulma';
 ```
+
+### Override default config
+
+In case you want to replace the default style of a component you can override or add new classes changing ``bulmaConfig``; more details about components customization on https://preview.oruga.io/documentation/#customization
+
+```js
+import { createApp } from 'vue'
+
+import Oruga from '@oruga-ui/oruga-next'
+import { bulmaConfig } from '@oruga-ui/theme-bulma'
+
+import '@oruga-ui/theme-bulma/dist/bulma.css'
+
+const customBulmaConfig = {
+    ...bulmaConfig,
+    checkbox: {
+        override: true,
+        rootClass: 'checkbox'
+    }
+}
+
+createApp(App)
+    .use(Oruga, customBulmaConfig)
+    .mount('#app')
+```
+
 
 ## Buefy users
 
