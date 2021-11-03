@@ -301,12 +301,9 @@ export const bulmaConfig: any = {
         contentClass: 'media-content',
         iconClass: 'media-left',
         closeClass: 'delete',
-        positionClass: 'is-'
-    },
-    notice: {
-        override: true,
-        rootClass: 'b-notices',
         positionClass: 'is-',
+        noticeClass: 'b-notices',
+        noticePositionClass: 'is-'
     },
     dropdown: {
         override: true,
