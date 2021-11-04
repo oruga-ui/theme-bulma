@@ -52,7 +52,7 @@ $radio-colors: $form-colors !default;
             content: "";
             display: flex;
             position: absolute;
-            left: $radio-size / 2;
+            left: $radio-size * 0.5;
             margin-left: calc(-#{$radio-size} * 0.5);
             bottom: 50%;
             margin-bottom: calc(-#{$radio-size} * 0.5);
