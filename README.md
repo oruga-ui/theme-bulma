@@ -40,6 +40,7 @@ createApp(App)
     .use(Oruga, bulmaConfig)
     .mount('#app')
 ```
+Please note, the package also works for `@oruga-ui/oruga` (Vue 2) and you can use it without importing the full Oruga bundle.
 
 ### Customization (SASS/SCSS)
 
@@ -130,7 +131,7 @@ $link-focus-border: $primary;
 
 ### Override default config
 
-In case you want to replace the default style of a component you can override or add new classes changing ``bulmaConfig``; more details about components customization on https://preview.oruga.io/documentation/#customization
+In case you want to replace the default style of a component you can override or add new classes changing ``bulmaConfig``; more details about components customization on https://oruga.io/documentation/#customization
 
 ```js
 import { createApp } from 'vue'
