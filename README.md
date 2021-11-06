@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <i>Bulma theme for Oruga</i>
+  <i><a href="https://bulma.io" target="_blank">Bulma</a> theme for <a href="https://oruga.io" target="_blank">Oruga</a></i>
 </p>
 
 <p align="center">
@@ -173,7 +173,8 @@ At the moment you won't find Carousel, Dialog, Navbar, Menu but we'll add them s
 | --------------- | ---------- | -------------- | --------------------
 | type            | variant    |     -          | Removed prefix `is-`
 | size            | size       |     -          | Removed prefix `is-`
-| label-position  | N.A.       | Field          | Not suppported, you can easily add `is-floating-label` or `is-floating-in-label` class to ``root-class`` prop
+| loading         | N.A.       |     -          | Not supported
+| label-position  | N.A.       | Field          | Not suppported but you can easily add `is-floating-label` or `is-floating-in-label` class to ``root-class`` prop
 | size            | N.A.       | Tooltip        | You can use `multiline-class` or `content-class`
 | custom          | N.A.       | Dropdown Item  | You can use ``tag`` prop
 | has-modal-card  | N.A.       | Modal          | You have to add `content-class="modal-content"` when you don't use modal-card classes as content
