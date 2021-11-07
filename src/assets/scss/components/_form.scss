@@ -51,6 +51,16 @@ $floating-in-height: 3.25em !default;
                 border-top-left-radius: 0;
             }
         }
+        .datepicker {
+            &:not(:last-child) .input{
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+            &:not(:first-child) .input{
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
     }
     // Nested control addons (for Autocomplete and Datepicker)
     &.has-addons .control {
