@@ -89,6 +89,7 @@
 .fade-leave-active {
     transition: opacity $speed-slow $easing;
 }
+.fade-enter,
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
@@ -103,6 +104,7 @@
         transition: transform $speed-slow $easing;
     }
 }
+.zoom-in-enter,
 .zoom-in-enter-from,
 .zoom-in-leave-active {
     opacity: 0;
@@ -111,7 +113,6 @@
         transform: scale(0.95);
     }
 }
-
 
 // Zoom Out
 .zoom-out-enter-active,
@@ -122,6 +123,7 @@
         transition: transform $speed-slow $easing;
     }
 }
+.zoom-out-enter,
 .zoom-out-enter-from,
 .zoom-out-leave-active {
     opacity: 0;
@@ -138,12 +140,16 @@
 .slide-prev-leave-active {
     transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
-.slide-prev-leave-to, .slide-next-enter-from {
+.slide-prev-leave-to,
+.slide-next-enter,
+.slide-next-enter-from {
     transform: translate3d(-100%, 0, 0);
     position: absolute;
     width: 100%;
 }
-.slide-prev-enter-from, .slide-next-leave-to {
+.slide-prev-enter,
+.slide-prev-enter-from,
+.slide-next-leave-to {
     transform: translate3d(100%, 0, 0);
     position: absolute;
     width: 100%;
@@ -155,12 +161,16 @@
 .slide-up-leave-active {
     transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
-.slide-up-leave-to, .slide-down-enter-from {
+.slide-down-enter,
+.slide-up-leave-to,
+.slide-down-enter-from {
     transform: translate3d(0, -100%, 0);
     position: absolute;
     height: 100%;
 }
-.slide-up-enter-from, .slide-down-leave-to {
+.slide-up-enter,
+.slide-up-enter-from,
+.slide-down-leave-to {
     transform: translate3d(0, 100%, 0);
     position: absolute;
     height: 100%;
@@ -173,11 +183,15 @@
     transition: $speed-slow $easing;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
-.slide-enter-to, .slide-leave-from {
+.slide-leave,
+.slide-enter-to,
+.slide-leave-from {
     max-height: 100px;
     overflow: hidden;
 }
-.slide-enter-from, .slide-leave-to {
+.slide-enter,
+.slide-enter-from,
+.slide-leave-to {
     overflow: hidden;
     max-height: 0;
 }
