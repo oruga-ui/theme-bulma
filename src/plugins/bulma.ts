@@ -174,7 +174,11 @@ export const bulmaConfig: any = {
         rootClass: 'b-tabs',
         contentClass: 'tab-content',
         multilineClass: 'is-multiline',
-        navTabsClass: 'tabs',
+        navTabsClass: (_: string, { props }: any) => {
+            const classes = ['tabs'];
+            if (props.type) classes.push(`is-${props.type}`)
+            return classes.join(' ')
+        },
         expandedClass: 'is-fullwidth',
         verticalClass: 'is-vertical',
         positionClass: 'is-',
