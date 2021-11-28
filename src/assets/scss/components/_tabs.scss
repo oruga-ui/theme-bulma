@@ -338,4 +338,22 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
             }
         }
     }
+
+    &.is-vertical {
+        > .tabs {
+            &:not(.is-boxed):not(.is-toggle):not(.is-toggle-rounded) {
+                & div a {
+                    border-right-color: $tabs-border-bottom-color;
+                    border-right-width: $tabs-border-bottom-width;
+                    border-right-style: $tabs-border-bottom-style;
+                    border-bottom-color: transparent !important;
+                    border-bottom-width: 0;
+                    border-bottom-style: unset;
+                    &.is-active {
+                        border-right-color: $tabs-link-active-border-bottom-color;
+                    }
+                }
+            }
+        }
+    }
 }
