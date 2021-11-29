@@ -20,7 +20,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                 outline: $tabs-focused-outline;
                 border-bottom-color: $tabs-link-focus-active-border-bottom-color;
             }
-
+ 
             a {
                 &:not(.is-active) {
                     &:focus {
@@ -50,7 +50,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         }
                     }
                 }
-
+                
             }
         }
         &.is-toggle {
@@ -67,7 +67,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         }
                     }
                 }
-
+                
             }
         }
     }
@@ -125,7 +125,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         &.is-active {
                             border-bottom-color: $tabs-border-bottom-color !important;
                             border-right-color: transparent !important;
-                        }
+                        }    
                     }
                 }
             }
@@ -181,14 +181,14 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                             border-left-color: $tabs-border-bottom-color !important;
                             border-radius: 0 $tabs-boxed-link-radius $tabs-boxed-link-radius 0;
                         }
-
+                        
                         a {
                             &.is-active {
                                 border-bottom-color: $tabs-border-bottom-color !important;
                                 border-right-color: $tabs-border-bottom-color !important;
                                 border-left-color: transparent !important;
                             }
-
+                            
                         }
                     }
                 }
@@ -204,13 +204,13 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
 
 
     // ul or li -> div
-    // a -> a
+    // a -> a 
 
     // Hack to Bulma (ul, li, .. style)
     .tabs {
-
+       
         div {
-
+           
             a {
                 height: 100%;
                 &.is-active {
@@ -219,7 +219,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                 }
             }
         }
-
+        
 
         // ul classes -> nav
         display: flex;
@@ -228,11 +228,9 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
         justify-content: flex-start;
 
         &:not(.is-toggle), &:not(.is-toggle-rounded) {
-            & div a:not(.is-active){
-                border-bottom-color: $tabs-border-bottom-color;
-                border-bottom-style: $tabs-border-bottom-style;
-                border-bottom-width: $tabs-border-bottom-width;
-            }
+            border-bottom-color: $tabs-border-bottom-color;
+            border-bottom-style: $tabs-border-bottom-style;
+            border-bottom-width: $tabs-border-bottom-width;
         }
 
         &.is-toggle, &.is-toggle-rounded {
@@ -272,7 +270,7 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         border-bottom-left-radius: $tabs-toggle-link-radius;
                     }
                 }
-
+                
                 a {
                     &.is-active {
                         background-color: $tabs-toggle-link-active-background-color;
@@ -333,24 +331,6 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         background-color: $tabs-boxed-link-active-background-color;
                         border-color: $tabs-boxed-link-active-border-color;
                         border-bottom-color: $tabs-boxed-link-active-border-bottom-color !important;
-                    }
-                }
-            }
-        }
-    }
-
-    &.is-vertical {
-        > .tabs {
-            &:not(.is-boxed):not(.is-toggle):not(.is-toggle-rounded) {
-                & div a {
-                    border-right-color: $tabs-border-bottom-color;
-                    border-right-width: $tabs-border-bottom-width;
-                    border-right-style: $tabs-border-bottom-style;
-                    border-bottom-color: transparent !important;
-                    border-bottom-width: 0;
-                    border-bottom-style: unset;
-                    &.is-active {
-                        border-right-color: $tabs-link-active-border-bottom-color;
                     }
                 }
             }
