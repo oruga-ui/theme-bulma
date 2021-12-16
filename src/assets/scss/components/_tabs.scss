@@ -15,6 +15,8 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
     .tabs {
         margin-bottom: 0;
         flex-shrink: 0;
+        overflow: unset;
+
         div {
             a:focus {
                 outline: $tabs-focused-outline;
@@ -33,6 +35,22 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                     opacity: 0.5;
                 }
             }
+        }
+
+        // Positions
+        &.is-left {
+            padding-right: 0.75em;
+        }
+
+        &.is-center {
+            flex: none;
+            justify-content: center;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+        }
+        &.is-right {
+            justify-content: flex-end;
+            padding-left: 0.75em;
         }
 
         // Styles
@@ -212,7 +230,6 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
         div {
            
             a {
-                height: 100%;
                 &.is-active {
                     border-bottom-color: $tabs-link-active-border-bottom-color;
                     color: $tabs-link-active-color;
@@ -331,6 +348,37 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         background-color: $tabs-boxed-link-active-background-color;
                         border-color: $tabs-boxed-link-active-border-color;
                         border-bottom-color: $tabs-boxed-link-active-border-bottom-color !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &.is-vertical {
+        > .tabs {
+            &:not(.is-toggle):not(.is-toggle-rounded) {
+                border-right-color: $tabs-border-bottom-color;
+                border-right-width: $tabs-border-bottom-width;
+                border-right-style: $tabs-border-bottom-style;
+                border-bottom-color: transparent !important;
+                border-bottom-width: 0;
+                border-bottom-style: unset;
+                a {
+                    margin-right: -#{$tabs-border-bottom-width};
+                    margin-bottom: 0;
+                }
+            }
+
+            &:not(.is-boxed):not(.is-toggle):not(.is-toggle-rounded) {
+                & div a {
+                    border-right-color: $tabs-border-bottom-color;
+                    border-right-width: $tabs-border-bottom-width;
+                    border-right-style: $tabs-border-bottom-style;
+                    border-bottom-color: transparent !important;
+                    border-bottom-width: 0;
+                    border-bottom-style: unset;
+                    &.is-active {
+                        border-right-color: $tabs-link-active-border-bottom-color;
                     }
                 }
             }
