@@ -221,4 +221,11 @@ $datepicker-event-background-color: $grey-light !default;
             border-right: 1px solid #dbdbdb;
         }
     }
+
+    .pagination-list {
+        .select {
+            margin-left: 0.125rem;
+            margin-right: 0.125rem;
+        }
+    }
 }

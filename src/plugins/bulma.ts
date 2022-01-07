@@ -6,7 +6,7 @@ export const bulmaConfig: any = {
         rootClass: 'field',
         labelClass: 'label',
         messageClass: 'help',
-        variantClass: 'is-',
+        variantMessageClass: 'is-',
         addonsClass: 'has-addons',
         groupedClass: 'is-grouped',
         groupMultilineClass: 'is-grouped-multiline',
@@ -29,10 +29,8 @@ export const bulmaConfig: any = {
         variantClass: 'is-',
         sizeClass: 'is-',
         expandedClass: 'is-expanded',
-        // iconLeftSpaceClass: 'has-icons has-icons-left',
         iconLeftClass: 'is-left',
         iconRightClass: 'is-right',
-        // iconRightSpaceClass: 'has-icons has-icons-right',
         counterClass: 'help counter'
     },
     select: {
@@ -47,17 +45,9 @@ export const bulmaConfig: any = {
             if (props.iconRight) classes.push('has-icons-right')
             return classes.join(' ').trim()
         },
-        // selectClass: '',
-        // roundedClass: 'is-rounded',
-        // variantClass: 'is-',
-        // sizeClass: 'is-',
         expandedClass: 'is-fullwidth',
-        // iconLeftSpaceClass: 'has-icons has-icons-left',
         iconLeftClass: 'is-left',
         iconRightClass: 'is-right',
-        // iconRightSpaceClass: 'has-icons has-icons-right',
-        // arrowClass: '',
-        // multipleClass: 'is-multiple',
         placeholderClass: 'is-empty'
     },
     icon: {
@@ -91,22 +81,17 @@ export const bulmaConfig: any = {
         rootClass: (_: string, { props }: any) => {
             const classes = ['switch'];
             if (props.rounded) classes.push('is-rounded')
-            if (props.leftLabel) classes.push('has-left-label')
+            if (props.position === 'left') classes.push('has-left-label')
             return classes.join(' ')
         },
-        // roundedClass: 'is-rounded',
         checkClass: (_: string, { props }: any) => {
             const classes = ['check'];
             if (props.variant) classes.push(`is-${props.variant}`)
             if (props.passiveVariant) classes.push(`is-${props.passiveVariant}-passive`)
             return classes.join(' ')
         },
-        elementsWrapperClass: 'check-wrapper',
         labelClass: 'control-label',
-        // leftLabelClass: 'has-left-label',
         sizeClass: 'is-',
-        // variantClass: 'is-',
-        // passiveVariantClass: (passiveVariant: string) => (`is-${passiveVariant}-passive`)
     },
     autocomplete: {
         override: true,
@@ -164,9 +149,7 @@ export const bulmaConfig: any = {
         thumbClass: 'b-slider-thumb',
         tickLabelClass: 'b-slider-tick-label',
         tickHiddenClass: 'is-tick-hidden',
-        tickClass: 'b-slider-tick',
-        // thumbRoundedClass: 'is-rounded'
-        // thumbDraggingClass: 'is-dragging'
+        tickClass: 'b-slider-tick'
     },
     tabs: {
         override: true,
@@ -263,7 +246,6 @@ export const bulmaConfig: any = {
         stepLinkClass: 'step-link',
         stepLinkLabelClass: 'step-title',
         stepLinkClickableClass: 'is-clickable',
-        // stepLinkLabelPositionClass: 'is-',
         stepMarkerClass: 'step-marker',
         stepNavigationClass: 'step-navigation',
         stepContentClass: 'step-content',
@@ -324,8 +306,6 @@ export const bulmaConfig: any = {
         disabledClass: 'is-disabled',
         expandedClass: 'is-expanded',
         inlineClass: 'is-inline',
-        // menuPositionClass: 'is-',
-        // menuActiveClass: 'is-active'
         itemClass: 'dropdown-item',
         itemActiveClass: 'is-active',
         itemDisabledClass: 'is-disabled',
@@ -345,7 +325,6 @@ export const bulmaConfig: any = {
         prevBtnClass: 'pagination-previous',
         nextBtnClass: 'pagination-next',
         listsClass: 'pagination-list',
-        // tableBodyClass: 'datepicker-body',
         tableBodyClass: (_: string, { props }: any) => {
             const classes = ['datepicker-body'];
             if (props.events) classes.push(`has-events`);
