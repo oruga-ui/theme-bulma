@@ -357,7 +357,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: (_: string, { props }: any) => {
             const classes = ['modal'];
-            if (props.active) classes.push('is-active')
+            if (props.active || props.programmatic) classes.push('is-active')
             return classes.join(' ')
         },
         overlayClass: 'modal-background',
