@@ -1,9 +1,12 @@
 <template>
   <section>
-    <o-carousel indicatorInside>
+    <o-carousel :indicator-inside="true" indicatorStyle="boxes">
       <o-carousel-item v-for="(carousel, i) in carousels" :key="i">
         <section class="ex-slide" :style="{'background-color': carousel.color }">
-          <h1>{{ carousel.text }}</h1>
+          <div class="content">
+            <h1>{{ carousel.text }}</h1>
+          </div>
+          
         </section>
       </o-carousel-item>
     </o-carousel>
@@ -50,14 +53,14 @@
       </o-carousel-item>
 
       <template #indicators="{ active, switchTo }">
-        <o-carousel :value="active" @input="switchTo($event)" v-bind="al" as-indicator>
+        <o-carousel :model-value="active" @input="switchTo($event)" v-bind="al" as-indicator>
           <o-carousel-item v-for="(item, i) in items" :key="i" item-class="img-indicator" item-active-class="img-indicator-active">
             <img :src="item.image" />
           </o-carousel-item>
         </o-carousel>
       </template>
       <template #overlay>
-        <o-icon v-if="gallery" icon="times" root-class="ex-close-icon" clickable @click.native="switchGallery(false)" />
+        <o-icon v-if="gallery" icon="times" root-class="ex-close-icon" clickable @click="switchGallery(false)" />
         <div style="color: #ffffff; text-align: center">
           Hello, I'm an overlay!
         </div>
@@ -66,8 +69,10 @@
   </section>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue"
+
+export default defineComponent({
   data() {
     return {
       carousels: [
@@ -129,7 +134,7 @@ export default {
     }
   },
   methods: {
-    switchGallery(value) {
+    switchGallery(value: boolean) {
       this.gallery = value
       if (value) {
         document.documentElement.classList.add('o-clipped')
@@ -138,12 +143,16 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style>
 .ex-slide {
   padding: 9rem 4.5rem;
+  text-align: center;
+}
+.ex-slide h1 {
+  color: #ffffff;
 }
 
 .image img {

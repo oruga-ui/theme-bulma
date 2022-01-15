@@ -1,5 +1,3 @@
-$carousel-min-height: 120px !default;
-
 $carousel-arrow-background: $scheme-main !default;
 $carousel-arrow-color: $primary !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
@@ -15,8 +13,9 @@ $carousel-overlay-z: 40 !default;
 
 .carousel {
   @extend %unselectable;
-  min-height: $carousel-min-height;
   position: relative;
+  overflow: hidden;
+  width: 100%;
   &.is-overlay {
     background-color: $carousel-overlay-background;
     align-items: center;
@@ -33,17 +32,11 @@ $carousel-overlay-z: 40 !default;
       background: transparent;
     }
   }
-  .progress {
-    border-radius: $radius-small;
-    height: 0.25rem;
-    margin-bottom: 0;
-  }
   .carousel-scene {
-    overflow: hidden;
     width: 100%;
-    min-height: $carousel-min-height;
+    position: relative;
     .carousel-items {
-      position: relative;
+      
       display: flex;
 
       &:hover .carousel-arrow.is-hovered {
@@ -52,20 +45,16 @@ $carousel-overlay-z: 40 !default;
         }
       }
 
+      &:not(.is-dragging) {
+        transition: all $speed-slower ease-out 0s;
+      }
+
       .carousel-item {
         flex-shrink: 0;
         width: 100%;
-        min-height: $carousel-min-height;
         border: 2px solid transparent;
       }
     }
-  }
-  .carousel-pause {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    right: 0.15rem;
-    z-index: 1;
   }
   .carousel-indicator {
     width: 100%;
@@ -91,7 +80,6 @@ $carousel-overlay-z: 40 !default;
     }
     &.is-inside {
       position: absolute;
-      bottom: 0;
       &.is-bottom {
         bottom: 0;
       }

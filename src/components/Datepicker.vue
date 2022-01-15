@@ -79,7 +79,7 @@
 const thisMonth = new Date().getMonth();
 
 
-import { defineComponent } from "@vue/runtime-core";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   computed: {

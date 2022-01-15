@@ -409,6 +409,7 @@ export const bulmaConfig: any = {
         overlayClass: 'is-overlay',
         sceneClass: 'carousel-scene',
         itemsClass: 'carousel-items',
+        itemsDraggingClass: 'is-dragging',
         arrowIconClass: 'carousel-arrow',
         arrowIconPrevClass: 'has-icons-left',
         arrowIconNextClass: 'has-icons-right',
