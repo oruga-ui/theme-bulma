@@ -402,5 +402,26 @@ export const bulmaConfig: any = {
         separatorClass: 'is-colon control',
         footerClass: 'timepicker-footer',
         sizeClass: 'is-',
+    },
+    carousel: {
+        override: true,
+        rootClass: 'carousel',
+        overlayClass: 'is-overlay',
+        sceneClass: 'carousel-scene',
+        itemsClass: 'carousel-items',
+        itemsDraggingClass: 'is-dragging',
+        arrowIconClass: 'carousel-arrow',
+        arrowIconPrevClass: 'has-icons-left',
+        arrowIconNextClass: 'has-icons-right',
+        indicatorsClass: 'carousel-indicator',
+        indicatorClass: 'indicator-item',
+        indicatorsInsideClass: 'is-inside',
+        indicatorsInsidePositionClass: 'is-',
+        indicatorItemClass: 'indicator-style',
+        indicatorItemActiveClass: 'is-active',
+        indicatorItemStyleClass: 'is-',
+        // CarouselItem
+        itemClass: 'carousel-item',
+        itemActiveClass: 'is-active'
     }
 }

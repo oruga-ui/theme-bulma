@@ -85,7 +85,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/runtime-core";
+import { defineComponent } from "vue";
 import ModalDemoFormVue from "./ModalDemoForm.vue";
 import { ModalProgrammatic as Modal } from "@oruga-ui/oruga-next";
 
