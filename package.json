@@ -6,12 +6,15 @@
   "main": "dist/bulma.js",
   "module": "dist/bulma.js",
   "unpkg": "dist/bulma.min.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "types/*.d.ts"
+  ],
   "sideEffects": [
     "*.css",
     "*.scss"
-  ],
-  "files": [
-    "dist"
   ],
   "repository": {
     "type": "git",
