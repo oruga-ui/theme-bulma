@@ -1,6 +1,6 @@
 {
   "name": "@oruga-ui/theme-bulma",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bulma theme for Oruga",
   "license": "MIT",
   "main": "dist/bulma.js",
