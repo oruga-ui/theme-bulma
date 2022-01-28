@@ -12,6 +12,13 @@
       <o-button
         size="medium"
         variant="primary"
+        @click="isFullScreenImageModalActive = true"
+      >
+        Open full screen modal
+      </o-button>
+      <o-button
+        size="medium"
+        variant="primary"
         @click="isCardModalActive = true"
       >
         Open modal (clip scroll)
@@ -20,8 +27,11 @@
 
     <h2>Programmatically</h2>
     <div class="buttons">
-      <o-button size="medium" variant="primary" @click="cardModal()">
+      <o-button size="medium" variant="primary" @click="cardModal(false)">
         Open modal (Component)
+      </o-button>
+      <o-button size="medium" variant="primary" @click="cardModal(true)">
+        Open full screen modal (Component)
       </o-button>
     </div>
 
@@ -34,80 +44,47 @@
       </p>
     </o-modal>
 
+    <o-modal
+      v-model:active="isFullScreenImageModalActive"
+      content-class="modal-content is-flex is-flex-direction-column is-align-items-center is-justify-content-center"
+      full-screen
+    >
+      <img
+        style="background-color: white"
+        src="https://avatars2.githubusercontent.com/u/66300512?s=200&v=4"
+      />
+      <p>Press [ESC]</p>
+    </o-modal>
+
     <o-modal v-model:active="isCardModalActive" :width="640" scroll="clip">
-      <form action="">
-        <div class="modal-card" style="width: auto">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Login</p>
-            <o-icon
-              clickable
-              native-type="button"
-              icon="times"
-              @click="isCardModalActive = false"
-            />
-          </header>
-          <section class="modal-card-body">
-            <o-field label="Email">
-              <o-input
-                type="email"
-                v-model="email"
-                placeholder="Your email"
-                required
-              >
-              </o-input>
-            </o-field>
-
-            <o-field label="Password">
-              <o-input
-                type="password"
-                v-model="password"
-                password-reveal
-                placeholder="Your password"
-                required
-              >
-              </o-input>
-            </o-field>
-
-            <o-field>
-              <o-checkbox>Remember me</o-checkbox>
-            </o-field>
-          </section>
-          <footer class="modal-card-foot">
-            <o-button type="button" @click="isCardModalActive = false"
-              >Close</o-button
-            >
-            <o-button variant="primary">Login</o-button>
-          </footer>
-        </div>
-      </form>
+      <modal-demo-card @close="isCardModalActive = false" />
     </o-modal>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ModalDemoFormVue from "./ModalDemoForm.vue";
+import ModalDemoCard from "./ModalDemoCard.vue";
 import { ModalProgrammatic as Modal } from "@oruga-ui/oruga-next";
 
 export default defineComponent({
+  components: { ModalDemoCard },
+
   data() {
     return {
       isImageModalActive: false,
+      isFullScreenImageModalActive: false,
       isCardModalActive: false,
-      email: "",
-      password: "",
     };
   },
 
   methods: {
-    cardModal() {
+    cardModal(fullScreen: Boolean) {
       Modal.open({
-        component: ModalDemoFormVue,
+        fullScreen,
+        component: ModalDemoCard,
+        canCancel: !fullScreen,
         trapFocus: true,
-        props: {
-          email: this.email,
-          password: this.password,
-        },
       });
     },
   },
