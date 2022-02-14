@@ -174,7 +174,8 @@ export const bulmaConfig: any = {
     },
     table: {
         override: true,
-        wrapperClass: 'b-table table-wrapper',
+        rootClass: 'b-table',
+        wrapperClass: 'table-wrapper',
         tableClass: 'table',
         borderedClass: 'is-bordered',
         stripedClass: 'is-striped',
@@ -183,7 +184,7 @@ export const bulmaConfig: any = {
         emptyClass: 'is-empty',
         detailedClass: 'detail',
         footerClass: 'table-footer',
-        paginationWrapperClass: '',
+        paginationWrapperClass: 'level',
         scrollableClass: 'is-scrollable',
         trSelectedClass: 'is-selected',
         thSortableClass: 'is-sortable',
@@ -204,7 +205,7 @@ export const bulmaConfig: any = {
             else if (position === 'right') return 'has-text-right'
             return
         },
-        mobileClass: 'has-mobile-cards',
+        mobileClass: 'is-mobile',
         mobileSortClass: 'table-mobile-sort field'
     },
     tooltip: {
