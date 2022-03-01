@@ -1,7 +1,9 @@
+@use "bulma/bulma";
+
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
 $tooltip-content-multiline-width: 300px !default;
-$tooltip-colors: $colors !default;
+$tooltip-colors: bulma.$colors !default;
 
 @mixin tooltip-arrow-color($direction, $color) {
     @if ($direction == "is-top") {
@@ -52,7 +54,7 @@ $tooltip-colors: $colors !default;
                 left: 50%;
                 transform: translateX(-50%);
                 border-right: $tooltip-arrow-size solid transparent;
-                border-bottom: $tooltip-arrow-size solid $primary;
+                border-bottom: $tooltip-arrow-size solid bulma.$primary;
                 border-left: $tooltip-arrow-size solid transparent;
             } @else if ($direction == "is-top") {
                 top: 100%;
@@ -60,7 +62,7 @@ $tooltip-colors: $colors !default;
                 bottom: auto;
                 left: 50%;
                 transform: translateX(-50%);
-                border-top: $tooltip-arrow-size solid $primary;
+                border-top: $tooltip-arrow-size solid bulma.$primary;
                 border-right: $tooltip-arrow-size solid transparent;
                 border-left: $tooltip-arrow-size solid transparent;
             } @else if ($direction == "is-left") {
@@ -71,7 +73,7 @@ $tooltip-colors: $colors !default;
                 transform: translateY(-50%);
                 border-top: $tooltip-arrow-size solid transparent;
                 border-bottom: $tooltip-arrow-size solid transparent;
-                border-left: $tooltip-arrow-size solid $primary;
+                border-left: $tooltip-arrow-size solid bulma.$primary;
             } @else if ($direction == "is-right") {
                 top: 50%;
                 right: 100%;
@@ -79,7 +81,7 @@ $tooltip-colors: $colors !default;
                 left: auto;
                 transform: translateY(-50%);
                 border-top: $tooltip-arrow-size solid transparent;
-                border-right: $tooltip-arrow-size solid $primary;
+                border-right: $tooltip-arrow-size solid bulma.$primary;
                 border-bottom: $tooltip-arrow-size solid transparent;
             }
         }
@@ -114,9 +116,9 @@ $tooltip-colors: $colors !default;
     .tooltip-content {
         width: auto;
         padding: 0.35rem 0.75rem;
-        border-radius: $radius-large;
+        border-radius: bulma.$radius-large;
         font-size: 0.85rem;
-        font-weight: $weight-normal;
+        font-weight: bulma.$weight-normal;
         box-shadow: 0px 1px 2px 1px rgba(0, 1, 0, 0.2);
         z-index: 38;
         white-space: nowrap;
@@ -166,7 +168,7 @@ $tooltip-colors: $colors !default;
     }
     &.is-dashed {
         .tooltip-trigger {
-            border-bottom: 1px dashed $grey-light;
+            border-bottom: 1px dashed bulma.$grey-light;
             cursor: default;
         }
     }
