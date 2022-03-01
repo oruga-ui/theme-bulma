@@ -1,8 +1,10 @@
+@use "bulma/bulma";
+
 .pagination {
     .pagination-next,
     .pagination-previous {
-        padding-left: $pagination-nav-padding-left;
-        padding-right: $pagination-nav-padding-right;
+        padding-left: bulma.$pagination-nav-padding-left;
+        padding-right: bulma.$pagination-nav-padding-right;
         &.is-disabled {
             pointer-events: none;
             cursor: not-allowed;

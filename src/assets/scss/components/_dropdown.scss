@@ -1,5 +1,7 @@
-$dropdown-mobile-breakpoint: $desktop !default;
-$dropdown-background-color: rgba($scheme-invert, 0.86) !default;
+@use "bulma/bulma";
+
+$dropdown-mobile-breakpoint: bulma.$desktop !default;
+$dropdown-background-color: rgba(bulma.$scheme-invert, 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 
 .dropdown {
@@ -7,7 +9,7 @@ $dropdown-disabled-opacity: 0.5 !default;
         margin-left: 0.5em;
     }
     .background {
-        @include overlay;
+        @include bulma.overlay;
         position: fixed;
         background-color: $dropdown-background-color;
         z-index: 40;

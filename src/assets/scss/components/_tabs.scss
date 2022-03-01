@@ -1,15 +1,17 @@
+@use "bulma/bulma";
+
 $tabs-focused-outline: none !default;
 $tabs-items-focused-outline: none !default;
-$tabs-link-focus-active-border-bottom-color: $tabs-link-active-border-bottom-color !default;
-$tabs-link-focus-border-bottom-color: $tabs-link-hover-border-bottom-color !default;
-$tabs-boxed-link-focus-active-background-color: $tabs-boxed-link-active-background-color !default;
-$tabs-boxed-link-focus-background-color: $tabs-boxed-link-hover-background-color !default;
-$tabs-boxed-link-focus-active-border-bottom-color: $tabs-boxed-link-active-border-bottom-color !default;
-$tabs-boxed-link-focus-border-bottom-color: $tabs-boxed-link-hover-border-bottom-color !default;
-$tabs-toggle-link-focus-active-background-color: $tabs-toggle-link-active-background-color !default;
-$tabs-toggle-link-focus-background-color: $tabs-toggle-link-hover-background-color !default;
-$tabs-toggle-link-focus-active-border-color: $tabs-toggle-link-active-border-color !default;
-$tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !default;
+$tabs-link-focus-active-border-bottom-color: bulma.$tabs-link-active-border-bottom-color !default;
+$tabs-link-focus-border-bottom-color: bulma.$tabs-link-hover-border-bottom-color !default;
+$tabs-boxed-link-focus-active-background-color: bulma.$tabs-boxed-link-active-background-color !default;
+$tabs-boxed-link-focus-background-color: bulma.$tabs-boxed-link-hover-background-color !default;
+$tabs-boxed-link-focus-active-border-bottom-color: bulma.$tabs-boxed-link-active-border-bottom-color !default;
+$tabs-boxed-link-focus-border-bottom-color: bulma.$tabs-boxed-link-hover-border-bottom-color !default;
+$tabs-toggle-link-focus-active-background-color: bulma.$tabs-toggle-link-active-background-color !default;
+$tabs-toggle-link-focus-background-color: bulma.$tabs-toggle-link-hover-background-color !default;
+$tabs-toggle-link-focus-active-border-color: bulma.$tabs-toggle-link-active-border-color !default;
+$tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color !default;
 
 .b-tabs {
     .tabs {
@@ -117,13 +119,13 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                 div {
                     a {
                         border-bottom-color: transparent !important;
-                        border-right-color: $tabs-border-bottom-color !important;
-                        border-radius: $tabs-boxed-link-radius 0 0 $tabs-boxed-link-radius;
+                        border-right-color: bulma.$tabs-border-bottom-color !important;
+                        border-radius: bulma.$tabs-boxed-link-radius 0 0 bulma.$tabs-boxed-link-radius;
                     }
 
                     a {
                         &.is-active {
-                            border-bottom-color: $tabs-border-bottom-color !important;
+                            border-bottom-color: bulma.$tabs-border-bottom-color !important;
                             border-right-color: transparent !important;
                         }    
                     }
@@ -136,12 +138,12 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                     }
                     &:first-child {
                         a {
-                            border-radius: $tabs-toggle-link-radius $tabs-toggle-link-radius 0 0;
+                            border-radius: bulma.$tabs-toggle-link-radius bulma.$tabs-toggle-link-radius 0 0;
                         }
                     }
                     &:last-child {
                         a {
-                            border-radius: 0 0 $tabs-toggle-link-radius $tabs-toggle-link-radius;
+                            border-radius: 0 0 bulma.$tabs-toggle-link-radius bulma.$tabs-toggle-link-radius;
                         }
                     }
                 }
@@ -178,14 +180,14 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
                         a {
                             border-bottom-color: transparent !important;
                             border-right-color: transparent !important;
-                            border-left-color: $tabs-border-bottom-color !important;
-                            border-radius: 0 $tabs-boxed-link-radius $tabs-boxed-link-radius 0;
+                            border-left-color: bulma.$tabs-border-bottom-color !important;
+                            border-radius: 0 bulma.$tabs-boxed-link-radius bulma.$tabs-boxed-link-radius 0;
                         }
                         
                         a {
                             &.is-active {
-                                border-bottom-color: $tabs-border-bottom-color !important;
-                                border-right-color: $tabs-border-bottom-color !important;
+                                border-bottom-color: bulma.$tabs-border-bottom-color !important;
+                                border-right-color: bulma.$tabs-border-bottom-color !important;
                                 border-left-color: transparent !important;
                             }
                             
@@ -214,8 +216,8 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
             a {
                 height: 100%;
                 &.is-active {
-                    border-bottom-color: $tabs-link-active-border-bottom-color;
-                    color: $tabs-link-active-color;
+                    border-bottom-color: bulma.$tabs-link-active-border-bottom-color;
+                    color: bulma.$tabs-link-active-color;
                 }
             }
         }
@@ -228,54 +230,54 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
         justify-content: flex-start;
 
         &:not(.is-toggle), &:not(.is-toggle-rounded) {
-            border-bottom-color: $tabs-border-bottom-color;
-            border-bottom-style: $tabs-border-bottom-style;
-            border-bottom-width: $tabs-border-bottom-width;
+            border-bottom-color: bulma.$tabs-border-bottom-color;
+            border-bottom-style: bulma.$tabs-border-bottom-style;
+            border-bottom-width: bulma.$tabs-border-bottom-width;
         }
 
         &.is-toggle, &.is-toggle-rounded {
             a {
-                border-color: $tabs-toggle-link-border-color;
-                border-style: $tabs-toggle-link-border-style;
-                border-width: $tabs-toggle-link-border-width;
+                border-color: bulma.$tabs-toggle-link-border-color;
+                border-style: bulma.$tabs-toggle-link-border-style;
+                border-width: bulma.$tabs-toggle-link-border-width;
                 margin-bottom: 0;
                 position: relative;
                 &:hover {
-                    background-color: $tabs-toggle-link-hover-background-color;
-                    border-color: $tabs-toggle-link-hover-border-color;
+                    background-color: bulma.$tabs-toggle-link-hover-background-color;
+                    border-color: bulma.$tabs-toggle-link-hover-border-color;
                     z-index: 2;
                 }
             }
             div {
                 & + div {
-                    @include ltr-property("margin", -#{$tabs-toggle-link-border-width}, false);
+                    @include bulma.ltr-property("margin", -#{bulma.$tabs-toggle-link-border-width}, false);
                 }
                 &:first-child a {
-                    @include ltr {
-                        border-top-left-radius: $tabs-toggle-link-radius;
-                        border-bottom-left-radius: $tabs-toggle-link-radius;
+                    @include bulma.ltr {
+                        border-top-left-radius: bulma.$tabs-toggle-link-radius;
+                        border-bottom-left-radius: bulma.$tabs-toggle-link-radius;
                     }
-                    @include rtl {
-                        border-top-right-radius: $tabs-toggle-link-radius;
-                        border-bottom-right-radius: $tabs-toggle-link-radius;
+                    @include bulma.rtl {
+                        border-top-right-radius: bulma.$tabs-toggle-link-radius;
+                        border-bottom-right-radius: bulma.$tabs-toggle-link-radius;
                     }
                 }
                 &:last-child a {
-                    @include ltr {
-                        border-top-right-radius: $tabs-toggle-link-radius;
-                        border-bottom-right-radius: $tabs-toggle-link-radius;
+                    @include bulma.ltr {
+                        border-top-right-radius: bulma.$tabs-toggle-link-radius;
+                        border-bottom-right-radius: bulma.$tabs-toggle-link-radius;
                     }
-                    @include rtl {
-                        border-top-left-radius: $tabs-toggle-link-radius;
-                        border-bottom-left-radius: $tabs-toggle-link-radius;
+                    @include bulma.rtl {
+                        border-top-left-radius: bulma.$tabs-toggle-link-radius;
+                        border-bottom-left-radius: bulma.$tabs-toggle-link-radius;
                     }
                 }
                 
                 a {
                     &.is-active {
-                        background-color: $tabs-toggle-link-active-background-color;
-                        border-color: $tabs-toggle-link-active-border-color;
-                        color: $tabs-toggle-link-active-color;
+                        background-color: bulma.$tabs-toggle-link-active-background-color;
+                        border-color: bulma.$tabs-toggle-link-active-border-color;
+                        color: bulma.$tabs-toggle-link-active-color;
                         z-index: 1;
                     }
                 }
@@ -285,26 +287,26 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
         &.is-toggle-rounded {
             div {
                 &:first-child a {
-                    @include ltr {
-                        border-bottom-left-radius: $radius-rounded;
-                        border-top-left-radius: $radius-rounded;
+                    @include bulma.ltr {
+                        border-bottom-left-radius: bulma.$radius-rounded;
+                        border-top-left-radius: bulma.$radius-rounded;
                         padding-left: 1.25em;
                     }
-                    @include rtl {
-                        border-bottom-right-radius: $radius-rounded;
-                        border-top-right-radius: $radius-rounded;
+                    @include bulma.rtl {
+                        border-bottom-right-radius: bulma.$radius-rounded;
+                        border-top-right-radius: bulma.$radius-rounded;
                         padding-right: 1.25em;
                     }
                 }
                 &:last-child a {
-                    @include ltr {
-                        border-bottom-right-radius: $radius-rounded;
-                        border-top-right-radius: $radius-rounded;
+                    @include bulma.ltr {
+                        border-bottom-right-radius: bulma.$radius-rounded;
+                        border-top-right-radius: bulma.$radius-rounded;
                         padding-right: 1.25em;
                     }
-                    @include rtl {
-                        border-bottom-left-radius: $radius-rounded;
-                        border-top-left-radius: $radius-rounded;
+                    @include bulma.rtl {
+                        border-bottom-left-radius: bulma.$radius-rounded;
+                        border-top-left-radius: bulma.$radius-rounded;
                         padding-left: 1.25em;
                     }
                 }
@@ -314,23 +316,23 @@ $tabs-toggle-link-focus-border-color: $tabs-toggle-link-hover-border-color !defa
         &.is-boxed {
             a {
                 border: 1px solid transparent;
-                @include ltr {
-                    border-radius: $tabs-boxed-link-radius $tabs-boxed-link-radius 0 0;
+                @include bulma.ltr {
+                    border-radius: bulma.$tabs-boxed-link-radius bulma.$tabs-boxed-link-radius 0 0;
                 }
-                @include rtl {
-                    border-radius: 0 0 $tabs-boxed-link-radius $tabs-boxed-link-radius;
+                @include bulma.rtl {
+                    border-radius: 0 0 bulma.$tabs-boxed-link-radius bulma.$tabs-boxed-link-radius;
                 }
                 &:hover {
-                    background-color: $tabs-boxed-link-hover-background-color;
-                    border-bottom-color: $tabs-boxed-link-hover-border-bottom-color;
+                    background-color: bulma.$tabs-boxed-link-hover-background-color;
+                    border-bottom-color: bulma.$tabs-boxed-link-hover-border-bottom-color;
                 }
             }
             div {
                 a  {
                     &.is-active {
-                        background-color: $tabs-boxed-link-active-background-color;
-                        border-color: $tabs-boxed-link-active-border-color;
-                        border-bottom-color: $tabs-boxed-link-active-border-bottom-color !important;
+                        background-color: bulma.$tabs-boxed-link-active-background-color;
+                        border-color: bulma.$tabs-boxed-link-active-border-color;
+                        border-bottom-color: bulma.$tabs-boxed-link-active-border-bottom-color !important;
                     }
                 }
             }

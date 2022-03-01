@@ -1,3 +1,6 @@
+@use "bulma/bulma";
+@use "utils/variables" as var;
+
 $table-sticky-header-height: 300px !default;
 
 @mixin table-cards {
@@ -28,7 +31,7 @@ $table-sticky-header-height: 300px !default;
     }
     tr {
         // Card style — Cannot extend inside media query
-        box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+        box-shadow: 0 2px 3px rgba(bulma.$black, 0.1), 0 0 0 1px rgba(bulma.$black, 0.1);
         max-width: 100%;
         position: relative;
         display: block;
@@ -44,9 +47,9 @@ $table-sticky-header-height: 300px !default;
         }
         // Disables is-*
         &:not([class*="is-"]) {
-            background: $table-background-color;
+            background: bulma.$table-background-color;
             &:hover {
-                background-color: $table-background-color;
+                background-color: bulma.$table-background-color;
             }
         }
         &.detail {
@@ -59,10 +62,10 @@ $table-sticky-header-height: 300px !default;
             width: auto;
             justify-content: space-between;
             text-align: right;
-            border-bottom: 1px solid $background;
+            border-bottom: 1px solid bulma.$background;
             &:before {
                 content: attr(data-label);
-                font-weight: $weight-semibold;
+                font-weight: bulma.$weight-semibold;
                 padding-right: 0.5em;
                 text-align: left;
             }
@@ -77,27 +80,27 @@ $table-sticky-header-height: 300px !default;
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
-    @include touch {
+    @include bulma.touch {
         overflow-x: auto;
     }
 }
 
 .b-table {
-    transition: opacity $speed $easing;
+    transition: opacity bulma.$speed bulma.$easing;
 
     .table-mobile-sort {
-        @include tablet {
+        @include bulma.tablet {
             display: none;
         }
         // addition
         .button {
-            background-color: $primary;
-            color: $primary-invert;
+            background-color: bulma.$primary;
+            color: bulma.$primary-invert;
         }
     }
 
     .icon {
-        transition: transform $speed-slow $easing, opacity $speed $easing;
+        transition: transform var.$speed-slow bulma.$easing, opacity bulma.$speed bulma.$easing;
         &.is-desc {
             transform: rotate(180deg);
         }
@@ -113,10 +116,10 @@ $table-sticky-header-height: 300px !default;
     .table {
         width: 100%;
         border: 1px solid transparent;
-        border-radius: $radius;
+        border-radius: bulma.$radius;
         border-collapse: separate;
         th {
-            font-weight: $weight-semibold;
+            font-weight: bulma.$weight-semibold;
             .th-wrap {
                 display: flex;
                 align-items: center;
@@ -153,11 +156,11 @@ $table-sticky-header-height: 300px !default;
                 text-align: center;
             }
             &.is-current-sort {
-                border-color: $grey;
-                font-weight: $weight-bold;
+                border-color: bulma.$grey;
+                font-weight: bulma.$weight-bold;
             }
             &.is-sortable:hover {
-                border-color: $grey;
+                border-color: bulma.$grey;
             }
             &.is-sortable {
                 cursor: pointer;
@@ -180,7 +183,7 @@ $table-sticky-header-height: 300px !default;
                 position: sticky;
                 left: 0;
                 z-index: 3 !important;
-                background: $table-head-background-color;
+                background: bulma.$table-head-background-color;
             }
             &.th-checkbox {
                 width: 40px;
@@ -193,10 +196,10 @@ $table-sticky-header-height: 300px !default;
             &.is-selected {
                 .checkbox input {
                     &:checked + .check {
-                        background: $table-row-active-color url(checkmark($table-row-active-background-color)) no-repeat center center;
+                        background: bulma.$table-row-active-color url(checkmark(bulma.$table-row-active-background-color)) no-repeat center center;
                     }
                     + .check {
-                        border-color: $table-row-active-color;
+                        border-color: bulma.$table-row-active-color;
                     }
                 }
             }
@@ -207,7 +210,7 @@ $table-sticky-header-height: 300px !default;
         .chevron-cell {
             vertical-align: middle;
             > .icon {
-                color: $input-arrow !important;
+                color: bulma.$input-arrow !important;
             }
         }
         .checkbox-cell {
@@ -220,23 +223,23 @@ $table-sticky-header-height: 300px !default;
             }
         }
         tr.detail {
-            box-shadow: inset 0 1px 3px $grey-lighter;
-            background: $scheme-main-bis;
+            box-shadow: inset 0 1px 3px bulma.$grey-lighter;
+            background: bulma.$scheme-main-bis;
             .detail-container {
                 padding: 1rem;
             }
         }
         &:focus {
-            border-color: $link;
-            box-shadow: 0 0 0 0.125em rgba($link, 0.25);
+            border-color: bulma.$link;
+            box-shadow: 0 0 0 0.125em rgba(bulma.$link, 0.25);
         }
 
         // Modifiers
         &.is-bordered {
             th.is-current-sort,
             th.is-sortable:hover {
-                border-color: $grey-lighter;
-                background: $background;
+                border-color: bulma.$grey-lighter;
+                background: bulma.$background;
             }
         }
 
@@ -246,7 +249,7 @@ $table-sticky-header-height: 300px !default;
                 position: sticky;
                 left: 0;
                 z-index: 1;
-                background: $table-background-color;
+                background: bulma.$table-background-color;
             }
         }
 
@@ -256,7 +259,7 @@ $table-sticky-header-height: 300px !default;
                     &:nth-child(even) {
                         td {
                             &.is-sticky {
-                                background: $table-striped-row-even-background-color;
+                                background: bulma.$table-striped-row-even-background-color;
                             }
                         }
                     }
@@ -271,7 +274,7 @@ $table-sticky-header-height: 300px !default;
             flex-grow: 0;
             flex-shrink: 0;
             align-items: center;
-            @include tablet {
+            @include bulma.tablet {
                 display: flex;
             }
 
@@ -303,7 +306,7 @@ $table-sticky-header-height: 300px !default;
             height: $table-sticky-header-height;
             overflow-y: auto;
             &.is-mobile {
-                @include mobile {
+                @include bulma.mobile {
                     height: initial !important;
                     overflow-y: initial !important;
                 }
@@ -314,12 +317,12 @@ $table-sticky-header-height: 300px !default;
                     position: sticky;
                     top: 0;
                     z-index: 2;
-                    background: $table-background-color;
+                    background: bulma.$table-background-color;
                 }
             }
         }
         &.is-mobile {
-            @include mobile {
+            @include bulma.mobile {
                 @include table-cards
             }
         }
