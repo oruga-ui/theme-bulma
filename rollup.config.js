@@ -47,12 +47,6 @@ function createDirectoryIfDoesNotExist(filePath) {
   createDirectoryIfDoesNotExist(directoryName)
   fs.mkdirSync(directoryName)
 }
-function kebabCaseToPascalCase(string) {
-  return string
-    .split("-")
-    .map((w) => w[0].toUpperCase() + w.substr(1).toLowerCase())
-    .join("")
-}
 
 function createMinifiedFileName(fileName){
   const fileNameParts = fileName.split(".")
@@ -83,12 +77,12 @@ export default function() {
         },
         {
           format: "umd",
-          name: `${kebabCaseToPascalCase(pkg.name)}`,
+          name: "OrugaThemeBulma",
           file: `${exits.umd}`,
         },
         {
           format: "umd",
-          name: `${kebabCaseToPascalCase(pkg.name)}`,
+          name: "OrugaThemeBulma",
           file: `${createMinifiedFileName(exits.umd)}`,
           plugins: [terser()],
         },
