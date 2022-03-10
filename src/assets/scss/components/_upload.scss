@@ -17,23 +17,6 @@
         padding: 0.25em;
         border: 1px dashed $grey-light;
         border-radius: $radius-large;
-        &.is-disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        &.is-loading {
-            position: relative;
-            pointer-events: none;
-            opacity: 0.5;
-            &:after {
-                @include loader;
-                top: 0;
-                left: calc(50% - 1.5em);
-                width: 3em;
-                height: 3em;
-                border-width: 0.25em;
-            }
-        }
         &:hover,
         &.is-hovered {
             @each $name, $pair in $file-colors {
@@ -44,12 +27,16 @@
                 }
             }
         }
-        &.is-expanded {
-            width: 100%;
-        }
     }
     &.is-expanded {
         width: 100%;
+        .upload-draggable {
+            width: 100%;
+        }
+    }
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
     &.is-rounded {
         border-radius: $radius-rounded;
@@ -57,17 +44,6 @@
         .file-name {
             border-top-right-radius: $radius-rounded;
             border-bottom-right-radius: $radius-rounded;
-        }
-    }
-}
-// temporary IE 11 hack !!!
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    .upload {
-        input[type="file"] {
-            z-index: auto;
-        }
-        .upload-draggable + input[type="file"] {
-            z-index: -1;
         }
     }
 }
