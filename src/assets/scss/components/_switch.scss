@@ -206,7 +206,7 @@ $switch-colors: $form-colors !default;
     &.is-large {
         @include control-large;
     }
-    &[disabled] {
+    &.is-disabled {
         opacity: 0.5;
         cursor: not-allowed;
         color: $grey;

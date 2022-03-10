@@ -92,6 +92,7 @@ export const bulmaConfig: any = {
         },
         labelClass: 'control-label',
         sizeClass: 'is-',
+        disabledClass: 'is-disabled'
     },
     autocomplete: {
         override: true,

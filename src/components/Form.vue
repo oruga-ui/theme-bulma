@@ -36,6 +36,8 @@
 
   <o-switch variant="primary"> Yes </o-switch>
 
+   <o-switch disabled variant="primary"> Yes </o-switch>
+
   <o-switch variant="danger" root-class="is-outlined" passive-variant="warning">
     Allow new items
   </o-switch>
