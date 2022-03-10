@@ -425,5 +425,14 @@ export const bulmaConfig: any = {
         // CarouselItem
         itemClass: 'carousel-item',
         itemActiveClass: 'is-active'
+    },
+    upload: {
+        override: true,
+        rootClass: 'upload control',
+        draggableClass: 'upload-draggable',
+        variantClass: 'is-',
+        expandedClass: 'is-expanded',
+        disabledClass: 'is-disabled',
+        hoveredClass: 'is-hovered'
     }
 }

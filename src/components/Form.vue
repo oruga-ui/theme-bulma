@@ -34,6 +34,18 @@
     </div>
   </o-field>
 
+  <o-upload v-model="file" class="file-label">
+            <span class="file-cta">
+                <o-icon class="file-icon" icon="upload"></o-icon>
+                <span class="file-label">Click to upload</span>
+            </span>
+            <span class="file-name" v-if="file">
+                {{ file.name }}
+            </span>
+        </o-upload>
+
+  <hr>
+
   <o-switch variant="primary"> Yes </o-switch>
 
    <o-switch disabled variant="primary"> Yes </o-switch>
@@ -189,8 +201,14 @@
   </o-field>
 </template>
 
-<script>
-export default {};
+<script lang="ts">
+export default {
+  data() {
+    return {
+      file: null
+    }
+  }
+};
 </script>
 
 <style></style>
