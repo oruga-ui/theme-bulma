@@ -223,6 +223,7 @@ $datepicker-event-background-color: $grey-light !default;
     }
 
     .pagination-list {
+        flex-wrap: nowrap;
         .select {
             margin-left: 0.125rem;
             margin-right: 0.125rem;
