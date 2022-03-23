@@ -1,6 +1,6 @@
 {
   "name": "@oruga-ui/theme-bulma",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Bulma theme for Oruga",
   "license": "MIT",
   "main": "dist/bulma.js",
@@ -25,6 +25,7 @@
   },
   "scripts": {
     "dev": "vite --force",
+    "dev:link": "npm link @oruga-ui/oruga-next && vite --force",
     "build": "vue-tsc --noEmit && vite build",
     "build:lib": "rimraf dist && rollup -c",
     "serve": "vite preview"
