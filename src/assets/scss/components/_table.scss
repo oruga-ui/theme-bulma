@@ -71,6 +71,7 @@ $table-sticky-header-height: 300px !default;
 }
 
 .table-wrapper {
+    position: relative;
     .table {
         margin-bottom: 0;
     }
@@ -296,9 +297,7 @@ $table-sticky-header-height: 300px !default;
             display: flex;
         }
     }
-    // .table-wrapper {
     &.table-wrapper {
-        position: relative;
         &.has-sticky-header {
             height: $table-sticky-header-height;
             overflow-y: auto;
