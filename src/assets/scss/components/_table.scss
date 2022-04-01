@@ -297,7 +297,7 @@ $table-sticky-header-height: 300px !default;
             display: flex;
         }
     }
-    &.table-wrapper {
+    .table-wrapper {
         &.has-sticky-header {
             height: $table-sticky-header-height;
             overflow-y: auto;
