@@ -5,6 +5,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: 'field',
         labelClass: 'label',
+        labelSizeClass: 'is-',
         messageClass: 'help',
         variantMessageClass: 'is-',
         addonsClass: 'has-addons',
