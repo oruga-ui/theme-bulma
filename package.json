@@ -31,7 +31,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "bulma": "0.9.3"
+    "bulma": "0.9.4"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
