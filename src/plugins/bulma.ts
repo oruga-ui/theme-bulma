@@ -187,7 +187,7 @@ export const bulmaConfig: any = {
         detailedClass: 'detail',
         footerClass: 'table-footer',
         paginationWrapperClass: 'level',
-        scrollableClass: 'is-scrollable',
+        scrollableClass: 'table-container',
         trSelectedClass: 'is-selected',
         thSortableClass: 'is-sortable',
         thCurrentSortClass: 'is-current-sort',
