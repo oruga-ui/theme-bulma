@@ -291,6 +291,7 @@ export const bulmaConfig: any = {
         contentClass: 'media-content',
         iconClass: 'media-left',
         closeClass: 'delete',
+        closeIcon: '',
         positionClass: 'is-',
         noticeClass: 'b-notices',
         noticePositionClass: 'is-'
