@@ -270,6 +270,12 @@ export const bulmaConfig: any = {
         invertedClass: () => 'is-inverted',
         elementsWrapperClass: 'button-wrapper'
     },
+    menu: {
+        override: true,
+        rootClass: 'menu',
+        listClass: 'menu-list',
+        listLabelClass: 'menu-label'
+    },
     skeleton: {
         override: true,
         rootClass: (_: string, { props }: any) => {
