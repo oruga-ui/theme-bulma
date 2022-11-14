@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
-    "@oruga-ui/oruga-next": "0.5.2",
+    "@oruga-ui/oruga-next": "0.5.6",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-typescript": "8.3.0",
     "@vitejs/plugin-vue": "1.2.3",
