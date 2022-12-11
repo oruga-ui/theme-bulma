@@ -362,6 +362,10 @@ export const bulmaConfig: any = {
         tableEventVariantClass: 'is-',
         tableEventsClass: 'events',
         tableEventClass: 'event',
+        monthClass: 'datepicker-table',
+        monthBodyClass: 'datepicker-body',
+        monthTableClass: 'datepicker-months',
+        monthCellClass: 'datepicker-cell'
     },
     modal: {
         override: true,
