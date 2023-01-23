@@ -213,7 +213,12 @@ $steps-colors: $colors !default;
                         position: absolute;
                         width: 100%;
                         bottom: 0;
-                        left: -50%;
+                        @include ltr {
+                            left: -50%;
+                        }
+                        @include rtl {
+                            left: 50%;
+                        }
                     }
                 }
                 &:only-child {
