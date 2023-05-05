@@ -371,7 +371,7 @@ export const bulmaConfig: any = {
             return classes.join(' ')
         },
         overlayClass: 'modal-background',
-        contentClass: 'animation-content',
+        contentClass: 'modal-content animation-content',
         closeClass: 'modal-close is-large',
         fullScreenClass: 'is-full-screen'
     },
