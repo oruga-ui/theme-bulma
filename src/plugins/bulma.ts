@@ -389,7 +389,8 @@ export const bulmaConfig: any = {
         overlayClass: 'modal-background',
         contentClass: 'modal-content animation-content',
         closeClass: 'modal-close is-large',
-        fullScreenClass: 'is-full-screen'
+        fullScreenClass: 'is-full-screen',
+        scrollClipClass: 'is-clipped'
     },
     sidebar: {
         override: true,
