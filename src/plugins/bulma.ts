@@ -188,6 +188,7 @@ export const bulmaConfig: any = {
         footerClass: 'table-footer',
         paginationWrapperClass: 'level',
         scrollableClass: 'table-container',
+        stickyHeaderClass: 'has-sticky-header',
         trSelectedClass: 'is-selected',
         thSortableClass: 'is-sortable',
         thCurrentSortClass: 'is-current-sort',
