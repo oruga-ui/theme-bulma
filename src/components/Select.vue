@@ -1,5 +1,18 @@
+<script setup lang="ts">
+import { ref } from "vue";
+
+const selectedOptions = ref([]);
+</script>
+
 <template>
   <section>
+    <h2>Select Demo</h2>
+    <hr />
+  </section>
+
+  <section>
+    <h3>Base</h3>
+
     <o-field label="Simple">
       <o-select placeholder="Select a name">
         <option value="flint">Flint</option>
@@ -33,7 +46,10 @@
       </o-select>
     </o-field>
 
-    <o-field label="Error" variant="danger" message="Something went wrong with this field">
+    <o-field
+      label="Error"
+      variant="danger"
+      message="Something went wrong with this field">
       <o-select placeholder="Select a character">
         <option value="flint">Flint</option>
         <option value="silver">Silver</option>
@@ -68,15 +84,8 @@
       </o-select>
     </o-field>
 
-    <o-field label="Size 'large'">
-      <o-select placeholder="Large" size="large">
-        <option value="flint">Flint</option>
-        <option value="silver">Silver</option>
-      </o-select>
-    </o-field>
-
     <o-field label="Multiple">
-      <o-select multiple native-size="8" v-model="selectedOptions">
+      <o-select v-model="selectedOptions" multiple native-size="8">
         <option value="flint">Flint</option>
         <option value="silver">Silver</option>
         <option value="vane">Vane</option>
@@ -89,14 +98,58 @@
       </o-select>
     </o-field>
   </section>
-</template>
 
-<script>
-  export default {
-    data() {
-      return {
-        selectedOptions: []
-      }
-    }
-  }
-</script>
+  <section class="my-4">
+    <h3>Sizes</h3>
+
+    <o-field label="Size 'small'">
+      <o-select placeholder="Select a name" size="small">
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+
+    <o-field label="Size 'default'">
+      <o-select placeholder="Select a name">
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+
+    <o-field label="Size 'medium'">
+      <o-select placeholder="Select a name" size="medium">
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+
+    <o-field label="Size 'large'">
+      <o-select placeholder="Select a name" size="large">
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+  </section>
+
+  <section class="my-4">
+    <h3>With Icons</h3>
+
+    <o-field>
+      <o-select placeholder="Select a name" icon="search" icon-clickable>
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+
+    <o-field>
+      <o-select
+        placeholder="Select a name"
+        icon="envelope"
+        icon-right="times-circle"
+        icon-right-clickable>
+        <option value="flint">Flint</option>
+        <option value="silver">Silver</option>
+      </o-select>
+    </o-field>
+  </section>
+</template>

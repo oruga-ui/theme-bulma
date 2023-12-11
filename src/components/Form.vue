@@ -4,8 +4,7 @@
       icon="user"
       size="large"
       :has-counter="true"
-      maxlength="10"
-    ></o-input>
+      maxlength="10"></o-input>
   </o-field>
 
   <o-field label="Name" variant="danger" message="Invalid field">
@@ -35,20 +34,20 @@
   </o-field>
 
   <o-upload v-model="file" class="file-label">
-            <span class="file-cta">
-                <o-icon class="file-icon" icon="upload"></o-icon>
-                <span class="file-label">Click to upload</span>
-            </span>
-            <span class="file-name" v-if="file">
-                {{ file.name }}
-            </span>
-        </o-upload>
+    <span class="file-cta">
+      <o-icon class="file-icon" icon="upload"></o-icon>
+      <span class="file-label">Click to upload</span>
+    </span>
+    <span v-if="file" class="file-name">
+      {{ file.name }}
+    </span>
+  </o-upload>
 
-  <hr>
+  <hr />
 
   <o-switch variant="primary"> Yes </o-switch>
 
-   <o-switch disabled variant="primary"> Yes </o-switch>
+  <o-switch disabled variant="primary"> Yes </o-switch>
 
   <o-switch variant="danger" root-class="is-outlined" passive-variant="warning">
     Allow new items
@@ -57,8 +56,7 @@
     variant="danger"
     passive-variant="warning"
     left-label
-    :rounded="false"
-  >
+    :rounded="false">
     Open on focus
   </o-switch>
 
@@ -103,9 +101,7 @@
       <o-checkbox disabled> Disabled </o-checkbox>
     </o-field>
     <o-field>
-      <o-checkbox indeterminate>
-        Default Indeterminate
-      </o-checkbox>
+      <o-checkbox indeterminate> Default Indeterminate </o-checkbox>
     </o-field>
     <o-field>
       <o-checkbox variant="primary" indeterminate>
@@ -131,24 +127,16 @@
       </o-checkbox>
     </o-field>
     <o-field>
-      <o-checkbox size="small">
-        Small
-      </o-checkbox>
+      <o-checkbox size="small"> Small </o-checkbox>
     </o-field>
     <o-field>
-      <o-checkbox>
-        Default
-      </o-checkbox>
+      <o-checkbox> Default </o-checkbox>
     </o-field>
     <o-field>
-      <o-checkbox size="medium">
-        Medium
-      </o-checkbox>
+      <o-checkbox size="medium"> Medium </o-checkbox>
     </o-field>
     <o-field>
-      <o-checkbox size="large">
-        Large
-      </o-checkbox>
+      <o-checkbox size="large"> Large </o-checkbox>
     </o-field>
   </section>
 
@@ -201,14 +189,10 @@
   </o-field>
 </template>
 
-<script lang="ts">
-export default {
-  data() {
-    return {
-      file: null
-    }
-  }
-};
+<script setup lang="ts">
+import { ref } from "vue";
+
+const file = ref<File>();
 </script>
 
 <style></style>

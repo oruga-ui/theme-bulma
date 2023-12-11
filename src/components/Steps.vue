@@ -1,122 +1,191 @@
+<script setup lang="ts">
+import { ref } from "vue";
+
+const activeStep = ref("0");
+
+const showSocial = ref(false);
+const isAnimated = ref(true);
+const isVertical = ref(false);
+const isRounded = ref(true);
+const isStepsClickable = ref(false);
+
+const hasNavigation = ref(true);
+const customNavigation = ref(false);
+const isProfileSuccess = ref(false);
+
+const prevIcon = ref("chevron-left");
+const nextIcon = ref("chevron-right");
+const labelPosition = ref("bottom");
+const stepsPosition = ref("left");
+const position = ref(null);
+const size = ref(null);
+</script>
+
 <template>
   <section>
-    <p>
-      <o-field grouped group-multiline>
-        <div class="control">
-          <o-switch v-model="showSocial"> Show Social step </o-switch>
-        </div>
-        <div class="control">
-          <o-switch v-model="isAnimated"> Animated </o-switch>
-        </div>
-        <div class="control">
-          <o-switch v-model="isRounded"> Rounded </o-switch>
-        </div>
-        <div class="control">
-          <o-switch v-model="isStepsClickable"> Clickable Marker </o-switch>
-        </div>
-      </o-field>
-      <o-field grouped group-multiline>
-        <div class="control">
-          <o-switch v-model="hasNavigation"> Navigation Buttons </o-switch>
-        </div>
-        <div class="control">
-          <o-switch v-model="customNavigation"> Custom Navigation </o-switch>
-        </div>
-        <div class="control">
-          <o-switch v-model="isProfileSuccess"> Set <code>success</code> for profile </o-switch>
-        </div>
-      </o-field>
-      <o-field v-if="hasNavigation" grouped group-multiline>
-        <o-field label="Prev icon">
-          <o-select v-model="prevIcon">
-            <option value="chevron-left">Chevron</option>
-            <option value="arrow-left">Arrow</option>
-          </o-select>
-        </o-field>
-        <o-field label="Next icon">
-          <o-select v-model="nextIcon">
-            <option value="chevron-right">Chevron</option>
-            <option value="arrow-right">Arrow</option>
-          </o-select>
-        </o-field>
-        <o-field label="Label position">
-          <o-select v-model="labelPosition">
-            <option value="bottom">Bottom</option>
-            <option value="right">Right</option>
-            <option value="left">Left</option>
-          </o-select>
-        </o-field>
-      </o-field>
-    </p>
-    <o-steps
+    <h2>Steps Demo</h2>
+    <hr />
+  </section>
 
+  <section>
+    <h3>Base</h3>
+
+    <o-field grouped group-multiline>
+      <o-field>
+        <o-switch v-model="showSocial" label="Show Social step" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="isAnimated" label="Animated" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="isRounded" label="Rounded" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="isVertical" label="Vertical" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="isStepsClickable" label="Clickable Marker" />
+      </o-field>
+    </o-field>
+    <o-field grouped group-multiline>
+      <o-field>
+        <o-switch v-model="hasNavigation" label="Navigation Buttons" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="customNavigation" label="Custom Navigation" />
+      </o-field>
+      <o-field>
+        <o-switch v-model="isProfileSuccess">
+          Set <code>success</code> for profile
+        </o-switch>
+      </o-field>
+    </o-field>
+    <o-field v-if="hasNavigation" grouped group-multiline>
+      <o-field label="Prev icon">
+        <o-select v-model="prevIcon">
+          <option value="chevron-left">Chevron</option>
+          <option value="arrow-left">Arrow</option>
+        </o-select>
+      </o-field>
+      <o-field label="Next icon">
+        <o-select v-model="nextIcon">
+          <option value="chevron-right">Chevron</option>
+          <option value="arrow-right">Arrow</option>
+        </o-select>
+      </o-field>
+      <o-field label="Label position">
+        <o-select v-model="labelPosition">
+          <option value="bottom">Bottom</option>
+          <option value="right">Right</option>
+          <option value="left">Left</option>
+        </o-select>
+      </o-field>
+      <o-field label="steps position">
+        <o-select v-model="stepsPosition">
+          <option value="right">Right</option>
+          <option value="left">Left</option>
+        </o-select>
+      </o-field>
+    </o-field>
+
+    <o-steps
       v-model="activeStep"
+      :vertical="isVertical"
+      :position="stepsPosition"
       :animated="isAnimated"
       :rounded="isRounded"
       :has-navigation="hasNavigation"
       :icon-prev="prevIcon"
       :icon-next="nextIcon"
-      :label-position="labelPosition"
-    >
+      :label-position="labelPosition">
       <o-step-item step="1" label="Account" :clickable="isStepsClickable">
-        <h1 class="title has-text-centered">Account</h1>
+        <h1 class="title text-center">Account</h1>
         Lorem ipsum dolor sit amet.
       </o-step-item>
 
-      <o-step-item step="2" label="Profile" :clickable="isStepsClickable" :variant="isProfileSuccess ? 'success': ''">
-        <h1 class="title has-text-centered">Profile</h1>
+      <o-step-item
+        step="2"
+        label="Profile"
+        :clickable="isStepsClickable"
+        :variant="isProfileSuccess ? 'success' : ''">
+        <h1 class="title text-center">Profile</h1>
         Lorem ipsum dolor sit amet.
       </o-step-item>
 
-      <o-step-item step="3" :visible="showSocial" label="Social" :clickable="isStepsClickable">
-        <h1 class="title has-text-centered">Social</h1>
+      <o-step-item
+        step="3"
+        :visible="showSocial"
+        label="Social"
+        :clickable="isStepsClickable">
+        <h1 class="title text-center">Social</h1>
         Lorem ipsum dolor sit amet.
       </o-step-item>
 
-      <o-step-item :step="showSocial ? '4' : '3'" label="Finish" :clickable="isStepsClickable" disabled>
-        <h1 class="title has-text-centered">Finish</h1>
+      <o-step-item
+        :step="showSocial ? '4' : '3'"
+        label="Finish"
+        :clickable="isStepsClickable"
+        disabled>
+        <h1 class="title text-center">Finish</h1>
         Lorem ipsum dolor sit amet.
       </o-step-item>
 
-      <template v-if="customNavigation" v-slot:navigation="{previous, next}">
-        <o-button outlined variant="danger" icon-pack="fas" icon-left="backward" :disabled="previous.disabled" @click.prevent="previous.action">
-          Previous
-        </o-button>
-        <o-button outlined variant="success" icon-pack="fas" icon-right="forward" :disabled="next.disabled" @click.prevent="next.action">
-          Next
-        </o-button>
+      <template v-if="customNavigation" #navigation="{ previous, next }">
+        <o-button
+          outlined
+          variant="danger"
+          icon-pack="fas"
+          icon-left="backward"
+          :disabled="previous.disabled"
+          label="Previous"
+          @click.prevent="previous.action" />
+
+        <o-button
+          outlined
+          variant="success"
+          icon-pack="fas"
+          icon-right="forward"
+          :disabled="next.disabled"
+          label="Next"
+          @click.prevent="next.action" />
       </template>
     </o-steps>
   </section>
-  <hr/>
+
   <section>
-    <h4>Warning</h4>
+    <h3>Variants</h3>
+
+    Warning
     <o-steps variant="warning">
       <o-step-item label="Account" icon="user-lock">empty</o-step-item>
       <o-step-item label="Profile" icon="user">empty</o-step-item>
       <o-step-item label="Social" icon="user-plus">empty</o-step-item>
     </o-steps>
 
-    <h4>Info</h4>
+    Info
     <o-steps variant="info">
       <o-step-item label="Account" icon="user-lock">empty</o-step-item>
       <o-step-item label="Profile" icon="user">empty</o-step-item>
       <o-step-item label="Social" icon="user-plus">empty</o-step-item>
     </o-steps>
 
-    <h4>Success</h4>
+    Success
     <o-steps variant="success">
       <o-step-item label="Account" icon="user-lock">empty</o-step-item>
       <o-step-item label="Profile" icon="user">empty</o-step-item>
       <o-step-item label="Social" icon="user-plus">empty</o-step-item>
     </o-steps>
   </section>
-  <hr/>
+
   <section>
+    <h3>Vertical</h3>
+
     <o-field grouped group-multiline>
-      <div class="control">
-        <o-switch v-model="position" true-value="right"> Right position</o-switch>
-      </div>
+      <o-field>
+        <o-switch v-model="position" true-value="right">
+          Right position</o-switch
+        >
+      </o-field>
       <o-field label="Size">
         <o-select v-model="size" placeholder="Size">
           <option :value="null">Default</option>
@@ -125,7 +194,7 @@
           <option value="large">Large</option>
         </o-select>
       </o-field>
-      <o-field label="Label position" label-position="on-border">
+      <o-field label="Label position">
         <o-select v-model="labelPosition">
           <option value="bottom">Bottom</option>
           <option value="right">Right</option>
@@ -134,52 +203,31 @@
       </o-field>
     </o-field>
 
-    <o-steps :position="position" :label-position="labelPosition" :size="size" vertical>
+    <o-steps
+      :position="position"
+      :label-position="labelPosition"
+      :size="size"
+      vertical>
       <o-step-item label="Account" icon="user-lock">
-        Account: Lorem ipsum dolor sit amet. <br/>
-        Account: Lorem ipsum dolor sit amet. <br/>
+        Account: Lorem ipsum dolor sit amet. <br />
+        Account: Lorem ipsum dolor sit amet. <br />
         Account: Lorem ipsum dolor sit amet.
       </o-step-item>
 
       <o-step-item label="Profile" icon="user">
-        Profile: Lorem ipsum dolor sit amet. <br/>
-        Profile: Lorem ipsum dolor sit amet.? <br/>
-        Profile: Lorem ipsum dolor sit amet. <br/>
+        Profile: Lorem ipsum dolor sit amet. <br />
+        Profile: Lorem ipsum dolor sit amet.? <br />
+        Profile: Lorem ipsum dolor sit amet. <br />
         Profile: Lorem ipsum dolor sit amet.
       </o-step-item>
 
       <o-step-item label="Social" icon="user-plus" disabled>
-        Social: Lorem ipsum dolor sit amet. <br/>
-        Social: Lorem ipsum dolor sit amet. <br/>
-        Social: Lorem ipsum dolor sit amet. <br/>
-        Social: Lorem ipsum dolor sit amet. <br/>
+        Social: Lorem ipsum dolor sit amet. <br />
+        Social: Lorem ipsum dolor sit amet. <br />
+        Social: Lorem ipsum dolor sit amet. <br />
+        Social: Lorem ipsum dolor sit amet. <br />
         Social: Lorem ipsum dolor sit amet.
       </o-step-item>
     </o-steps>
   </section>
 </template>
-
-<script>
-  export default {
-    data() {
-      return {
-        activeStep: "0",
-
-        showSocial: false,
-        isAnimated: true,
-        isRounded: true,
-        isStepsClickable: false,
-
-        hasNavigation: true,
-        customNavigation: false,
-        isProfileSuccess: false,
-
-        prevIcon: 'chevron-left',
-        nextIcon: 'chevron-right',
-        labelPosition: 'bottom',
-        position: null,
-        size: null
-      }
-    }
-  }
-</script>
