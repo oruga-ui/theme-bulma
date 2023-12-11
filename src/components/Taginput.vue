@@ -1,35 +1,5 @@
-<template>
-    <o-switch
-        v-model="allowNew"
-    >
-        Allow new items
-    </o-switch>
-    <o-switch
-        v-model="openOnFocus"
-    >
-        Open on focus
-    </o-switch>
-  
-    <o-field label="Enter some items">
-      <o-inputitems
-        v-model="tags"
-        :data="filteredTags"
-        autocomplete
-        :allow-new="allowNew"
-        :open-on-focus="openOnFocus"
-        field="user.first_name"
-        icon="tag"
-        placeholder="Add an item"
-        @typing="getFilteredTags"
-      >
-      </o-inputitems>
-    </o-field>
-    <p class="content"><b>Items:</b> {{ tags }}</p>
-</template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script setup lang="ts">
+import { ref } from "vue";
 
 const data = [
   {
@@ -394,26 +364,144 @@ const data = [
   },
 ];
 
-export default defineComponent({
-    data() {
-        return {
-            filteredTags: data,
-            tags: [],
-            allowNew: false,
-            openOnFocus: false,
-        }
-    },
-     methods: {
-        getFilteredTags(text: string) {
-            this.filteredTags = data.filter((option) => {
-                return (
-                    option.user.first_name
-                        .toString()
-                        .toLowerCase()
-                        .indexOf(text.toLowerCase()) >= 0
-                );
-            });
-        },
+const filteredTags = ref(data);
+const tags = ref([
+  {
+    id: 60,
+    user: { first_name: "Christopher", last_name: "Palmer" },
+    date: "2016/05/24 08:58:12",
+    gender: "Male",
   },
-})
+]);
+const allowNew = ref(false);
+const openOnFocus = ref(false);
+
+function getFilteredTags(text: string) {
+  filteredTags.value = data.filter((option) => {
+    return (
+      option.user.first_name
+        .toString()
+        .toLowerCase()
+        .indexOf(text.toLowerCase()) >= 0
+    );
+  });
+}
 </script>
+
+<template>
+  <section>
+    <h2>Taginput Demo</h2>
+    <hr />
+  </section>
+
+  <section>
+    <h3>Base</h3>
+
+    <o-switch v-model="allowNew" label="Allow new items" />
+    <o-switch v-model="openOnFocus" label="Open on focus" />
+
+    <o-field label="Enter some items">
+      <o-taginput
+        v-model="tags"
+        variant="primary"
+        :data="filteredTags"
+        autocomplete
+        :allow-new="allowNew"
+        :open-on-focus="openOnFocus"
+        field="user.first_name"
+        icon="tag"
+        placeholder="Add an item"
+        keep-first
+        expanded
+        @typing="getFilteredTags" />
+    </o-field>
+
+    <p><b>Items:</b> {{ tags }}</p>
+
+    <o-field label="Disabled">
+      <o-taginput
+        variant="primary"
+        disabled
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        autocomplete
+        :allow-new="allowNew"
+        :open-on-focus="openOnFocus"
+        icon="tag"
+        placeholder="Add an item"
+        keep-first
+        expanded />
+    </o-field>
+  </section>
+
+  <section>
+    <h3>Limits</h3>
+
+    <o-field label="Limited to 10 characters">
+      <o-taginput maxlength="10" :model-value="['Oruga', 'Vue', 'CSS']" />
+    </o-field>
+
+    <o-field label="Limited to 5 tags">
+      <o-taginput maxitems="5" :model-value="['One', 'Two', 'Three', 'Four']" />
+    </o-field>
+
+    <o-field label="Limited to 10 characters and 5 tags">
+      <o-taginput
+        maxlength="10"
+        maxitems="5"
+        :model-value="['Red', 'Green', 'Blue', 'White']" />
+    </o-field>
+  </section>
+
+  <section>
+    <h3>Variant</h3>
+
+    <o-field label="Primary">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="primary" />
+    </o-field>
+
+    <o-field label="Secondary">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="secondary" />
+    </o-field>
+
+    <o-field label="Success">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="success" />
+    </o-field>
+
+    <o-field label="Info">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="info" />
+    </o-field>
+
+    <o-field label="Warning">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="warning" />
+    </o-field>
+
+    <o-field label="Danger">
+      <o-taginput
+        :model-value="['One']"
+        :data="['One', 'Two', 'Three', 'Four']"
+        :allow-new="false"
+        variant="danger" />
+    </o-field>
+  </section>
+</template>

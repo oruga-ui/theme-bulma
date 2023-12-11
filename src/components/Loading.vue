@@ -1,65 +1,70 @@
+<script setup lang="ts">
+import { ref } from "vue";
+
+const isLoading = ref(false);
+const isFullPage = ref(true);
+const isCustomLoading = ref(false);
+const isCustomFullPage = ref(true);
+</script>
+
 <template>
   <section>
+    <h2>Loading Demo</h2>
+    <hr />
+  </section>
+
+  <section>
+    <h3>Base</h3>
+
     <o-field>
-      <o-button size="medium" variant="primary" @click="openLoading">
-        Launch loading
-      </o-button>
+      <o-button
+        size="medium"
+        variant="primary"
+        label="Launch loading"
+        @click="() => (isLoading = true)" />
     </o-field>
+
     <o-field>
-      <o-switch v-model="isFullPage">Display loader over full page</o-switch>
+      <o-switch v-model="isFullPage" label="Display loader over full page" />
     </o-field>
+
     <p style="position: relative">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id
       fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien
       laoreet elit
       <o-loading
-        :full-page="isFullPage"
         v-model:active="isLoading"
-        :can-cancel="true"
-      ></o-loading>
+        :full-page="isFullPage"
+        :cancelable="true" />
     </p>
-    <h2>Custom Slot</h2>
+  </section>
+
+  <section>
+    <h3>Base Custom Slot</h3>
+
     <o-field>
-      <o-button size="medium" variant="primary" @click="openCustomLoading">
-        Launch loading
-      </o-button>
+      <o-button
+        size="medium"
+        variant="primary"
+        label="Launch loading"
+        @click="() => (isCustomLoading = true)" />
     </o-field>
     <o-field>
-      <o-switch v-model="isCustomFullPage"
-        >Display loader over full page</o-switch
-      >
+      <o-switch
+        v-model="isCustomFullPage"
+        label="Display loader over full page" />
     </o-field>
+
     <p style="position: relative">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id
       fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien
       laoreet elit
       <o-loading
-        :full-page="isCustomFullPage"
         v-model:active="isCustomLoading"
-        :can-cancel="true"
-      >
-        <o-icon pack="fas" icon="sync-alt" size="large" spin> </o-icon>
+        :full-page="isCustomFullPage"
+        :cancelable="true">
+        <o-icon pack="fas" icon="sync-alt" size="large" spin />
       </o-loading>
     </p>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      isLoading: false,
-      isFullPage: true,
-      isCustomLoading: false,
-      isCustomFullPage: true,
-    };
-  },
-  methods: {
-    openLoading() {
-      this.isLoading = true;
-    },
-    openCustomLoading() {
-      this.isCustomLoading = true;
-    },
-  },
-};
-</script>

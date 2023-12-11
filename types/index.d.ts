@@ -1,1 +1,1 @@
-declare module '@oruga-ui/theme-bulma';
+declare module "@oruga-ui/theme-bulma";
