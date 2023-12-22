@@ -1,6 +1,8 @@
+import type { OrugaOptions, ComponentContext } from "@oruga-ui/oruga-next";
+
 import "../assets/scss/bulma-build.scss";
 
-export const bulmaConfig: any = {
+export const bulmaConfig: OrugaOptions = {
     field: {
         override: true,
         rootClass: "field",
@@ -18,7 +20,7 @@ export const bulmaConfig: any = {
     },
     input: {
         override: true,
-        rootClass: (_: string, { props, computed }: any) => {
+        rootClass: (_: string, { props, computed }: ComponentContext) => {
             const classes = ["control"];
             if (props.icon) classes.push("has-icons-left");
             if (computed.hasIconRight) classes.push("has-icons-right");
@@ -36,7 +38,7 @@ export const bulmaConfig: any = {
     },
     select: {
         override: true,
-        rootClass: (_: string, { props, computed }: any) => {
+        rootClass: (_: string, { props, computed }: ComponentContext) => {
             const classes = ["control", "select"];
             if (props.size) classes.push(`is-${props.size}`);
             if (props.rounded) classes.push("is-rounded");
@@ -64,7 +66,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: "b-checkbox checkbox",
         disabledClass: "is-disabled",
-        checkClass: "check",
+        inputClass: "check",
         labelClass: "control-label",
         variantClass: "is-",
         sizeClass: "is-",
@@ -73,20 +75,20 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: "b-radio radio",
         disabledClass: "is-disabled",
-        checkClass: "check",
+        inputClass: "check",
         labelClass: "control-label",
         variantClass: "is-",
         sizeClass: "is-",
     },
     switch: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["switch"];
             if (props.rounded) classes.push("is-rounded");
             if (props.position === "left") classes.push("has-left-label");
             return classes.join(" ");
         },
-        checkClass: (_: string, { props }: any) => {
+        switchClass: (_: string, { props }: ComponentContext) => {
             const classes = ["check"];
             if (props.variant) classes.push(`is-${props.variant}`);
             if (props.passiveVariant)
@@ -100,14 +102,12 @@ export const bulmaConfig: any = {
     autocomplete: {
         override: true,
         rootClass: "autocomplete control",
-        menuClass: "dropdown-menu dropdown-content",
-        menuPositionClass: "is-opened-",
         itemClass: "dropdown-item",
         itemHoverClass: "is-hovered",
-        itemEmptyClasses: "is-disabled",
+        itemEmptyClass: "is-disabled",
         itemGroupTitleClass: "has-text-weight-bold",
     },
-    inputitems: {
+    taginput: {
         override: true,
         rootClass: "taginput control",
         containerClass: "taginput-container is-focusable",
@@ -116,7 +116,7 @@ export const bulmaConfig: any = {
     },
     pagination: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["pagination"];
             if (props.rounded) classes.push("is-rounded");
             return classes.join(" ");
@@ -128,13 +128,13 @@ export const bulmaConfig: any = {
         linkClass: "pagination-link",
         linkCurrentClass: "is-current",
         linkDisabledClass: "is-disabled",
-        nextBtnClass: "pagination-next",
-        prevBtnClass: "pagination-previous",
+        nextButtonClass: "pagination-next",
+        prevButtonClass: "pagination-previous",
         infoClass: "info",
     },
     slider: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["b-slider"];
             if (props.variant) classes.push(`is-${props.variant}`);
             if (props.rounded) classes.push("is-rounded");
@@ -144,7 +144,7 @@ export const bulmaConfig: any = {
         // variantClass: 'is-',
         trackClass: "b-slider-track",
         fillClass: "b-slider-fill",
-        thumbWrapperClass: (_: string, { data }: any) => {
+        thumbWrapperClass: (_: string, { data }: ComponentContext) => {
             const classes = ["b-slider-thumb-wrapper"];
             if (data.dragging) classes.push(`is-dragging`);
             return classes.join(" ");
@@ -161,7 +161,7 @@ export const bulmaConfig: any = {
         rootClass: "b-tabs",
         contentClass: "tab-content",
         multilineClass: "is-multiline",
-        navTabsClass: (_: string, { props }: any) => {
+        navTabsClass: (_: string, { props }: ComponentContext) => {
             const classes = ["tabs"];
             if (props.type) classes.push(`is-${props.type}`);
             return classes.join(" ");
@@ -215,7 +215,7 @@ export const bulmaConfig: any = {
     },
     tooltip: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["b-tooltip"];
             if (props.variant) classes.push(`is-${props.variant}`);
             else classes.push(`is-primary`);
@@ -227,17 +227,17 @@ export const bulmaConfig: any = {
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
-        orderClass: "is-",
+        positionClass: "is-",
     },
     steps: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["b-steps"];
             if (props.variant) classes.push(`is-${props.variant}`);
             if (props.disables) classes.push("is-disabled");
             return classes.join(" ");
         },
-        stepsClass: (_: string, { props }: any) => {
+        stepsClass: (_: string, { props }: ComponentContext) => {
             const classes = ["steps"];
             if (props.animated) classes.push("is-animated");
             if (props.rounded) classes.push("is-rounded");
@@ -261,7 +261,6 @@ export const bulmaConfig: any = {
         positionClass: "is-",
         stepContentTransitioningClass: "is-transitioning",
         sizeClass: "is-",
-        variantClass: "is-",
     },
     button: {
         override: true,
@@ -273,7 +272,7 @@ export const bulmaConfig: any = {
         loadingClass: "is-loading",
         outlinedClass: () => "is-outlined",
         invertedClass: () => "is-inverted",
-        elementsWrapperClass: "button-wrapper",
+        wrapperClass: "button-wrapper",
     },
     menu: {
         override: true,
@@ -283,7 +282,7 @@ export const bulmaConfig: any = {
     },
     skeleton: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["b-skeleton"];
             if (props.animated) classes.push("is-animated");
             return classes.join(" ");
@@ -293,7 +292,7 @@ export const bulmaConfig: any = {
     },
     notification: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["notification"];
             if (props.variant) classes.push(`is-${props.variant}`);
             return classes.join(" ");
@@ -309,7 +308,7 @@ export const bulmaConfig: any = {
     dropdown: {
         override: true,
         itemTag: "a",
-        rootClass: (_: string, { props, data, computed }: any) => {
+        rootClass: (_: string, { props, data, computed }: ComponentContext) => {
             const classes = ["dropdown", "dropdown-menu-animation"];
             if (data.isActive || props.inline) classes.push("is-active");
             if (computed.hoverable) classes.push("is-hoverable");
@@ -337,10 +336,10 @@ export const bulmaConfig: any = {
         tableHeadClass: "datepicker-header",
         tableHeadCellClass: "datepicker-cell",
         headerButtonsClass: "pagination field is-centered",
-        prevBtnClass: "pagination-previous",
-        nextBtnClass: "pagination-next",
+        prevButtonClass: "pagination-previous",
+        nextButtonClass: "pagination-next",
         listsClass: "pagination-list",
-        tableBodyClass: (_: string, { props }: any) => {
+        tableBodyClass: (_: string, { props }: ComponentContext) => {
             const classes = ["datepicker-body"];
             if (props.events) classes.push(`has-events`);
             return classes.join(" ");
@@ -359,7 +358,7 @@ export const bulmaConfig: any = {
         tableCellWithinSelectedClass: "is-within-selected",
         tableCellInvisibleClass: "",
         tableCellNearbyClass: "is-nearby",
-        tableCellEventsClass: (_: string, { props }: any) => {
+        tableCellEventsClass: (_: string, { props }: ComponentContext) => {
             const classes = ["has-event"];
             if (props.indicators) classes.push(`${props.indicators}`);
             return classes.join(" ");
@@ -373,7 +372,6 @@ export const bulmaConfig: any = {
         monthCellFirstSelectedClass: "is-first-selected",
         monthCellLastHoveredClass: "is-last-hovered",
         monthCellLastSelectedClass: "is-last-selected",
-        monthCellNearbyClass: "is-nearby",
         monthCellSelectableClass: "is-selectable",
         monthCellSelectedClass: "is-selected",
         monthCellTodayClass: "is-today",
@@ -381,12 +379,11 @@ export const bulmaConfig: any = {
         monthCellWithinHoveredClass: "is-within-hovered",
         monthCellWithinSelectedClass: "is-within-selected",
         monthClass: "datepicker-table",
-        monthEventsClass: "events",
         monthTableClass: "datepicker-months",
     },
     modal: {
         override: true,
-        rootClass: (_: string, { props }: any) => {
+        rootClass: (_: string, { props }: ComponentContext) => {
             const classes = ["modal"];
             if (props.active || props.programmatic) classes.push("is-active");
             return classes.join(" ");
@@ -402,21 +399,16 @@ export const bulmaConfig: any = {
         rootClass: "b-sidebar",
         variantClass: "is-",
         contentClass: "sidebar-content",
-        staticClass: "is-static",
-        absoluteClass: "is-absolute",
-        fixedClass: "is-fixed",
         expandOnHoverClass: "is-mini-expand",
-        expandOnHoverFixedClass: "is-mini-expand",
         fullheightClass: "is-fullheight",
         fullwidthClass: "is-fullwidth",
-        mobileClass: (_: string, { props }: any) => {
+        mobileClass: (_: string, { props }: ComponentContext) => {
             if (props.mobile && props.mobile !== "reduce") {
                 return `is-${props.mobile}-mobile`;
             }
         },
         overlayClass: "sidebar-background",
         reduceClass: "is-mini-mobile",
-        rightClass: "is-right",
     },
     loading: {
         fullPageClass: "is-full-page",
@@ -439,7 +431,7 @@ export const bulmaConfig: any = {
         override: true,
         rootClass: "carousel",
         overlayClass: "is-overlay",
-        sceneClass: "carousel-scene",
+        wrapperClass: "carousel-scene",
         itemsClass: "carousel-items",
         itemsDraggingClass: "is-dragging",
         arrowIconClass: "carousel-arrow",
