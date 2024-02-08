@@ -25,10 +25,12 @@
   },
   "scripts": {
     "dev": "vite --force",
+    "dev:lib": "rimraf dist && rollup -c --watch",
     "build": "vue-tsc --noEmit && vite build",
     "build:lib": "rimraf dist && rollup -c",
     "serve": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "pack:lib": "echo \"$PWD/$(npm pack)\""
   },
   "dependencies": {
     "bulma": "0.9.4"
