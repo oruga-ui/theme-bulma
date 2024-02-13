@@ -322,6 +322,7 @@ export const bulmaConfig: OrugaOptions = {
         rootPositionClass: "is-",
         rootActiveClass: "is-active",
         hoverableClass: "is-hoverable",
+        useRootPositionClass: true,
     },
     datepicker: {
         override: true,
