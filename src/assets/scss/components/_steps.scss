@@ -21,6 +21,7 @@ $steps-colors: $colors !default;
     .steps {
         font-size: $size;
         min-height: $size * 2;
+        list-style: none;
 
         /* .step-items { */
             .step-item {
@@ -133,13 +134,21 @@ $steps-colors: $colors !default;
                 position: relative;
                 flex-grow: 1;
                 flex-basis: 1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 .step-link {
+                    background:none;
+                    border:none;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     flex-direction: column;
                     color: $body-color;
+                    font-size:inherit;
+                    line-height: inherit;
+                    padding:0;
 
                     &:not(.is-clickable) {
                         cursor: not-allowed;
