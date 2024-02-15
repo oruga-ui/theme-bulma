@@ -51,6 +51,7 @@ export const bulmaConfig: OrugaOptions = {
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
+        variantClass: "is-",
         variantClassOnRoot: true,
     },
     icon: {
@@ -145,14 +146,16 @@ export const bulmaConfig: OrugaOptions = {
         fillClass: "b-slider-fill",
         thumbWrapperClass: (_: string, { data }: ComponentProps) => {
             const classes = ["b-slider-thumb-wrapper"];
-            if (data.dragging) classes.push(`is-dragging`);
+            //if (data.dragging) classes.push(`is-dragging`);
             return classes.join(" ");
         },
+        thumbDraggingClass: "is-dragging",
         sizeClass: "is-",
         thumbClass: "b-slider-thumb",
         tickLabelClass: "b-slider-tick-label",
         tickHiddenClass: "is-tick-hidden",
         tickClass: "b-slider-tick",
+        draggingClassOnWrapper: true,
     },
     tabs: {
         override: true,
@@ -218,7 +221,7 @@ export const bulmaConfig: OrugaOptions = {
             const classes = ["b-tooltip"];
             if (props.variant) classes.push(`is-${props.variant}`);
             else classes.push(`is-primary`);
-            if (props.position) classes.push(`is-${props.position}`);
+            // if (props.position) classes.push(`is-${props.position}`);
             return classes.join(" ");
         },
         contentClass: "tooltip-content",
@@ -227,6 +230,7 @@ export const bulmaConfig: OrugaOptions = {
         multilineClass: "is-multiline",
         variantClass: "is-",
         positionClass: "is-",
+        positionClassOnRoot: true,
     },
     steps: {
         override: true,
