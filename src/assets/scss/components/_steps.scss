@@ -47,7 +47,7 @@ $steps-colors: $colors !default;
                 &:not(:first-child), &:only-child {
                     &::before {
                         height: $steps-divider-height;
-                        top: #{$size};
+                        top: calc(#{$size} - (#{$steps-divider-height} / 2));
                     }
                 }
                 &:only-child {
