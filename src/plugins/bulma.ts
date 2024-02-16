@@ -305,9 +305,9 @@ export const bulmaConfig: OrugaOptions = {
         iconClass: "media-left",
         closeClass: "delete",
         positionClass: "is-",
-        // TODO : check for regression
-        //noticeClass: "b-notices",
-        //noticePositionClass: "is-",
+        noticeClass: "b-notices",
+        noticePositionClass: "is-",
+        variantClass: "is-",
     },
     dropdown: {
         override: true,
@@ -385,11 +385,8 @@ export const bulmaConfig: OrugaOptions = {
     },
     modal: {
         override: true,
-        rootClass: (_: string, { props }: ComponentProps) => {
-            const classes = ["modal"];
-            if (props.active || props.programmatic) classes.push("is-active");
-            return classes.join(" ");
-        },
+        rootClass: "modal",
+        activeClass: "is-active",
         overlayClass: "modal-background",
         contentClass: "modal-content animation-content",
         closeClass: "modal-close is-large",
