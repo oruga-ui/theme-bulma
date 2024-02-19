@@ -51,7 +51,6 @@ export const bulmaConfig: OrugaOptions = {
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
-        variantClass: undefined,
         rootVariantClass: "is-",
     },
     icon: {
@@ -229,7 +228,6 @@ export const bulmaConfig: OrugaOptions = {
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
-        positionClass: undefined,
         rootPositionClass: "is-",
     },
     steps: {
@@ -323,10 +321,10 @@ export const bulmaConfig: OrugaOptions = {
         itemDisabledClass: "is-disabled",
         mobileClass: "is-mobile-modal",
         menuMobileOverlayClass: "background",
-        menuPositionClass: undefined,
         rootPositionClass: "is-",
         rootActiveClass: "is-active",
         hoverableClass: "is-hoverable",
+        position: "bottom-right",
     },
     datepicker: {
         override: true,
