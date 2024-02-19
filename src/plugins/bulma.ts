@@ -140,21 +140,15 @@ export const bulmaConfig: OrugaOptions = {
             return classes.join(" ");
         },
         disabledClass: "is-disabled",
-        // variantClass: 'is-',
         trackClass: "b-slider-track",
         fillClass: "b-slider-fill",
-        thumbWrapperClass: (_: string, { data }: ComponentProps) => {
-            const classes = ["b-slider-thumb-wrapper"];
-            //if (data.dragging) classes.push(`is-dragging`);
-            return classes.join(" ");
-        },
-        thumbDraggingClass: "is-dragging",
+        thumbWrapperClass: "b-slider-thumb-wrapper",
+        thumbWrapperDraggingClass: "is-dragging",
         sizeClass: "is-",
         thumbClass: "b-slider-thumb",
         tickLabelClass: "b-slider-tick-label",
         tickHiddenClass: "is-tick-hidden",
         tickClass: "b-slider-tick",
-        draggingClassOnWrapper: true,
     },
     tabs: {
         override: true,
