@@ -51,7 +51,7 @@ export const bulmaConfig: OrugaOptions = {
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
-        rootVariantClass: "is-" as boolean, // TODO : fix this hack. waiting on a PR to fix this type.
+        rootVariantClass: "is-" as unknown as boolean, // TODO : fix this hack. waiting on https://github.com/oruga-ui/oruga/pull/812 to fix this type.
     },
     icon: {
         override: true,
@@ -217,11 +217,12 @@ export const bulmaConfig: OrugaOptions = {
             // if (props.position) classes.push(`is-${props.position}`);
             return classes.join(" ");
         },
-        contentClass: "tooltip-content",
-        triggerClass: "tooltip-trigger",
+        contentClass: "b-tooltip-content",
+        triggerClass: "b-tooltip-trigger",
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
+        positionClass: "is-",
     },
     steps: {
         override: true,
