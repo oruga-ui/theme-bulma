@@ -51,7 +51,7 @@ export const bulmaConfig: OrugaOptions = {
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
-        rootVariantClass: "is-",
+        rootVariantClass: "is-" as boolean, // TODO : fix this hack. waiting on a PR to fix this type.
     },
     icon: {
         override: true,
@@ -222,7 +222,6 @@ export const bulmaConfig: OrugaOptions = {
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
-        rootPositionClass: "is-",
     },
     steps: {
         override: true,
@@ -315,8 +314,8 @@ export const bulmaConfig: OrugaOptions = {
         itemDisabledClass: "is-disabled",
         mobileClass: "is-mobile-modal",
         menuMobileOverlayClass: "background",
-        rootPositionClass: "is-",
-        rootActiveClass: "is-active",
+        positionClass: "is-",
+        activeClass: "is-active",
         hoverableClass: "is-hoverable",
         position: "bottom-right",
     },
