@@ -1,6 +1,7 @@
 $dropdown-mobile-breakpoint: $desktop !default;
 $dropdown-background-color: rgba($scheme-invert, 0.86) !default;
 $dropdown-disabled-opacity: 0.5 !default;
+$dropdown-gap: 0px !default;
 
 .dropdown {
     & + .dropdown {
@@ -89,26 +90,58 @@ $dropdown-disabled-opacity: 0.5 !default;
             padding: 0;
         }
     }
+
+    // Bottom right is default
+    .dropdown-menu {
+        top: auto;
+        bottom: 100%;
+        right: auto;
+        left: 0;
+    }
+
+    // X Axis
+    &.is-left,
+    &.is-bottom-left,
+    &.is-top-left {
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    &.is-top,
+    &.is-bottom,
+    &.is-right,
+    &.is-top-right,
+    &.is-bottom-right {
+        .dropdown-menu {
+            right: auto;
+            left: 0;
+        }
+    }
+
+    // Y Axis
+    &.is-bottom,
+    &.is-right,
+    &.is-left,
+    &.is-bottom-left,
+    &.is-bottom-right {
+        .dropdown-menu {
+            bottom: auto;
+            top: calc(100% + #{$dropdown-gap});
+        }
+    }
+
+    &.is-top,
+    &.is-top-left,
     &.is-top-right {
         .dropdown-menu {
             top: auto;
-            bottom: 100%;
+            bottom: calc(100% + #{$dropdown-gap});
         }
     }
-    &.is-top-left {
-        .dropdown-menu {
-            top: auto;
-            bottom: 100%;
-            right: 0;
-            left: auto;
-        }
-    }
-    &.is-bottom-left {
-        .dropdown-menu {
-            right: 0;
-            left: auto;
-        }
-    }
+
+
     @media screen and (max-width: $dropdown-mobile-breakpoint - 1px) {
         &.is-mobile-modal {
             > .dropdown-menu {
