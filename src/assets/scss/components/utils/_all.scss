@@ -1,4 +1,4 @@
-@import "_functions.scss";
-@import "_variables.scss";
-@import "_helpers.scss";
-@import "_animations.scss";
+@forward "_functions.scss";
+@forward "_variables.scss";
+@forward "_helpers.scss";
+@forward "_animations.scss";

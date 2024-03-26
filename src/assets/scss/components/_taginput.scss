@@ -1,3 +1,5 @@
+@use "bulma/bulma";
+
 $taginput-height: calc(2em - 1px) !default;
 
 .taginput {
@@ -21,13 +23,13 @@ $taginput-height: calc(2em - 1px) !default;
             justify-content: flex-start;
             height: auto;
             &.is-small {
-                @include control-small;
+                @include bulma.control-small;
             }
-            &.is-medium{
-                @include control-medium;
+            &.is-medium {
+                @include bulma.control-medium;
             }
             &.is-large {
-                @include control-large;
+                @include bulma.control-large;
             }
         }
 

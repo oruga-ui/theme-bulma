@@ -1,3 +1,5 @@
+@use "bulma/bulma";
+
 .upload {
     position: relative;
     display: inline-flex;
@@ -15,11 +17,11 @@
     .upload-draggable {
         cursor: pointer;
         padding: 0.25em;
-        border: 1px dashed $grey-light;
-        border-radius: $radius-large;
+        border: 1px dashed bulma.$grey-light;
+        border-radius: bulma.$radius-large;
         &:hover,
         &.is-hovered {
-            @each $name, $pair in $file-colors {
+            @each $name, $pair in bulma.$file-colors {
                 $color: nth($pair, 1);
                 &.is-#{$name} {
                     border-color: $color;
@@ -39,11 +41,11 @@
         cursor: not-allowed;
     }
     &.is-rounded {
-        border-radius: $radius-rounded;
+        border-radius: bulma.$radius-rounded;
 
         .file-name {
-            border-top-right-radius: $radius-rounded;
-            border-bottom-right-radius: $radius-rounded;
+            border-top-right-radius: bulma.$radius-rounded;
+            border-bottom-right-radius: bulma.$radius-rounded;
         }
     }
 }

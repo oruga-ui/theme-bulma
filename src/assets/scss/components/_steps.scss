@@ -5,17 +5,20 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
+@use "bulma/bulma";
+@use "utils/variables" as var;
+
 $steps-items-focused-outline: none !default;
-$steps-details-background-color: $body-background-color !default;
-$steps-maker-default-color: $grey-light !default;
-$steps-marker-default-border: .2em solid #fff !default;
-$steps-default-color: $grey-lighter !default;
-$steps-previous-color: $primary !default;
-$steps-active-color: $primary !default;
-$steps-divider-height: .2em !default;
+$steps-details-background-color: bulma.$body-background-color !default;
+$steps-maker-default-color: bulma.$grey-light !default;
+$steps-marker-default-border: 0.2em solid #fff !default;
+$steps-default-color: bulma.$grey-lighter !default;
+$steps-previous-color: bulma.$primary !default;
+$steps-active-color: bulma.$primary !default;
+$steps-divider-height: 0.2em !default;
 $steps-vertical-padding: 1em 0 !default;
-$steps-mobile-max-width: $tablet !default;
-$steps-colors: $colors !default;
+$steps-mobile-max-width: bulma.$tablet !default;
+$steps-colors: bulma.$colors !default;
 
 @mixin steps-size($size) {
     .steps {
@@ -24,44 +27,49 @@ $steps-colors: $colors !default;
         list-style: none;
 
         /* .step-items { */
-            .step-item {
-                .step-marker {
-                    height: $size * 2;
-                    width: $size * 2;
+        .step-item {
+            .step-marker {
+                height: $size * 2;
+                width: $size * 2;
 
-                    .icon {
-                *, *:before {
-                            font-size: $size;
-                        }
-                    }
-                }
-
-                /* .step-details { */ .step-title {
-                    /* .step-title { */
-                        font-size: $size * 1.2;
-                        font-weight: $weight-semibold;
-                        line-height: $size;
-                     /* } */
-                }
-
-                &:not(:first-child), &:only-child {
-                    &::before {
-                        height: $steps-divider-height;
-                        top: calc(#{$size} - (#{$steps-divider-height} / 2));
-                    }
-                }
-                &:only-child {
-                    &::after {
-                        top: #{$size};
-                    }
-                }
-
-                @include until($steps-mobile-max-width) {
-                    &::before, &::after, &:not(:first-child)::before {
-                        top: #{$size};
+                .icon {
+                    *,
+                    *:before {
+                        font-size: $size;
                     }
                 }
             }
+
+            /* .step-details { */
+            .step-title {
+                /* .step-title { */
+                font-size: $size * 1.2;
+                font-weight: bulma.$weight-semibold;
+                line-height: $size;
+                /* } */
+            }
+
+            &:not(:first-child),
+            &:only-child {
+                &::before {
+                    height: $steps-divider-height;
+                    top: calc(#{$size} - (#{$steps-divider-height} / 2));
+                }
+            }
+            &:only-child {
+                &::after {
+                    top: #{$size};
+                }
+            }
+
+            @include bulma.until($steps-mobile-max-width) {
+                &::before,
+                &::after,
+                &:not(:first-child)::before {
+                    top: #{$size};
+                }
+            }
+        }
         /* } */
     }
 
@@ -69,25 +77,33 @@ $steps-colors: $colors !default;
         > .steps {
             &.has-label-right {
                 /* .step-items { */
-                    .step-item {
-                        &:not(:first-child), &:only-child {
-                            &::before, &::after {
-                                left: calc(#{$size} - #{$steps-divider-height * 0.5});
-                            }
+                .step-item {
+                    &:not(:first-child),
+                    &:only-child {
+                        &::before,
+                        &::after {
+                            left: calc(
+                                #{$size} - #{$steps-divider-height * 0.5}
+                            );
                         }
                     }
+                }
                 /* } */
             }
             &.has-label-left {
                 /* .step-items { */
-                    .step-item {
-                        &:not(:first-child), &:only-child {
-                            &::before, &::after {
-                                left: auto;
-                                right: calc(#{$size} - #{$steps-divider-height * 0.5});
-                            }
+                .step-item {
+                    &:not(:first-child),
+                    &:only-child {
+                        &::before,
+                        &::after {
+                            left: auto;
+                            right: calc(
+                                #{$size} - #{$steps-divider-height * 0.5}
+                            );
                         }
                     }
+                }
                 /* } */
             }
         }
@@ -96,25 +112,33 @@ $steps-colors: $colors !default;
             > .steps {
                 &.has-label-right {
                     /* .step-items { */
-                        .step-item {
-                            &:not(:first-child), &:only-child {
-                                &::before, &::after {
-                                    left: calc(#{$size} - #{$steps-divider-height * 0.5});
-                                }
+                    .step-item {
+                        &:not(:first-child),
+                        &:only-child {
+                            &::before,
+                            &::after {
+                                left: calc(
+                                    #{$size} - #{$steps-divider-height * 0.5}
+                                );
                             }
                         }
+                    }
                     /* } */
                 }
                 &.has-label-left {
                     /* .step-items { */
-                        .step-item {
-                            &:not(:first-child), &:only-child {
-                                &::before, &::after {
-                                    left: auto;
-                                    right: calc(#{$size} - #{$steps-divider-height * 0.5});
-                                }
+                    .step-item {
+                        &:not(:first-child),
+                        &:only-child {
+                            &::before,
+                            &::after {
+                                left: auto;
+                                right: calc(
+                                    #{$size} - #{$steps-divider-height * 0.5}
+                                );
                             }
                         }
+                    }
                     /* } */
                 }
             }
@@ -124,164 +148,180 @@ $steps-colors: $colors !default;
 
 .b-steps {
     .steps {
-
         /* .step-items { */
+        display: flex;
+        flex-wrap: wrap;
+
+        .step-item {
+            margin-top: 0;
+            position: relative;
+            flex-grow: 1;
+            flex-basis: 1em;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
 
-            .step-item {
-                margin-top: 0;
-                position: relative;
-                flex-grow: 1;
-                flex-basis: 1em;
+            .step-link {
+                background: none;
+                border: none;
                 display: flex;
-                justify-content: center;
                 align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: bulma.$body-color;
+                font-size: inherit;
+                line-height: inherit;
+                padding: 0;
 
-                .step-link {
-                    background:none;
-                    border:none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    color: $body-color;
-                    font-size:inherit;
-                    line-height: inherit;
-                    padding:0;
-
-                    &:not(.is-clickable) {
-                        cursor: not-allowed;
-                    }
+                &:not(.is-clickable) {
+                    cursor: not-allowed;
                 }
+            }
 
-                .step-marker {
-                    align-items: center;
-                    display: flex;
-                    border-radius: $radius;
-                    font-weight: $weight-bold;
-                    justify-content: center;
-                    background: $steps-maker-default-color;
-                    color: $scheme-main;
-                    border: $steps-marker-default-border;
-                    z-index: 1;
-                    overflow: hidden;
-                }
+            .step-marker {
+                align-items: center;
+                display: flex;
+                border-radius: bulma.$radius;
+                font-weight: bulma.$weight-bold;
+                justify-content: center;
+                background: $steps-maker-default-color;
+                color: bulma.$scheme-main;
+                border: $steps-marker-default-border;
+                z-index: 1;
+                overflow: hidden;
+            }
 
-                // Override marker color per step
-                @each $name, $pair in $steps-colors {
-                    $color: nth($pair, 1);
-                    $color-invert: nth($pair, 2);
+            // Override marker color per step
+            @each $name, $pair in $steps-colors {
+                $color: nth($pair, 1);
+                $color-invert: nth($pair, 2);
 
-                    &.is-#{$name} {
-                        &::before, &::after {
-                            background: linear-gradient(to left, $steps-default-color 50%, $color 50%);
-                            background-size: 200% 100%;
-                            background-position: right bottom;
-                        }
-                        &.is-active {
-                            .step-marker {
-                                background-color: $scheme-main;
-                                border-color: $color;
-                                color: $color;
-                            }
-
-                            &::before, &::after {
-                                background-position: left bottom;
-                            }
-                        }
-                        &.is-previous {
-                            .step-marker {
-                                color: $color-invert;
-                                background-color: $color;
-                            }
-
-                            &::before, &::after {
-                                background-position: left bottom;
-                            }
-                        }
-                    }
-                }
-
-                .step-marker{
-                    color: $scheme-main;
-                }
-
-                /* .step-details { */ .step-title {
-                    text-align: center;
-                    z-index: 1;
-                }
-
-                &:not(:first-child), &:only-child {
-                    flex-shrink: 1;
-
-                    &::before {
-                        // This will contain the divider
-                        content: " ";
-                        display: block;
-                        position: absolute;
-                        width: 100%;
-                        bottom: 0;
-                        @include ltr {
-                            left: -50%;
-                        }
-                        @include rtl {
-                            left: 50%;
-                        }
-                    }
-                }
-                &:only-child {
+                &.is-#{$name} {
+                    &::before,
                     &::after {
-                        // This will contain the divider
-                        content: " ";
-                        display: block;
-                        position: absolute;
-                        height: $steps-divider-height;
-                        bottom: 0;
+                        background: linear-gradient(
+                            to left,
+                            $steps-default-color 50%,
+                            $color 50%
+                        );
+                        background-size: 200% 100%;
+                        background-position: right bottom;
                     }
-                    &::before, &::after {
-                        width: 25%;
-                        left: 50%;
-                    }
-                    &::before {
-                        right: 50%;
-                        left: auto;
-                    }
-                }
+                    &.is-active {
+                        .step-marker {
+                            background-color: bulma.$scheme-main;
+                            border-color: $color;
+                            color: $color;
+                        }
 
-                &::before, &::after {
-                    background: linear-gradient(to left, $steps-default-color 50%, $steps-active-color 50%);
-                    background-size: 200% 100%;
-                    background-position: right bottom;
-                }
-
-                &.is-active {
-                    .step-link {
-                        cursor: default;
+                        &::before,
+                        &::after {
+                            background-position: left bottom;
+                        }
                     }
+                    &.is-previous {
+                        .step-marker {
+                            color: $color-invert;
+                            background-color: $color;
+                        }
 
-                    .step-marker {
-                        background-color: $scheme-main;
-                        border-color: $steps-active-color;
-                        color: $steps-active-color;
-                    }
-
-                    &::before, &::after {
-                        background-position: left bottom;
-                    }
-                }
-                &.is-previous {
-                    .step-marker {
-                        color: $scheme-main;
-                        background-color: $steps-previous-color;
-                    }
-
-                    &::before, &::after {
-                        background-position: left bottom;
+                        &::before,
+                        &::after {
+                            background-position: left bottom;
+                        }
                     }
                 }
             }
-       /* } */
+
+            .step-marker {
+                color: bulma.$scheme-main;
+            }
+
+            /* .step-details { */
+            .step-title {
+                text-align: center;
+                z-index: 1;
+            }
+
+            &:not(:first-child),
+            &:only-child {
+                flex-shrink: 1;
+
+                &::before {
+                    // This will contain the divider
+                    content: " ";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    @include bulma.ltr {
+                        left: -50%;
+                    }
+                    @include bulma.rtl {
+                        left: 50%;
+                    }
+                }
+            }
+            &:only-child {
+                &::after {
+                    // This will contain the divider
+                    content: " ";
+                    display: block;
+                    position: absolute;
+                    height: $steps-divider-height;
+                    bottom: 0;
+                }
+                &::before,
+                &::after {
+                    width: 25%;
+                    left: 50%;
+                }
+                &::before {
+                    right: 50%;
+                    left: auto;
+                }
+            }
+
+            &::before,
+            &::after {
+                background: linear-gradient(
+                    to left,
+                    $steps-default-color 50%,
+                    $steps-active-color 50%
+                );
+                background-size: 200% 100%;
+                background-position: right bottom;
+            }
+
+            &.is-active {
+                .step-link {
+                    cursor: default;
+                }
+
+                .step-marker {
+                    background-color: bulma.$scheme-main;
+                    border-color: $steps-active-color;
+                    color: $steps-active-color;
+                }
+
+                &::before,
+                &::after {
+                    background-position: left bottom;
+                }
+            }
+            &.is-previous {
+                .step-marker {
+                    color: bulma.$scheme-main;
+                    background-color: $steps-previous-color;
+                }
+
+                &::before,
+                &::after {
+                    background-position: left bottom;
+                }
+            }
+        }
+        /* } */
 
         + .step-content {
             position: relative;
@@ -305,55 +345,57 @@ $steps-colors: $colors !default;
         &.is-rounded {
             .step-item {
                 .step-marker {
-                    border-radius: $radius-rounded;
+                    border-radius: bulma.$radius-rounded;
                 }
             }
         }
 
         &.is-animated {
             .step-item {
-                &:not(:first-child), &:only-child {
+                &:not(:first-child),
+                &:only-child {
                     &::before {
-                        transition: background $speed-slow $easing;
+                        transition: background var.$speed-slow bulma.$easing;
                     }
                 }
             }
         }
 
-        &.has-label-right, &.has-label-left {
+        &.has-label-right,
+        &.has-label-left {
             /* .step-items { */
-                .step-item {
-                    .step-link {
-                        flex-direction: row;
+            .step-item {
+                .step-link {
+                    flex-direction: row;
 
-                        > /* .step-details { */ .step-title {
-                            background-color: $steps-details-background-color;
-                            padding: .2em;
-                        }
+                    > /* .step-details { */ .step-title {
+                        background-color: $steps-details-background-color;
+                        padding: 0.2em;
                     }
                 }
+            }
             /* } */
         }
         &.has-label-left {
             /* .step-items { */
-                .step-item {
-                    .step-link {
-                        flex-direction: row-reverse;
-                    }
+            .step-item {
+                .step-link {
+                    flex-direction: row-reverse;
                 }
+            }
             /* } */
         }
     }
 
-    @include steps-size($size-normal);
+    @include steps-size(bulma.$size-normal);
     &.is-small {
-        @include steps-size($size-small);
+        @include steps-size(bulma.$size-small);
     }
     &.is-medium {
-        @include steps-size($size-medium);
+        @include steps-size(bulma.$size-medium);
     }
     &.is-large {
-        @include steps-size($size-large);
+        @include steps-size(bulma.$size-large);
     }
 
     &.is-vertical {
@@ -363,90 +405,104 @@ $steps-colors: $colors !default;
 
         > .steps {
             /* .step-items { */
-                height: 100%;
-                flex-direction: column;
-                border-bottom-color: transparent;
+            height: 100%;
+            flex-direction: column;
+            border-bottom-color: transparent;
 
-                .step-item {
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: $steps-vertical-padding;
+            .step-item {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: $steps-vertical-padding;
 
-                    &::before, &::after {
-                        background: linear-gradient(to top, $steps-default-color 50%, $steps-active-color 50%);
-                        background-size: 100% 200%;
-                        background-position: left bottom;
-                    }
+                &::before,
+                &::after {
+                    background: linear-gradient(
+                        to top,
+                        $steps-default-color 50%,
+                        $steps-active-color 50%
+                    );
+                    background-size: 100% 200%;
+                    background-position: left bottom;
+                }
 
-                    // Override marker connector color per step
-                    @each $name, $pair in $steps-colors {
-                        $color: nth($pair, 1);
+                // Override marker connector color per step
+                @each $name, $pair in $steps-colors {
+                    $color: nth($pair, 1);
 
-                        &.is-#{$name} {
-                            &::before, &::after {
-                                background: linear-gradient(to top, $steps-default-color 50%, $color 50%);
-                                background-size: 100% 200%;
-                                background-position: left bottom;
-                            }
-                        }
-                    }
-
-                    &:not(:first-child), &:only-child {
-                        &::before {
-                            height: 100%;
-                            width: $steps-divider-height;
-                            top: -50%;
-                            left: calc(50% - #{$steps-divider-height * 0.5});
-                        }
-                    }
-
-                    &.is-active, &.is-previous {
-                        &::before, &::after {
-                            background-position: right top;
-                        }
-                    }
-
-                    &:only-child {
-                        &::before {
-                            top: 50%;
-                        }
+                    &.is-#{$name} {
+                        &::before,
                         &::after {
-                            width: $steps-divider-height;
-                            top: auto;
-                            bottom: 50%;
-                        }
-                        &::before, &::after {
-                            height: 25%;
+                            background: linear-gradient(
+                                to top,
+                                $steps-default-color 50%,
+                                $color 50%
+                            );
+                            background-size: 100% 200%;
+                            background-position: left bottom;
                         }
                     }
                 }
+
+                &:not(:first-child),
+                &:only-child {
+                    &::before {
+                        height: 100%;
+                        width: $steps-divider-height;
+                        top: -50%;
+                        left: calc(50% - #{$steps-divider-height * 0.5});
+                    }
+                }
+
+                &.is-active,
+                &.is-previous {
+                    &::before,
+                    &::after {
+                        background-position: right top;
+                    }
+                }
+
+                &:only-child {
+                    &::before {
+                        top: 50%;
+                    }
+                    &::after {
+                        width: $steps-divider-height;
+                        top: auto;
+                        bottom: 50%;
+                    }
+                    &::before,
+                    &::after {
+                        height: 25%;
+                    }
+                }
+            }
             /* } */
 
             &.has-label-right {
                 /* .step-items { */
-                    .step-item {
-                        justify-content: flex-start;
-                    }
+                .step-item {
+                    justify-content: flex-start;
+                }
                 /* } */
             }
             &.has-label-left {
                 /* .step-items { */
-                    .step-item {
-                        justify-content: flex-end;
-                    }
+                .step-item {
+                    justify-content: flex-end;
+                }
                 /* } */
             }
             &:not(.has-label-right):not(.has-label-left) {
                 /* .step-items { */
-                    .step-item {
-                        .step-link {
-                            > /* .step-details { */ .step-title {
-                                background-color: $steps-details-background-color;
-                            }
+                .step-item {
+                    .step-link {
+                        > /* .step-details { */ .step-title {
+                            background-color: $steps-details-background-color;
                         }
                     }
+                }
                 /* } */
             }
         }
@@ -465,39 +521,43 @@ $steps-colors: $colors !default;
     }
     &:not(.is-vertical) {
         .steps {
-            @include until($steps-mobile-max-width) {
+            @include bulma.until($steps-mobile-max-width) {
                 &.mobile-minimalist {
                     /* .step-items { */
-                        .step-item {
-                            &:not(.is-active) {
-                                display: none;
-                            }
-                            &::before, &::after, &:not(:first-child)::before {
-                                // This will contain the divider
-                                content: " ";
-                                display: block;
-                                position: absolute;
-                                height: $steps-divider-height;
-                                width: 25%;
-                                bottom: 0;
-                                left: 50%;
-                            }
-                            &::before, &:not(:first-child)::before {
-                                right: 50%;
-                                left: auto;
-                            }
+                    .step-item {
+                        &:not(.is-active) {
+                            display: none;
                         }
+                        &::before,
+                        &::after,
+                        &:not(:first-child)::before {
+                            // This will contain the divider
+                            content: " ";
+                            display: block;
+                            position: absolute;
+                            height: $steps-divider-height;
+                            width: 25%;
+                            bottom: 0;
+                            left: 50%;
+                        }
+                        &::before,
+                        &:not(:first-child)::before {
+                            right: 50%;
+                            left: auto;
+                        }
+                    }
                     /* } */
                 }
                 &.mobile-compact {
                     /* .step-items { */
-                        .step-item {
-                            &:not(.is-active) {
-                                /* .step-details { */ .step-title {
-                                    display: none;
-                                }
+                    .step-item {
+                        &:not(.is-active) {
+                            /* .step-details { */
+                            .step-title {
+                                display: none;
                             }
                         }
+                    }
                     /* } */
                 }
             }
