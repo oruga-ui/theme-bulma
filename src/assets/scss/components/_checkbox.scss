@@ -1,5 +1,6 @@
 @use "bulma/bulma";
 @use "utils/variables" as var;
+@use "utils/functions" as fn;
 
 $checkbox-active-background-color: bulma.$primary !default;
 $checkbox-background-color: transparent !default;
@@ -35,14 +36,14 @@ $checkbox-colors: bulma.$form-colors !default;
         background: $checkbox-background-color;
         &:checked {
             background: $checkbox-active-background-color
-                url(checkmark($checkbox-checkmark-color)) no-repeat center
+                url(fn.checkmark($checkbox-checkmark-color)) no-repeat center
                 center;
             border-color: $checkbox-active-background-color;
         }
         &:indeterminate {
             background: $checkbox-active-background-color
-                url(indeterminate($checkbox-checkmark-color)) no-repeat center
-                center;
+                url(fn.indeterminate($checkbox-checkmark-color)) no-repeat
+                center center;
             border-color: $checkbox-active-background-color;
         }
         &:hover:not(:disabled) {
@@ -103,7 +104,7 @@ $checkbox-colors: bulma.$form-colors !default;
 
                 &:indeterminate {
                     background: $color
-                        url(indeterminate($color-invert))
+                        url(fn.indeterminate($color-invert))
                         no-repeat
                         center
                         center;

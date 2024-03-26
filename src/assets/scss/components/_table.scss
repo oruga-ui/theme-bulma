@@ -1,5 +1,6 @@
 @use "bulma/bulma";
 @use "utils/variables" as var;
+@use "utils/functions" as fn;
 
 $table-sticky-header-height: 300px !default;
 
@@ -203,7 +204,7 @@ $table-sticky-header-height: 300px !default;
                 .checkbox input {
                     &:checked + .check {
                         background: bulma.$table-row-active-color
-                            url(checkmark(
+                            url(fn.checkmark(
                                 bulma.$table-row-active-background-color
                             ))
                             no-repeat center center;
