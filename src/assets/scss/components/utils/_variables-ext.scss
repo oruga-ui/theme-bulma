@@ -1,2 +1,3 @@
+@use "bulma/sass" as bulma;
 
-$input-arrow: $primary !default;
+$input-arrow: bulma.$primary !default;

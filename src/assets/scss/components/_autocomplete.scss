@@ -1,3 +1,5 @@
+@use "bulma/sass" as bulma;
+@use "utils/variables-to-migrate" as migrate;
 
 $dropdown-content-max-height: 200px !default;
 
@@ -21,9 +23,10 @@ $dropdown-content-max-height: 200px !default;
         text-overflow: ellipsis;
         // added due to div instead of a
         cursor: pointer;
-        &.is-hovered, &:hover {
-            background: $dropdown-item-hover-background-color;
-            color: $dropdown-item-hover-color;
+        &.is-hovered,
+        &:hover {
+            background: migrate.$dropdown-item-hover-background-color;
+            color: migrate.$dropdown-item-hover-color;
         }
         &.is-disabled {
             opacity: 0.5;
