@@ -1,5 +1,8 @@
 // Some of the animations are from animate.css (https://daneden.github.io/animate.css)
 
+@use "_variables" as var;
+@use "bulma/bulma";
+
 // Fade out
 @keyframes fadeOut {
     from {
@@ -87,7 +90,7 @@
 // Fade
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity $speed-slow $easing;
+    transition: opacity var.$speed-slow bulma.$easing;
 }
 .fade-enter,
 .fade-enter-from,
@@ -98,10 +101,10 @@
 // Zoom In
 .zoom-in-enter-active,
 .zoom-in-leave-active {
-    transition: opacity $speed-slow $easing;
+    transition: opacity var.$speed-slow bulma.$easing;
     .animation-content,
     .animation-content {
-        transition: transform $speed-slow $easing;
+        transition: transform var.$speed-slow bulma.$easing;
     }
 }
 .zoom-in-enter,
@@ -117,10 +120,10 @@
 // Zoom Out
 .zoom-out-enter-active,
 .zoom-out-leave-active {
-    transition: opacity $speed-slow $easing;
+    transition: opacity var.$speed-slow bulma.$easing;
     .animation-content,
     .animation-content {
-        transition: transform $speed-slow $easing;
+        transition: transform var.$speed-slow bulma.$easing;
     }
 }
 .zoom-out-enter,
@@ -138,7 +141,8 @@
 .slide-next-leave-active,
 .slide-prev-enter-active,
 .slide-prev-leave-active {
-    transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    transition: transform var.$speed-slower
+        cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-prev-leave-to,
 .slide-next-enter,
@@ -159,7 +163,8 @@
 .slide-down-leave-active,
 .slide-up-enter-active,
 .slide-up-leave-active {
-    transition: transform $speed-slower cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    transition: transform var.$speed-slower
+        cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .slide-down-enter,
 .slide-up-leave-to,
@@ -177,10 +182,10 @@
 }
 
 .slide-enter-active {
-    transition: $speed-slow $easing;
+    transition: var.$speed-slow bulma.$easing;
 }
 .slide-leave-active {
-    transition: $speed-slow $easing;
+    transition: var.$speed-slow bulma.$easing;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 .slide-leave,

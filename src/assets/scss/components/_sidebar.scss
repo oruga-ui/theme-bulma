@@ -1,13 +1,16 @@
-$sidebar-background: $modal-background-background-color !default;
-$sidebar-box-shadow: 5px 0px 13px 3px rgba($black, 0.1) !default;
+@use "bulma/bulma";
+@use "utils/variables" as var;
+
+$sidebar-background: bulma.$modal-background-background-color !default;
+$sidebar-box-shadow: 5px 0px 13px 3px rgba(bulma.$black, 0.1) !default;
 $sidebar-width: 260px !default;
 $sidebar-mobile-width: 80px !default;
-$sidebar-mobile-breakpoint: $tablet !default;
-$sidebar-colors: $navbar-colors !default;
+$sidebar-mobile-breakpoint: bulma.$tablet !default;
+$sidebar-colors: bulma.$navbar-colors !default;
 
 .b-sidebar {
     .sidebar-content {
-        background-color: $background;
+        background-color: bulma.$background;
         box-shadow: $sidebar-box-shadow;
         width: $sidebar-width;
         z-index: 39;
@@ -38,7 +41,7 @@ $sidebar-colors: $navbar-colors !default;
         &.is-mini {
             width: $sidebar-mobile-width;
             &.is-mini-expand:hover:not(.is-mini-delayed) {
-                transition: width $speed-slow $easing;
+                transition: width var.$speed-slow bulma.$easing;
                 &:not(.is-fullwidth) {
                     width: $sidebar-width;
                     &.is-mini-expand-fixed {
@@ -50,8 +53,9 @@ $sidebar-colors: $navbar-colors !default;
         &.is-static {
             position: static;
         }
-        &.is-absolute, &.is-static {
-            transition: width $speed-slow $easing;
+        &.is-absolute,
+        &.is-static {
+            transition: width var.$speed-slow bulma.$easing;
         }
         &.is-fullwidth {
             width: 100%;
@@ -66,7 +70,7 @@ $sidebar-colors: $navbar-colors !default;
             flex-direction: column;
             align-content: stretch;
         }
-        @media screen and (max-width: $sidebar-mobile-breakpoint - 1px) {
+        @media screen and (max-width: calc($sidebar-mobile-breakpoint - 1px)) {
             &.is-mini-mobile {
                 width: $sidebar-mobile-width;
                 &.is-mini-expand:hover {
@@ -90,7 +94,7 @@ $sidebar-colors: $navbar-colors !default;
         }
     }
     .sidebar-background {
-        @include overlay;
+        @include bulma.overlay;
         background: $sidebar-background;
         position: fixed;
         z-index: 38;

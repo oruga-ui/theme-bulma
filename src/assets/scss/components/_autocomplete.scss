@@ -1,3 +1,4 @@
+@use "bulma/bulma";
 
 $dropdown-content-max-height: 200px !default;
 
@@ -21,9 +22,10 @@ $dropdown-content-max-height: 200px !default;
         text-overflow: ellipsis;
         // added due to div instead of a
         cursor: pointer;
-        &.is-hovered, &:hover {
-            background: $dropdown-item-hover-background-color;
-            color: $dropdown-item-hover-color;
+        &.is-hovered,
+        &:hover {
+            background: bulma.$dropdown-item-hover-background-color;
+            color: bulma.$dropdown-item-hover-color;
         }
         &.is-disabled {
             opacity: 0.5;

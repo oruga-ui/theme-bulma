@@ -1,6 +1,9 @@
-$radio-active-background-color: $primary !default;
+@use "bulma/bulma";
+@use "utils/variables" as var;
+
+$radio-active-background-color: bulma.$primary !default;
 $radio-size: 1.25em !default;
-$radio-colors: $form-colors !default;
+$radio-colors: bulma.$form-colors !default;
 
 .b-radio.radio {
     @extend %unselectable;
@@ -29,8 +32,8 @@ $radio-colors: $form-colors !default;
         height: $radio-size;
         flex-shrink: 0;
         border-radius: 50%;
-        border: 2px solid $grey;
-        transition: background $speed-slow $easing;
+        border: 2px solid bulma.$grey;
+        transition: background var.$speed-slow bulma.$easing;
 
         &:checked {
             border-color: $radio-active-background-color;
@@ -41,7 +44,7 @@ $radio-colors: $form-colors !default;
         }
 
         &:focus {
-            box-shadow: 0 0 0.5em rgba($grey, 0.8);
+            box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
 
             &:checked {
                 box-shadow: 0 0 0.5em rgba($radio-active-background-color, 0.8);
@@ -58,7 +61,7 @@ $radio-colors: $form-colors !default;
             margin-bottom: calc(-#{$radio-size} * 0.5);
             width: $radio-size;
             height: $radio-size;
-            transition: transform $speed-slow $easing;
+            transition: transform var.$speed-slow bulma.$easing;
             border-radius: 50%;
             transform: scale(0);
             background: $radio-active-background-color;
@@ -68,12 +71,12 @@ $radio-colors: $form-colors !default;
             border-color: $radio-active-background-color;
 
             &:before {
-                transform: scale(.5);
+                transform: scale(0.5);
             }
         }
 
         &:focus {
-            box-shadow: 0 0 0.5em rgba($grey, 0.8);
+            box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
 
             &:checked {
                 box-shadow: 0 0 0.5em rgba($radio-active-background-color, 0.8);
@@ -82,7 +85,7 @@ $radio-colors: $form-colors !default;
     }
 
     .control-label {
-        padding-left: $control-padding-horizontal;
+        padding-left: bulma.$control-padding-horizontal;
     }
 
     &.button {
@@ -98,15 +101,15 @@ $radio-colors: $form-colors !default;
     }
 
     &.is-small {
-        @include control-small;
+        @include bulma.control-small;
     }
 
-    &.is-medium{
-        @include control-medium;
+    &.is-medium {
+        @include bulma.control-medium;
     }
 
     &.is-large {
-        @include control-large;
+        @include bulma.control-large;
     }
 
     @each $name, $pair in $radio-colors {

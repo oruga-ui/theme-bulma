@@ -1,10 +1,12 @@
+@use "bulma/bulma";
+
 $loading-background-legacy: #7f7f7f !default;
-$loading-background: rgba(255,255,255,0.5) !default;
+$loading-background: rgba(255, 255, 255, 0.5) !default;
 $loading-icon-size: 3em !default;
 $loading-full-page-icon-size: 5em !default;
 
 .loading {
-    @include overlay;
+    @include bulma.overlay;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -19,9 +21,9 @@ $loading-full-page-icon-size: 5em !default;
         }
     }
     .loading-overlay {
-        @include overlay;
-        background:$loading-background-legacy;
-        background:$loading-background;
+        @include bulma.overlay;
+        background: $loading-background-legacy;
+        background: $loading-background;
     }
     .icon {
         animation: spinAround 1s infinite linear;
