@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "utils/variables-to-migrate" as migrate;
 
 $dropdown-content-max-height: 200px !default;
 
@@ -24,8 +25,8 @@ $dropdown-content-max-height: 200px !default;
         cursor: pointer;
         &.is-hovered,
         &:hover {
-            background: bulma.$dropdown-item-hover-background-color;
-            color: bulma.$dropdown-item-hover-color;
+            background: migrate.$dropdown-item-hover-background-color;
+            color: migrate.$dropdown-item-hover-color;
         }
         &.is-disabled {
             opacity: 0.5;
