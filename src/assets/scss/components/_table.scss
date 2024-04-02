@@ -1,6 +1,8 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
+@use "utils/variables-to-migrate" as to-migrate;
 @use "utils/functions" as fn;
+@use "bulma/sass/utilities/mixins";
 
 $table-sticky-header-height: 300px !default;
 
@@ -84,7 +86,7 @@ $table-sticky-header-height: 300px !default;
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
-    @include bulma.touch {
+    @include mixins.touch {
         overflow-x: auto;
     }
 }
@@ -93,13 +95,13 @@ $table-sticky-header-height: 300px !default;
     transition: opacity bulma.$speed bulma.$easing;
 
     .table-mobile-sort {
-        @include bulma.tablet {
+        @include mixins.tablet {
             display: none;
         }
         // addition
         .button {
             background-color: bulma.$primary;
-            color: bulma.$primary-invert;
+            color: to-migrate.$primary-invert;
         }
     }
 
@@ -286,7 +288,7 @@ $table-sticky-header-height: 300px !default;
             flex-grow: 0;
             flex-shrink: 0;
             align-items: center;
-            @include bulma.tablet {
+            @include mixins.tablet {
                 display: flex;
             }
 
@@ -319,7 +321,7 @@ $table-sticky-header-height: 300px !default;
             height: $table-sticky-header-height;
             overflow-y: auto;
             &.is-mobile {
-                @include bulma.mobile {
+                @include mixins.mobile {
                     height: initial !important;
                     overflow-y: initial !important;
                 }
@@ -335,7 +337,7 @@ $table-sticky-header-height: 300px !default;
             }
         }
         &.is-mobile {
-            @include bulma.mobile {
+            @include mixins.mobile {
                 @include table-cards;
             }
         }

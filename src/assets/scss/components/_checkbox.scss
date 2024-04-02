@@ -1,13 +1,14 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
 @use "utils/functions" as fn;
+@use "utils/variables-to-migrate" as to-migrate;
 
 $checkbox-active-background-color: bulma.$primary !default;
 $checkbox-background-color: transparent !default;
 $checkbox-border-color: bulma.$grey !default;
 $checkbox-border-radius: bulma.$radius !default;
 $checkbox-border-width: 2px !default;
-$checkbox-checkmark-color: bulma.$primary-invert !default;
+$checkbox-checkmark-color: to-migrate.$primary-invert !default;
 $checkbox-size: 1.25em !default;
 $checkbox-colors: bulma.$form-colors !default;
 
@@ -82,7 +83,7 @@ $checkbox-colors: bulma.$form-colors !default;
 
     @each $name, $pair in $checkbox-colors {
         $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+        $color-invert: if(length($pair) >= 2, nth($pair, 2), null);
         &.is-#{$name} {
             .check {
                 &:hover:not(:disabled) {

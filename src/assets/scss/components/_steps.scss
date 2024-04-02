@@ -5,7 +5,8 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 @use "utils/variables" as var;
 
 $steps-items-focused-outline: none !default;
@@ -62,7 +63,7 @@ $steps-colors: bulma.$colors !default;
                 }
             }
 
-            @include bulma.until($steps-mobile-max-width) {
+            @include mixins.until($steps-mobile-max-width) {
                 &::before,
                 &::after,
                 &:not(:first-child)::before {
@@ -194,7 +195,7 @@ $steps-colors: bulma.$colors !default;
             // Override marker color per step
             @each $name, $pair in $steps-colors {
                 $color: nth($pair, 1);
-                $color-invert: nth($pair, 2);
+                $color-invert: if(length($pair) >= 2, nth($pair, 2), null);
 
                 &.is-#{$name} {
                     &::before,
@@ -254,10 +255,10 @@ $steps-colors: bulma.$colors !default;
                     position: absolute;
                     width: 100%;
                     bottom: 0;
-                    @include bulma.ltr {
+                    @include mixins.ltr {
                         left: -50%;
                     }
-                    @include bulma.rtl {
+                    @include mixins.rtl {
                         left: 50%;
                     }
                 }
@@ -521,7 +522,7 @@ $steps-colors: bulma.$colors !default;
     }
     &:not(.is-vertical) {
         .steps {
-            @include bulma.until($steps-mobile-max-width) {
+            @include mixins.until($steps-mobile-max-width) {
                 &.mobile-minimalist {
                     /* .step-items { */
                     .step-item {

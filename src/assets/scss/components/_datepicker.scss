@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "utils/variables-to-migrate" as to-migrate;
 
 $datepicker-background-color: bulma.$dropdown-content-background-color !default;
 $datepicker-radius: bulma.$dropdown-content-radius !default;
@@ -9,7 +10,7 @@ $datepicker-item-color: bulma.$grey-dark !default;
 $datepicker-item-disabled-color: bulma.$grey-light !default;
 $datepicker-item-hover-color: bulma.$scheme-invert !default;
 $datepicker-item-hover-background-color: bulma.$background !default;
-$datepicker-item-selected-color: bulma.$primary-invert !default;
+$datepicker-item-selected-color: to-migrate.$primary-invert !default;
 $datepicker-item-selected-background-color: bulma.$primary !default;
 $datepicker-event-background-color: bulma.$grey-light !default;
 
@@ -25,8 +26,8 @@ $datepicker-event-background-color: bulma.$grey-light !default;
             &.is-focused,
             &:active,
             &.is-active {
-                box-shadow: bulma.$input-focus-box-shadow-size
-                    bulma.$input-focus-box-shadow-color;
+                box-shadow: to-migrate.$input-focus-box-shadow-size
+                    to-migrate.$input-focus-box-shadow-color;
             }
         }
     }

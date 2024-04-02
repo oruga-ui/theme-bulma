@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 $floating-in-height: 3.25em !default;
 
@@ -180,7 +181,7 @@ $floating-in-height: 3.25em !default;
                 left: 0;
                 right: 0;
                 height: 0.375em;
-                background-color: bulma.$input-background-color;
+                background-color: bulma.$input-background-l;
                 z-index: -1;
             }
         }
@@ -386,7 +387,7 @@ $floating-in-height: 3.25em !default;
     // fix Bulma 0.8.2
     &.is-loading::after {
         top: calc(50% - (1em / 2));
-        @include bulma.ltr {
+        @include mixins.ltr {
             right: calc((2.5em / 2) - 0.5em);
         }
     }

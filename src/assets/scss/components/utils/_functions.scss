@@ -22,7 +22,7 @@
     $encoded: "";
     $slice: 2000;
     $index: 0;
-    $loops: ceil(string.length($svg) / $slice);
+    $loops: ceil(calc(string.length($svg) / $slice));
     @for $i from 1 through $loops {
         $chunk: string.slice($svg, $index, $index + $slice - 1);
         // Encode
