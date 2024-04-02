@@ -1,17 +1,23 @@
+@use "bulma/bulma";
 
-$skeleton-color: $grey-lighter !default;
-$skeleton-background: linear-gradient(90deg, $skeleton-color 25%, rgba($skeleton-color, 0.5) 50%, $skeleton-color 75%) !default;
-$skeleton-border-radius: $radius !default;
+$skeleton-color: bulma.$grey-lighter !default;
+$skeleton-background: linear-gradient(
+    90deg,
+    $skeleton-color 25%,
+    rgba($skeleton-color, 0.5) 50%,
+    $skeleton-color 75%
+) !default;
+$skeleton-border-radius: bulma.$radius !default;
 $skeleton-duration: 1.5s !default;
-$skeleton-margin-top: .5rem !default;
-
-@mixin steps-size($size) {
-    > .b-skeleton-item {
-        line-height: $size;
-    }
-}
+$skeleton-margin-top: 0.5rem !default;
 
 .b-skeleton {
+    @mixin steps-size($size) {
+        > .b-skeleton-item {
+            line-height: $size;
+        }
+    }
+
     display: inline-flex;
     flex-direction: column;
     vertical-align: middle;
@@ -44,15 +50,15 @@ $skeleton-margin-top: .5rem !default;
     + .b-skeleton {
         margin-top: $skeleton-margin-top;
     }
-    @include steps-size($size-normal);
+    @include steps-size(bulma.$size-normal);
     &.is-small {
-        @include steps-size($size-small);
+        @include steps-size(bulma.$size-small);
     }
     &.is-medium {
-        @include steps-size($size-medium);
+        @include steps-size(bulma.$size-medium);
     }
     &.is-large {
-        @include steps-size($size-large);
+        @include steps-size(bulma.$size-large);
     }
 }
 

@@ -1,11 +1,15 @@
-$checkbox-active-background-color: $primary !default;
+@use "bulma/bulma";
+@use "utils/variables" as var;
+@use "utils/functions" as fn;
+
+$checkbox-active-background-color: bulma.$primary !default;
 $checkbox-background-color: transparent !default;
-$checkbox-border-color: $grey !default;
-$checkbox-border-radius: $radius !default;
+$checkbox-border-color: bulma.$grey !default;
+$checkbox-border-radius: bulma.$radius !default;
 $checkbox-border-width: 2px !default;
-$checkbox-checkmark-color: $primary-invert !default;
+$checkbox-checkmark-color: bulma.$primary-invert !default;
 $checkbox-size: 1.25em !default;
-$checkbox-colors: $form-colors !default;
+$checkbox-colors: bulma.$form-colors !default;
 
 .b-checkbox.checkbox {
     @extend %unselectable;
@@ -28,14 +32,18 @@ $checkbox-colors: $form-colors !default;
         flex-shrink: 0;
         border-radius: $checkbox-border-radius;
         border: $checkbox-border-width solid $checkbox-border-color;
-        transition: background $speed-slow $easing;
+        transition: background var.$speed-slow bulma.$easing;
         background: $checkbox-background-color;
         &:checked {
-            background: $checkbox-active-background-color url(checkmark($checkbox-checkmark-color)) no-repeat center center;
+            background: $checkbox-active-background-color
+                url(fn.checkmark($checkbox-checkmark-color)) no-repeat center
+                center;
             border-color: $checkbox-active-background-color;
         }
         &:indeterminate {
-            background: $checkbox-active-background-color url(indeterminate($checkbox-checkmark-color)) no-repeat center center;
+            background: $checkbox-active-background-color
+                url(fn.indeterminate($checkbox-checkmark-color)) no-repeat
+                center center;
             border-color: $checkbox-active-background-color;
         }
         &:hover:not(:disabled) {
@@ -43,16 +51,17 @@ $checkbox-colors: $form-colors !default;
         }
         &:focus {
             &.check {
-                box-shadow: 0 0 0.5em rgba($grey, 0.8);
+                box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
             }
             &:checked.check {
-                box-shadow: 0 0 0.5em rgba($checkbox-active-background-color, 0.8);
+                box-shadow: 0 0 0.5em
+                    rgba($checkbox-active-background-color, 0.8);
             }
         }
     }
 
     .control-label {
-        padding-left: $control-padding-horizontal;
+        padding-left: bulma.$control-padding-horizontal;
     }
     &.button {
         display: flex;
@@ -62,13 +71,13 @@ $checkbox-colors: $form-colors !default;
         cursor: not-allowed;
     }
     &.is-small {
-        @include control-small;
+        @include bulma.control-small;
     }
-    &.is-medium{
-        @include control-medium;
+    &.is-medium {
+        @include bulma.control-medium;
     }
     &.is-large {
-        @include control-large;
+        @include bulma.control-large;
     }
 
     @each $name, $pair in $checkbox-colors {
@@ -82,7 +91,11 @@ $checkbox-colors: $form-colors !default;
 
                 &:checked {
                     border-color: $color;
-                    background: $color url(checkmark($color-invert)) no-repeat center center;
+                    background: $color
+                        url(checkmark($color-invert))
+                        no-repeat
+                        center
+                        center;
 
                     &:focus {
                         box-shadow: 0 0 0.5em rgba($color, 0.8);
@@ -90,7 +103,11 @@ $checkbox-colors: $form-colors !default;
                 }
 
                 &:indeterminate {
-                    background: $color url(indeterminate($color-invert)) no-repeat center center;
+                    background: $color
+                        url(fn.indeterminate($color-invert))
+                        no-repeat
+                        center
+                        center;
                     border-color: $color;
                 }
             }

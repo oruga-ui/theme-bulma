@@ -1,2 +1,3 @@
+@use "bulma/bulma";
 
-$input-arrow: $primary !default;
+$input-arrow: bulma.$primary !default;
