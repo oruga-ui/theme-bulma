@@ -1,7 +1,7 @@
 // Some of the animations are from animate.css (https://daneden.github.io/animate.css)
 
 @use "_variables" as var;
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 
 // Fade out
 @keyframes fadeOut {

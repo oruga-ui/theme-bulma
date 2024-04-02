@@ -1,4 +1,4 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
@@ -149,7 +149,7 @@ $tooltip-colors: bulma.$colors !default;
     // Modifiers
     @each $name, $pair in $tooltip-colors {
         $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+        $color-invert: if(length($pair) >= 2, nth($pair, 2), null);
         &.is-#{$name} {
             .b-tooltip-content {
                 background: $color;
