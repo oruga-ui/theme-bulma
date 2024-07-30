@@ -8,56 +8,68 @@ $floating-in-height: 3.25em !default;
             margin-bottom: 0;
             margin-right: 0.75rem;
         }
+
         &.is-grouped-multiline > :not(:last-child) {
             margin-bottom: 0.75rem;
         }
+
         .field {
             flex-shrink: 0;
+
             &:not(:last-child) {
                 margin-right: 0.75rem;
             }
+
             &.is-expanded {
                 flex-grow: 1;
                 flex-shrink: 1;
             }
         }
     }
+
     &.has-addons {
         .button {
             &:not(:last-child) {
                 border-bottom-right-radius: 0;
                 border-top-right-radius: 0;
             }
+
             &:not(:first-child) {
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
             }
         }
+
         .select {
             &:not(:last-child) select {
                 border-bottom-right-radius: 0;
                 border-top-right-radius: 0;
             }
+
             &:not(:first-child) select {
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
             }
         }
+
         .dropdown {
             &:not(:last-child) .button {
                 border-bottom-right-radius: 0;
                 border-top-right-radius: 0;
             }
+
             &:not(:first-child) .button {
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
             }
         }
+
         .datepicker {
             &:not(:last-child) .input {
                 border-bottom-right-radius: 0;
                 border-top-right-radius: 0;
             }
+
             &:not(:first-child) .input {
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
@@ -74,6 +86,7 @@ $floating-in-height: 3.25em !default;
                 border-top-left-radius: bulma.$input-radius;
             }
         }
+
         &:last-child .control {
             .button,
             .input,
@@ -82,6 +95,7 @@ $floating-in-height: 3.25em !default;
                 border-top-right-radius: bulma.$input-radius;
             }
         }
+
         .control {
             .button,
             .input,
@@ -103,6 +117,7 @@ $floating-in-height: 3.25em !default;
                     }
                 }
             }
+
             &:not(:last-child) {
                 .control:last-child {
                     .button,
@@ -114,6 +129,7 @@ $floating-in-height: 3.25em !default;
                 }
             }
         }
+
         &.b-numberinput {
             .control {
                 margin-right: unset;
@@ -141,13 +157,16 @@ $floating-in-height: 3.25em !default;
             &.is-small {
                 font-size: calc(#{bulma.$size-small} * 3 / 4);
             }
+
             &.is-medium {
                 font-size: calc(#{bulma.$size-medium} * 3 / 4);
             }
+
             &.is-large {
                 font-size: calc(#{bulma.$size-large} * 3 / 4);
             }
         }
+
         .taginput .counter {
             float: none;
             text-align: right;
@@ -172,6 +191,7 @@ $floating-in-height: 3.25em !default;
             top: -0.775em;
             padding-left: 0.125em;
             padding-right: 0.125em;
+
             &:before {
                 content: "";
                 display: block;
@@ -184,6 +204,7 @@ $floating-in-height: 3.25em !default;
                 z-index: -1;
             }
         }
+
         .input,
         .textarea,
         .select select {
@@ -191,13 +212,16 @@ $floating-in-height: 3.25em !default;
                 box-shadow: none;
             }
         }
+
         .taginput .taginput-container {
             padding-top: 0.475em;
+
             &.is-focused {
                 box-shadow: none;
             }
         }
     }
+
     &.is-floating-in-label {
         > .label {
             top: 0.25em;
@@ -215,6 +239,7 @@ $floating-in-height: 3.25em !default;
                         height: $floating-in-height;
                     }
                 }
+
                 &:not(.datepicker):not(.timepicker):not(.taginput) {
                     .input,
                     .textarea,
@@ -227,8 +252,10 @@ $floating-in-height: 3.25em !default;
                         padding-bottom: 1px;
                         height: $floating-in-height;
                     }
-                    .select:not(multiple) {
+
+                    .select:not([multiple]) {
                         height: $floating-in-height;
+
                         &.is-loading {
                             &::after {
                                 margin-top: calc(
@@ -238,11 +265,13 @@ $floating-in-height: 3.25em !default;
                                 );
                             }
                         }
+
                         &::after {
                             margin-top: 1px;
                         }
                     }
                 }
+
                 &.taginput {
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
@@ -253,11 +282,13 @@ $floating-in-height: 3.25em !default;
                         );
                     }
                 }
+
                 &:not(.taginput) {
                     .is-left.icon,
                     .is-right.icon {
                         height: $floating-in-height;
                     }
+
                     .is-left.icon {
                         padding-top: calc(
                             #{$floating-in-height} / 2 - (
@@ -266,6 +297,7 @@ $floating-in-height: 3.25em !default;
                         );
                     }
                 }
+
                 &.is-loading::after {
                     margin-top: calc(
                         #{$floating-in-height} / 2 - (
@@ -290,6 +322,7 @@ $floating-in-height: 3.25em !default;
                             );
                             padding-bottom: 1px;
                         }
+
                         .input,
                         .textarea,
                         select,
@@ -312,42 +345,50 @@ $floating-in-height: 3.25em !default;
             }
         }
     }
+
     &.is-floating-label,
     &.is-floating-in-label {
         &.has-numberinput {
             .label {
                 margin-left: calc(#{bulma.$size-normal} * 3);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     margin-left: calc(#{bulma.$size-small} * 3);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     margin-left: calc(#{bulma.$size-medium} * 3);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     margin-left: calc(#{bulma.$size-large} * 3);
                 }
             }
         }
+
         &.has-numberinput-compact {
             .label {
                 margin-left: calc(#{bulma.$size-normal} * 2.25);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     margin-left: calc(#{bulma.$size-small} * 2.25);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     margin-left: calc(#{bulma.$size-medium} * 2.25);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     margin-left: calc(#{bulma.$size-large} * 2.25);
@@ -355,6 +396,7 @@ $floating-in-height: 3.25em !default;
             }
         }
     }
+
     &.is-grouped-right,
     &.has-addons-right {
         &.is-floating-in-label {
@@ -363,6 +405,7 @@ $floating-in-height: 3.25em !default;
                 left: calc(3.25em + 2em);
             }
         }
+
         &.is-floating-label {
             .label {
                 position: relative;
@@ -377,6 +420,7 @@ $floating-in-height: 3.25em !default;
         float: right;
         margin-left: 0.5em;
     }
+
     .icon {
         &.is-clickable {
             pointer-events: auto;
@@ -386,6 +430,7 @@ $floating-in-height: 3.25em !default;
     // fix Bulma 0.8.2
     &.is-loading::after {
         top: calc(50% - (1em / 2));
+
         @include bulma.ltr {
             right: calc((2.5em / 2) - 0.5em);
         }

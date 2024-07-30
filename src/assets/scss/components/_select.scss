@@ -7,16 +7,19 @@
             padding: bulma.$control-padding-vertical
                 bulma.$control-padding-horizontal;
         }
+
         option:disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         optgroup {
             color: bulma.$grey-light;
             font-weight: bulma.$weight-normal;
             font-style: normal;
             padding: 0.25em 0;
         }
+
         &.is-empty {
             color: rgba(bulma.$grey, 0.7);
         }
@@ -26,6 +29,7 @@
 // hack to restore missing Bulma wrapper .control
 .select {
     display: table;
+
     .icon {
         color: bulma.$input-icon-color;
         height: bulma.$input-height;
@@ -35,18 +39,22 @@
         width: bulma.$input-height;
         z-index: 4;
     }
+
     &.has-icons-left {
         select {
             padding-left: bulma.$input-height;
         }
+
         .icon {
             &.is-left {
                 left: 0;
             }
         }
     }
+
     .has-icons-right {
         padding-right: bulma.$input-height;
+
         .icon {
             &.is-right {
                 right: 0;

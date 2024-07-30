@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "bulma/bulma";
 
 $tooltip-arrow-size: 5px !default;
@@ -16,7 +17,6 @@ $tooltip-colors: bulma.$colors !default;
         border-left-color: $color;
     }
 }
-
 @mixin tooltip($direction) {
     &-content {
         &.#{$direction} {
@@ -95,14 +95,15 @@ $tooltip-colors: bulma.$colors !default;
             }
 
             @each $name, $pair in $tooltip-colors {
-                $color: nth($pair, 1);
+                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     &::before {
                         @include tooltip-arrow-color($direction, $color);
                     }
                     // If light and dark colors are provided
-                    @if length($pair) >= 4 {
-                        $color-light: nth($pair, 3);
+                    @if list.length($pair) >= 4 {
+                        $color-light: list.nth($pair, 3);
+
                         &.is-light {
                             &::before {
                                 @include tooltip-arrow-color(
@@ -126,6 +127,7 @@ $tooltip-colors: bulma.$colors !default;
     @include tooltip("is-left");
     position: relative;
     display: inline-flex;
+
     .b-tooltip-content {
         width: auto;
         padding: 0.35rem 0.75rem;
@@ -137,28 +139,31 @@ $tooltip-colors: bulma.$colors !default;
         white-space: nowrap;
         position: absolute;
     }
+
     .b-tooltip-content::before {
         position: absolute;
         content: "";
         pointer-events: none;
         z-index: 38;
     }
+
     .b-tooltip-trigger {
         width: 100%;
     }
     // Modifiers
     @each $name, $pair in $tooltip-colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+        $color: list.nth($pair, 1);
+        $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .b-tooltip-content {
                 background: $color;
                 color: $color-invert;
             }
             // If light and dark colors are provided
-            @if length($pair) >= 4 {
-                $color-light: nth($pair, 3);
-                $color-dark: nth($pair, 4);
+            @if list.length($pair) >= 4 {
+                $color-light: list.nth($pair, 3);
+                $color-dark: list.nth($pair, 4);
+
                 &.is-light {
                     .b-tooltip-content {
                         background: $color-light;
@@ -168,23 +173,27 @@ $tooltip-colors: bulma.$colors !default;
             }
         }
     }
+
     & .b-tooltip-content {
         &.is-always {
             opacity: 1;
             visibility: visible;
         }
+
         &.is-multiline {
             text-align: center;
             white-space: normal;
             width: $tooltip-content-multiline-width;
         }
     }
+
     &.is-dashed {
         .b-tooltip-trigger {
             border-bottom: 1px dashed bulma.$grey-light;
             cursor: default;
         }
     }
+
     &.is-square {
         .b-tooltip-content {
             border-radius: 0;

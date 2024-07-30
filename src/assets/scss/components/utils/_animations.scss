@@ -8,10 +8,12 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
 }
+
 .fadeOut {
     animation-name: fadeOut;
 }
@@ -20,11 +22,13 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, 100%, 0);
     }
 }
+
 .fadeOutDown {
     animation-name: fadeOutDown;
 }
@@ -33,11 +37,13 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, -100%, 0);
     }
 }
+
 .fadeOutUp {
     animation-name: fadeOutUp;
 }
@@ -47,10 +53,12 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 .fadeIn {
     animation-name: fadeIn;
 }
@@ -60,11 +68,13 @@
         opacity: 0;
         transform: translate3d(0, -100%, 0);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 .fadeInDown {
     animation-name: fadeInDown;
 }
@@ -74,11 +84,13 @@
         opacity: 0;
         transform: translate3d(0, 100%, 0);
     }
+
     to {
         opacity: 1;
         transform: none;
     }
 }
+
 .fadeInUp {
     animation-name: fadeInUp;
 }
@@ -92,6 +104,7 @@
 .fade-leave-active {
     transition: opacity var.$speed-slow bulma.$easing;
 }
+
 .fade-enter,
 .fade-enter-from,
 .fade-leave-to {
@@ -102,15 +115,18 @@
 .zoom-in-enter-active,
 .zoom-in-leave-active {
     transition: opacity var.$speed-slow bulma.$easing;
+
     .animation-content,
     .animation-content {
         transition: transform var.$speed-slow bulma.$easing;
     }
 }
+
 .zoom-in-enter,
 .zoom-in-enter-from,
 .zoom-in-leave-active {
     opacity: 0;
+
     .animation-content,
     .animation-content {
         transform: scale(0.95);
@@ -121,15 +137,18 @@
 .zoom-out-enter-active,
 .zoom-out-leave-active {
     transition: opacity var.$speed-slow bulma.$easing;
+
     .animation-content,
     .animation-content {
         transition: transform var.$speed-slow bulma.$easing;
     }
 }
+
 .zoom-out-enter,
 .zoom-out-enter-from,
 .zoom-out-leave-active {
     opacity: 0;
+
     .animation-content,
     .animation-content {
         transform: scale(1.05);
@@ -144,6 +163,7 @@
     transition: transform var.$speed-slower
         cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+
 .slide-prev-leave-to,
 .slide-next-enter,
 .slide-next-enter-from {
@@ -151,6 +171,7 @@
     position: absolute;
     width: 100%;
 }
+
 .slide-prev-enter,
 .slide-prev-enter-from,
 .slide-next-leave-to {
@@ -166,6 +187,7 @@
     transition: transform var.$speed-slower
         cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+
 .slide-down-enter,
 .slide-up-leave-to,
 .slide-down-enter-from {
@@ -173,6 +195,7 @@
     position: absolute;
     height: 100%;
 }
+
 .slide-up-enter,
 .slide-up-enter-from,
 .slide-down-leave-to {
@@ -184,16 +207,19 @@
 .slide-enter-active {
     transition: var.$speed-slow bulma.$easing;
 }
+
 .slide-leave-active {
     transition: var.$speed-slow bulma.$easing;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
 .slide-leave,
 .slide-enter-to,
 .slide-leave-from {
     max-height: 100px;
     overflow: hidden;
 }
+
 .slide-enter,
 .slide-enter-from,
 .slide-leave-to {

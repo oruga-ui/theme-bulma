@@ -17,6 +17,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
     .tabs {
         margin-bottom: 0;
         flex-shrink: 0;
+
         div {
             a:focus {
                 outline: $tabs-focused-outline;
@@ -29,6 +30,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                         border-bottom-color: $tabs-link-focus-border-bottom-color;
                     }
                 }
+
                 &.is-disabled {
                     pointer-events: none;
                     cursor: not-allowed;
@@ -44,6 +46,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                     background-color: $tabs-boxed-link-focus-active-background-color;
                     border-bottom-color: $tabs-boxed-link-focus-active-border-bottom-color;
                 }
+
                 a {
                     &:not(.is-active) {
                         &:focus {
@@ -54,12 +57,14 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 }
             }
         }
+
         &.is-toggle {
             div {
                 a:focus {
                     background-color: $tabs-toggle-link-focus-active-background-color;
                     border-color: $tabs-toggle-link-focus-active-border-color;
                 }
+
                 a {
                     &:not(.is-active) {
                         &:focus {
@@ -71,12 +76,14 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
             }
         }
     }
+
     .tab-content {
         position: relative;
         overflow: visible;
         display: flex;
         flex-direction: column;
         padding: 1rem;
+
         .tab-item {
             flex-shrink: 0;
             flex-basis: auto;
@@ -85,20 +92,25 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 outline: $tabs-items-focused-outline;
             }
         }
+
         &.is-transitioning {
             overflow: hidden;
         }
     }
+
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
+
     &.is-fullwidth {
         width: 100%;
     }
+
     &.is-vertical {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+
         > .tabs {
             // ul {
             flex-direction: column;
@@ -130,17 +142,20 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                     }
                 }
             }
+
             &.is-toggle {
                 div {
                     + div {
                         margin-left: 0;
                     }
+
                     &:first-child {
                         a {
                             border-radius: bulma.$tabs-toggle-link-radius
                                 bulma.$tabs-toggle-link-radius 0 0;
                         }
                     }
+
                     &:last-child {
                         a {
                             border-radius: 0 0 bulma.$tabs-toggle-link-radius
@@ -149,6 +164,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                     }
                 }
             }
+
             &.is-fullwidth {
                 div {
                     a {
@@ -157,6 +173,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 }
             }
         }
+
         > .tab-content {
             flex-grow: 1;
         }
@@ -198,6 +215,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
             }
         }
     }
+
     &.is-multiline {
         > .tabs {
             flex-wrap: wrap;
@@ -213,6 +231,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
         div {
             a {
                 height: 100%;
+
                 &.is-active {
                     border-bottom-color: bulma.$tabs-link-active-border-bottom-color;
                     color: bulma.$tabs-link-active-color;
@@ -241,12 +260,14 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 border-width: bulma.$tabs-toggle-link-border-width;
                 margin-bottom: 0;
                 position: relative;
+
                 &:hover {
                     background-color: bulma.$tabs-toggle-link-hover-background-color;
                     border-color: bulma.$tabs-toggle-link-hover-border-color;
                     z-index: 2;
                 }
             }
+
             div {
                 & + div {
                     @include bulma.ltr-property(
@@ -255,6 +276,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                         false
                     );
                 }
+
                 &:first-child a {
                     @include bulma.ltr {
                         border-top-left-radius: bulma.$tabs-toggle-link-radius;
@@ -265,6 +287,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                         border-bottom-right-radius: bulma.$tabs-toggle-link-radius;
                     }
                 }
+
                 &:last-child a {
                     @include bulma.ltr {
                         border-top-right-radius: bulma.$tabs-toggle-link-radius;
@@ -301,6 +324,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                         padding-right: 1.25em;
                     }
                 }
+
                 &:last-child a {
                     @include bulma.ltr {
                         border-bottom-right-radius: bulma.$radius-rounded;
@@ -319,6 +343,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
         &.is-boxed {
             a {
                 border: 1px solid transparent;
+
                 @include bulma.ltr {
                     border-radius: bulma.$tabs-boxed-link-radius
                         bulma.$tabs-boxed-link-radius 0 0;
@@ -327,11 +352,13 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                     border-radius: 0 0 bulma.$tabs-boxed-link-radius
                         bulma.$tabs-boxed-link-radius;
                 }
+
                 &:hover {
                     background-color: bulma.$tabs-boxed-link-hover-background-color;
                     border-bottom-color: bulma.$tabs-boxed-link-hover-border-bottom-color;
                 }
             }
+
             div {
                 a {
                     &.is-active {
