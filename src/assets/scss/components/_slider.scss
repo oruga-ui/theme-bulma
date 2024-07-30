@@ -20,7 +20,7 @@ $slider-mark-size: 0.75rem !default;
 $slider-colors: bulma.$colors !default;
 
 @mixin slider-size($size) {
-    $track-height: divide($size, $slider-thumb-to-track-ratio);
+    $track-height: calc($size / $slider-thumb-to-track-ratio);
     $tick-height: calc(
         $size / $slider-thumb-to-track-ratio * $slider-tick-to-track-ratio
     );
