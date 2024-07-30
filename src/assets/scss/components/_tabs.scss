@@ -228,6 +228,12 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
 
     // Hack to Bulma (ul, li, .. style)
     .tabs {
+        // ul classes -> nav
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+        justify-content: flex-start;
+
         div {
             a {
                 height: 100%;
@@ -238,12 +244,6 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 }
             }
         }
-
-        // ul classes -> nav
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 0;
-        justify-content: flex-start;
 
         &:not(.is-toggle),
         &:not(.is-toggle-rounded) {

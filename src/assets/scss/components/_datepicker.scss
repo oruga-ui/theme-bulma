@@ -248,9 +248,9 @@ $datepicker-event-background-color: bulma.$grey-light !default;
                             // Currently datepicker only uses primary coloring
                             // Ensure indicator is visible when selected
                             &.is-primary {
-                                background-color: color.lighten(
+                                background-color: color.adjust(
                                     bulma.$primary,
-                                    15
+                                    $lightness: 15%
                                 );
                             }
                         }

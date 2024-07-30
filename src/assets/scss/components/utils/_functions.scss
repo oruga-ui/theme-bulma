@@ -27,7 +27,7 @@
     $encoded: "";
     $slice: 2000;
     $index: 0;
-    $loops: math.ceil(string.length($svg) / $slice);
+    $loops: math.ceil(calc(string.length($svg) / $slice));
 
     @for $i from 1 through $loops {
         $chunk: string.slice($svg, $index, $index + $slice - 1);
