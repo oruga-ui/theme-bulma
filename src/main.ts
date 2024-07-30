@@ -4,17 +4,18 @@ import App from "./App.vue";
 import router from "./router";
 
 import Oruga from "@oruga-ui/oruga-next";
+import Examples from "@oruga-ui/examples";
+
+// add examples styles
+import "@oruga-ui/examples/dist/style.css";
+
+// add theme config
 import { bulmaConfig } from "./plugins/bulma";
-
-import "./assets/scss/bulma-build.scss";
-
-import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-import "@fortawesome/fontawesome-free/scss/regular.scss";
-import "@fortawesome/fontawesome-free/scss/solid.scss";
 
 createApp(App)
     .use(router)
     .use(Oruga, {
+        iconPack: "fas",
         customIconPacks: {
             fas: {
                 sizes: {
@@ -25,7 +26,7 @@ createApp(App)
                 },
             },
         },
-        iconPack: "fas",
         ...bulmaConfig,
     })
+    .use(Examples)
     .mount("#app");
