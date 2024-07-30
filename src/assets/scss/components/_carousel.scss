@@ -1,6 +1,7 @@
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
+/* @docs */
 $carousel-arrow-background: bulma.$scheme-main !default;
 $carousel-arrow-color: bulma.$primary !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
@@ -13,6 +14,7 @@ $carousel-indicator-spaced: 0.5rem !default;
 
 $carousel-overlay-background: rgba(bulma.$scheme-invert, 0.86) !default;
 $carousel-overlay-z: 40 !default;
+/* @docs */
 
 .carousel {
     @extend %unselectable;

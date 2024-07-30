@@ -3,6 +3,7 @@
 @use "utils/variables" as var;
 @use "utils/functions" as fn;
 
+/* @docs */
 $checkbox-active-background-color: bulma.$primary !default;
 $checkbox-background-color: transparent !default;
 $checkbox-border-color: bulma.$grey !default;
@@ -11,6 +12,7 @@ $checkbox-border-width: 2px !default;
 $checkbox-checkmark-color: bulma.$primary-invert !default;
 $checkbox-size: 1.25em !default;
 $checkbox-colors: bulma.$form-colors !default;
+/* @docs */
 
 .b-checkbox.checkbox {
     @extend %unselectable;

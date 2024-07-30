@@ -1,6 +1,7 @@
 @use "sass:list";
 @use "bulma/bulma";
 
+/* @docs */
 $slider-radius: bulma.$radius !default;
 $slider-track-background: bulma.$grey-lighter !default;
 $slider-fill-background: bulma.$primary !default;
@@ -18,6 +19,7 @@ $slider-tick-radius: bulma.$radius !default;
 $slider-tick-background: bulma.$grey-light !default;
 $slider-mark-size: 0.75rem !default;
 $slider-colors: bulma.$colors !default;
+/* @docs */
 
 @mixin slider-size($size) {
     $track-height: calc($size / $slider-thumb-to-track-ratio);

@@ -1,6 +1,8 @@
 @use "bulma/bulma";
 
+/* @docs */
 $taginput-height: calc(2em - 1px) !default;
+/* @docs */
 
 .taginput {
     .taginput-container {

@@ -2,6 +2,7 @@
 @use "sass:color";
 @use "bulma/bulma";
 
+/* @docs */
 $datepicker-background-color: bulma.$dropdown-content-background-color !default;
 $datepicker-radius: bulma.$dropdown-content-radius !default;
 $datepicker-shadow: bulma.$dropdown-content-shadow !default;
@@ -14,6 +15,7 @@ $datepicker-item-hover-background-color: bulma.$background !default;
 $datepicker-item-selected-color: bulma.$primary-invert !default;
 $datepicker-item-selected-background-color: bulma.$primary !default;
 $datepicker-event-background-color: bulma.$grey-light !default;
+/* @docs */
 
 .datepicker {
     font-size: 0.875rem;

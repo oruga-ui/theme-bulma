@@ -1,10 +1,12 @@
 @use "sass:list";
 @use "bulma/bulma";
 
+/* @docs */
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
 $tooltip-content-multiline-width: 300px !default;
 $tooltip-colors: bulma.$colors !default;
+/* @docs */
 
 @mixin tooltip-arrow-color($direction, $color) {
     @if ($direction == "is-top") {
