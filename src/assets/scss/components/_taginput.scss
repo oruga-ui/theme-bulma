@@ -5,6 +5,7 @@ $taginput-height: calc(2em - 1px) !default;
 .taginput {
     .taginput-container {
         display: flex;
+
         &.is-focusable {
             @extend %input-textarea;
             padding-bottom: 0;
@@ -17,17 +18,21 @@ $taginput-height: calc(2em - 1px) !default;
             height: auto;
             cursor: text;
         }
+
         &:not(.is-focusable) {
             align-items: center;
             flex-wrap: wrap;
             justify-content: flex-start;
             height: auto;
+
             &.is-small {
                 @include bulma.control-small;
             }
+
             &.is-medium {
                 @include bulma.control-medium;
             }
+
             &.is-large {
                 @include bulma.control-large;
             }
@@ -39,10 +44,12 @@ $taginput-height: calc(2em - 1px) !default;
             margin-bottom: calc(0.275em - 1px);
             font-size: 0.9em;
             height: $taginput-height;
+
             .tag {
                 margin-bottom: 0;
                 font-size: 0.9em;
                 height: $taginput-height;
+
                 &.is-delete {
                     width: $taginput-height;
                 }
@@ -57,6 +64,7 @@ $taginput-height: calc(2em - 1px) !default;
         .autocomplete {
             position: static;
             flex: 1;
+
             input {
                 height: $taginput-height;
                 margin-bottom: calc(0.275em - 1px);
@@ -65,13 +73,16 @@ $taginput-height: calc(2em - 1px) !default;
                 border: none;
                 box-shadow: none;
                 min-width: 8em;
+
                 &:focus {
                     box-shadow: none !important;
                 }
             }
+
             .icon {
                 height: $taginput-height;
             }
+
             > .control.is-loading::after {
                 top: 0.375em;
             }

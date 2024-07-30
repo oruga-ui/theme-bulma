@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
@@ -13,6 +14,7 @@ $radio-colors: bulma.$form-colors !default;
 
     &:not(.button) {
         margin-right: 0.5em;
+
         & + .radio:last-child {
             margin-right: 0;
         }
@@ -113,7 +115,7 @@ $radio-colors: bulma.$form-colors !default;
     }
 
     @each $name, $pair in $radio-colors {
-        $color: nth($pair, 1);
+        $color: list.nth($pair, 1);
 
         &.is-#{$name} {
             .check:before {

@@ -1,8 +1,10 @@
+@use "sass:list";
 @use "bulma/bulma";
 
 .upload {
     position: relative;
     display: inline-flex;
+
     input[type="file"] {
         position: absolute;
         top: 0;
@@ -14,15 +16,17 @@
         cursor: pointer;
         z-index: -1;
     }
+
     .upload-draggable {
         cursor: pointer;
         padding: 0.25em;
         border: 1px dashed bulma.$grey-light;
         border-radius: bulma.$radius-large;
+
         &:hover,
         &.is-hovered {
             @each $name, $pair in bulma.$file-colors {
-                $color: nth($pair, 1);
+                $color: list.nth($pair, 1);
                 &.is-#{$name} {
                     border-color: $color;
                     background: rgba($color, 0.05);
@@ -30,16 +34,20 @@
             }
         }
     }
+
     &.is-expanded {
         width: 100%;
+
         .upload-draggable {
             width: 100%;
         }
     }
+
     &.is-disabled {
         opacity: 0.5;
         cursor: not-allowed;
     }
+
     &.is-rounded {
         border-radius: bulma.$radius-rounded;
 

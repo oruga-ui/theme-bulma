@@ -8,13 +8,16 @@ $table-sticky-header-height: 300px !default;
     .table {
         background-color: transparent;
     }
+
     thead {
         tr {
             box-shadow: none;
             border-width: 0;
+
             th {
                 display: none;
             }
+
             .checkbox-cell {
                 display: block;
                 width: 100%;
@@ -24,12 +27,14 @@ $table-sticky-header-height: 300px !default;
             }
         }
     }
+
     tfoot {
         th {
             border: 0; // Disable is-bordered
             display: inherit;
         }
     }
+
     tr {
         // Card style — Cannot extend inside media query
         box-shadow:
@@ -38,27 +43,33 @@ $table-sticky-header-height: 300px !default;
         max-width: 100%;
         position: relative;
         display: block;
+
         td {
             border: 0; // Disable is-bordered
             display: inherit;
+
             &:last-child {
                 border-bottom: 0;
             }
         }
+
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
         // Disables is-*
         &:not([class*="is-"]) {
             background: bulma.$table-background-color;
+
             &:hover {
                 background-color: bulma.$table-background-color;
             }
         }
+
         &.detail {
             margin-top: -1rem;
         }
     }
+
     tr:not(.detail):not(.is-empty):not(.table-footer) {
         td {
             display: flex;
@@ -66,6 +77,7 @@ $table-sticky-header-height: 300px !default;
             justify-content: space-between;
             text-align: right;
             border-bottom: 1px solid bulma.$background;
+
             &:before {
                 content: attr(data-label);
                 font-weight: bulma.$weight-semibold;
@@ -78,12 +90,15 @@ $table-sticky-header-height: 300px !default;
 
 .table-wrapper {
     position: relative;
+
     .table {
         margin-bottom: 0;
     }
+
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
+
     @include bulma.touch {
         overflow-x: auto;
     }
@@ -107,9 +122,11 @@ $table-sticky-header-height: 300px !default;
         transition:
             transform var.$speed-slow bulma.$easing,
             opacity bulma.$speed bulma.$easing;
+
         &.is-desc {
             transform: rotate(180deg);
         }
+
         &.is-expanded {
             transform: rotate(90deg);
         }
@@ -124,11 +141,14 @@ $table-sticky-header-height: 300px !default;
         border: 1px solid transparent;
         border-radius: bulma.$radius;
         border-collapse: separate;
+
         th {
             font-weight: bulma.$weight-semibold;
+
             .th-wrap {
                 display: flex;
                 align-items: center;
+
                 .icon {
                     margin-left: 0.5rem;
                     margin-right: 0;
@@ -149,25 +169,31 @@ $table-sticky-header-height: 300px !default;
                 }
                 */
             }
+
             &.is-right {
                 flex-direction: row-reverse;
                 text-align: right;
+
                 .icon {
                     margin-left: 0;
                     margin-right: 0.5rem;
                 }
             }
+
             &.is-centered {
                 justify-content: center;
                 text-align: center;
             }
+
             &.is-current-sort {
                 border-color: bulma.$grey;
                 font-weight: bulma.$weight-bold;
             }
+
             &.is-sortable:hover {
                 border-color: bulma.$grey;
             }
+
             &.is-sortable {
                 cursor: pointer;
                 /* .is-relative { */
@@ -175,6 +201,7 @@ $table-sticky-header-height: 300px !default;
                     position: relative;
                 }
             }
+
             .sort-icon,
             .multi-sort-cancel-icon {
                 position: absolute;
@@ -182,9 +209,11 @@ $table-sticky-header-height: 300px !default;
                 left: 100%;
                 transform: translateY(50%);
             }
+
             .multi-sort-cancel-icon {
                 margin-left: 10px;
             }
+
             &.is-sticky {
                 position: -webkit-sticky;
                 position: sticky;
@@ -192,13 +221,16 @@ $table-sticky-header-height: 300px !default;
                 z-index: 3 !important;
                 background: bulma.$table-head-background-color;
             }
+
             &.th-checkbox {
                 width: 40px;
             }
+
             &.th-chevron-cell {
                 width: 40px;
             }
         }
+
         tr {
             &.is-selected {
                 .checkbox input {
@@ -209,37 +241,47 @@ $table-sticky-header-height: 300px !default;
                             ))
                             no-repeat center center;
                     }
+
                     + .check {
                         border-color: bulma.$table-row-active-color;
                     }
                 }
             }
+
             &.is-empty:hover {
                 background-color: transparent;
             }
         }
+
         .chevron-cell {
             vertical-align: middle;
+
             > .icon {
                 color: bulma.$input-arrow !important;
             }
         }
+
         .checkbox-cell {
             width: 40px;
+
             .checkbox {
                 vertical-align: middle;
+
                 .check {
                     transition: none;
                 }
             }
         }
+
         tr.detail {
             box-shadow: inset 0 1px 3px bulma.$grey-lighter;
             background: bulma.$scheme-main-bis;
+
             .detail-container {
                 padding: 1rem;
             }
         }
+
         &:focus {
             border-color: bulma.$link;
             box-shadow: 0 0 0 0.125em rgba(bulma.$link, 0.25);
@@ -286,6 +328,7 @@ $table-sticky-header-height: 300px !default;
             flex-grow: 0;
             flex-shrink: 0;
             align-items: center;
+
             @include bulma.tablet {
                 display: flex;
             }
@@ -310,20 +353,24 @@ $table-sticky-header-height: 300px !default;
                 justify-content: flex-end;
             }
         }
+
         &.is-mobile > div {
             display: flex;
         }
     }
+
     .table-wrapper {
         &.has-sticky-header {
             height: $table-sticky-header-height;
             overflow-y: auto;
+
             &.is-mobile {
                 @include bulma.mobile {
                     height: initial !important;
                     overflow-y: initial !important;
                 }
             }
+
             tr:first-child {
                 th {
                     position: -webkit-sticky;
@@ -334,11 +381,13 @@ $table-sticky-header-height: 300px !default;
                 }
             }
         }
+
         &.is-mobile {
             @include bulma.mobile {
                 @include table-cards;
             }
         }
+
         &.is-card-list {
             @include table-cards;
         }

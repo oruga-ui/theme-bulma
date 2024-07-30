@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "bulma/bulma";
 
 $slider-radius: bulma.$radius !default;
@@ -60,6 +61,7 @@ $slider-colors: bulma.$colors !default;
         background: $slider-track-background;
         border-radius: $slider-radius;
     }
+
     .b-slider-fill {
         position: absolute;
         height: 100%;
@@ -71,6 +73,7 @@ $slider-colors: bulma.$colors !default;
         top: 50%;
         transform: translateY(-50%);
     }
+
     .b-slider-thumb-wrapper {
         display: inline-flex;
         align-items: center;
@@ -85,6 +88,7 @@ $slider-colors: bulma.$colors !default;
             border: $slider-thumb-border;
             border-radius: $slider-thumb-radius;
             background: $slider-thumb-background;
+
             &:focus {
                 transform: scale(1.25);
             }
@@ -92,6 +96,7 @@ $slider-colors: bulma.$colors !default;
 
         &.is-dragging {
             cursor: grabbing;
+
             .b-slider-thumb {
                 transform: scale(1.25);
             }
@@ -120,13 +125,16 @@ $slider-colors: bulma.$colors !default;
             border-radius: bulma.$radius-rounded;
         }
     }
+
     &.is-disabled {
         .b-slider-track {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         .b-slider-thumb-wrapper {
             cursor: not-allowed;
+
             .b-slider-thumb {
                 transform: scale(1);
             }
@@ -134,18 +142,21 @@ $slider-colors: bulma.$colors !default;
     }
 
     @include slider-size(bulma.$size-normal);
+
     &.is-small {
         @include slider-size(bulma.$size-small);
     }
+
     &.is-medium {
         @include slider-size(bulma.$size-medium);
     }
+
     &.is-large {
         @include slider-size(bulma.$size-large);
     }
 
     @each $name, $pair in $slider-colors {
-        $color: nth($pair, 1);
+        $color: list.nth($pair, 1);
         &.is-#{$name} {
             .b-slider-fill {
                 background: $color !important;
@@ -160,6 +171,7 @@ $slider-colors: bulma.$colors !default;
         top: 50%;
         background: $slider-tick-background;
         border-radius: $slider-tick-radius;
+
         &.is-tick-hidden {
             background: transparent;
         }

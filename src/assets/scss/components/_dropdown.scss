@@ -9,42 +9,50 @@ $dropdown-gap: 0px !default;
     & + .dropdown {
         margin-left: 0.5em;
     }
+
     .background {
         @include bulma.overlay;
         position: fixed;
         background-color: $dropdown-background-color;
         z-index: 40;
         cursor: pointer;
+
         @media screen and (min-width: $dropdown-mobile-breakpoint) {
             display: none;
         }
     }
+
     &.dropdown-menu-animation {
         .dropdown-menu {
             display: block;
         }
     }
+
     .dropdown-menu {
         .dropdown-item {
             &.is-disabled {
                 cursor: not-allowed;
+
                 &:hover {
                     background: inherit;
                     color: inherit;
                 }
             }
         }
+
         .has-link a {
             @extend .dropdown-item;
             padding-right: 3rem;
             white-space: nowrap;
         }
     }
+
     &.is-hoverable:not(.is-active) {
         .dropdown-menu {
             display: none;
         }
     }
+
     &.is-hoverable {
         &:hover {
             .dropdown-menu {
@@ -52,20 +60,25 @@ $dropdown-gap: 0px !default;
             }
         }
     }
+
     &.is-expanded {
         width: 100%;
+
         .dropdown-trigger {
             width: 100%;
         }
+
         .dropdown-menu {
             width: 100%;
         }
+
         &.is-mobile-modal {
             .dropdown-menu {
                 max-width: 100%;
             }
         }
     }
+
     &:not(.is-disabled) {
         .dropdown-menu {
             .dropdown-item {
@@ -75,16 +88,20 @@ $dropdown-gap: 0px !default;
             }
         }
     }
+
     .navbar-item {
         height: 100%;
     }
+
     &.is-disabled {
         opacity: $dropdown-disabled-opacity;
         cursor: not-allowed;
+
         .dropdown-trigger {
             pointer-events: none;
         }
     }
+
     &.is-inline {
         .dropdown-menu {
             position: static;

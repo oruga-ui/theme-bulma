@@ -4,12 +4,15 @@
     .dropdown-menu {
         min-width: 0;
     }
+
     .dropdown,
     .dropdown-trigger {
         width: 100%;
+
         .input[readonly] {
             cursor: pointer;
             box-shadow: bulma.$input-shadow;
+
             &:focus,
             &.is-focused,
             &:active,
@@ -25,19 +28,23 @@
             opacity: 1;
         }
     }
+
     .dropdown-item {
         font-size: inherit;
         padding: 0;
         justify-content: center;
         display: flex;
     }
+
     .timepicker-footer {
         padding: 0 0.5rem 0 0.5rem;
     }
+
     .dropdown-content {
         .control {
             font-size: 1.25em;
             margin-right: 0 !important;
+
             &.select {
                 margin: 0 0.125em;
 
@@ -45,16 +52,19 @@
                     font-weight: bulma.$weight-semibold;
                     padding-right: bulma.$control-padding-horizontal;
                     border: 0;
+
                     option {
                         &:disabled {
                             color: rgba(bulma.$grey, 0.7);
                         }
                     }
                 }
+
                 &:after {
                     display: none;
                 }
             }
+
             &.is-colon {
                 font-size: 1.7em;
                 line-height: 1.7em;
@@ -65,9 +75,11 @@
     &.is-small {
         @include bulma.control-small;
     }
+
     &.is-medium {
         @include bulma.control-medium;
     }
+
     &.is-large {
         @include bulma.control-large;
     }

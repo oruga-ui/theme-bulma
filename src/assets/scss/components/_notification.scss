@@ -4,7 +4,6 @@ $notification-notices-padding: 2em !default;
 $notification-notices-zindex: 1000 !default;
 /* @docs */
 
-
 .b-notices {
     position: fixed;
     display: flex;
@@ -16,16 +15,23 @@ $notification-notices-zindex: 1000 !default;
     pointer-events: none;
     padding: $notification-notices-padding;
     z-index: $notification-notices-zindex;
+
     .notification {
         pointer-events: auto;
         max-width: 600px;
-        &.is-top, &.is-bottom {
+
+        &.is-top,
+        &.is-bottom {
             align-self: center;
         }
-        &.is-top-right, &.is-bottom-right {
+
+        &.is-top-right,
+        &.is-bottom-right {
             align-self: flex-end;
         }
-        &.is-top-left, &.is-bottom-left {
+
+        &.is-top-left,
+        &.is-bottom-left {
             align-self: flex-start;
         }
     }
@@ -33,6 +39,7 @@ $notification-notices-zindex: 1000 !default;
     &.is-top {
         flex-direction: column;
     }
+
     &.is-bottom {
         flex-direction: column-reverse;
 
@@ -40,11 +47,13 @@ $notification-notices-zindex: 1000 !default;
         // :not(:last-child) to :not(:first-child)
         .notification {
             margin-bottom: 0;
+
             &:not(:first-child) {
                 margin-bottom: $notification-margin-bottom;
             }
         }
     }
+
     &.has-custom-container {
         position: absolute;
     }

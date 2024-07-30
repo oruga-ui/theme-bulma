@@ -9,15 +9,19 @@
         margin: 0;
         background-color: bulma.$background;
     }
+
     .animation-content {
         margin: 0 20px;
+
         .modal-card {
             margin: 0;
         }
+
         @include bulma.mobile {
             width: 100%;
         }
     }
+
     .modal-content {
         width: 100%;
     }

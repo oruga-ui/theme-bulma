@@ -5,6 +5,7 @@ Wikiki (https://github.com/Wikiki) licensed under
 MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 */
 
+@use "sass:list";
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
@@ -56,6 +57,7 @@ $steps-colors: bulma.$colors !default;
                     top: calc(#{$size} - (#{$steps-divider-height} / 2));
                 }
             }
+
             &:only-child {
                 &::after {
                     top: #{$size};
@@ -90,6 +92,7 @@ $steps-colors: bulma.$colors !default;
                 }
                 /* } */
             }
+
             &.has-label-left {
                 /* .step-items { */
                 .step-item {
@@ -125,6 +128,7 @@ $steps-colors: bulma.$colors !default;
                     }
                     /* } */
                 }
+
                 &.has-label-left {
                     /* .step-items { */
                     .step-item {
@@ -193,8 +197,8 @@ $steps-colors: bulma.$colors !default;
 
             // Override marker color per step
             @each $name, $pair in $steps-colors {
-                $color: nth($pair, 1);
-                $color-invert: nth($pair, 2);
+                $color: list.nth($pair, 1);
+                $color-invert: list.nth($pair, 2);
 
                 &.is-#{$name} {
                     &::before,
@@ -207,6 +211,7 @@ $steps-colors: bulma.$colors !default;
                         background-size: 200% 100%;
                         background-position: right bottom;
                     }
+
                     &.is-active {
                         .step-marker {
                             background-color: bulma.$scheme-main;
@@ -219,6 +224,7 @@ $steps-colors: bulma.$colors !default;
                             background-position: left bottom;
                         }
                     }
+
                     &.is-previous {
                         .step-marker {
                             color: $color-invert;
@@ -254,6 +260,7 @@ $steps-colors: bulma.$colors !default;
                     position: absolute;
                     width: 100%;
                     bottom: 0;
+
                     @include bulma.ltr {
                         left: -50%;
                     }
@@ -262,6 +269,7 @@ $steps-colors: bulma.$colors !default;
                     }
                 }
             }
+
             &:only-child {
                 &::after {
                     // This will contain the divider
@@ -271,11 +279,13 @@ $steps-colors: bulma.$colors !default;
                     height: $steps-divider-height;
                     bottom: 0;
                 }
+
                 &::before,
                 &::after {
                     width: 25%;
                     left: 50%;
                 }
+
                 &::before {
                     right: 50%;
                     left: auto;
@@ -309,6 +319,7 @@ $steps-colors: bulma.$colors !default;
                     background-position: left bottom;
                 }
             }
+
             &.is-previous {
                 .step-marker {
                     color: bulma.$scheme-main;
@@ -329,6 +340,7 @@ $steps-colors: bulma.$colors !default;
             display: flex;
             flex-direction: column;
             padding: 1rem;
+
             .step-item {
                 flex-shrink: 0;
                 flex-basis: auto;
@@ -337,6 +349,7 @@ $steps-colors: bulma.$colors !default;
                     outline: $steps-items-focused-outline;
                 }
             }
+
             &.is-transitioning {
                 overflow: hidden;
             }
@@ -376,6 +389,7 @@ $steps-colors: bulma.$colors !default;
             }
             /* } */
         }
+
         &.has-label-left {
             /* .step-items { */
             .step-item {
@@ -388,12 +402,15 @@ $steps-colors: bulma.$colors !default;
     }
 
     @include steps-size(bulma.$size-normal);
+
     &.is-small {
         @include steps-size(bulma.$size-small);
     }
+
     &.is-medium {
         @include steps-size(bulma.$size-medium);
     }
+
     &.is-large {
         @include steps-size(bulma.$size-large);
     }
@@ -429,7 +446,7 @@ $steps-colors: bulma.$colors !default;
 
                 // Override marker connector color per step
                 @each $name, $pair in $steps-colors {
-                    $color: nth($pair, 1);
+                    $color: list.nth($pair, 1);
 
                     &.is-#{$name} {
                         &::before,
@@ -467,11 +484,13 @@ $steps-colors: bulma.$colors !default;
                     &::before {
                         top: 50%;
                     }
+
                     &::after {
                         width: $steps-divider-height;
                         top: auto;
                         bottom: 50%;
                     }
+
                     &::before,
                     &::after {
                         height: 25%;
@@ -487,6 +506,7 @@ $steps-colors: bulma.$colors !default;
                 }
                 /* } */
             }
+
             &.has-label-left {
                 /* .step-items { */
                 .step-item {
@@ -494,6 +514,7 @@ $steps-colors: bulma.$colors !default;
                 }
                 /* } */
             }
+
             &:not(.has-label-right):not(.has-label-left) {
                 /* .step-items { */
                 .step-item {
@@ -519,6 +540,7 @@ $steps-colors: bulma.$colors !default;
             flex-direction: row-reverse;
         }
     }
+
     &:not(.is-vertical) {
         .steps {
             @include bulma.until($steps-mobile-max-width) {
@@ -528,6 +550,7 @@ $steps-colors: bulma.$colors !default;
                         &:not(.is-active) {
                             display: none;
                         }
+
                         &::before,
                         &::after,
                         &:not(:first-child)::before {
@@ -540,6 +563,7 @@ $steps-colors: bulma.$colors !default;
                             bottom: 0;
                             left: 50%;
                         }
+
                         &::before,
                         &:not(:first-child)::before {
                             right: 50%;
@@ -548,6 +572,7 @@ $steps-colors: bulma.$colors !default;
                     }
                     /* } */
                 }
+
                 &.mobile-compact {
                     /* .step-items { */
                     .step-item {

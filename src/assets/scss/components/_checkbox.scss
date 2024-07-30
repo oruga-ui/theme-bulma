@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "bulma/bulma";
 @use "utils/variables" as var;
 @use "utils/functions" as fn;
@@ -16,12 +17,15 @@ $checkbox-colors: bulma.$form-colors !default;
     outline: none;
     display: inline-flex;
     align-items: center;
+
     &:not(.button) {
         margin-right: 0.5em;
+
         & + .checkbox:last-child {
             margin-right: 0;
         }
     }
+
     .check {
         outline: none;
         appearance: none;
@@ -34,25 +38,30 @@ $checkbox-colors: bulma.$form-colors !default;
         border: $checkbox-border-width solid $checkbox-border-color;
         transition: background var.$speed-slow bulma.$easing;
         background: $checkbox-background-color;
+
         &:checked {
             background: $checkbox-active-background-color
                 url(fn.checkmark($checkbox-checkmark-color)) no-repeat center
                 center;
             border-color: $checkbox-active-background-color;
         }
+
         &:indeterminate {
             background: $checkbox-active-background-color
                 url(fn.indeterminate($checkbox-checkmark-color)) no-repeat
                 center center;
             border-color: $checkbox-active-background-color;
         }
+
         &:hover:not(:disabled) {
             border-color: $checkbox-active-background-color;
         }
+
         &:focus {
             &.check {
                 box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
             }
+
             &:checked.check {
                 box-shadow: 0 0 0.5em
                     rgba($checkbox-active-background-color, 0.8);
@@ -63,26 +72,31 @@ $checkbox-colors: bulma.$form-colors !default;
     .control-label {
         padding-left: bulma.$control-padding-horizontal;
     }
+
     &.button {
         display: flex;
     }
+
     &.is-disabled {
         opacity: 0.5;
         cursor: not-allowed;
     }
+
     &.is-small {
         @include bulma.control-small;
     }
+
     &.is-medium {
         @include bulma.control-medium;
     }
+
     &.is-large {
         @include bulma.control-large;
     }
 
     @each $name, $pair in $checkbox-colors {
-        $color: nth($pair, 1);
-        $color-invert: nth($pair, 2);
+        $color: list.nth($pair, 1);
+        $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .check {
                 &:hover:not(:disabled) {
