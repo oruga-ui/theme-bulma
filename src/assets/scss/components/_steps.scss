@@ -9,6 +9,7 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
+/* @docs */
 $steps-items-focused-outline: none !default;
 $steps-details-background-color: bulma.$body-background-color !default;
 $steps-maker-default-color: bulma.$grey-light !default;
@@ -20,6 +21,7 @@ $steps-divider-height: 0.2em !default;
 $steps-vertical-padding: 1em 0 !default;
 $steps-mobile-max-width: bulma.$tablet !default;
 $steps-colors: bulma.$colors !default;
+/* @docs */
 
 @mixin steps-size($size) {
     .steps {

@@ -1,5 +1,6 @@
 @use "bulma/bulma";
 
+/* @docs */
 $tabs-focused-outline: none !default;
 $tabs-items-focused-outline: none !default;
 $tabs-link-focus-active-border-bottom-color: bulma.$tabs-link-active-border-bottom-color !default;
@@ -12,6 +13,7 @@ $tabs-toggle-link-focus-active-background-color: bulma.$tabs-toggle-link-active-
 $tabs-toggle-link-focus-background-color: bulma.$tabs-toggle-link-hover-background-color !default;
 $tabs-toggle-link-focus-active-border-color: bulma.$tabs-toggle-link-active-border-color !default;
 $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color !default;
+/* @docs */
 
 .b-tabs {
     .tabs {

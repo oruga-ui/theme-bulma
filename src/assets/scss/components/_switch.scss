@@ -2,11 +2,13 @@
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
+/* @docs */
 $switch-width-number: 2.75 !default;
 $switch-width: $switch-width-number * 1em !default;
 $switch-padding: 0.2em !default;
 $switch-active-background-color: bulma.$primary !default;
 $switch-colors: bulma.$form-colors !default;
+/* @docs */
 
 .switch {
     @extend %unselectable;

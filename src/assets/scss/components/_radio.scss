@@ -2,9 +2,11 @@
 @use "bulma/bulma";
 @use "utils/variables" as var;
 
+/* @docs */
 $radio-active-background-color: bulma.$primary !default;
 $radio-size: 1.25em !default;
 $radio-colors: bulma.$form-colors !default;
+/* @docs */
 
 .b-radio.radio {
     @extend %unselectable;

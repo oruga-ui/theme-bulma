@@ -1,6 +1,8 @@
 @use "bulma/bulma";
 
+/* @docs */
 $dropdown-content-max-height: 200px !default;
+/* @docs */
 
 .autocomplete {
     position: relative;

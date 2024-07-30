@@ -2,7 +2,9 @@
 @use "utils/variables" as var;
 @use "utils/functions" as fn;
 
+/* @docs */
 $table-sticky-header-height: 300px !default;
+/* @docs */
 
 @mixin table-cards {
     .table {

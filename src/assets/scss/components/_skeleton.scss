@@ -1,5 +1,6 @@
 @use "bulma/bulma";
 
+/* @docs */
 $skeleton-color: bulma.$grey-lighter !default;
 $skeleton-background: linear-gradient(
     90deg,
@@ -10,6 +11,7 @@ $skeleton-background: linear-gradient(
 $skeleton-border-radius: bulma.$radius !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: 0.5rem !default;
+/* @docs */
 
 .b-skeleton {
     @mixin steps-size($size) {
