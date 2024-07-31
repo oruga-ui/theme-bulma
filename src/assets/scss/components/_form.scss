@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $floating-in-height: 3.25em !default;
@@ -433,7 +434,7 @@ $floating-in-height: 3.25em !default;
     &.is-loading::after {
         top: calc(50% - (1em / 2));
 
-        @include bulma.ltr {
+        @include mixins.ltr {
             right: calc((2.5em / 2) - 0.5em);
         }
     }

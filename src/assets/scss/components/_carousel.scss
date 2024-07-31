@@ -1,5 +1,6 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $carousel-arrow-background: bulma.$scheme-main !default;
@@ -49,7 +50,7 @@ $carousel-overlay-z: 40 !default;
             display: flex;
 
             &:hover .carousel-arrow.is-hovered {
-                @include bulma.tablet {
+                @include mixins.tablet {
                     opacity: 1;
                 }
             }
@@ -81,7 +82,7 @@ $carousel-overlay-z: 40 !default;
             flex-wrap: nowrap;
             justify-content: flex-start;
 
-            @include bulma.overflow-touch;
+            @include mixins.overflow-touch;
             overflow: hidden;
             overflow-x: auto;
 

@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $loading-background-legacy: #7f7f7f !default;
@@ -8,7 +9,7 @@ $loading-full-page-icon-size: 5em !default;
 /* @docs */
 
 .loading {
-    @include bulma.overlay;
+    @include mixins.overlay;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -26,7 +27,7 @@ $loading-full-page-icon-size: 5em !default;
     }
 
     .loading-overlay {
-        @include bulma.overlay;
+        @include mixins.overlay;
         background: $loading-background-legacy;
         background: $loading-background;
     }

@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "utils/variables-to-migrate" as to-migrate;
 
 .timepicker {
     .dropdown-menu {
@@ -17,8 +18,8 @@
             &.is-focused,
             &:active,
             &.is-active {
-                box-shadow: bulma.$input-focus-box-shadow-size
-                    bulma.$input-focus-box-shadow-color;
+                box-shadow: to-migrate.$input-focus-box-shadow-size
+                    to-migrate.$input-focus-box-shadow-color;
             }
         }
     }

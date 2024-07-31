@@ -1,5 +1,5 @@
 @use "sass:list";
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 
 /* @docs */
 $tooltip-arrow-size: 5px !default;

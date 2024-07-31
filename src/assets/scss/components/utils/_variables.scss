@@ -2,5 +2,9 @@
 *   Variable overrides and theme variables
 *********************************************/
 
+@use "bulma/sass" as bulma;
+
 $speed-slow: 150ms !default;
 $speed-slower: 250ms !default;
+
+$input-arrow: bulma.$primary !default;

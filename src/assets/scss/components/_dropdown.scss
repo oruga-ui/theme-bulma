@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $dropdown-mobile-breakpoint: bulma.$desktop !default;
@@ -13,7 +14,7 @@ $dropdown-gap: 0px !default;
     }
 
     .background {
-        @include bulma.overlay;
+        @include mixins.overlay;
         position: fixed;
         background-color: $dropdown-background-color;
         z-index: 40;
