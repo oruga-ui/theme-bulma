@@ -156,7 +156,8 @@ $tooltip-colors: bulma.$colors !default;
     // Modifiers
     @each $name, $pair in $tooltip-colors {
         $color: list.nth($pair, 1);
-        $color-invert: list.nth($pair, 2);
+        $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
+
         &.is-#{$name} {
             .b-tooltip-content {
                 background: $color;

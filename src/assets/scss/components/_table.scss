@@ -333,7 +333,7 @@ $table-sticky-header-height: 300px !default;
             flex-shrink: 0;
             align-items: center;
 
-            @include bulma.tablet {
+            @include mixins.tablet {
                 display: flex;
             }
 

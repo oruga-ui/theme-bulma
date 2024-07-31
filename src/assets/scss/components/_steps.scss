@@ -201,7 +201,11 @@ $steps-colors: bulma.$colors !default;
             // Override marker color per step
             @each $name, $pair in $steps-colors {
                 $color: list.nth($pair, 1);
-                $color-invert: list.nth($pair, 2);
+                $color-invert: if(
+                    list.length($pair) >= 2,
+                    list.nth($pair, 2),
+                    null
+                );
 
                 &.is-#{$name} {
                     &::before,

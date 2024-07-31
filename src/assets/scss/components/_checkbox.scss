@@ -99,7 +99,8 @@ $checkbox-colors: bulma.$form-colors !default;
 
     @each $name, $pair in $checkbox-colors {
         $color: list.nth($pair, 1);
-        $color-invert: list.nth($pair, 2);
+        $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
+
         &.is-#{$name} {
             .check {
                 &:hover:not(:disabled) {
