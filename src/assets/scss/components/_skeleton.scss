@@ -1,13 +1,7 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 
 /* @docs */
 $skeleton-color: bulma.$grey-lighter !default;
-$skeleton-background: linear-gradient(
-    90deg,
-    $skeleton-color 25%,
-    rgba($skeleton-color, 0.5) 50%,
-    $skeleton-color 75%
-) !default;
 $skeleton-border-radius: bulma.$radius !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: 0.5rem !default;
@@ -26,7 +20,7 @@ $skeleton-margin-top: 0.5rem !default;
     width: 100%;
 
     > .b-skeleton-item {
-        background: $skeleton-background;
+        background: bulma.$skeleton-background;
         background-size: 400% 100%;
         width: 100%;
 

@@ -1,6 +1,7 @@
 @use "sass:list";
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $sidebar-background: bulma.$modal-background-background-color !default;
@@ -116,7 +117,7 @@ $sidebar-colors: bulma.$navbar-colors !default;
     }
 
     .sidebar-background {
-        @include bulma.overlay;
+        @include mixins.overlay;
         background: $sidebar-background;
         position: fixed;
         z-index: 38;

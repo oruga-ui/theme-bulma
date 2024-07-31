@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 .modal {
     > .animation-content.is-full-screen,
@@ -17,7 +18,7 @@
             margin: 0;
         }
 
-        @include bulma.mobile {
+        @include mixins.mobile {
             width: 100%;
         }
     }

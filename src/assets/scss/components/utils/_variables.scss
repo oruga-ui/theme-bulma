@@ -4,3 +4,11 @@
 
 $speed-slow: 150ms !default;
 $speed-slower: 250ms !default;
+
+// Additional status colors
+$secondary: #6c757d;
+
+@use "bulma/sass/utilities/derived-variables" with (
+    // Adding aditional colors to colors map
+    $custom-colors: ("secondary": $secondary)
+);

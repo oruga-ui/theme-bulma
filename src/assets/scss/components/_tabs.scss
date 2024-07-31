@@ -1,4 +1,5 @@
-@use "bulma/bulma";
+@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/mixins";
 
 /* @docs */
 $tabs-focused-outline: none !default;
@@ -272,7 +273,7 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
 
             div {
                 & + div {
-                    @include bulma.ltr-property(
+                    @include mixins.ltr-property(
                         "margin",
                         -#{bulma.$tabs-toggle-link-border-width},
                         false
@@ -280,22 +281,22 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 }
 
                 &:first-child a {
-                    @include bulma.ltr {
+                    @include mixins.ltr {
                         border-top-left-radius: bulma.$tabs-toggle-link-radius;
                         border-bottom-left-radius: bulma.$tabs-toggle-link-radius;
                     }
-                    @include bulma.rtl {
+                    @include mixins.rtl {
                         border-top-right-radius: bulma.$tabs-toggle-link-radius;
                         border-bottom-right-radius: bulma.$tabs-toggle-link-radius;
                     }
                 }
 
                 &:last-child a {
-                    @include bulma.ltr {
+                    @include mixins.ltr {
                         border-top-right-radius: bulma.$tabs-toggle-link-radius;
                         border-bottom-right-radius: bulma.$tabs-toggle-link-radius;
                     }
-                    @include bulma.rtl {
+                    @include mixins.rtl {
                         border-top-left-radius: bulma.$tabs-toggle-link-radius;
                         border-bottom-left-radius: bulma.$tabs-toggle-link-radius;
                     }
@@ -315,12 +316,12 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
         &.is-toggle-rounded {
             div {
                 &:first-child a {
-                    @include bulma.ltr {
+                    @include mixins.ltr {
                         border-bottom-left-radius: bulma.$radius-rounded;
                         border-top-left-radius: bulma.$radius-rounded;
                         padding-left: 1.25em;
                     }
-                    @include bulma.rtl {
+                    @include mixins.rtl {
                         border-bottom-right-radius: bulma.$radius-rounded;
                         border-top-right-radius: bulma.$radius-rounded;
                         padding-right: 1.25em;
@@ -328,12 +329,12 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
                 }
 
                 &:last-child a {
-                    @include bulma.ltr {
+                    @include mixins.ltr {
                         border-bottom-right-radius: bulma.$radius-rounded;
                         border-top-right-radius: bulma.$radius-rounded;
                         padding-right: 1.25em;
                     }
-                    @include bulma.rtl {
+                    @include mixins.rtl {
                         border-bottom-left-radius: bulma.$radius-rounded;
                         border-top-left-radius: bulma.$radius-rounded;
                         padding-left: 1.25em;
@@ -346,11 +347,11 @@ $tabs-toggle-link-focus-border-color: bulma.$tabs-toggle-link-hover-border-color
             a {
                 border: 1px solid transparent;
 
-                @include bulma.ltr {
+                @include mixins.ltr {
                     border-radius: bulma.$tabs-boxed-link-radius
                         bulma.$tabs-boxed-link-radius 0 0;
                 }
-                @include bulma.rtl {
+                @include mixins.rtl {
                     border-radius: 0 0 bulma.$tabs-boxed-link-radius
                         bulma.$tabs-boxed-link-radius;
                 }
