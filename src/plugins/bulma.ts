@@ -63,7 +63,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     checkbox: {
         override: true,
-        rootClass: "b-checkbox checkbox",
+        rootClass: "checkbox",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
