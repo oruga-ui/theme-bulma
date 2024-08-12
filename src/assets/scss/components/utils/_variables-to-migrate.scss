@@ -1,8 +1,5 @@
 @use "bulma/sass" as bulma;
-@use "bulma/sass/utilities" as fn;
 
 $primary-invert: bulma.$white !default;
-$dropdown-item-hover-background-color: bulma.$dropdown-item-background-l !default;
-$dropdown-item-hover-color: bulma.$dropdown-item-color-l !default;
 $input-focus-box-shadow-size: bulma.$input-focus-shadow-size !default;
 $input-focus-box-shadow-color: bulma.$input-focus-l !default;

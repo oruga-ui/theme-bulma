@@ -1,4 +1,4 @@
-@use "bulma/sass" as bulma;
+@use "bulma/sass/utilities/css-variables" as css;
 @use "utils/variables-to-migrate" as migrate;
 
 /* @docs */
@@ -6,6 +6,12 @@ $dropdown-content-max-height: 200px !default;
 /* @docs */
 
 .autocomplete {
+    @include css.register-vars(
+        (
+            "dropdown-content-max-height": #{$dropdown-content-max-height},
+        )
+    );
+
     position: relative;
 
     .dropdown-menu {
@@ -20,20 +26,50 @@ $dropdown-content-max-height: 200px !default;
 
     .dropdown-content {
         overflow: auto;
-        max-height: $dropdown-content-max-height;
+        max-height: css.getVar("dropdown-content-max-height");
     }
 
     .dropdown-item {
+        background-color: hsl(
+            #{css.getVar("dropdown-item-h")},
+            #{css.getVar("dropdown-item-s")},
+            calc(
+                #{css.getVar("dropdown-item-background-l")} + #{css.getVar(
+                        "dropdown-item-background-l-delta"
+                    )}
+            )
+        );
+        width: 100%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        // added due to div instead of a
         cursor: pointer;
 
         &.is-hovered,
         &:hover {
-            background: migrate.$dropdown-item-hover-background-color;
-            color: migrate.$dropdown-item-hover-color;
+            @include css.register-vars(
+                (
+                    "dropdown-item-background-l-delta": #{css.getVar(
+                            "dropdown-item-hover-background-l-delta"
+                        )},
+                    "dropdown-item-border-l-delta": #{css.getVar(
+                            "dropdown-item-hover-border-l-delta"
+                        )},
+                )
+            );
+        }
+
+        &:active {
+            @include css.register-vars(
+                (
+                    "dropdown-item-background-l-delta": #{css.getVar(
+                            "dropdown-item-active-background-l-delta"
+                        )},
+                    "dropdown-item-border-l-delta": #{css.getVar(
+                            "dropdown-item-active-border-l-delta"
+                        )},
+                )
+            );
         }
 
         &.is-disabled {
