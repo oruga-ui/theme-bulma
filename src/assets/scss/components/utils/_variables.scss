@@ -1,14 +1,23 @@
 /********************************************
 *   Variable overrides and theme variables
 *********************************************/
+@use "sass:map";
 
 $speed-slow: 150ms !default;
 $speed-slower: 250ms !default;
 
-// Additional status colors
-$secondary: #6c757d;
+// oruga defines an extra secondary color
+$secondary: #6c757d !default;
 
-@use "bulma/sass/utilities/derived-variables" with (
-    // Adding aditional colors to colors map
-    $custom-colors: ("secondary": $secondary)
+// make the custom colors extandable by providing a new variable to override
+$custom-colors: () !default;
+
+@forward "bulma/sass/utilities/derived-variables" with (
+    // adding aditional colors to colors map
+    $custom-colors:
+        map.merge(
+            // merge our custom-colors with the overridable map
+            ("secondary": $secondary),
+            $custom-colors
+        )
 );
