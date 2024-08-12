@@ -1,37 +1,53 @@
 @use "bulma/sass" as bulma;
 @use "utils/variables" as var;
-@use "bulma/sass/utilities/mixins";
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/mixins" as mixins;
 
 /* @docs */
-$carousel-arrow-background: bulma.$scheme-main !default;
-$carousel-arrow-color: bulma.$primary !default;
+$carousel-arrow-background: css.getVar("scheme-main") !default;
+$carousel-arrow-color: css.getVar("primary") !default;
 $carousel-arrow-icon-spaced: 1.5rem !default;
 $carousel-arrow-top: 50% !default;
 
-$carousel-indicator-background: rgba(bulma.$scheme-invert, 0.5) !default;
-$carousel-indicator-border: bulma.$scheme-main !default;
-$carousel-indicator-color: bulma.$primary !default;
+$carousel-indicator-background: rgba(css.getVar("scheme-invert"), 0.5) !default;
+$carousel-indicator-border: css.getVar("scheme-main") !default;
+$carousel-indicator-color: css.getVar("primary") !default;
 $carousel-indicator-spaced: 0.5rem !default;
 
-$carousel-overlay-background: rgba(bulma.$scheme-invert, 0.86) !default;
+$carousel-overlay-background: rgba(css.getVar("scheme-invert"), 0.86) !default;
 $carousel-overlay-z: 40 !default;
 /* @docs */
 
 .carousel {
+    @include css.register-vars(
+        (
+            "carousel-arrow-background": #{$carousel-arrow-background},
+            "carousel-arrow-color": #{$carousel-arrow-color},
+            "carousel-arrow-icon-spaced": #{$carousel-arrow-icon-spaced},
+            "carousel-arrow-top": #{$carousel-arrow-top},
+            "carousel-indicator-background": #{$carousel-indicator-background},
+            "carousel-indicator-border": #{$carousel-indicator-border},
+            "carousel-indicator-color": #{$carousel-indicator-color},
+            "carousel-indicator-spaced": #{$carousel-indicator-spaced},
+            "carousel-overlay-background": #{$carousel-overlay-background},
+            "carousel-overlay-z": #{$carousel-overlay-z},
+        )
+    );
+
     @extend %unselectable;
     position: relative;
     overflow: hidden;
     width: 100%;
 
     &.is-overlay {
-        background-color: $carousel-overlay-background;
+        background-color: css.getVar("carousel-overlay-background");
         align-items: center;
         flex-direction: column;
         justify-content: center;
         display: flex;
         max-height: 100vh;
         position: fixed;
-        z-index: $carousel-overlay-z;
+        z-index: css.getVar("carousel-overlay-z");
 
         .carousel-item img {
             cursor: default;
@@ -69,13 +85,13 @@ $carousel-overlay-z: 40 !default;
 
     .carousel-indicator {
         width: 100%;
-        padding: $carousel-indicator-spaced;
+        padding: css.getVar("carousel-indicator-spaced");
         display: flex;
         align-items: center;
         justify-content: center;
 
         &.has-background {
-            background: $carousel-indicator-background;
+            background: css.getVar("carousel-indicator-background");
         }
 
         &.has-custom {
@@ -109,21 +125,21 @@ $carousel-overlay-z: 40 !default;
 
         .indicator-item {
             &:not(:last-child) {
-                margin-right: $carousel-indicator-spaced;
+                margin-right: css.getVar("carousel-indicator-spaced");
             }
 
             .indicator-style.is-active,
             .indicator-style.is-active:hover {
-                background: $carousel-indicator-color;
-                border: 1px solid $carousel-indicator-border;
+                background: css.getVar("carousel-indicator-color");
+                border: 1px solid css.getVar("carousel-indicator-border");
             }
 
             .indicator-style {
                 display: block;
-                border: 1px solid $carousel-indicator-color;
-                background: $carousel-indicator-border;
+                border: 1px solid css.getVar("carousel-indicator-color");
+                background: css.getVar("carousel-indicator-border");
                 outline: none;
-                transition: var.$speed-slow bulma.$easing;
+                transition: var.$speed-slow css.getVar("easing");
 
                 &.is-boxes {
                     height: 10px;
@@ -131,7 +147,7 @@ $carousel-overlay-z: 40 !default;
                 }
 
                 &.is-dots {
-                    border-radius: bulma.$radius-rounded;
+                    border-radius: css.getVar("radius-rounded");
                     height: 10px;
                     width: 10px;
                 }
@@ -146,30 +162,30 @@ $carousel-overlay-z: 40 !default;
 }
 
 .carousel-arrow {
-    transition: var.$speed-slow bulma.$easing;
+    transition: var.$speed-slow css.getVar("easing");
 
     &.is-hovered {
         opacity: 0;
     }
 
     &.icon {
-        background: $carousel-arrow-background;
-        color: $carousel-arrow-color;
+        background: css.getVar("carousel-arrow-background");
+        color: css.getVar("carousel-arrow-color");
         cursor: pointer;
-        border: 1px solid $carousel-arrow-background;
-        border-radius: bulma.$radius-rounded;
+        border: 1px solid css.getVar("carousel-arrow-background");
+        border-radius: css.getVar("radius-rounded");
         outline: 0;
 
         &:hover {
-            border: 1px solid $carousel-arrow-color;
+            border: 1px solid css.getVar("carousel-arrow-color");
             opacity: 1;
         }
 
         &.has-icons-left,
         &.has-icons-right {
             position: absolute;
-            top: $carousel-arrow-top;
-            transform: translateY(-$carousel-arrow-top);
+            top: css.getVar("carousel-arrow-top");
+            transform: translateY(calc(-1 * css.getVar("carousel-arrow-top")));
             z-index: 1;
         }
 
