@@ -39,98 +39,33 @@ createApp(App)
     .use(Oruga, bulmaConfig)
     .mount('#app')
 ```
-Please note, the package also works for `@oruga-ui/oruga` (Vue 2) and you can use it without importing the full Oruga bundle.
+
 
 ### Customization (SASS/SCSS)
 
-Using the following sample code you don't need `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file to customize Bulma and theme variables.
+Bulma is a highly customizable CSS framework. From colors to typography, spacing and sizes, forms and layouts, all parts of Bulma can be customized by the user (see [Bulma Customization](https://bulma.io/documentation/customize/concepts/)).
+
+Using the following sample code you don't need `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file to customize Bulma and the theme variables. To overwrite Bulma’s Sass variables with your own values, write `@use` and the `with` keyword, which takes a Sass map:
 
 ```scss
-@import "~bulma/sass/utilities/_all";
-
-// Set your colors
+// set your color overrides
 $primary: #8c67ef;
-$primary-light: findLightColor($primary);
-$primary-dark: findDarkColor($primary);
-$primary-invert: findColorInvert($primary);
-$twitter: #4099FF;
-$twitter-invert: findColorInvert($twitter);
-
-// Lists and maps
-$custom-colors: null !default;
-$custom-shades: null !default;
-
-// Setup $colors to use as bulma classes (e.g. 'is-twitter')
-$colors: mergeColorMaps(
-    (
-        "white": (
-            $white,
-            $black,
-        ),
-        "black": (
-            $black,
-            $white,
-        ),
-        "light": (
-            $light,
-            $light-invert,
-        ),
-        "dark": (
-            $dark,
-            $dark-invert,
-        ),
-        "primary": (
-            $primary,
-            $primary-invert,
-            $primary-light,
-            $primary-dark,
-        ),
-        "link": (
-            $link,
-            $link-invert,
-            $link-light,
-            $link-dark,
-        ),
-        "info": (
-            $info,
-            $info-invert,
-            $info-light,
-            $info-dark,
-        ),
-        "success": (
-            $success,
-            $success-invert,
-            $success-light,
-            $success-dark,
-        ),
-        "warning": (
-            $warning,
-            $warning-invert,
-            $warning-light,
-            $warning-dark,
-        ),
-        "danger": (
-            $danger,
-            $danger-invert,
-            $danger-light,
-            $danger-dark,
-        ),
-    ),
-    $custom-colors
-);
-
-// Links
 $link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
 
-@import "~bulma/bulma";
-@import '~@oruga-ui/theme-bulma/dist/scss/bulma';
+// add new colors to the colors map
+$twitter: #4099FF;
+$custom-colors: ('twitter', $twitter);
+
+@use '@oruga-ui/theme-bulma/dist/scss/bulma' with (
+    $primary: $primary,
+    $link: $link,
+    $custom-colors: $custom-colors,
+);
 ```
 
 ### Override default config
 
-In case you want to replace the default style of a component you can override or add new classes changing ``bulmaConfig``; more details about components customization on https://oruga.io/documentation/#customization
+In case you want to replace the default style of a component you can override or add new classes changing ``bulmaConfig``; more details about components customization on https://oruga-ui.com/documentation/customisation.html
 
 ```js
 import { createApp } from 'vue'
@@ -152,31 +87,6 @@ createApp(App)
     .use(Oruga, customBulmaConfig)
     .mount('#app')
 ```
-
-
-## Buefy users
-
-### Components
-
-| Buefy       | Oruga      | Note 
-| ----------- | ---------- | ----------------
-| Taginput    | Inputitems |
-| Toast       | N.A.       | You can customize Notification with `noticeClass` and/or passing a component using programmatic way
-| Snackbar    | N.A.       | You can customize Notification with `noticeClass` and/or passing a component using programmatic way
-
-At the moment you won't find Carousel, Dialog, Navbar, Menu but we'll add them soon in Oruga core code.
-
-### Props
-
-| Buefy           | Oruga      | Component      | Note 
-| --------------- | ---------- | -------------- | --------------------
-| type            | variant    |     -          | Removed prefix `is-`
-| size            | size       |     -          | Removed prefix `is-`
-| loading         | N.A.       |     -          | Not supported
-| label-position  | N.A.       | Field          | Not suppported but you can easily add `is-floating-label` or `is-floating-in-label` class to ``root-class`` prop
-| size            | N.A.       | Tooltip        | You can use `multiline-class` or `content-class`
-| custom          | N.A.       | Dropdown Item  | You can use ``tag`` prop
-| has-modal-card  | N.A.       | Modal          | You have to add `content-class="modal-content"` when you don't use modal-card classes as content
 
 
 ## Contributors
