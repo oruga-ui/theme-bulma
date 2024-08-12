@@ -57,6 +57,7 @@ $twitter: #4099FF;
 $custom-colors: ('twitter', $twitter);
 
 @use '@oruga-ui/theme-bulma/dist/scss/bulma' with (
+    $family-primary: '"Nunito", sans-serif',
     $primary: $primary,
     $link: $link,
     $custom-colors: $custom-colors,
