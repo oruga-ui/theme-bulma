@@ -386,21 +386,18 @@ export const bulmaConfig: OrugaOptions = {
     },
     sidebar: {
         override: true,
-        rootClass: "b-sidebar",
+        rootClass: "sidebar",
+        overlayClass: "sidebar-background",
+        contentClass: "sidebar-content",
+        activeClass: "is-active",
         variantClass: "is-",
         positionClass: "is-",
-        activeClass: "is-active",
-        contentClass: "sidebar-content is-fixed",
-        expandOnHoverClass: "is-mini-expand",
+        expandOnHoverClass: "is-expanded",
         fullheightClass: "is-fullheight",
         fullwidthClass: "is-fullwidth",
-        mobileClass: (_: string, props: ComponentProps) => {
-            if (props.mobile && props.mobile !== "reduce") {
-                return `is-${props.mobile}-mobile`;
-            }
-        },
-        overlayClass: "sidebar-background",
-        reduceClass: "is-mini-mobile",
+        reduceClass: "is-mini",
+        inlineClass: "is-inline",
+        mobileClass: "is-",
     },
     loading: {
         fullPageClass: "is-full-page",
