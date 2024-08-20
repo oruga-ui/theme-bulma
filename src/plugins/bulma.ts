@@ -379,7 +379,7 @@ export const bulmaConfig: OrugaOptions = {
         rootClass: "modal",
         activeClass: "is-active",
         overlayClass: "modal-background",
-        contentClass: "modal-content animation-content",
+        contentClass: "modal-content",
         closeClass: "modal-close is-large",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped",
