@@ -1,4 +1,5 @@
 import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
+import { isTrueish } from "@oruga-ui/oruga-next";
 
 import "../assets/scss/bulma-build.scss";
 
@@ -22,8 +23,8 @@ export const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["control"];
-            if (props.icon) classes.push("has-icons-left");
-            return classes.join(" ").trim();
+            if (isTrueish(props.icon)) classes.push("has-icons-left");
+            return classes.join(" ");
         },
         inputClass: "input",
         textareaClass: "textarea",
@@ -39,19 +40,19 @@ export const bulmaConfig: OrugaOptions = {
     select: {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["control", "select"];
-            if (props.size) classes.push(`is-${props.size}`);
-            if (props.rounded) classes.push("is-rounded");
-            if (props.multiple) classes.push("is-multiple");
-            if (props.icon) classes.push("has-icons-left");
-            if (props.iconRight) classes.push("has-icons-right");
-            return classes.join(" ").trim();
+            const classes = ["select", "control"];
+            if (isTrueish(props.size)) classes.push(`is-${props.size}`);
+            if (isTrueish(props.rounded)) classes.push("is-rounded");
+            if (isTrueish(props.multiple)) classes.push("is-multiple");
+            if (isTrueish(props.icon)) classes.push("has-icons-left");
+            if (isTrueish(props.iconRight)) classes.push("has-icons-right");
+            return classes.join(" ");
         },
+        rootVariantClass: "is-",
         expandedClass: "is-fullwidth",
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
-        rootVariantClass: "is-",
     },
     icon: {
         override: true,
@@ -264,8 +265,8 @@ export const bulmaConfig: OrugaOptions = {
         roundedClass: "is-rounded",
         expandedClass: "is-fullwidth",
         loadingClass: "is-loading",
-        outlinedClass: () => "is-outlined",
-        invertedClass: () => "is-inverted",
+        outlinedClass: (variant) => `is-${variant ?? "primary"} is-outlined`,
+        invertedClass: (variant) => `is-${variant ?? "primary"} is-inverted`,
         wrapperClass: "button-wrapper",
     },
     menu: {
