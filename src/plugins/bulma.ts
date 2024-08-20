@@ -303,7 +303,7 @@ export const bulmaConfig: OrugaOptions = {
     dropdown: {
         override: true,
         itemTag: "a",
-        rootClass: ["dropdown", "dropdown-menu-animation"],
+        rootClass: "dropdown",
         triggerClass: "dropdown-trigger",
         menuClass: "dropdown-content dropdown-menu",
         disabledClass: "is-disabled",
@@ -317,7 +317,6 @@ export const bulmaConfig: OrugaOptions = {
         positionClass: "is-",
         activeClass: "is-active",
         hoverableClass: "is-hoverable",
-        position: "bottom-right",
     },
     datepicker: {
         override: true,

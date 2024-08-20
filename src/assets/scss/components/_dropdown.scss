@@ -1,99 +1,85 @@
-@use "bulma/sass" as bulma;
-@use "bulma/sass/utilities/mixins";
+@use "bulma/sass/utilities/initial-variables" as vars;
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/mixins" as mixins;
 
 /* @docs */
-$dropdown-mobile-breakpoint: bulma.$desktop !default;
-$dropdown-background-color: rgba(bulma.$scheme-invert, 0.86) !default;
+$dropdown-mobile-breakpoint: vars.$desktop !default;
+$dropdown-overlay-background-color: hsla(
+    #{css.getVar("scheme-h")},
+    #{css.getVar("scheme-s")},
+    #{css.getVar("scheme-invert-l")},
+    0.86
+) !default;
 $dropdown-disabled-opacity: 0.5 !default;
 $dropdown-gap: 0px !default;
+$dropdown-z: 40 !default;
 /* @docs */
 
 .dropdown {
+    @include css.register-vars(
+        (
+            "dropdown-overlay-background-color": #{$dropdown-overlay-background-color},
+            "dropdown-disabled-opacity": #{$dropdown-disabled-opacity},
+            "dropdown-gap": #{$dropdown-gap},
+            "dropdown-z": #{$dropdown-z},
+        )
+    );
+
     & + .dropdown {
         margin-left: 0.5em;
     }
 
     .background {
         @include mixins.overlay;
+
         position: fixed;
-        background-color: $dropdown-background-color;
-        z-index: 40;
+        background-color: css.getVar("dropdown-overlay-background-color");
+        z-index: css.getVar("dropdown-z");
         cursor: pointer;
 
-        @media screen and (min-width: $dropdown-mobile-breakpoint) {
+        @include mixins.from($dropdown-mobile-breakpoint) {
             display: none;
         }
     }
 
-    &.dropdown-menu-animation {
-        .dropdown-menu {
-            display: block;
-        }
-    }
+    .dropdown-item {
+        &.is-disabled {
+            cursor: not-allowed;
+            opacity: css.getVar("dropdown-disabled-opacity");
 
-    .dropdown-menu {
-        .dropdown-item {
-            &.is-disabled {
-                cursor: not-allowed;
-
-                &:hover {
-                    background: inherit;
-                    color: inherit;
-                }
+            &:hover {
+                background: inherit;
+                color: inherit;
             }
         }
 
-        .has-link a {
-            @extend .dropdown-item;
-            padding-right: 3rem;
-            white-space: nowrap;
-        }
-    }
-
-    &.is-hoverable:not(.is-active) {
-        .dropdown-menu {
-            display: none;
+        &.is-active {
+            @include css.register-vars(
+                (
+                    "dropdown-item-h": css.getVar("primary-h"),
+                    "dropdown-item-s": css.getVar("primary-s"),
+                    "dropdown-item-l": css.getVar("primary-l"),
+                    "dropdown-item-background-l": css.getVar("primary-l"),
+                    "dropdown-item-color-l": css.getVar("primary-invert-l"),
+                )
+            );
         }
     }
 
     &.is-hoverable {
-        &:hover {
-            .dropdown-menu {
-                display: block;
-            }
+        .background {
+            display: none;
         }
     }
 
     &.is-expanded {
         width: 100%;
 
+        &.is-mobile-modal .dropdown-menu,
+        .dropdown-menu,
         .dropdown-trigger {
             width: 100%;
         }
-
-        .dropdown-menu {
-            width: 100%;
-        }
-
-        &.is-mobile-modal {
-            .dropdown-menu {
-                max-width: 100%;
-            }
-        }
-    }
-
-    &:not(.is-disabled) {
-        .dropdown-menu {
-            .dropdown-item {
-                &.is-disabled {
-                    opacity: $dropdown-disabled-opacity;
-                }
-            }
-        }
-    }
-
-    .navbar-item {
-        height: 100%;
     }
 
     &.is-disabled {
@@ -105,86 +91,106 @@ $dropdown-gap: 0px !default;
         }
     }
 
-    &.is-inline {
-        .dropdown-menu {
-            position: static;
-            display: inline-block;
-            padding: 0;
-        }
+    &.is-inline .dropdown-menu {
+        position: static;
+        display: inline-block;
+        padding: 0;
     }
 
-    // Bottom right is default
-    .dropdown-menu {
+    // position classes
+    &.is-top .dropdown-menu {
         top: auto;
-        bottom: 100%;
         right: auto;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.is-left .dropdown-menu {
+        top: 50%;
+        right: calc(100% + css.getVar("dropdown-gap"));
+        bottom: auto;
+        left: auto;
+        transform: translateY(-50%);
+    }
+
+    &.is-bottom .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    &.is-right .dropdown-menu {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: calc(100% + css.getVar("dropdown-gap"));
+        transform: translateY(-50%);
+    }
+
+    &.is-top-right .dropdown-menu {
+        top: auto;
+        right: 0;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
+        left: auto;
+    }
+
+    &.is-top-left .dropdown-menu {
+        top: auto;
+        right: auto;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
         left: 0;
     }
 
-    // X Axis
-    &.is-left,
-    &.is-bottom-left,
-    &.is-top-left {
-        .dropdown-menu {
-            right: 0;
-            left: auto;
-        }
+    &.is-bottom-right .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        right: 0;
+        bottom: auto;
+        left: auto;
     }
 
-    &.is-top,
-    &.is-bottom,
-    &.is-right,
-    &.is-top-right,
-    &.is-bottom-right {
-        .dropdown-menu {
-            right: auto;
-            left: 0;
-        }
+    &.is-bottom-left .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        right: auto;
+        bottom: auto;
+        left: 0;
     }
 
-    // Y Axis
-    &.is-bottom,
-    &.is-right,
-    &.is-left,
-    &.is-bottom-left,
-    &.is-bottom-right {
-        .dropdown-menu {
-            bottom: auto;
-            top: calc(100% + #{$dropdown-gap});
-        }
-    }
-
-    &.is-top,
-    &.is-top-left,
-    &.is-top-right {
-        .dropdown-menu {
-            top: auto;
-            bottom: calc(100% + #{$dropdown-gap});
-        }
-    }
-
-    @media screen and (max-width: calc($dropdown-mobile-breakpoint - 1px)) {
+    @include mixins.until($dropdown-mobile-breakpoint) {
         &.is-mobile-modal {
             > .dropdown-menu {
-                position: fixed !important;
+                position: fixed;
+                top: 25%;
+                left: 50%;
+                bottom: auto;
+                right: auto;
+                transform: translateX(-50%);
                 width: calc(100vw - 40px);
                 max-width: 460px;
                 max-height: calc(100vh - 120px);
-                top: 25% !important;
-                left: 50% !important;
-                bottom: auto !important;
-                right: auto !important;
-                transform: translate3d(-50%, -25%, 0);
                 white-space: normal;
                 overflow-y: auto;
-                z-index: 50 !important;
-                /* > .dropdown-content { */
+                z-index: calc(css.getVar("dropdown-z") + 10);
+
                 > .dropdown-item,
                 > .has-link a {
                     padding: 1rem 1.5rem;
                 }
-                /* } */
             }
         }
+    }
+
+    // polyfills for other stuff
+
+    .dropdown-menu .has-link a {
+        @extend .dropdown-item;
+        padding-right: 3rem;
+        white-space: nowrap;
+    }
+
+    .navbar-item {
+        height: 100%;
     }
 }
