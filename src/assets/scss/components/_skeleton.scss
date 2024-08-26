@@ -56,7 +56,7 @@ $skeleton-margin-top: 0.5rem !default;
         }
 
         // sizes
-        @each $name, $value in var.$size-map {
+        @each $name, $value in var.$sizes-map {
             &.is-#{$name} {
                 @include css.register-vars(
                     (

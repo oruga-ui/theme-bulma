@@ -127,22 +127,19 @@ export const bulmaConfig: OrugaOptions = {
     },
     slider: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-slider"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.rounded) classes.push("is-rounded");
-            return classes.join(" ");
-        },
+        rootClass: "slider",
         disabledClass: "is-disabled",
-        trackClass: "b-slider-track",
-        fillClass: "b-slider-fill",
-        thumbWrapperClass: "b-slider-thumb-wrapper",
+        trackClass: "slider-track",
+        fillClass: "slider-fill",
+        thumbWrapperClass: "slider-thumb-wrapper",
         thumbWrapperDraggingClass: "is-dragging",
+        thumbRoundedClass: "is-rounded",
+        variantClass: "is-",
         sizeClass: "is-",
-        thumbClass: "b-slider-thumb",
-        tickLabelClass: "b-slider-tick-label",
+        thumbClass: "slider-thumb",
+        tickLabelClass: "slider-tick-label",
         tickHiddenClass: "is-tick-hidden",
-        tickClass: "b-slider-tick",
+        tickClass: "slider-tick",
     },
     tabs: {
         override: true,
