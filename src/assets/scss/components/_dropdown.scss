@@ -4,7 +4,7 @@
 
 /* @docs */
 $dropdown-mobile-breakpoint: vars.$desktop !default;
-$dropdown-overlay-background-color: hsla(
+$dropdown-background-background-color: hsla(
     #{css.getVar("scheme-h")},
     #{css.getVar("scheme-s")},
     #{css.getVar("scheme-invert-l")},
@@ -18,7 +18,7 @@ $dropdown-z: 40 !default;
 .dropdown {
     @include css.register-vars(
         (
-            "dropdown-overlay-background-color": #{$dropdown-overlay-background-color},
+            "dropdown-background-background-color": #{$dropdown-background-background-color},
             "dropdown-disabled-opacity": #{$dropdown-disabled-opacity},
             "dropdown-gap": #{$dropdown-gap},
             "dropdown-z": #{$dropdown-z},
@@ -33,7 +33,7 @@ $dropdown-z: 40 !default;
         @include mixins.overlay;
 
         position: fixed;
-        background-color: css.getVar("dropdown-overlay-background-color");
+        background-color: css.getVar("dropdown-background-background-color");
         z-index: css.getVar("dropdown-z");
         cursor: pointer;
 
