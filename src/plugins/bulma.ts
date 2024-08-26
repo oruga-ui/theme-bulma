@@ -82,21 +82,14 @@ export const bulmaConfig: OrugaOptions = {
     },
     switch: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["switch"];
-            if (props.rounded) classes.push("is-rounded");
-            if (props.position === "left") classes.push("has-left-label");
-            return classes.join(" ");
-        },
-        switchClass: (_: string, props: ComponentProps) => {
-            const classes = ["check"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.passiveVariant)
-                classes.push(`is-${props.passiveVariant}-passive`);
-            return classes.join(" ");
-        },
+        rootClass: "switch",
+        switchClass: "check",
+        positionClass: (value) => `has-${value}-label`,
+        roundedClass: "is-rounded",
         labelClass: "control-label",
         sizeClass: "is-",
+        variantClass: "is-",
+        passiveVariantClass: "is-",
         disabledClass: "is-disabled",
     },
     autocomplete: {
