@@ -10,6 +10,7 @@ module.exports = {
   ],
   rules: {
     "scss/at-extend-no-missing-placeholder": null,
+    "scss/operator-no-newline-after": [true, { "severity": "warning" }],
     "no-duplicate-selectors": [true, { "severity": "warning" }],
     "no-descending-specificity": [true, { "severity": "warning" }],
     "rule-empty-line-before": ["always", { 
