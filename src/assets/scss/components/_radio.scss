@@ -37,6 +37,7 @@ $radio-shadow: css.getVar("shadow");
         border-radius: 50%;
         border: 2px solid css.getVar("radio-border-color");
         transition: background var.$speed-slow css.getVar("easing");
+        box-shadow: css.getVar("radio-shadow");
 
         &:before {
             content: "";
@@ -52,7 +53,7 @@ $radio-shadow: css.getVar("shadow");
         }
 
         &:focus {
-            box-shadow: 0 0 0.5em
+            box-shadow: css.getVar("active-shadow-size")
                 hsl(from (css.getVar("radio-border-color") h s l / 80%));
         }
 

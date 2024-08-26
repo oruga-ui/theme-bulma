@@ -18,6 +18,7 @@ $checkbox-active-focus-color: hsl(
     from css.getVar("checkbox-active-background-color") h s l / 80%
 ) !default;
 $checkbox-active-background-color: css.getVar("primary") !default;
+$checkbox-shadow: css.getVar("shadow");
 /* @docs */
 
 .checkbox {
@@ -36,6 +37,7 @@ $checkbox-active-background-color: css.getVar("primary") !default;
                 url(fn.checkmark($checkbox-checkmark-color)),
             "checkbox-indeterminate-background":
                 url(fn.indeterminate($checkbox-checkmark-color)),
+            "checkbox-shadow": #{$checkbox-shadow},
         )
     );
 
@@ -60,6 +62,7 @@ $checkbox-active-background-color: css.getVar("primary") !default;
             css.getVar("checkbox-border-color");
         transition: background var.$speed-slow css.getVar("easing");
         background: css.getVar("checkbox-background-color");
+        box-shadow: css.getVar("checkbox-shadow");
 
         &:checked {
             border-color: css.getVar("checkbox-active-background-color");
@@ -81,12 +84,12 @@ $checkbox-active-background-color: css.getVar("primary") !default;
 
         &:focus {
             &.check {
-                box-shadow: css.getVar("focus-shadow-size")
+                box-shadow: css.getVar("active-shadow-size")
                     css.getVar("checkbox-focus-color");
             }
 
             &:checked.check {
-                box-shadow: css.getVar("focus-shadow-size")
+                box-shadow: css.getVar("active-shadow-size")
                     css.getVar("checkbox-active-focus-color");
             }
         }

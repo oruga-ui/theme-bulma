@@ -12,6 +12,7 @@ $switch-width: 2.75em !default;
 $switch-padding: 0.2em !default;
 $switch-background-color: css.getVar("grey-light") !default;
 $switch-active-background-color: css.getVar("primary") !default;
+$switch-shadow: css.getVar("shadow");
 /* @docs */
 
 .switch {
@@ -21,6 +22,7 @@ $switch-active-background-color: css.getVar("primary") !default;
             "switch-padding": #{$switch-padding},
             "switch-active-background-color": #{$switch-active-background-color},
             "switch-background-color": #{$switch-background-color},
+            "switch-shadow": #{$switch-shadow},
         )
     );
 
@@ -42,6 +44,7 @@ $switch-active-background-color: css.getVar("primary") !default;
         transition:
             background var.$speed-slow css.getVar("easing"),
             box-shadow var.$speed-slow css.getVar("easing");
+        box-shadow: css.getVar("switch-shadow");
 
         &:before {
             content: "";
@@ -94,14 +97,14 @@ $switch-active-background-color: css.getVar("primary") !default;
             outline: none;
 
             + .check {
-                box-shadow: 0 0 0.5em
+                box-shadow: css.getVar("active-shadow-size")
                     hsl(
                         from (css.getVar("switch-background-color") h s l / 80%)
                     );
             }
 
             &:checked + .check {
-                box-shadow: 0 0 0.5em
+                box-shadow: css.getVar("active-shadow-size")
                     hsl(
                         from
                             (

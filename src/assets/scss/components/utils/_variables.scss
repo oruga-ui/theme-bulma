@@ -9,6 +9,9 @@ $speed-slower: 250ms !default;
 // oruga defines an extra secondary color
 $secondary: #6c757d !default;
 
+// alternative to focus-shadow-size
+$active-shadow-size: 0 0 0.5em !default;
+
 // make the custom colors extandable by providing a new variable to override
 $custom-colors: () !default;
 
