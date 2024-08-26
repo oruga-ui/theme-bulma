@@ -1,4 +1,3 @@
-@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
@@ -34,7 +33,8 @@ $carousel-overlay-z: 40 !default;
         )
     );
 
-    @extend %unselectable;
+    @include mixins.unselectable;
+
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -190,11 +190,11 @@ $carousel-overlay-z: 40 !default;
         }
 
         &.has-icons-left {
-            left: $carousel-arrow-icon-spaced;
+            left: css.getVar("carousel-arrow-icon-spaced");
         }
 
         &.has-icons-right {
-            right: $carousel-arrow-icon-spaced;
+            right: css.getVar("carousel-arrow-icon-spaced");
         }
     }
 }
