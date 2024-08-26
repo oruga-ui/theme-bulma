@@ -402,7 +402,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     timepicker: {
         override: true,
-        rootClass: "timepicker control",
+        rootClass: "timepicker",
         boxClass: "dropdown-item",
         selectClasses: {
             rootClass: "select control",
