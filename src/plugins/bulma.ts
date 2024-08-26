@@ -280,17 +280,13 @@ export const bulmaConfig: OrugaOptions = {
     },
     notification: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["notification"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            return classes.join(" ");
-        },
+        rootClass: "notification",
         wrapperClass: "media",
         contentClass: "media-content",
         iconClass: "media-left",
         closeClass: "delete",
         positionClass: "is-",
-        noticeClass: "b-notices",
+        noticeClass: "notices",
         noticePositionClass: "is-",
         variantClass: "is-",
     },
