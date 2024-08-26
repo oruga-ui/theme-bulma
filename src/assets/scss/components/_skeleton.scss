@@ -1,46 +1,74 @@
-@use "bulma/sass" as bulma;
+@use "utils/variables" as var;
+@use "bulma/sass/utilities/css-variables" as css;
 
 /* @docs */
-$skeleton-color: bulma.$grey-lighter !default;
-$skeleton-border-radius: bulma.$radius !default;
+$skeleton-border-radius: css.getVar("radius") !default;
 $skeleton-duration: 1.5s !default;
 $skeleton-margin-top: 0.5rem !default;
 /* @docs */
 
-.b-skeleton {
-    @mixin steps-size($size) {
-        > .b-skeleton-item {
-            line-height: $size;
-        }
-    }
+/* @bulma docs */
+// --bulma-skeleton-background: var(--bulma-border);
+// --bulma-skeleton-radius: var(--bulma-radius-small);
+// --bulma-skeleton-block-min-height: 4.5em;
+// --bulma-skeleton-lines-gap: 0.75em;
+// --bulma-skeleton-line-height: 0.75em;
+/* @bulma docs */
+
+.skeleton {
+    @include css.register-vars(
+        (
+            "skeleton-border-radius": #{$skeleton-border-radius},
+            "skeleton-duration": #{$skeleton-duration},
+            "skeleton-margin-top": #{$skeleton-margin-top},
+        )
+    );
 
     display: inline-flex;
     flex-direction: column;
     vertical-align: middle;
     width: 100%;
 
-    > .b-skeleton-item {
-        background: bulma.$skeleton-background;
-        background-size: 400% 100%;
+    > .skeleton-block {
+        @include css.register-vars(
+            (
+                "skeleton-block-min-height": 1rem,
+            )
+        );
+        line-height: css.getVar("skeleton-block-min-height");
+        animation-duration: css.getVar("skeleton-duration");
         width: 100%;
 
         &.is-rounded {
-            border-radius: $skeleton-border-radius;
+            border-radius: css.getVar("skeleton-border-radius");
         }
 
         &::after {
             content: "\00a0";
         }
 
-        + .b-skeleton-item {
-            margin-top: $skeleton-margin-top;
+        + .skeleton-item {
+            margin-top: css.getVar("skeleton-margin-top");
+        }
+
+        &:not(.is-animated) {
+            animation-iteration-count: unset;
+        }
+
+        // sizes
+        @each $name, $value in var.$size-map {
+            &.is-#{$name} {
+                @include css.register-vars(
+                    (
+                        "skeleton-block-min-height": $value,
+                    )
+                );
+            }
         }
     }
 
-    &.is-animated {
-        > .b-skeleton-item {
-            animation: skeleton-loading $skeleton-duration infinite;
-        }
+    &.is-left {
+        align-items: flex-start;
     }
 
     &.is-centered {
@@ -51,31 +79,7 @@ $skeleton-margin-top: 0.5rem !default;
         align-items: flex-end;
     }
 
-    + .b-skeleton {
-        margin-top: $skeleton-margin-top;
-    }
-
-    @include steps-size(bulma.$size-normal);
-
-    &.is-small {
-        @include steps-size(bulma.$size-small);
-    }
-
-    &.is-medium {
-        @include steps-size(bulma.$size-medium);
-    }
-
-    &.is-large {
-        @include steps-size(bulma.$size-large);
-    }
-}
-
-@keyframes skeleton-loading {
-    0% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0 50%;
+    + .skeleton {
+        margin-top: css.getVar("skeleton-margin-top");
     }
 }

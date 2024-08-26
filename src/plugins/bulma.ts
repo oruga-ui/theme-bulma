@@ -270,12 +270,11 @@ export const bulmaConfig: OrugaOptions = {
     },
     skeleton: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-skeleton"];
-            if (props.animated) classes.push("is-animated");
-            return classes.join(" ");
-        },
-        itemClass: "b-skeleton-item",
+        rootClass: "skeleton",
+        animationClass: "is-animated",
+        positionClass: "is-",
+        sizeClass: "is-",
+        itemClass: "skeleton-block",
         itemRoundedClass: "is-rounded",
     },
     notification: {

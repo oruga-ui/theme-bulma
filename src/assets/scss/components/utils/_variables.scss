@@ -21,3 +21,12 @@ $custom-colors: () !default;
             $custom-colors
         )
 );
+
+@use "bulma/sass/utilities/derived-variables" as vars;
+
+$size-map: (
+    "small": vars.$size-small,
+    "normal": vars.$size-normal,
+    "medium": vars.$size-medium,
+    "large": vars.$size-large,
+) !default;
