@@ -258,8 +258,15 @@ export const bulmaConfig: OrugaOptions = {
         roundedClass: "is-rounded",
         expandedClass: "is-fullwidth",
         loadingClass: "is-loading",
-        outlinedClass: (variant) => `is-${variant ?? "primary"} is-outlined`,
-        invertedClass: (variant) => `is-${variant ?? "primary"} is-inverted`,
+        outlinedClass: (variant) => {
+            if (!variant) return "is-outlined";
+            return `is-${variant ?? "primary"} is-outlined`;
+        },
+
+        invertedClass: (variant) => {
+            if (!variant) return "is-inverted";
+            return `is-${variant ?? "primary"} is-inverted`;
+        },
         wrapperClass: "button-wrapper",
     },
     menu: {
