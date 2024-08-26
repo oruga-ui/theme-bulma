@@ -1,144 +1,124 @@
 @use "sass:list";
-@use "bulma/sass" as bulma;
+
+@use "utils/functions" as fn;
 @use "utils/variables" as var;
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/controls" as controls;
+@use "bulma/sass/utilities/mixins" as mixins;
 
 /* @docs */
-$radio-active-background-color: bulma.$primary !default;
+$radio-colors: var.$colors !default;
+$radio-active-background-color: css.getVar("primary") !default;
+$radio-border-color: css.getVar("grey") !default;
 $radio-size: 1.25em !default;
-$radio-colors: bulma.$form-colors !default;
+$radio-shadow: css.getVar("shadow");
 /* @docs */
 
-.b-radio.radio {
-    @extend %unselectable;
-    outline: none;
-    display: inline-flex;
-    align-items: center;
+.radio {
+    @include css.register-vars(
+        (
+            "radio-active-background-color": #{$radio-active-background-color},
+            "radio-border-color": #{$radio-border-color},
+            "radio-size": #{$radio-size},
+            "radio-shadow": #{$radio-shadow},
+        )
+    );
 
-    &:not(.button) {
-        margin-right: 0.5em;
-
-        & + .radio:last-child {
-            margin-right: 0;
-        }
-    }
-
-    // reset Bulma
-    & + .radio {
-        margin-left: 0;
-    }
+    @include mixins.unselectable;
 
     .check {
         outline: none;
         appearance: none;
         // font-size is changed by user agent to lower size
         font-size: inherit;
-        width: $radio-size;
-        height: $radio-size;
+        width: css.getVar("radio-size");
+        height: css.getVar("radio-size");
         flex-shrink: 0;
         border-radius: 50%;
-        border: 2px solid bulma.$grey;
-        transition: background var.$speed-slow bulma.$easing;
-
-        &:checked {
-            border-color: $radio-active-background-color;
-        }
-
-        &:hover:not(:disabled) {
-            border-color: $radio-active-background-color;
-        }
-
-        &:focus {
-            box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
-
-            &:checked {
-                box-shadow: 0 0 0.5em rgba($radio-active-background-color, 0.8);
-            }
-        }
+        border: 2px solid css.getVar("radio-border-color");
+        transition: background var.$speed-slow css.getVar("easing");
 
         &:before {
             content: "";
-            display: flex;
             position: absolute;
-            left: $radio-size * 0.5;
-            margin-left: calc(-#{$radio-size} * 0.5);
-            bottom: 50%;
-            margin-bottom: calc(-#{$radio-size} * 0.5);
-            width: $radio-size;
-            height: $radio-size;
-            transition: transform var.$speed-slow bulma.$easing;
+            left: calc(css.getVar("radio-size") * 0.55);
+            top: calc(css.getVar("radio-size") * 0.45);
+            width: css.getVar("radio-size");
+            height: css.getVar("radio-size");
             border-radius: 50%;
+            transition: transform var.$speed-slow css.getVar("easing");
             transform: scale(0);
-            background: $radio-active-background-color;
+            background: css.getVar("radio-active-background-color");
+        }
+
+        &:focus {
+            box-shadow: 0 0 0.5em
+                hsl(from (css.getVar("radio-border-color") h s l / 80%));
         }
 
         &:checked {
-            border-color: $radio-active-background-color;
+            @include css.register-vars(
+                (
+                    "radio-border-color": #{css.getVar(
+                            "radio-active-background-color"
+                        )},
+                )
+            );
 
             &:before {
                 transform: scale(0.5);
             }
         }
 
-        &:focus {
-            box-shadow: 0 0 0.5em rgba(bulma.$grey, 0.8);
-
-            &:checked {
-                box-shadow: 0 0 0.5em rgba($radio-active-background-color, 0.8);
-            }
+        &:hover:not(:disabled) {
+            @include css.register-vars(
+                (
+                    "radio-border-color": #{css.getVar(
+                            "radio-active-background-color"
+                        )},
+                )
+            );
+            border-color: css.getVar("radio-border-color");
         }
     }
 
     .control-label {
-        padding-left: bulma.$control-padding-horizontal;
-    }
-
-    &.button {
-        display: flex;
-
-        &.is-selected {
-            z-index: 1;
-        }
+        padding-left: css.getVar("control-padding-horizontal");
     }
 
     &.is-disabled {
         opacity: 0.5;
     }
 
+    // sizes
+
+    @include controls.control;
+
     &.is-small {
-        @include bulma.control-small;
+        @include controls.control-small;
     }
 
     &.is-medium {
-        @include bulma.control-medium;
+        @include controls.control-medium;
     }
 
     &.is-large {
-        @include bulma.control-large;
+        @include controls.control-large;
     }
 
+    // variant colors
     @each $name, $pair in $radio-colors {
         $color: list.nth($pair, 1);
 
         &.is-#{$name} {
-            .check:before {
-                background: $color;
-
-                &:hover:not(:disabled) {
-                    border-color: $color;
-                }
-            }
-
-            .check:checked {
-                border-color: $color;
-
-                &:focus {
-                    box-shadow: 0 0 0.5em rgba($color, 0.8);
-                }
-            }
-
-            .check:hover:not(:disabled) {
-                border-color: $color;
-            }
+            @include css.register-vars(
+                (
+                    "radio-active-background-color": #{$color},
+                    "radio-checked-background": url(fn.checkmark($color)),
+                    "radio-border-color": #{$color},
+                    "radio-active-focus-color": #{$color},
+                )
+            );
         }
     }
 }

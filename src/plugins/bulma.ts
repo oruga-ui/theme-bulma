@@ -73,7 +73,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     radio: {
         override: true,
-        rootClass: "b-radio radio",
+        rootClass: "radio",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
