@@ -1,8 +1,8 @@
 @use "sass:list";
 
-@use "bulma/sass/utilities/controls" as controls;
-@use "utils/variables" as var;
 @use "utils/functions" as fn;
+@use "utils/variables" as var;
+@use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/css-variables" as css;
 
 /* @docs */
@@ -38,8 +38,6 @@ $checkbox-active-background-color: css.getVar("primary") !default;
                 url(fn.indeterminate($checkbox-checkmark-color)),
         )
     );
-
-    @include controls.control;
 
     &:not(.button) {
         margin-right: 0.5em;
@@ -108,6 +106,9 @@ $checkbox-active-background-color: css.getVar("primary") !default;
     }
 
     // sizes
+
+    @include controls.control;
+
     &.is-small {
         @include controls.control-small;
     }
