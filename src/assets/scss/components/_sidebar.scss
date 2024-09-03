@@ -18,7 +18,6 @@ $sidebar-shadow: css.getVar("shadow");
 $sidebar-width: 260px !default;
 $sidebar-height: 260px !default;
 $sidebar-mobile-width: 80px !default;
-$sidebar-mobile-breakpoint: vars.$tablet !default;
 /* @docs */
 
 .sidebar {
@@ -30,7 +29,6 @@ $sidebar-mobile-breakpoint: vars.$tablet !default;
             "sidebar-width": #{$sidebar-width},
             "sidebar-height": #{$sidebar-height},
             "sidebar-mobile-width": #{$sidebar-mobile-width},
-            "sidebar-mobile-breakpoint": #{$sidebar-mobile-breakpoint},
         )
     );
 

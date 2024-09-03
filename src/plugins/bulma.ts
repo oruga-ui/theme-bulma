@@ -217,21 +217,18 @@ export const bulmaConfig: OrugaOptions = {
     steps: {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-steps"];
+            const classes = ["steps-wrapper"];
             if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.disables) classes.push("is-disabled");
             return classes.join(" ");
         },
         stepsClass: (_: string, props: ComponentProps) => {
             const classes = ["steps"];
-            if (props.animated) classes.push("is-animated");
-            if (props.rounded) classes.push("is-rounded");
             if (props.labelPosition === "left") classes.push("has-label-left");
             if (props.labelPosition === "right")
                 classes.push("has-label-right");
             return classes.join(" ");
         },
-        itemClass: "step-link",
+        itemClass: "step-content-item",
         itemHeaderClass: "step-item",
         itemHeaderVariantClass: "is-",
         itemHeaderActiveClass: "is-active",
@@ -240,12 +237,15 @@ export const bulmaConfig: OrugaOptions = {
         stepLinkLabelClass: "step-title",
         stepLinkClickableClass: "is-clickable",
         stepMarkerClass: "step-marker",
+        stepMarkerRoundedClass: "is-rounded",
         stepNavigationClass: "step-navigation",
         stepContentClass: "step-content",
         verticalClass: "is-vertical",
+        animatedClass: "is-animated",
         positionClass: "is-",
-        stepContentTransitioningClass: "is-transitioning",
         sizeClass: "is-",
+        labelPosition: "is-",
+        stepContentTransitioningClass: "is-transitioning",
     },
     button: {
         override: true,
