@@ -164,8 +164,8 @@ export const bulmaConfig: OrugaOptions = {
     },
     table: {
         override: true,
-        rootClass: "b-table",
-        wrapperClass: "table-wrapper",
+        rootClass: "table-wrapper",
+        wrapperClass: "table-inner",
         tableClass: "table",
         borderedClass: "is-bordered",
         stripedClass: "is-striped",
@@ -186,18 +186,10 @@ export const bulmaConfig: OrugaOptions = {
         thCheckboxClass: "th-checkbox",
         thDetailedClass: "th-chevron-cell",
         tdDetailedChevronClass: "chevron-cell",
-        thPositionClass: (position: string) => {
-            if (position === "centered") return "is-centered";
-            else if (position === "right") return "is-right";
-            return;
-        },
-        tdPositionClass: (position: string) => {
-            if (position === "centered") return "has-text-centered";
-            else if (position === "right") return "has-text-right";
-            return;
-        },
+        thPositionClass: "is-",
+        tdPositionClass: "has-text-",
         mobileClass: "is-mobile",
-        mobileSortClass: "table-mobile-sort field",
+        mobileSortClass: "table-mobile-sort",
     },
     tooltip: {
         override: true,

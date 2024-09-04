@@ -1,8 +1,9 @@
-@use "bulma/sass" as bulma;
 @use "utils/variables" as var;
-@use "utils/variables-to-migrate" as to-migrate;
 @use "utils/functions" as fn;
-@use "bulma/sass/utilities/mixins";
+@use "bulma/sass/utilities/initial-variables" as vars;
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/mixins" as mixins;
+@use "bulma/sass/elements/table" as table;
 
 /* @docs */
 $table-sticky-header-height: 300px !default;
@@ -42,8 +43,8 @@ $table-sticky-header-height: 300px !default;
     tr {
         // Card style — Cannot extend inside media query
         box-shadow:
-            0 2px 3px rgba(bulma.$black, 0.1),
-            0 0 0 1px rgba(bulma.$black, 0.1);
+            0 2px 3px rgba(css.getVar("black"), 0.1),
+            0 0 0 1px rgba(css.getVar("black"), 0.1);
         max-width: 100%;
         position: relative;
         display: block;
@@ -62,10 +63,10 @@ $table-sticky-header-height: 300px !default;
         }
         // Disables is-*
         &:not([class*="is-"]) {
-            background: bulma.$table-background-color;
+            background: css.getVar("table-background-color");
 
             &:hover {
-                background-color: bulma.$table-background-color;
+                background-color: css.getVar("table-background-color");
             }
         }
 
@@ -80,11 +81,11 @@ $table-sticky-header-height: 300px !default;
             width: auto;
             justify-content: space-between;
             text-align: right;
-            border-bottom: 1px solid bulma.$background;
+            border-bottom: 1px solid css.getVar("background");
 
             &:before {
                 content: attr(data-label);
-                font-weight: bulma.$weight-semibold;
+                font-weight: css.getVar("weight-semibold");
                 padding-right: 0.5em;
                 text-align: left;
             }
@@ -93,39 +94,77 @@ $table-sticky-header-height: 300px !default;
 }
 
 .table-wrapper {
-    position: relative;
-
-    .table {
-        margin-bottom: 0;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 1.5rem;
-    }
-
-    @include mixins.touch {
-        overflow-x: auto;
-    }
-}
-
-.b-table {
-    transition: opacity bulma.$speed bulma.$easing;
+    @include css.register-vars(
+        (
+            "table-sticky-header-height": #{$table-sticky-header-height},
+        )
+    );
+    transition: opacity vars.$speed css.getVar("easing");
 
     .table-mobile-sort {
         @include mixins.tablet {
             display: none;
         }
+
         // addition
         .button {
-            background-color: bulma.$primary;
-            color: to-migrate.$primary-invert;
+            background-color: css.getVar("primary");
+            color: css.getVar("primary-invert-l");
+        }
+    }
+
+    .table-inner {
+        position: relative;
+
+        @include mixins.touch {
+            overflow-x: auto;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        &.has-sticky-header {
+            height: css.getVar("table-sticky-header-height");
+            overflow-y: auto;
+
+            &.is-mobile {
+                @include mixins.mobile {
+                    height: initial !important;
+                    overflow-y: initial !important;
+                }
+            }
+
+            tr:first-child {
+                th {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    top: 0;
+                    z-index: 2;
+                    background: css.getVar("table-background-color");
+                }
+            }
+        }
+
+        &.is-mobile {
+            @include mixins.mobile {
+                @include table-cards;
+            }
+        }
+
+        &.is-card-list {
+            @include table-cards;
         }
     }
 
     .icon {
         transition:
-            transform var.$speed-slow bulma.$easing,
-            opacity bulma.$speed bulma.$easing;
+            transform var.$speed-slow css.getVar("easing"),
+            opacity vars.$speed css.getVar("easing");
 
         &.is-desc {
             transform: rotate(180deg);
@@ -136,18 +175,14 @@ $table-sticky-header-height: 300px !default;
         }
     }
 
-    .sort-icon.icon.is-desc {
-        transform: rotate(180deg) translateY(-50%) !important;
-    }
-
     .table {
         width: 100%;
         border: 1px solid transparent;
-        border-radius: bulma.$radius;
+        border-radius: css.getVar("radius");
         border-collapse: separate;
 
         th {
-            font-weight: bulma.$weight-semibold;
+            font-weight: css.getVar("weight-semibold");
 
             .th-wrap {
                 display: flex;
@@ -158,20 +193,6 @@ $table-sticky-header-height: 300px !default;
                     margin-right: 0;
                     font-size: 1rem;
                 }
-                /*
-                &.is-right {
-                    flex-direction: row-reverse;
-                    text-align: right;
-                    .icon {
-                        margin-left: 0;
-                        margin-right: 0.5rem;
-                    }
-                }
-                &.is-centered {
-                    justify-content: center;
-                    text-align: center;
-                }
-                */
             }
 
             &.is-right {
@@ -190,17 +211,17 @@ $table-sticky-header-height: 300px !default;
             }
 
             &.is-current-sort {
-                border-color: bulma.$grey;
-                font-weight: bulma.$weight-bold;
+                border-color: css.getVar("grey");
+                font-weight: css.getVar("weight-bold");
             }
 
             &.is-sortable:hover {
-                border-color: bulma.$grey;
+                border-color: css.getVar("grey");
             }
 
             &.is-sortable {
                 cursor: pointer;
-                /* .is-relative { */
+
                 > span {
                     position: relative;
                 }
@@ -223,7 +244,7 @@ $table-sticky-header-height: 300px !default;
                 position: sticky;
                 left: 0;
                 z-index: 3 !important;
-                background: bulma.$table-head-background-color;
+                background: css.getVar("table-head-background-color");
             }
 
             &.th-checkbox {
@@ -237,17 +258,13 @@ $table-sticky-header-height: 300px !default;
 
         tr {
             &.is-selected {
-                .checkbox input {
-                    &:checked + .check {
-                        background: bulma.$table-row-active-color
-                            url(fn.checkmark(
-                                bulma.$table-row-active-background-color
-                            ))
-                            no-repeat center center;
-                    }
+                .check {
+                    border-color: css.getVar("table-row-active-color");
 
-                    + .check {
-                        border-color: bulma.$table-row-active-color;
+                    &:checked {
+                        background: css.getVar("table-row-active-color")
+                            url(fn.checkmark(var.$primary)) no-repeat center
+                            center;
                     }
                 }
             }
@@ -255,14 +272,25 @@ $table-sticky-header-height: 300px !default;
             &.is-empty:hover {
                 background-color: transparent;
             }
+
+            &.detail {
+                box-shadow: inset 0 1px 3px css.getVar("grey-lighter");
+                background: css.getVar("scheme-main-bis");
+            }
+        }
+
+        td {
+            &.is-sticky {
+                position: -webkit-sticky;
+                position: sticky;
+                left: 0;
+                z-index: 1;
+                background: css.getVar("table-background-color");
+            }
         }
 
         .chevron-cell {
             vertical-align: middle;
-
-            > .icon {
-                color: bulma.$input-arrow !important;
-            }
         }
 
         .checkbox-cell {
@@ -277,36 +305,11 @@ $table-sticky-header-height: 300px !default;
             }
         }
 
-        tr.detail {
-            box-shadow: inset 0 1px 3px bulma.$grey-lighter;
-            background: bulma.$scheme-main-bis;
-
-            .detail-container {
-                padding: 1rem;
-            }
-        }
-
-        &:focus {
-            border-color: bulma.$link;
-            box-shadow: 0 0 0 0.125em rgba(bulma.$link, 0.25);
-        }
-
-        // Modifiers
         &.is-bordered {
             th.is-current-sort,
             th.is-sortable:hover {
-                border-color: bulma.$grey-lighter;
-                background: bulma.$background;
-            }
-        }
-
-        td {
-            &.is-sticky {
-                position: -webkit-sticky;
-                position: sticky;
-                left: 0;
-                z-index: 1;
-                background: bulma.$table-background-color;
+                border-color: css.getVar("grey-lighter");
+                background: css.getVar("background");
             }
         }
 
@@ -316,84 +319,19 @@ $table-sticky-header-height: 300px !default;
                     &:nth-child(even) {
                         td {
                             &.is-sticky {
-                                background: bulma.$table-striped-row-even-background-color;
+                                background: css.getVar(
+                                    "table-striped-row-even-background-color"
+                                );
                             }
                         }
                     }
                 }
             }
         }
-    }
 
-    .level {
-        > div {
-            // .level-left, .level-right
-            flex-basis: auto;
-            flex-grow: 0;
-            flex-shrink: 0;
-            align-items: center;
-
-            @include mixins.tablet {
-                display: flex;
-            }
-
-            > div {
-                // .level-item
-                align-items: center;
-                display: flex;
-                flex-basis: auto;
-                flex-grow: 0;
-                flex-shrink: 0;
-                justify-content: center;
-            }
-
-            &:first-child {
-                // .level-left
-                justify-content: flex-start;
-            }
-
-            &:last-child {
-                // .level-right
-                justify-content: flex-end;
-            }
-        }
-
-        &.is-mobile > div {
-            display: flex;
-        }
-    }
-
-    .table-wrapper {
-        &.has-sticky-header {
-            height: $table-sticky-header-height;
-            overflow-y: auto;
-
-            &.is-mobile {
-                @include mixins.mobile {
-                    height: initial !important;
-                    overflow-y: initial !important;
-                }
-            }
-
-            tr:first-child {
-                th {
-                    position: -webkit-sticky;
-                    position: sticky;
-                    top: 0;
-                    z-index: 2;
-                    background: bulma.$table-background-color;
-                }
-            }
-        }
-
-        &.is-mobile {
-            @include mixins.mobile {
-                @include table-cards;
-            }
-        }
-
-        &.is-card-list {
-            @include table-cards;
+        &:focus {
+            border-color: css.getVar("link");
+            box-shadow: 0 0 0 0.125em rgba(css.getVar("link"), 0.25);
         }
     }
 }
