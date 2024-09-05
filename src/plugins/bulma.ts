@@ -143,15 +143,11 @@ export const bulmaConfig: OrugaOptions = {
     },
     tabs: {
         override: true,
-        itemTag: "a",
-        rootClass: "b-tabs",
-        contentClass: "tab-content",
+        rootClass: "tabs-wrapper",
+        contentClass: "tabs-content",
         multilineClass: "is-multiline",
-        navTabsClass: (_: string, props: ComponentProps) => {
-            const classes = ["tabs"];
-            if (props.type) classes.push(`is-${props.type}`);
-            return classes.join(" ");
-        },
+        navTabsClass: "tabs",
+        navTypeClass: "is-",
         expandedClass: "is-fullwidth",
         verticalClass: "is-vertical",
         positionClass: "is-",
@@ -159,6 +155,10 @@ export const bulmaConfig: OrugaOptions = {
         navPositionClass: "is-",
         transitioningClass: "is-transitioning",
         itemClass: "tab-item",
+        itemWrapperClass: "tab",
+        itemHeaderClass: "tab-button",
+        itemHeaderIconClass: "tab-icon",
+        itemHeaderTextClass: "tab-title",
         itemHeaderActiveClass: () => "is-active",
         itemHeaderDisabledClass: () => "is-disabled",
     },
