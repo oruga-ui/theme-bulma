@@ -57,7 +57,7 @@
 
                 select {
                     font-weight: css.getVar("weight-semibold");
-                    padding-right: css.getVar(control-padding-horizontal);
+                    padding-right: css.getVar("control-padding-horizontal");
                     border: 0;
                 }
 
