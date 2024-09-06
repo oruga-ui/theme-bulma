@@ -193,18 +193,14 @@ export const bulmaConfig: OrugaOptions = {
     },
     tooltip: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-tooltip"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            else classes.push(`is-primary`);
-            return classes.join(" ");
-        },
-        contentClass: "b-tooltip-content",
-        triggerClass: "b-tooltip-trigger",
+        rootClass: "tooltip",
+        contentClass: "tooltip-content",
+        triggerClass: "tooltip-trigger",
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
         positionClass: "is-",
+        teleportClass: "is-teleported",
     },
     steps: {
         override: true,

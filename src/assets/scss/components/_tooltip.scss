@@ -1,184 +1,61 @@
 @use "sass:list";
-@use "bulma/sass" as bulma;
+
+@use "utils/variables" as var;
+@use "bulma/sass/utilities/css-variables" as css;
 
 /* @docs */
+$tooltip-colors: var.$colors !default;
 $tooltip-arrow-size: 5px !default;
 $tooltip-arrow-margin: 2px !default;
 $tooltip-content-multiline-width: 300px !default;
-$tooltip-colors: bulma.$colors !default;
+$tooltip-border-radius: css.getVar("radius") !default;
+$tooltip-bg: css.getVar("scheme-main-bis") !default;
+$tooltip-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2) !default;
+$tooltip-color: css.getVar("text-body") !default;
+$tooltip-z: 38 !default;
 /* @docs */
 
-@mixin tooltip-arrow-color($direction, $color) {
-    @if ($direction == "is-top") {
-        border-top-color: $color;
-    } @else if ($direction == "is-bottom") {
-        border-bottom-color: $color;
-    } @else if ($direction == "is-right") {
-        border-right-color: $color;
-    } @else if ($direction == "is-left") {
-        border-left-color: $color;
-    }
-}
-@mixin tooltip($direction) {
-    &-content {
-        &.#{$direction} {
-            @if ($direction == "is-top") {
-                top: auto;
-                right: auto;
-                bottom: calc(
-                    100% + #{$tooltip-arrow-size} + #{$tooltip-arrow-margin}
-                );
-                left: 50%;
-                transform: translateX(-50%);
-            } @else if ($direction == "is-bottom") {
-                top: calc(
-                    100% + #{$tooltip-arrow-size} + #{$tooltip-arrow-margin}
-                );
-                right: auto;
-                bottom: auto;
-                left: 50%;
-                transform: translateX(-50%);
-            } @else if ($direction == "is-right") {
-                top: 50%;
-                right: auto;
-                bottom: auto;
-                left: calc(
-                    100% + #{$tooltip-arrow-size} + #{$tooltip-arrow-margin}
-                );
-                transform: translateY(-50%);
-            } @else if ($direction == "is-left") {
-                top: 50%;
-                right: calc(
-                    100% + #{$tooltip-arrow-size} + #{$tooltip-arrow-margin}
-                );
-                bottom: auto;
-                left: auto;
-                transform: translateY(-50%);
-            }
+.tooltip {
+    @include css.register-vars(
+        (
+            "tooltip-arrow-size": #{$tooltip-arrow-size},
+            "tooltip-arrow-margin": #{$tooltip-arrow-margin},
+            "tooltip-color": #{$tooltip-color},
+            "tooltip-bg": #{$tooltip-bg},
+            "tooltip-border-radius": #{$tooltip-border-radius},
+            "tooltip-shadow": #{$tooltip-shadow},
+            "tooltip-content-multiline-width": #{$tooltip-content-multiline-width},
+            "tooltip-z": #{$tooltip-z},
+        )
+    );
 
-            &::before {
-                @if ($direction == "is-bottom") {
-                    top: auto;
-                    right: auto;
-                    bottom: 100%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    border-right: $tooltip-arrow-size solid transparent;
-                    border-bottom: $tooltip-arrow-size solid bulma.$primary;
-                    border-left: $tooltip-arrow-size solid transparent;
-                } @else if ($direction == "is-top") {
-                    top: 100%;
-                    right: auto;
-                    bottom: auto;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    border-top: $tooltip-arrow-size solid bulma.$primary;
-                    border-right: $tooltip-arrow-size solid transparent;
-                    border-left: $tooltip-arrow-size solid transparent;
-                } @else if ($direction == "is-left") {
-                    top: 50%;
-                    right: auto;
-                    bottom: auto;
-                    left: 100%;
-                    transform: translateY(-50%);
-                    border-top: $tooltip-arrow-size solid transparent;
-                    border-bottom: $tooltip-arrow-size solid transparent;
-                    border-left: $tooltip-arrow-size solid bulma.$primary;
-                } @else if ($direction == "is-right") {
-                    top: 50%;
-                    right: 100%;
-                    bottom: auto;
-                    left: auto;
-                    transform: translateY(-50%);
-                    border-top: $tooltip-arrow-size solid transparent;
-                    border-right: $tooltip-arrow-size solid bulma.$primary;
-                    border-bottom: $tooltip-arrow-size solid transparent;
-                }
-            }
-
-            @each $name, $pair in $tooltip-colors {
-                $color: list.nth($pair, 1);
-                &.is-#{$name} {
-                    &::before {
-                        @include tooltip-arrow-color($direction, $color);
-                    }
-                    // If light and dark colors are provided
-                    @if list.length($pair) >= 4 {
-                        $color-light: list.nth($pair, 3);
-
-                        &.is-light {
-                            &::before {
-                                @include tooltip-arrow-color(
-                                    $direction,
-                                    $color-light
-                                );
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-// Base
-.b-tooltip {
     position: relative;
     display: inline-flex;
 
-    @include tooltip("is-top");
-    @include tooltip("is-right");
-    @include tooltip("is-bottom");
-    @include tooltip("is-left");
-
-    .b-tooltip-content {
-        width: auto;
-        padding: 0.35rem 0.75rem;
-        border-radius: bulma.$radius-large;
-        font-size: 0.85rem;
-        font-weight: bulma.$weight-normal;
-        box-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2);
-        z-index: 38;
-        white-space: nowrap;
-        position: absolute;
-    }
-
-    .b-tooltip-content::before {
-        position: absolute;
-        content: "";
-        pointer-events: none;
-        z-index: 38;
-    }
-
-    .b-tooltip-trigger {
+    .tooltip-trigger {
         width: 100%;
     }
-    // Modifiers
-    @each $name, $pair in $tooltip-colors {
-        $color: list.nth($pair, 1);
-        $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
 
-        &.is-#{$name} {
-            .b-tooltip-content {
-                background: $color;
-                color: $color-invert;
-            }
-            // If light and dark colors are provided
-            @if list.length($pair) >= 4 {
-                $color-light: list.nth($pair, 3);
-                $color-dark: list.nth($pair, 4);
+    .tooltip-content {
+        position: absolute;
+        width: auto;
+        white-space: nowrap;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.85rem;
+        font-weight: css.getVar("weight-normal");
+        color: css.getVar("tooltip-color");
+        background-color: css.getVar("tooltip-bg");
+        border-radius: css.getVar("tooltip-border-radius");
+        box-shadow: css.getVar("tooltip-shadow");
+        z-index: css.getVar("tooltip-z");
 
-                &.is-light {
-                    .b-tooltip-content {
-                        background: $color-light;
-                        color: $color-dark;
-                    }
-                }
-            }
+        &::before {
+            position: absolute;
+            content: "";
+            pointer-events: none;
+            z-index: css.getVar("tooltip-z");
         }
-    }
 
-    & .b-tooltip-content {
         &.is-always {
             opacity: 1;
             visibility: visible;
@@ -187,20 +64,161 @@ $tooltip-colors: bulma.$colors !default;
         &.is-multiline {
             text-align: center;
             white-space: normal;
-            width: $tooltip-content-multiline-width;
+            width: css.getVar("tooltip-content-multiline-width");
+        }
+
+        $arrow-size: calc(
+            100% + css.getVar("tooltip-arrow-size") +
+                css.getVar("tooltip-arrow-margin")
+        );
+        $arrow-border: css.getVar("tooltip-arrow-size") solid
+            css.getVar("tooltip-bg");
+        $arrow-border-passive: css.getVar("tooltip-arrow-size") solid
+            transparent;
+
+        &.is-top {
+            top: auto;
+            right: auto;
+            bottom: $arrow-size;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::before {
+                top: 100%;
+                right: auto;
+                bottom: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                border-top: $arrow-border;
+                border-right: $arrow-border-passive;
+                border-left: $arrow-border-passive;
+            }
+        }
+
+        &.is-bottom {
+            top: $arrow-size;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::before {
+                top: auto;
+                right: auto;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-right: $arrow-border-passive;
+                border-bottom: $arrow-border;
+                border-left: $arrow-border-passive;
+            }
+        }
+
+        &.is-right {
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            left: $arrow-size;
+            transform: translateY(-50%);
+
+            &:before {
+                top: 50%;
+                right: 100%;
+                bottom: auto;
+                left: auto;
+                transform: translateY(-50%);
+                border-top: $arrow-border-passive;
+                border-right: $arrow-border;
+                border-bottom: $arrow-border-passive;
+            }
+        }
+
+        &.is-left {
+            top: 50%;
+            right: $arrow-size;
+            bottom: auto;
+            left: auto;
+            transform: translateY(-50%);
+
+            &::before {
+                top: 50%;
+                right: auto;
+                bottom: auto;
+                left: 100%;
+                transform: translateY(-50%);
+                border-top: $arrow-border-passive;
+                border-bottom: $arrow-border-passive;
+                border-left: $arrow-border;
+            }
         }
     }
 
     &.is-dashed {
-        .b-tooltip-trigger {
-            border-bottom: 1px dashed bulma.$grey-light;
+        .tooltip-trigger {
+            border-bottom: 1px dashed css.getVar("grey-light");
             cursor: default;
         }
     }
 
     &.is-square {
-        .b-tooltip-content {
+        .tooltip-content {
             border-radius: 0;
+        }
+    }
+
+    // Modifiers
+    @each $name, $pair in $tooltip-colors {
+        $color: list.nth($pair, 1);
+        $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
+
+        .is-#{$name} {
+            @include css.register-vars(
+                (
+                    "tooltip-bg": #{$color},
+                )
+            );
+            @if $color-invert {
+                @include css.register-vars(
+                    (
+                        "tooltip-color": #{$color-invert},
+                    )
+                );
+            }
+
+            // If light and dark colors are provided
+            @if list.length($pair) >= 4 {
+                $color-light: list.nth($pair, 3);
+                $color-dark: list.nth($pair, 4);
+
+                &.is-light {
+                    @include css.register-vars(
+                        (
+                            "tooltip-color": #{$color-dark},
+                            "tooltip-bg": #{$color-light},
+                        )
+                    );
+                }
+            }
+        }
+    }
+
+    &.is-teleported {
+        .tooltip-content {
+            &.is-top {
+                margin-top: calc(-1 * css.getVar("tooltip-arrow-size"));
+            }
+
+            &.is-bottom {
+                margin-top: css.getVar("tooltip-arrow-size");
+            }
+
+            &.is-right {
+                margin-left: css.getVar("tooltip-arrow-size");
+            }
+
+            &.is-left {
+                margin-left: calc(-1 * css.getVar("tooltip-arrow-size"));
+            }
         }
     }
 }
