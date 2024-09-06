@@ -103,7 +103,7 @@ export const bulmaConfig: OrugaOptions = {
     taginput: {
         override: true,
         rootClass: "taginput control",
-        containerClass: "taginput-container is-focusable",
+        containerClass: "taginput-container",
         itemClass: "tag",
         closeClass: "delete is-small",
     },
