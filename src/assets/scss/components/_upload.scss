@@ -1,9 +1,25 @@
 @use "sass:list";
-@use "bulma/sass" as bulma;
+
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/form/file" as file;
+
+/* @docs */
+$upload-colors: file.$file-colors !default;
+$upload-bg: transparent !default;
+$upload-draggable-padding: 0.5rem !default;
+$upload-border-color: css.getVar("grey-light") !default;
+/* @docs */
 
 .upload {
     position: relative;
-    display: inline-flex;
+
+    @include css.register-vars(
+        (
+            "upload-draggable-padding": #{$upload-draggable-padding},
+            "upload-bg": #{$upload-bg},
+            "upload-border-color": #{$upload-border-color},
+        )
+    );
 
     input[type="file"] {
         position: absolute;
@@ -19,17 +35,23 @@
 
     .upload-draggable {
         cursor: pointer;
-        padding: 0.25em;
-        border: 1px dashed bulma.$grey-light;
-        border-radius: bulma.$radius-large;
+        padding: css.getVar("upload-draggable-padding");
+        background-color: css.getVar("upload-bg");
+        border: 1px dashed css.getVar("upload-border-color");
+        border-radius: css.getVar("radius-large");
 
-        &:hover,
-        &.is-hovered {
-            @each $name, $pair in bulma.$file-colors {
-                $color: list.nth($pair, 1);
-                &.is-#{$name} {
-                    border-color: $color;
-                    background: rgba($color, 0.05);
+        @each $name, $pair in $upload-colors {
+            $color: list.nth($pair, 1);
+
+            &.is-#{$name} {
+                &:hover,
+                &.is-hovered {
+                    @include css.register-vars(
+                        (
+                            "upload-bg": #{rgba($color, 0.05)},
+                            "upload-border-color": #{$color},
+                        )
+                    );
                 }
             }
         }
@@ -49,11 +71,11 @@
     }
 
     &.is-rounded {
-        border-radius: bulma.$radius-rounded;
+        border-radius: css.getVar("radius-rounded");
 
         .file-name {
-            border-top-right-radius: bulma.$radius-rounded;
-            border-bottom-right-radius: bulma.$radius-rounded;
+            border-top-right-radius: css.getVar("radius-rounded");
+            border-bottom-right-radius: css.getVar("radius-rounded");
         }
     }
 }
