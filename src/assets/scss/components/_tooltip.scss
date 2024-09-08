@@ -67,6 +67,7 @@ $tooltip-z: 38 !default;
             width: css.getVar("tooltip-content-multiline-width");
         }
 
+        // variables for the directions
         $arrow-size: calc(
             100% + css.getVar("tooltip-arrow-size") +
                 css.getVar("tooltip-arrow-margin")

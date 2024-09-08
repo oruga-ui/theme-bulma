@@ -40,6 +40,8 @@ createApp(App)
     .mount('#app')
 ```
 
+Please note, this package can be used without importing any other Oruga styling or theme.
+
 
 ### Customization (SASS/SCSS)
 

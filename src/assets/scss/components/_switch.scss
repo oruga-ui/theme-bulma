@@ -158,6 +158,22 @@ $switch-shadow: css.getVar("shadow");
         color: css.getVar("input-disabled-color");
     }
 
+    // sizes
+
+    @include controls.control;
+
+    &.is-small {
+        @include controls.control-small;
+    }
+
+    &.is-medium {
+        @include controls.control-medium;
+    }
+
+    &.is-large {
+        @include controls.control-large;
+    }
+
     // variant colors
     @each $name, $pair in $switch-colors {
         $color: list.nth($pair, 1);
@@ -177,21 +193,5 @@ $switch-shadow: css.getVar("shadow");
                 )
             );
         }
-    }
-
-    // sizes
-
-    @include controls.control;
-
-    &.is-small {
-        @include controls.control-small;
-    }
-
-    &.is-medium {
-        @include controls.control-medium;
-    }
-
-    &.is-large {
-        @include controls.control-large;
     }
 }

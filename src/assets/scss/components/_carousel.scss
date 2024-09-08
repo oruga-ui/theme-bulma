@@ -95,10 +95,10 @@ $carousel-overlay-z: 40 !default;
         }
 
         &.has-custom {
+            @include mixins.overflow-touch;
+
             flex-wrap: nowrap;
             justify-content: flex-start;
-
-            @include mixins.overflow-touch;
             overflow: hidden;
             overflow-x: auto;
 

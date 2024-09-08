@@ -76,7 +76,7 @@ $slider-tick-label-size: 0.75rem !default;
         cursor: grab;
         transform: translate(-50%, -50%);
         top: 50%;
-        flex-direction: column; // Fix shrinked thumb at the end in IE 11
+        flex-direction: column;
 
         .slider-thumb {
             height: css.getVar("slider-size");

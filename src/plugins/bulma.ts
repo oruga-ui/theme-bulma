@@ -111,7 +111,7 @@ export const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["pagination"];
-            if (props.rounded) classes.push("is-rounded");
+            if (isTrueish(props.rounded)) classes.push("is-rounded");
             return classes.join(" ");
         },
         sizeClass: "is-",
@@ -204,11 +204,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     steps: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["steps-wrapper"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            return classes.join(" ");
-        },
+        rootClass: "steps-wrapper",
         stepsClass: (_: string, props: ComponentProps) => {
             const classes = ["steps"];
             if (props.labelPosition === "left") classes.push("has-label-left");
@@ -245,12 +241,12 @@ export const bulmaConfig: OrugaOptions = {
         loadingClass: "is-loading",
         outlinedClass: (variant) => {
             if (!variant) return "is-outlined";
-            return `is-${variant ?? "primary"} is-outlined`;
+            return `is-${variant} is-outlined`;
         },
 
         invertedClass: (variant) => {
             if (!variant) return "is-inverted";
-            return `is-${variant ?? "primary"} is-inverted`;
+            return `is-${variant} is-inverted`;
         },
         wrapperClass: "button-wrapper",
     },
@@ -331,11 +327,8 @@ export const bulmaConfig: OrugaOptions = {
         tableCellWithinSelectedClass: "is-within-selected",
         tableCellInvisibleClass: "",
         tableCellNearbyClass: "is-nearby",
-        tableCellEventsClass: (_: string, props: ComponentProps) => {
-            const classes = ["has-event"];
-            if (props.indicators) classes.push(`${props.indicators}`);
-            return classes.join(" ");
-        },
+        tableCellEventsClass: "has-event",
+        tableEventIndicatorsClass: "is-",
         tableEventVariantClass: "is-",
         tableEventsClass: "events",
         tableEventClass: "event",
@@ -389,12 +382,12 @@ export const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: "timepicker",
         boxClass: "dropdown-item",
-        selectClasses: {
-            rootClass: "select control",
-        },
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer",
         sizeClass: "is-",
+        selectClasses: {
+            rootClass: "select control",
+        },
     },
     carousel: {
         override: true,
@@ -413,7 +406,6 @@ export const bulmaConfig: OrugaOptions = {
         indicatorItemClass: "indicator-style",
         indicatorItemActiveClass: "is-active",
         indicatorItemStyleClass: "is-",
-        // CarouselItem
         itemClass: "carousel-item",
         itemActiveClass: "is-active",
     },

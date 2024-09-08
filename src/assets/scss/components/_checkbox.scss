@@ -52,7 +52,6 @@ $checkbox-shadow: css.getVar("shadow");
     .check {
         outline: none;
         appearance: none;
-        // font-size is changed by user agent to lower size
         font-size: inherit;
         width: $checkbox-size;
         height: $checkbox-size;

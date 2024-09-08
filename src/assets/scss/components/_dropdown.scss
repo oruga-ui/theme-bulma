@@ -72,18 +72,8 @@ $dropdown-z: 40 !default;
         }
     }
 
-    &.is-expanded {
-        width: 100%;
-
-        &.is-mobile-modal .dropdown-menu,
-        .dropdown-menu,
-        .dropdown-trigger {
-            width: 100%;
-        }
-    }
-
     &.is-disabled {
-        opacity: $dropdown-disabled-opacity;
+        opacity: css.getVar("dropdown-disabled-opacity");
         cursor: not-allowed;
 
         .dropdown-trigger {
@@ -156,6 +146,16 @@ $dropdown-z: 40 !default;
         right: auto;
         bottom: auto;
         left: 0;
+    }
+
+    &.is-expanded {
+        width: 100%;
+
+        &.is-mobile-modal .dropdown-menu,
+        .dropdown-menu,
+        .dropdown-trigger {
+            width: 100%;
+        }
     }
 
     @include mixins.until($dropdown-mobile-breakpoint) {

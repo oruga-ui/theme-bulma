@@ -222,39 +222,37 @@ $datepicker-event-background-color: css.getVar("grey-light") !default;
 
         &.has-event {
             position: relative;
+        }
+    }
 
-            .events {
-                bottom: 0.425rem;
-                display: flex;
-                justify-content: center;
-                left: 0;
-                padding: 0 0.35rem;
-                position: absolute;
-                width: 100%;
+    .events {
+        bottom: 0.425rem;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        padding: 0 0.35rem;
+        position: absolute;
+        width: 100%;
 
-                .event {
-                    background-color: css.getVar(
-                        "datepicker-event-background-color"
-                    );
+        .event {
+            background-color: css.getVar("datepicker-event-background-color");
 
-                    @each $name, $pair in $datepicker-colors {
-                        $color: list.nth($pair, 1);
+            @each $name, $pair in $datepicker-colors {
+                $color: list.nth($pair, 1);
 
-                        &.is-#{$name} {
-                            background-color: $color;
-                        }
-                    }
+                &.is-#{$name} {
+                    background-color: $color;
                 }
             }
 
-            &.dots .event {
+            &.is-dots {
                 border-radius: 50%;
                 height: 0.35em;
                 margin: 0 0.1em;
                 width: 0.35em;
             }
 
-            &.bars .event {
+            &.is-bars {
                 height: 0.25em;
                 width: 100%;
             }
