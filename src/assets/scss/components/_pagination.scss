@@ -16,6 +16,10 @@
     &.is-simple {
         justify-content: normal;
 
+        &.is-left {
+            justify-content: flex-start;
+        }
+
         &.is-centered {
             justify-content: center;
         }
