@@ -73,3 +73,8 @@ $notification-notices-z: 1000 !default;
         position: absolute;
     }
 }
+
+.notification .delete {
+    // hide close icon component
+    font-size: 0;
+}
