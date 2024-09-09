@@ -1,124 +1,146 @@
 @use "sass:list";
-@use "bulma/bulma";
+
 @use "utils/variables" as var;
+@use "bulma/sass/utilities/initial-variables" as vars;
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/mixins" as mixins;
 
 /* @docs */
-$sidebar-background: bulma.$modal-background-background-color !default;
-$sidebar-box-shadow: 5px 0px 13px 3px rgba(bulma.$black, 0.1) !default;
+$sidebar-colors: var.$colors !default;
+$sidebar-z: 40;
+$sidebar-background-background-color: hsla(
+    #{css.getVar("scheme-h")},
+    #{css.getVar("scheme-s")},
+    #{css.getVar("scheme-invert-l")},
+    0.86
+) !default;
+$sidebar-shadow: css.getVar("shadow");
 $sidebar-width: 260px !default;
+$sidebar-height: 260px !default;
 $sidebar-mobile-width: 80px !default;
-$sidebar-mobile-breakpoint: bulma.$tablet !default;
-$sidebar-colors: bulma.$navbar-colors !default;
 /* @docs */
 
-.b-sidebar {
+.sidebar {
+    @include css.register-vars(
+        (
+            "sidebar-z": #{$sidebar-z},
+            "sidebar-background-background-color": #{$sidebar-background-background-color},
+            "sidebar-shadow": #{$sidebar-shadow},
+            "sidebar-width": #{$sidebar-width},
+            "sidebar-height": #{$sidebar-height},
+            "sidebar-mobile-width": #{$sidebar-mobile-width},
+        )
+    );
+
     .sidebar-content {
-        background-color: bulma.$background;
-        box-shadow: $sidebar-box-shadow;
-        width: $sidebar-width;
-        z-index: 39;
+        background-color: css.getVar("background");
+        box-shadow: css.getVar("sidebar-shadow");
+        width: css.getVar("sidebar-width");
+        height: css.getVar("sidebar-height");
+        position: fixed;
+        transition: width var.$speed-slow css.getVar("easing");
+        z-index: css.getVar("sidebar-z");
 
         @each $name, $pair in $sidebar-colors {
             $color: list.nth($pair, 1);
+
             &.is-#{$name} {
-                background-color: $color;
+                @include css.register-vars(
+                    (
+                        "sidebar-background-background-color": #{$color},
+                    )
+                );
             }
         }
 
-        &.is-fixed {
-            position: fixed;
-            left: 0;
+        &.is-left {
+            @include css.register-vars(
+                (
+                    "sidebar-height": 100%,
+                )
+            );
+
             top: 0;
-
-            &.is-right {
-                left: auto;
-                right: 0;
-            }
-        }
-
-        &.is-absolute {
-            position: absolute;
             left: 0;
+            bottom: 0;
+        }
+
+        &.is-right {
+            @include css.register-vars(
+                (
+                    "sidebar-height": 100%,
+                )
+            );
+
             top: 0;
-
-            &.is-right {
-                left: auto;
-                right: 0;
-            }
+            right: 0;
+            bottom: 0;
         }
 
-        &.is-mini {
-            width: $sidebar-mobile-width;
+        &.is-top {
+            @include css.register-vars(
+                (
+                    "sidebar-width": 100%,
+                )
+            );
 
-            &.is-mini-expand:hover:not(.is-mini-delayed) {
-                transition: width var.$speed-slow bulma.$easing;
-
-                &:not(.is-fullwidth) {
-                    width: $sidebar-width;
-
-                    &.is-mini-expand-fixed {
-                        position: fixed;
-                    }
-                }
-            }
+            top: 0;
+            right: 0;
+            left: 0;
         }
 
-        &.is-static {
-            position: static;
-        }
+        &.is-bottom {
+            @include css.register-vars(
+                (
+                    "sidebar-width": 100%,
+                )
+            );
 
-        &.is-absolute,
-        &.is-static {
-            transition: width var.$speed-slow bulma.$easing;
+            right: 0;
+            left: 0;
+            bottom: 0;
         }
 
         &.is-fullwidth {
-            width: 100%;
-            max-width: 100%;
+            @include css.register-vars(
+                (
+                    "sidebar-width": 100%,
+                )
+            );
         }
 
         &.is-fullheight {
-            height: 100%;
-            max-height: 100%;
-            overflow: hidden;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            align-content: stretch;
+            @include css.register-vars(
+                (
+                    "sidebar-height": 100%,
+                )
+            );
         }
 
-        @media screen and (max-width: calc($sidebar-mobile-breakpoint - 1px)) {
-            &.is-mini-mobile {
-                width: $sidebar-mobile-width;
+        &.is-mini {
+            width: css.getVar("sidebar-mobile-width");
 
-                &.is-mini-expand:hover {
-                    &:not(.is-fullwidth-mobile) {
-                        width: $sidebar-width;
-
-                        &.is-mini-expand-fixed {
-                            position: fixed;
-                        }
-                    }
-                }
-            }
-
-            &.is-hidden-mobile {
-                width: 0;
-                height: 0;
-                overflow: hidden;
-            }
-
-            &.is-fullwidth-mobile {
-                width: 100%;
-                max-width: 100%;
+            &.is-expanded:hover:not(.is-fullwidth) {
+                width: css.getVar("sidebar-width");
             }
         }
     }
 
     .sidebar-background {
-        @include bulma.overlay;
-        background: $sidebar-background;
+        @include mixins.overlay;
+
         position: fixed;
-        z-index: 38;
+        background-color: css.getVar("sidebar-background-background-color");
+        z-index: css.getVar("sidebar-z");
+    }
+
+    &.is-inline .sidebar-content {
+        @include css.register-vars(
+            (
+                "sidebar-z": 0,
+            )
+        );
+
+        position: relative;
     }
 }

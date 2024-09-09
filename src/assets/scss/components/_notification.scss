@@ -1,10 +1,19 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
 /* @docs */
 $notification-margin-bottom: 1.5rem !default;
 $notification-notices-padding: 2em !default;
-$notification-notices-zindex: 1000 !default;
+$notification-notices-z: 1000 !default;
 /* @docs */
 
-.b-notices {
+.notices {
+    @include css.register-vars(
+        (
+            "notification-notices-padding": #{$notification-notices-padding},
+            "notification-notices-z": #{$notification-notices-z},
+        )
+    );
+
     position: fixed;
     display: flex;
     top: 0;
@@ -13,10 +22,16 @@ $notification-notices-zindex: 1000 !default;
     right: 0;
     overflow: hidden;
     pointer-events: none;
-    padding: $notification-notices-padding;
-    z-index: $notification-notices-zindex;
+    padding: css.getVar("notification-notices-padding");
+    z-index: css.getVar("notification-notices-z");
 
     .notification {
+        @include css.register-vars(
+            (
+                "notification-margin-bottom": #{$notification-margin-bottom},
+            )
+        );
+
         pointer-events: auto;
         max-width: 600px;
 
@@ -49,7 +64,7 @@ $notification-notices-zindex: 1000 !default;
             margin-bottom: 0;
 
             &:not(:first-child) {
-                margin-bottom: $notification-margin-bottom;
+                margin-bottom: css.getVar("notification-margin-bottom");
             }
         }
     }

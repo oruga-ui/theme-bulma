@@ -1,24 +1,37 @@
 @use "sass:list";
 @use "sass:color";
-@use "bulma/bulma";
+
+@use "utils/variables" as var;
+@use "bulma/sass/utilities/controls" as controls;
+@use "bulma/sass/utilities/css-variables" as css;
 
 /* @docs */
-$datepicker-background-color: bulma.$dropdown-content-background-color !default;
-$datepicker-radius: bulma.$dropdown-content-radius !default;
-$datepicker-shadow: bulma.$dropdown-content-shadow !default;
-$datepicker-header-color: bulma.$grey !default;
-$datepicker-today-border: solid 1px rgba(bulma.$primary, 0.5) !default;
-$datepicker-item-color: bulma.$grey-dark !default;
-$datepicker-item-disabled-color: bulma.$grey-light !default;
-$datepicker-item-hover-color: bulma.$scheme-invert !default;
-$datepicker-item-hover-background-color: bulma.$background !default;
-$datepicker-item-selected-color: bulma.$primary-invert !default;
-$datepicker-item-selected-background-color: bulma.$primary !default;
-$datepicker-event-background-color: bulma.$grey-light !default;
+$datepicker-colors: var.$colors !default;
+$datepicker-header-color: css.getVar("grey") !default;
+$datepicker-today-border: solid 1px rgba(css.getVar("primary"), 0.5) !default;
+$datepicker-item-color: css.getVar("grey-dark") !default;
+$datepicker-item-disabled-color: css.getVar("grey-light") !default;
+$datepicker-item-hover-color: css.getVar("scheme-invert") !default;
+$datepicker-item-hover-background-color: css.getVar("background") !default;
+$datepicker-item-selected-color: css.getVar("primary-invert") !default;
+$datepicker-item-selected-background-color: css.getVar("primary") !default;
+$datepicker-event-background-color: css.getVar("grey-light") !default;
 /* @docs */
 
 .datepicker {
-    font-size: 0.875rem;
+    @include css.register-vars(
+        (
+            "datepicker-header-color": #{$datepicker-header-color},
+            "datepicker-today-border": #{$datepicker-today-border},
+            "datepicker-item-color": #{$datepicker-item-color},
+            "datepicker-item-disabled-color": #{$datepicker-item-disabled-color},
+            "datepicker-item-hover-color": #{$datepicker-item-hover-color},
+            "datepicker-item-hover-background-color": #{$datepicker-item-hover-background-color},
+            "datepicker-item-selected-color": #{$datepicker-item-selected-color},
+            "datepicker-item-selected-background-color": #{$datepicker-item-selected-background-color},
+            "datepicker-event-background-color": #{$datepicker-event-background-color},
+        )
+    );
 
     .dropdown,
     .dropdown-trigger {
@@ -26,17 +39,23 @@ $datepicker-event-background-color: bulma.$grey-light !default;
 
         .input[readonly] {
             cursor: pointer;
-            box-shadow: bulma.$input-shadow;
+            box-shadow: css.getVar("input-shadow");
 
             &:focus,
             &.is-focused,
             &:active,
             &.is-active {
-                box-shadow: bulma.$input-focus-box-shadow-size
-                    bulma.$input-focus-box-shadow-color;
+                box-shadow: css.getVar("input-focus-shadow-size")
+                    hsla(
+                        css.getVar("input-focus-h"),
+                        css.getVar("input-focus-s"),
+                        css.getVar("input-focus-l"),
+                        css.getVar("input-focus-shadow-alpha")
+                    );
             }
         }
     }
+
     // unset opacity when dropdow is disabled
     .dropdown {
         &.is-disabled {
@@ -44,51 +63,38 @@ $datepicker-event-background-color: bulma.$grey-light !default;
         }
     }
 
-    .dropdown-menu {
-        background-color: $datepicker-background-color;
-        border-radius: $datepicker-radius;
-        box-shadow: $datepicker-shadow;
-    }
-
     .dropdown-item {
         font-size: inherit;
-
-        &:hover {
-            background-color: unset;
-            color: unset;
-        }
     }
 
     .datepicker-header {
         padding-bottom: 0.875rem;
         margin-bottom: 0.875rem;
-        border-bottom: 1px solid bulma.$grey-lighter;
+        border-bottom: 1px solid css.getVar("grey-lighter");
+
+        .pagination-previous,
+        .pagination-next {
+            border-width: css.getVar("button-border-width");
+        }
     }
 
     .datepicker-footer {
         margin-top: 0.875rem;
         padding-top: 0.875rem;
-        border-top: 1px solid bulma.$grey-lighter;
+        border-top: 1px solid css.getVar("grey-lighter");
     }
 
     .datepicker-table {
         display: table;
         margin: 0 auto 0 auto;
 
-        .datepicker-cell {
-            text-align: center;
-            vertical-align: middle;
-            display: table-cell;
-            border-radius: bulma.$radius;
-            padding: 0.5rem 0.75rem;
-        }
-
+        // day name header row
         .datepicker-header {
             display: table-header-group;
 
             .datepicker-cell {
-                color: $datepicker-header-color;
-                font-weight: bulma.$weight-semibold;
+                color: css.getVar("datepicker-header-color");
+                font-weight: css.getVar("weight-semibold");
             }
         }
 
@@ -99,182 +105,176 @@ $datepicker-event-background-color: bulma.$grey-light !default;
                 display: table-row;
             }
 
-            .datepicker-months {
-                display: inline-flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                width: 17rem;
-
-                .datepicker-cell {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 33.33%;
-                    height: 2.5rem;
-                }
-            }
-
-            .datepicker-cell {
-                &.is-unselectable {
-                    color: $datepicker-item-disabled-color;
-                }
-
-                &.is-today {
-                    border: $datepicker-today-border;
-                }
-
-                &.is-selectable {
-                    color: $datepicker-item-color;
-
-                    &:hover:not(.is-selected):not(.is-first-hovered):not(
-                            .is-last-hovered
-                        ),
-                    &:focus:not(.is-selected):not(.is-first-hovered):not(
-                            .is-last-hovered
-                        ) {
-                        background-color: $datepicker-item-hover-background-color;
-                        color: $datepicker-item-hover-color;
-                        cursor: pointer;
-                    }
-
-                    &.is-first-hovered {
-                        background-color: bulma.$grey;
-                        color: bulma.$grey-lighter;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    &.is-within-hovered {
-                        background-color: $datepicker-item-hover-background-color;
-                        color: $datepicker-item-hover-color;
-                        border-radius: 0;
-                    }
-
-                    &.is-last-hovered {
-                        background-color: bulma.$grey;
-                        color: bulma.$grey-lighter;
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &.is-selected:not(.is-first-hovered):not(
-                        .is-within-hovered
-                    ):not(.is-last-hovered) {
-                    background-color: $datepicker-item-selected-background-color;
-                    color: $datepicker-item-selected-color;
-
-                    &.is-first-selected:not(.is-first-hovered):not(
-                            .is-within-hovered
-                        ):not(.is-last-hovered) {
-                        background-color: $datepicker-item-selected-background-color;
-                        color: $datepicker-item-selected-color;
-                        border-bottom-right-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    &.is-within-selected:not(.is-first-hovered):not(
-                            .is-within-hovered
-                        ):not(.is-last-hovered) {
-                        background-color: rgba(
-                            $datepicker-item-selected-background-color,
-                            0.5
-                        );
-                        border-radius: 0;
-                    }
-
-                    &.is-last-selected:not(.is-first-hovered):not(
-                            .is-within-hovered
-                        ):not(.is-last-hovered) {
-                        background-color: $datepicker-item-selected-background-color;
-                        color: $datepicker-item-selected-color;
-                        border-bottom-left-radius: 0;
-                        border-top-left-radius: 0;
-                    }
-                }
-
-                &.is-nearby:not(.is-selected) {
-                    color: bulma.$grey-light;
-                }
-
-                &.is-week-number {
-                    cursor: default;
-                }
-            }
-
             &.has-events {
                 .datepicker-cell {
                     padding: 0.3rem 0.75rem 0.75rem;
-
-                    &.has-event {
-                        position: relative;
-
-                        .events {
-                            bottom: 0.425rem;
-                            display: flex;
-                            justify-content: center;
-                            left: 0;
-                            padding: 0 0.35rem;
-                            position: absolute;
-                            width: 100%;
-
-                            .event {
-                                background-color: $datepicker-event-background-color;
-
-                                @each $name, $pair in bulma.$form-colors {
-                                    $color: list.nth($pair, 1);
-                                    &.is-#{$name} {
-                                        background-color: $color;
-                                    }
-                                }
-                            }
-                        }
-
-                        &.dots .event {
-                            border-radius: 50%;
-                            height: 0.35em;
-                            margin: 0 0.1em;
-                            width: 0.35em;
-                        }
-
-                        &.bars .event {
-                            height: 0.25em;
-                            width: 100%;
-                        }
-                    }
-
-                    &.is-selected {
-                        overflow: hidden;
-
-                        .events .event {
-                            // Currently datepicker only uses primary coloring
-                            // Ensure indicator is visible when selected
-                            &.is-primary {
-                                background-color: color.adjust(
-                                    bulma.$primary,
-                                    $lightness: 15%
-                                );
-                            }
-                        }
-                    }
                 }
             }
         }
     }
 
-    &.is-small {
-        @include bulma.control-small;
+    .datepicker-cell {
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        border-radius: css.getVar("radius");
+        padding: 0.5rem 0.75rem;
+
+        &.is-unselectable {
+            color: css.getVar("datepicker-item-disabled-color");
+        }
+
+        &.is-today {
+            border: css.getVar("datepicker-today-border");
+        }
+
+        &.is-week-number {
+            cursor: default;
+        }
+
+        &.is-selectable {
+            color: css.getVar("datepicker-item-color");
+
+            &:hover:not(.is-selected):not(.is-first-hovered):not(
+                    .is-last-hovered
+                ),
+            &:focus:not(.is-selected):not(.is-first-hovered):not(
+                    .is-last-hovered
+                ) {
+                background-color: css.getVar(
+                    "datepicker-item-hover-background-color"
+                );
+                color: css.getVar("datepicker-item-hover-color");
+                cursor: pointer;
+            }
+
+            &.is-first-hovered {
+                background-color: css.getVar("grey");
+                color: css.getVar("grey-lighter");
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            &.is-within-hovered {
+                background-color: css.getVar(
+                    "datepicker-item-hover-background-color"
+                );
+                color: css.getVar("datepicker-item-hover-color");
+                border-radius: 0;
+            }
+
+            &.is-last-hovered {
+                background-color: css.getVar("grey");
+                color: css.getVar("grey-lighter");
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+
+        &.is-selected {
+            overflow: hidden;
+        }
+
+        &.is-selected:not(.is-first-hovered):not(.is-within-hovered):not(
+                .is-last-hovered
+            ) {
+            background-color: css.getVar(
+                "datepicker-item-selected-background-color"
+            );
+            color: css.getVar("datepicker-item-selected-color");
+
+            &.is-first-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: css.getVar(
+                    "datepicker-item-selected-background-color"
+                );
+                color: css.getVar("datepicker-item-selected-color");
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            &.is-within-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: rgba(
+                    css.getVar("datepicker-item-selected-background-color"),
+                    0.5
+                );
+                border-radius: 0;
+            }
+
+            &.is-last-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: css.getVar(
+                    "datepicker-item-selected-background-color"
+                );
+                color: css.getVar("datepicker-item-selected-color");
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+
+        &.is-nearby:not(.is-selected) {
+            color: css.getVar("grey-light");
+        }
+
+        &.has-event {
+            position: relative;
+        }
     }
 
-    &.is-medium {
-        @include bulma.control-medium;
+    .events {
+        bottom: 0.425rem;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        padding: 0 0.35rem;
+        position: absolute;
+        width: 100%;
+
+        .event {
+            background-color: css.getVar("datepicker-event-background-color");
+
+            @each $name, $pair in $datepicker-colors {
+                $color: list.nth($pair, 1);
+
+                &.is-#{$name} {
+                    background-color: $color;
+                }
+            }
+
+            &.is-dots {
+                border-radius: 50%;
+                height: 0.35em;
+                margin: 0 0.1em;
+                width: 0.35em;
+            }
+
+            &.is-bars {
+                height: 0.25em;
+                width: 100%;
+            }
+        }
     }
 
-    &.is-large {
-        @include bulma.control-large;
+    .datepicker-months {
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 17rem;
+
+        .datepicker-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 33.33%;
+            height: 2.5rem;
+        }
     }
 
-    @media screen and (min-width: bulma.$desktop) {
+    @media screen and (min-width: css.getVar("desktop")) {
         .footer-horizontal-timepicker {
             border: none;
             padding-left: 10px;

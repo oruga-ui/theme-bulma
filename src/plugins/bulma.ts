@@ -1,4 +1,5 @@
 import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
+import { isTrueish } from "@oruga-ui/oruga-next";
 
 import "../assets/scss/bulma-build.scss";
 
@@ -22,8 +23,8 @@ export const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["control"];
-            if (props.icon) classes.push("has-icons-left");
-            return classes.join(" ").trim();
+            if (isTrueish(props.icon)) classes.push("has-icons-left");
+            return classes.join(" ");
         },
         inputClass: "input",
         textareaClass: "textarea",
@@ -39,19 +40,19 @@ export const bulmaConfig: OrugaOptions = {
     select: {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["control", "select"];
-            if (props.size) classes.push(`is-${props.size}`);
-            if (props.rounded) classes.push("is-rounded");
-            if (props.multiple) classes.push("is-multiple");
-            if (props.icon) classes.push("has-icons-left");
-            if (props.iconRight) classes.push("has-icons-right");
-            return classes.join(" ").trim();
+            const classes = ["select", "control"];
+            if (isTrueish(props.size)) classes.push(`is-${props.size}`);
+            if (isTrueish(props.rounded)) classes.push("is-rounded");
+            if (isTrueish(props.multiple)) classes.push("is-multiple");
+            if (isTrueish(props.icon)) classes.push("has-icons-left");
+            if (isTrueish(props.iconRight)) classes.push("has-icons-right");
+            return classes.join(" ");
         },
+        rootVariantClass: "is-",
         expandedClass: "is-fullwidth",
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
-        rootVariantClass: "is-",
     },
     icon: {
         override: true,
@@ -63,7 +64,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     checkbox: {
         override: true,
-        rootClass: "b-checkbox checkbox",
+        rootClass: "checkbox",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
@@ -72,7 +73,7 @@ export const bulmaConfig: OrugaOptions = {
     },
     radio: {
         override: true,
-        rootClass: "b-radio radio",
+        rootClass: "radio",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
@@ -81,21 +82,14 @@ export const bulmaConfig: OrugaOptions = {
     },
     switch: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["switch"];
-            if (props.rounded) classes.push("is-rounded");
-            if (props.position === "left") classes.push("has-left-label");
-            return classes.join(" ");
-        },
-        switchClass: (_: string, props: ComponentProps) => {
-            const classes = ["check"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.passiveVariant)
-                classes.push(`is-${props.passiveVariant}-passive`);
-            return classes.join(" ");
-        },
+        rootClass: "switch",
+        switchClass: "check",
+        positionClass: (value) => `has-${value}-label`,
+        roundedClass: "is-rounded",
         labelClass: "control-label",
         sizeClass: "is-",
+        variantClass: "is-",
+        passiveVariantClass: "is-",
         disabledClass: "is-disabled",
     },
     autocomplete: {
@@ -109,7 +103,7 @@ export const bulmaConfig: OrugaOptions = {
     taginput: {
         override: true,
         rootClass: "taginput control",
-        containerClass: "taginput-container is-focusable",
+        containerClass: "taginput-container",
         itemClass: "tag",
         closeClass: "delete is-small",
     },
@@ -117,7 +111,7 @@ export const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["pagination"];
-            if (props.rounded) classes.push("is-rounded");
+            if (isTrueish(props.rounded)) classes.push("is-rounded");
             return classes.join(" ");
         },
         sizeClass: "is-",
@@ -133,34 +127,27 @@ export const bulmaConfig: OrugaOptions = {
     },
     slider: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-slider"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.rounded) classes.push("is-rounded");
-            return classes.join(" ");
-        },
+        rootClass: "slider",
         disabledClass: "is-disabled",
-        trackClass: "b-slider-track",
-        fillClass: "b-slider-fill",
-        thumbWrapperClass: "b-slider-thumb-wrapper",
+        trackClass: "slider-track",
+        fillClass: "slider-fill",
+        thumbWrapperClass: "slider-thumb-wrapper",
         thumbWrapperDraggingClass: "is-dragging",
+        thumbRoundedClass: "is-rounded",
+        variantClass: "is-",
         sizeClass: "is-",
-        thumbClass: "b-slider-thumb",
-        tickLabelClass: "b-slider-tick-label",
+        thumbClass: "slider-thumb",
+        tickLabelClass: "slider-tick-label",
         tickHiddenClass: "is-tick-hidden",
-        tickClass: "b-slider-tick",
+        tickClass: "slider-tick",
     },
     tabs: {
         override: true,
-        itemTag: "a",
-        rootClass: "b-tabs",
-        contentClass: "tab-content",
+        rootClass: "tabs-wrapper",
+        contentClass: "tabs-content",
         multilineClass: "is-multiline",
-        navTabsClass: (_: string, props: ComponentProps) => {
-            const classes = ["tabs"];
-            if (props.type) classes.push(`is-${props.type}`);
-            return classes.join(" ");
-        },
+        navTabsClass: "tabs",
+        navTypeClass: "is-",
         expandedClass: "is-fullwidth",
         verticalClass: "is-vertical",
         positionClass: "is-",
@@ -168,13 +155,17 @@ export const bulmaConfig: OrugaOptions = {
         navPositionClass: "is-",
         transitioningClass: "is-transitioning",
         itemClass: "tab-item",
+        itemWrapperClass: "tab",
+        itemHeaderClass: "tab-button",
+        itemHeaderIconClass: "tab-icon",
+        itemHeaderTextClass: "tab-title",
         itemHeaderActiveClass: () => "is-active",
         itemHeaderDisabledClass: () => "is-disabled",
     },
     table: {
         override: true,
-        rootClass: "b-table",
-        wrapperClass: "table-wrapper",
+        rootClass: "table-wrapper",
+        wrapperClass: "table-inner",
         tableClass: "table",
         borderedClass: "is-bordered",
         stripedClass: "is-striped",
@@ -195,52 +186,33 @@ export const bulmaConfig: OrugaOptions = {
         thCheckboxClass: "th-checkbox",
         thDetailedClass: "th-chevron-cell",
         tdDetailedChevronClass: "chevron-cell",
-        thPositionClass: (position: string) => {
-            if (position === "centered") return "is-centered";
-            else if (position === "right") return "is-right";
-            return;
-        },
-        tdPositionClass: (position: string) => {
-            if (position === "centered") return "has-text-centered";
-            else if (position === "right") return "has-text-right";
-            return;
-        },
+        thPositionClass: "is-",
+        tdPositionClass: "has-text-",
         mobileClass: "is-mobile",
-        mobileSortClass: "table-mobile-sort field",
+        mobileSortClass: "table-mobile-sort",
     },
     tooltip: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-tooltip"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            else classes.push(`is-primary`);
-            return classes.join(" ");
-        },
-        contentClass: "b-tooltip-content",
-        triggerClass: "b-tooltip-trigger",
+        rootClass: "tooltip",
+        contentClass: "tooltip-content",
+        triggerClass: "tooltip-trigger",
         alwaysClass: "is-always",
         multilineClass: "is-multiline",
         variantClass: "is-",
         positionClass: "is-",
+        teleportClass: "is-teleported",
     },
     steps: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-steps"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            if (props.disables) classes.push("is-disabled");
-            return classes.join(" ");
-        },
+        rootClass: "steps-wrapper",
         stepsClass: (_: string, props: ComponentProps) => {
             const classes = ["steps"];
-            if (props.animated) classes.push("is-animated");
-            if (props.rounded) classes.push("is-rounded");
             if (props.labelPosition === "left") classes.push("has-label-left");
             if (props.labelPosition === "right")
                 classes.push("has-label-right");
             return classes.join(" ");
         },
-        itemClass: "step-link",
+        itemClass: "step-content-item",
         itemHeaderClass: "step-item",
         itemHeaderVariantClass: "is-",
         itemHeaderActiveClass: "is-active",
@@ -249,12 +221,15 @@ export const bulmaConfig: OrugaOptions = {
         stepLinkLabelClass: "step-title",
         stepLinkClickableClass: "is-clickable",
         stepMarkerClass: "step-marker",
+        stepMarkerRoundedClass: "is-rounded",
         stepNavigationClass: "step-navigation",
         stepContentClass: "step-content",
         verticalClass: "is-vertical",
+        animatedClass: "is-animated",
         positionClass: "is-",
-        stepContentTransitioningClass: "is-transitioning",
         sizeClass: "is-",
+        labelPosition: "is-",
+        stepContentTransitioningClass: "is-transitioning",
     },
     button: {
         override: true,
@@ -264,8 +239,15 @@ export const bulmaConfig: OrugaOptions = {
         roundedClass: "is-rounded",
         expandedClass: "is-fullwidth",
         loadingClass: "is-loading",
-        outlinedClass: () => "is-outlined",
-        invertedClass: () => "is-inverted",
+        outlinedClass: (variant) => {
+            if (!variant) return "is-outlined";
+            return `is-${variant} is-outlined`;
+        },
+
+        invertedClass: (variant) => {
+            if (!variant) return "is-inverted";
+            return `is-${variant} is-inverted`;
+        },
         wrapperClass: "button-wrapper",
     },
     menu: {
@@ -276,34 +258,29 @@ export const bulmaConfig: OrugaOptions = {
     },
     skeleton: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["b-skeleton"];
-            if (props.animated) classes.push("is-animated");
-            return classes.join(" ");
-        },
-        itemClass: "b-skeleton-item",
+        rootClass: "skeleton",
+        animationClass: "is-animated",
+        positionClass: "is-",
+        sizeClass: "is-",
+        itemClass: "skeleton-block",
         itemRoundedClass: "is-rounded",
     },
     notification: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
-            const classes = ["notification"];
-            if (props.variant) classes.push(`is-${props.variant}`);
-            return classes.join(" ");
-        },
+        rootClass: "notification",
         wrapperClass: "media",
         contentClass: "media-content",
         iconClass: "media-left",
         closeClass: "delete",
         positionClass: "is-",
-        noticeClass: "b-notices",
+        noticeClass: "notices",
         noticePositionClass: "is-",
         variantClass: "is-",
     },
     dropdown: {
         override: true,
         itemTag: "a",
-        rootClass: ["dropdown", "dropdown-menu-animation"],
+        rootClass: "dropdown",
         triggerClass: "dropdown-trigger",
         menuClass: "dropdown-content dropdown-menu",
         disabledClass: "is-disabled",
@@ -317,7 +294,6 @@ export const bulmaConfig: OrugaOptions = {
         positionClass: "is-",
         activeClass: "is-active",
         hoverableClass: "is-hoverable",
-        position: "bottom-right",
     },
     datepicker: {
         override: true,
@@ -351,11 +327,8 @@ export const bulmaConfig: OrugaOptions = {
         tableCellWithinSelectedClass: "is-within-selected",
         tableCellInvisibleClass: "",
         tableCellNearbyClass: "is-nearby",
-        tableCellEventsClass: (_: string, props: ComponentProps) => {
-            const classes = ["has-event"];
-            if (props.indicators) classes.push(`${props.indicators}`);
-            return classes.join(" ");
-        },
+        tableCellEventsClass: "has-event",
+        tableEventIndicatorsClass: "is-",
         tableEventVariantClass: "is-",
         tableEventsClass: "events",
         tableEventClass: "event",
@@ -379,28 +352,25 @@ export const bulmaConfig: OrugaOptions = {
         rootClass: "modal",
         activeClass: "is-active",
         overlayClass: "modal-background",
-        contentClass: "modal-content animation-content",
+        contentClass: "modal-content",
         closeClass: "modal-close is-large",
         fullScreenClass: "is-full-screen",
         scrollClipClass: "is-clipped",
     },
     sidebar: {
         override: true,
-        rootClass: "b-sidebar",
+        rootClass: "sidebar",
+        overlayClass: "sidebar-background",
+        contentClass: "sidebar-content",
+        activeClass: "is-active",
         variantClass: "is-",
         positionClass: "is-",
-        activeClass: "is-active",
-        contentClass: "sidebar-content is-fixed",
-        expandOnHoverClass: "is-mini-expand",
+        expandOnHoverClass: "is-expanded",
         fullheightClass: "is-fullheight",
         fullwidthClass: "is-fullwidth",
-        mobileClass: (_: string, props: ComponentProps) => {
-            if (props.mobile && props.mobile !== "reduce") {
-                return `is-${props.mobile}-mobile`;
-            }
-        },
-        overlayClass: "sidebar-background",
-        reduceClass: "is-mini-mobile",
+        reduceClass: "is-mini",
+        inlineClass: "is-inline",
+        mobileClass: "is-",
     },
     loading: {
         fullPageClass: "is-full-page",
@@ -410,14 +380,14 @@ export const bulmaConfig: OrugaOptions = {
     },
     timepicker: {
         override: true,
-        rootClass: "timepicker control",
+        rootClass: "timepicker",
         boxClass: "dropdown-item",
-        selectClasses: {
-            rootClass: "select control",
-        },
         separatorClass: "is-colon control",
         footerClass: "timepicker-footer",
         sizeClass: "is-",
+        selectClasses: {
+            rootClass: "select control",
+        },
     },
     carousel: {
         override: true,
@@ -436,7 +406,6 @@ export const bulmaConfig: OrugaOptions = {
         indicatorItemClass: "indicator-style",
         indicatorItemActiveClass: "is-active",
         indicatorItemStyleClass: "is-",
-        // CarouselItem
         itemClass: "carousel-item",
         itemActiveClass: "is-active",
     },

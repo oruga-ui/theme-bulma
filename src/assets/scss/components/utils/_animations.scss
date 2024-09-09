@@ -1,7 +1,7 @@
 // Some of the animations are from animate.css (https://daneden.github.io/animate.css)
 
-@use "_variables" as var;
-@use "bulma/bulma";
+@use "variables" as var;
+@use "bulma/sass/utilities/css-variables" as css;
 
 // Fade out
 @keyframes fadeOut {
@@ -102,7 +102,7 @@
 // Fade
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity var.$speed-slow bulma.$easing;
+    transition: opacity var.$speed-slow css.getVar("easing");
 }
 
 .fade-enter,
@@ -114,11 +114,11 @@
 // Zoom In
 .zoom-in-enter-active,
 .zoom-in-leave-active {
-    transition: opacity var.$speed-slow bulma.$easing;
+    transition: opacity var.$speed-slow css.getVar("easing");
 
     .animation-content,
     .animation-content {
-        transition: transform var.$speed-slow bulma.$easing;
+        transition: transform var.$speed-slow css.getVar("easing");
     }
 }
 
@@ -136,11 +136,11 @@
 // Zoom Out
 .zoom-out-enter-active,
 .zoom-out-leave-active {
-    transition: opacity var.$speed-slow bulma.$easing;
+    transition: opacity var.$speed-slow css.getVar("easing");
 
     .animation-content,
     .animation-content {
-        transition: transform var.$speed-slow bulma.$easing;
+        transition: transform var.$speed-slow css.getVar("easing");
     }
 }
 
@@ -205,11 +205,11 @@
 }
 
 .slide-enter-active {
-    transition: var.$speed-slow bulma.$easing;
+    transition: var.$speed-slow css.getVar("easing");
 }
 
 .slide-leave-active {
-    transition: var.$speed-slow bulma.$easing;
+    transition: var.$speed-slow css.getVar("easing");
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 

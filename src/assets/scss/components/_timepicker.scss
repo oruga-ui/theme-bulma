@@ -1,27 +1,35 @@
-@use "bulma/bulma";
+@use "bulma/sass/utilities/css-variables" as css;
 
 .timepicker {
-    .dropdown-menu {
-        min-width: 0;
-    }
-
     .dropdown,
     .dropdown-trigger {
+        @include css.register-vars(
+            (
+                "dropdown-menu-min-width": 0,
+            )
+        );
+
         width: 100%;
 
         .input[readonly] {
             cursor: pointer;
-            box-shadow: bulma.$input-shadow;
+            box-shadow: css.getVar("input-shadow");
 
             &:focus,
             &.is-focused,
             &:active,
             &.is-active {
-                box-shadow: bulma.$input-focus-box-shadow-size
-                    bulma.$input-focus-box-shadow-color;
+                box-shadow: css.getVar("input-focus-shadow-size")
+                    hsla(
+                        css.getVar("input-focus-h"),
+                        css.getVar("input-focus-s"),
+                        css.getVar("input-focus-l"),
+                        css.getVar("input-focus-shadow-alpha")
+                    );
             }
         }
     }
+
     // unset opacity when dropdow is disabled
     .dropdown {
         &.is-disabled {
@@ -43,21 +51,14 @@
     .dropdown-content {
         .control {
             font-size: 1.25em;
-            margin-right: 0 !important;
 
             &.select {
                 margin: 0 0.125em;
 
                 select {
-                    font-weight: bulma.$weight-semibold;
-                    padding-right: bulma.$control-padding-horizontal;
+                    font-weight: css.getVar("weight-semibold");
+                    padding-right: css.getVar("control-padding-horizontal");
                     border: 0;
-
-                    option {
-                        &:disabled {
-                            color: rgba(bulma.$grey, 0.7);
-                        }
-                    }
                 }
 
                 &:after {
@@ -70,17 +71,5 @@
                 line-height: 1.7em;
             }
         }
-    }
-    // Sizes
-    &.is-small {
-        @include bulma.control-small;
-    }
-
-    &.is-medium {
-        @include bulma.control-medium;
-    }
-
-    &.is-large {
-        @include bulma.control-large;
     }
 }

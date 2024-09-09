@@ -1,64 +1,38 @@
-@use "bulma/bulma";
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/controls" as controls;
 
 .select {
     select {
-        option {
-            color: bulma.$grey-dark;
-            padding: bulma.$control-padding-vertical
-                bulma.$control-padding-horizontal;
-        }
-
-        option:disabled {
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        optgroup {
-            color: bulma.$grey-light;
-            font-weight: bulma.$weight-normal;
-            font-style: normal;
-            padding: 0.25em 0;
-        }
-
         &.is-empty {
-            color: rgba(bulma.$grey, 0.7);
+            color: rgba(css.getVar("grey"), 0.7);
         }
-    }
-}
 
-// hack to restore missing Bulma wrapper .control
-.select {
-    display: table;
-
-    .icon {
-        color: bulma.$input-icon-color;
-        height: bulma.$input-height;
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        width: bulma.$input-height;
-        z-index: 4;
+        &:has(+ .icon) {
+            padding-right: css.getVar("input-height");
+        }
     }
 
     &.has-icons-left {
         select {
-            padding-left: bulma.$input-height;
-        }
-
-        .icon {
-            &.is-left {
-                left: 0;
-            }
+            padding-left: css.getVar("input-height");
         }
     }
 
-    .has-icons-right {
-        padding-right: bulma.$input-height;
+    &.has-icons-right {
+        select {
+            padding-right: css.getVar("input-height");
+        }
+    }
 
-        .icon {
-            &.is-right {
-                right: 0;
-            }
+    .icon {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: css.getVar("input-height");
+        height: css.getVar("input-height");
+
+        &.is-right {
+            right: 0;
         }
     }
 }

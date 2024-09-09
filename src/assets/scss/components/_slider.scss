@@ -1,111 +1,110 @@
 @use "sass:list";
-@use "bulma/bulma";
+
+@use "utils/variables" as var;
+@use "bulma/sass/utilities/css-variables" as css;
 
 /* @docs */
-$slider-radius: bulma.$radius !default;
-$slider-track-background: bulma.$grey-lighter !default;
-$slider-fill-background: bulma.$primary !default;
-$slider-track-radius: bulma.$radius !default;
-$slider-track-border: 0px solid bulma.$grey !default;
-$slider-track-shadow: 0px 0px 0px bulma.$grey !default;
-$slider-thumb-background: bulma.$scheme-main !default;
-$slider-thumb-radius: bulma.$radius !default;
-$slider-thumb-border: 1px solid bulma.$grey-light !default;
+$slider-colors: var.$colors !default;
+$slider-radius: css.getVar("radius") !default;
+$slider-background: css.getVar("grey-lighter") !default;
+$slider-color: css.getVar("primary") !default;
+$slider-track-border: 0px solid css.getVar("grey") !default;
+$slider-track-shadow: 0px 0px 0px css.getVar("grey") !default;
+$slider-thumb-background: css.getVar("scheme-main") !default;
+$slider-thumb-radius: css.getVar("radius") !default;
+$slider-thumb-border: 1px solid css.getVar("grey-light") !default;
 $slider-thumb-shadow: none !default;
 $slider-thumb-to-track-ratio: 2 !default;
 $slider-tick-to-track-ratio: 0.5 !default;
 $slider-tick-width: 3px !default;
-$slider-tick-radius: bulma.$radius !default;
-$slider-tick-background: bulma.$grey-light !default;
-$slider-mark-size: 0.75rem !default;
-$slider-colors: bulma.$colors !default;
+$slider-tick-radius: css.getVar("radius") !default;
+$slider-tick-background: css.getVar("grey-light") !default;
+$slider-tick-label-size: 0.75rem !default;
 /* @docs */
 
-@mixin slider-size($size) {
-    $track-height: calc($size / $slider-thumb-to-track-ratio);
-    $tick-height: calc(
-        $size / $slider-thumb-to-track-ratio * $slider-tick-to-track-ratio
+.slider {
+    @include css.register-vars(
+        (
+            "slider-size": 1rem,
+            "slider-color": #{$slider-color},
+            "slider-radius": #{$slider-radius},
+            "slider-background": #{$slider-background},
+            "slider-track-border": #{$slider-track-border},
+            "slider-track-shadow": #{$slider-track-shadow},
+            "slider-thumb-background": #{$slider-thumb-background},
+            "slider-thumb-radius": #{$slider-thumb-radius},
+            "slider-thumb-border": #{$slider-thumb-border},
+            "slider-thumb-shadow": #{$slider-thumb-shadow},
+            "slider-thumb-to-track-ratio": #{$slider-thumb-to-track-ratio},
+            "slider-tick-width": #{$slider-tick-width},
+            "slider-tick-radius": #{$slider-tick-radius},
+            "slider-tick-background": #{$slider-tick-background},
+            "slider-tick-to-track-ratio": #{$slider-tick-to-track-ratio},
+            "slider-tick-label-size": #{$slider-tick-label-size},
+        )
     );
-    $thumb-size: $size;
 
-    .b-slider-track {
-        height: $track-height;
-    }
-
-    .b-slider-thumb {
-        height: $thumb-size;
-        width: $thumb-size;
-    }
-
-    .b-slider-tick {
-        height: $tick-height;
-    }
-
-    .b-slider-tick-label {
-        font-size: $slider-mark-size;
-        position: absolute;
-        top: calc(#{$track-height} / 2 + 2px);
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-.b-slider {
     margin: 1em 0;
-    background: transparent;
     width: 100%;
 
-    .b-slider-track {
+    .slider-track {
         display: flex;
         align-items: center;
         position: relative;
         cursor: pointer;
-        background: $slider-track-background;
-        border-radius: $slider-radius;
+        background: css.getVar("slider-background");
+        border-radius: css.getVar("slider-radius");
+        height: calc(
+            css.getVar("slider-size") /
+                css.getVar("slider-thumb-to-track-ratio")
+        );
     }
 
-    .b-slider-fill {
+    .slider-fill {
         position: absolute;
         height: 100%;
-        box-shadow: $slider-track-shadow;
-        background: $slider-fill-background;
-        border-radius: $slider-track-radius;
-        border: $slider-track-border;
-        // Fix alignment in IE 11. Cancel out for others
-        top: 50%;
-        transform: translateY(-50%);
+        background: css.getVar("slider-color");
+        border-radius: css.getVar("slider-radius");
+        border: css.getVar("slider-track-border");
+        box-shadow: css.getVar("slider-track-shadow");
     }
 
-    .b-slider-thumb-wrapper {
+    .slider-thumb-wrapper {
         display: inline-flex;
         align-items: center;
         position: absolute;
         cursor: grab;
         transform: translate(-50%, -50%);
         top: 50%;
-        flex-direction: column; // Fix shrinked thumb at the end in IE 11
+        flex-direction: column;
 
-        .b-slider-thumb {
-            box-shadow: $slider-thumb-shadow;
-            border: $slider-thumb-border;
-            border-radius: $slider-thumb-radius;
-            background: $slider-thumb-background;
+        .slider-thumb {
+            height: css.getVar("slider-size");
+            width: css.getVar("slider-size");
+            box-shadow: css.getVar("slider-thumb-shadow");
+            border: css.getVar("slider-thumb-border");
+            border-radius: css.getVar("slider-thumb-radius");
+            background: css.getVar("slider-thumb-background");
 
             &:focus {
                 transform: scale(1.25);
+            }
+
+            &.is-rounded {
+                border-radius: css.getVar("radius-rounded");
             }
         }
 
         &.is-dragging {
             cursor: grabbing;
 
-            .b-slider-thumb {
+            .slider-thumb {
                 transform: scale(1.25);
             }
         }
 
         &.has-indicator {
-            .b-slider-thumb {
+            .slider-thumb {
                 padding: 16px 10px;
                 display: flex;
                 align-items: center;
@@ -122,60 +121,73 @@ $slider-colors: bulma.$colors !default;
         cursor: pointer;
     }
 
-    &.is-rounded {
-        .b-slider-thumb {
-            border-radius: bulma.$radius-rounded;
-        }
-    }
-
     &.is-disabled {
-        .b-slider-track {
+        .slider-track {
             cursor: not-allowed;
             opacity: 0.5;
         }
 
-        .b-slider-thumb-wrapper {
+        .slider-thumb-wrapper {
             cursor: not-allowed;
 
-            .b-slider-thumb {
+            .slider-thumb {
                 transform: scale(1);
             }
         }
     }
 
-    @include slider-size(bulma.$size-normal);
-
-    &.is-small {
-        @include slider-size(bulma.$size-small);
-    }
-
-    &.is-medium {
-        @include slider-size(bulma.$size-medium);
-    }
-
-    &.is-large {
-        @include slider-size(bulma.$size-large);
-    }
-
-    @each $name, $pair in $slider-colors {
-        $color: list.nth($pair, 1);
+    // sizes
+    @each $name, $value in var.$sizes-map {
         &.is-#{$name} {
-            .b-slider-fill {
-                background: $color !important;
-            }
+            @include css.register-vars(
+                (
+                    "slider-size": $value,
+                )
+            );
         }
     }
 
-    .b-slider-tick {
+    // color variants
+    @each $name, $pair in $slider-colors {
+        $color: list.nth($pair, 1);
+
+        .is-#{$name} {
+            @include css.register-vars(
+                (
+                    "slider-color": #{$color},
+                )
+            );
+        }
+    }
+
+    .slider-tick {
         position: absolute;
-        width: $slider-tick-width;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        background: $slider-tick-background;
-        border-radius: $slider-tick-radius;
+        width: css.getVar("slider-tick-width");
+        transform: translateX(-50%);
+        height: calc(
+            css.getVar("slider-size") /
+                css.getVar("slider-thumb-to-track-ratio") *
+                css.getVar("slider-tick-to-track-ratio")
+        );
+        background: css.getVar("slider-tick-background");
+        border-radius: css.getVar("slider-tick-radius");
 
         &.is-tick-hidden {
             background: transparent;
+        }
+
+        .slider-tick-label {
+            font-size: css.getVar("slider-tick-label-size");
+            position: absolute;
+            top: calc(
+                (
+                        css.getVar("slider-size") /
+                            css.getVar("slider-thumb-to-track-ratio") *
+                            css.getVar("slider-tick-to-track-ratio")
+                    ) / 2 + 2px
+            );
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

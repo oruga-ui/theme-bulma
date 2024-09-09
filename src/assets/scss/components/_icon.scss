@@ -1,3 +1,5 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
 /* @docs */
 $icon-spin-duration: 2s !default;
 /* @docs */
@@ -14,9 +16,17 @@ $icon-spin-duration: 2s !default;
     }
 }
 
-.icon.is-spin {
-    animation-name: icon-spin;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: $icon-spin-duration;
+.icon {
+    @include css.register-vars(
+        (
+            "icon-spin-duration": #{$icon-spin-duration},
+        )
+    );
+
+    &.is-spin {
+        animation-name: icon-spin;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: css.getVar("icon-spin-duration");
+    }
 }
