@@ -250,6 +250,12 @@ export const bulmaConfig: OrugaOptions = {
         },
         wrapperClass: "button-wrapper",
     },
+    collapse: {
+        override: true,
+        rootClass: "collapse",
+        triggerClass: "collapse-trigger",
+        contentClass: "collapse-content",
+    },
     menu: {
         override: true,
         rootClass: "menu",
