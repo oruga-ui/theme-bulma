@@ -353,6 +353,22 @@ export const bulmaConfig: OrugaOptions = {
         monthClass: "datepicker-table",
         monthTableClass: "datepicker-months",
     },
+    timepicker: {
+        override: true,
+        rootClass: "timepicker",
+        boxClass: "dropdown-item",
+        separatorClass: "is-colon control",
+        footerClass: "timepicker-footer",
+        sizeClass: "is-",
+        selectClasses: {
+            rootClass: "select control",
+        },
+    },
+    datetimepicker: {
+        override: true,
+        datepickerWrapperClass: "datepicker-wrapper",
+        timepickerWrapperClass: "timepicker-wrapper",
+    },
     modal: {
         override: true,
         rootClass: "modal",
@@ -383,17 +399,6 @@ export const bulmaConfig: OrugaOptions = {
         overlayClass: "loading-overlay",
         iconClass: "icon",
         rootClass: "loading",
-    },
-    timepicker: {
-        override: true,
-        rootClass: "timepicker",
-        boxClass: "dropdown-item",
-        separatorClass: "is-colon control",
-        footerClass: "timepicker-footer",
-        sizeClass: "is-",
-        selectClasses: {
-            rootClass: "select control",
-        },
     },
     carousel: {
         override: true,
