@@ -299,4 +299,19 @@ $datepicker-event-background-color: css.getVar("grey-light") !default;
             margin-right: 0.125rem;
         }
     }
+
+    // datetimepicker overrides
+    .timepicker {
+        display: flex;
+        justify-content: center;
+
+        .dropdown {
+            @include css.register-vars(
+                (
+                    "dropdown-content-shadow": "transparent",
+                )
+            );
+            width: inherit;
+        }
+    }
 }
