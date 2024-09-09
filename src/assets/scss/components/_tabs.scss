@@ -60,7 +60,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
         margin-bottom: 0;
         flex-shrink: 0;
 
-        .tab-button {
+        .tab-link {
             @extend a !optional; // add button bulma `tabs a` styling
             height: 100%;
 
@@ -99,7 +99,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
 
         // Styles
         &.is-boxed {
-            .tab-button {
+            .tab-link {
                 @include mixins.ltr {
                     border-radius: css.getVar("tabs-boxed-link-radius")
                         css.getVar("tabs-boxed-link-radius") 0 0;
@@ -143,7 +143,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
 
         &.is-toggle,
         &.is-toggle-rounded {
-            .tab-button {
+            .tab-link {
                 &:focus {
                     background-color: $tabs-toggle-link-focus-background-color;
                     border-color: $tabs-toggle-link-focus-border-color;
@@ -175,7 +175,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
                     );
                 }
 
-                &:first-child .tab-button {
+                &:first-child .tab-link {
                     @include mixins.ltr {
                         border-top-left-radius: css.getVar(
                             "tabs-toggle-link-radius"
@@ -194,7 +194,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
                     }
                 }
 
-                &:last-child .tab-button {
+                &:last-child .tab-link {
                     @include mixins.ltr {
                         border-top-right-radius: css.getVar(
                             "tabs-toggle-link-radius"
@@ -217,7 +217,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
 
         &.is-toggle-rounded {
             .tab {
-                &:first-child .tab-button {
+                &:first-child .tab-link {
                     @include mixins.ltr {
                         border-bottom-left-radius: css.getVar("radius-rounded");
                         border-top-left-radius: css.getVar("radius-rounded");
@@ -232,7 +232,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
                     }
                 }
 
-                &:last-child .tab-button {
+                &:last-child .tab-link {
                     @include mixins.ltr {
                         border-bottom-right-radius: css.getVar(
                             "radius-rounded"
@@ -253,7 +253,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
         &.is-pills-rounded {
             @extend .is-toggle;
 
-            .tab-button {
+            .tab-link {
                 border-radius: css.getVar("tabs-toggle-link-radius");
                 border-color: transparent;
             }
@@ -288,7 +288,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
     &.is-fullwidth {
         width: 100%;
 
-        .tab-button {
+        .tab-link {
             width: 100%;
         }
     }
@@ -310,13 +310,13 @@ $tabs-toggle-link-focus-border-color: css.getVar(
             border-bottom-color: transparent !important;
 
             &:not(.is-boxed) {
-                .tab:not(:has(+ .tab .tab-button.is-active)) .tab-button {
+                .tab:not(:has(+ .tab .tab-link.is-active)) .tab-link {
                     border-bottom-color: css.getVar("tabs-border-bottom-color");
                 }
             }
 
             &.is-boxed {
-                .tab-button {
+                .tab-link {
                     border-bottom-color: transparent;
                     border-left-color: transparent;
                     border-right-color: css.getVar("tabs-border-bottom-color");
@@ -342,14 +342,14 @@ $tabs-toggle-link-focus-border-color: css.getVar(
                     }
 
                     &:first-child {
-                        .tab-button {
+                        .tab-link {
                             border-radius: css.getVar("tabs-toggle-link-radius")
                                 css.getVar("tabs-toggle-link-radius") 0 0;
                         }
                     }
 
                     &:last-child {
-                        .tab-button {
+                        .tab-link {
                             border-radius: 0 0
                                 css.getVar("tabs-toggle-link-radius")
                                 css.getVar("tabs-toggle-link-radius");
@@ -368,7 +368,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
 
             .tabs {
                 &.is-boxed {
-                    .tab-button {
+                    .tab-link {
                         border-bottom-color: transparent;
                         border-right-color: transparent;
                         border-left-color: css.getVar(
