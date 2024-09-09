@@ -91,6 +91,18 @@ $tabs-toggle-link-focus-border-color: css.getVar(
             }
         }
 
+        &.is-left {
+            justify-content: flex-start;
+        }
+
+        &.is-centered {
+            justify-content: center;
+        }
+
+        &.is-right {
+            justify-content: flex-end;
+        }
+
         &:not(.is-toggle):not(.is-toggle-rounded):not(.is-pills) {
             border-bottom-color: css.getVar("tabs-border-bottom-color");
             border-bottom-style: css.getVar("tabs-border-bottom-style");
