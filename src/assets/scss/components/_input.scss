@@ -1,3 +1,7 @@
 .control {
     display: inline-block;
+
+    &.is-expanded {
+        width: 100%;
+    }
 }
