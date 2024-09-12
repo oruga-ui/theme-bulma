@@ -1,9 +1,10 @@
 import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
+// import theme style
 import "../assets/scss/bulma-build.scss";
 
-export const bulmaConfig: OrugaOptions = {
+const bulmaConfig: OrugaOptions = {
     field: {
         override: true,
         rootClass: "field",
@@ -430,3 +431,5 @@ export const bulmaConfig: OrugaOptions = {
         hoveredClass: "is-hovered",
     },
 };
+
+export { bulmaConfig, bulmaConfig as config };
