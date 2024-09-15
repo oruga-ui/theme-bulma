@@ -1,4 +1,5 @@
 @use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/controls" as controls;
 
 .timepicker {
     .dropdown,
@@ -71,5 +72,19 @@
                 line-height: 1.7em;
             }
         }
+    }
+
+    // sizes
+
+    &.is-small {
+        @include controls.control-small;
+    }
+
+    &.is-medium {
+        @include controls.control-medium;
+    }
+
+    &.is-large {
+        @include controls.control-large;
     }
 }
