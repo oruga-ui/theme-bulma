@@ -31,6 +31,9 @@
     "lint:style": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
     "update": "ncu -u"
   },
+  "peerDependencies": {
+    "@oruga-ui/oruga-next": "0.9.0-pre.1"
+  },
   "dependencies": {
     "bulma": "1.0.2"
   },
