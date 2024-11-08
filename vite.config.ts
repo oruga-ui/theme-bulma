@@ -82,12 +82,7 @@ export default defineConfig(({ mode }) => {
                 }),
                 // copy assets into dist
                 copy({
-                    targets: [
-                        {
-                            src: "src/assets/scss",
-                            dest: ".",
-                        },
-                    ],
+                    targets: [{ src: "src/assets/scss", dest: "." }],
                 }),
                 // adds a banner to every generated dist file
                 banner(generate(pkg.version)),
