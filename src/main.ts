@@ -10,7 +10,7 @@ import Examples from "@oruga-ui/examples";
 import "@oruga-ui/examples/dist/style.css";
 
 // add theme config
-import { bulmaConfig } from "./plugins/bulma";
+import { bulmaConfig } from "./plugins/theme";
 
 createApp(App)
     .use(router)

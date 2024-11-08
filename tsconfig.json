@@ -5,9 +5,12 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vite/client", "./node_modules/@oruga-ui/oruga-next/volar"]
+    "types": ["node", "vite/client", "./node_modules/@oruga-ui/oruga-next/volar"]
   },
   "include": [
+    "eslint.config.*",
+    "stylelint.config.*",
+    "vite.config.*",
     "src/**/*.ts", 
     "src/**/*.d.ts", 
     "src/**/*.tsx", 
