@@ -11,20 +11,20 @@ const bulmaConfig: OrugaOptions = {
         labelClass: "label",
         labelSizeClass: "is-",
         messageClass: "help",
-        variantMessageClass: "is-",
+        messageVariantClass: "is-",
         bodyClass: "field-body",
         addonsClass: "has-addons",
         groupedClass: "is-grouped",
         groupMultilineClass: "is-grouped-multiline",
         horizontalClass: "is-horizontal",
-        labelHorizontalClass: "field-label",
-        bodyHorizontalClass: "field-body",
+        horizontalLabelClass: "field-label",
+        horizontalBodyClass: "field-body",
     },
     input: {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["control"];
-            if (isTrueish(props.icon)) classes.push("has-icons-left");
+            if (props.icon) classes.push("has-icons-left");
             return classes.join(" ");
         },
         inputClass: "input",
@@ -42,9 +42,10 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["select", "control"];
-            if (isTrueish(props.size)) classes.push(`is-${props.size}`);
+            if (props.size) classes.push(`is-${props.size}`);
             if (isTrueish(props.rounded)) classes.push("is-rounded");
             if (isTrueish(props.multiple)) classes.push("is-multiple");
+            if (isTrueish(props.disabled)) classes.push("is-disabled");
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             if (isTrueish(props.iconRight)) classes.push("has-icons-right");
             return classes.join(" ");
@@ -54,6 +55,9 @@ const bulmaConfig: OrugaOptions = {
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
+        iconRightSpaceClass: "has-icon-right",
+        iconLeftSpaceClass: "has-icon-left",
+        arrowClass: "has-arrow",
     },
     icon: {
         override: true,
@@ -112,18 +116,18 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["pagination"];
-            if (isTrueish(props.rounded)) classes.push("is-rounded");
+            if (props.rounded) classes.push("is-rounded");
             return classes.join(" ");
         },
         sizeClass: "is-",
         simpleClass: "is-simple",
         orderClass: "is-",
         listClass: "pagination-list",
-        linkClass: "pagination-link",
-        linkCurrentClass: "is-current",
-        linkDisabledClass: "is-disabled",
-        nextButtonClass: "pagination-next",
-        prevButtonClass: "pagination-previous",
+        buttonClass: "pagination-link",
+        buttonCurrentClass: "is-current",
+        buttonDisabledClass: "is-disabled",
+        buttonNextClass: "pagination-next",
+        buttonPrevClass: "pagination-previous",
         infoClass: "info",
     },
     slider: {
@@ -147,21 +151,21 @@ const bulmaConfig: OrugaOptions = {
         rootClass: "tabs-wrapper",
         contentClass: "tabs-content",
         multilineClass: "is-multiline",
-        navTabsClass: "tabs",
-        navTypeClass: "is-",
         expandedClass: "is-fullwidth",
         verticalClass: "is-vertical",
         positionClass: "is-",
+        navClass: "tabs",
+        navTypeClass: "is-",
+        navItemClass: "tab",
         navSizeClass: "is-",
         navPositionClass: "is-",
+        tabPanelClass: "tab-item",
+        tabClass: "tab-link",
+        tabIconClass: "tab-icon",
+        tabLabelClass: "tab-title",
+        tabActiveClass: "is-active",
+        tabDisabledClass: "is-disabled",
         transitioningClass: "is-transitioning",
-        itemClass: "tab-item",
-        itemWrapperClass: "tab",
-        itemHeaderClass: "tab-link",
-        itemHeaderIconClass: "tab-icon",
-        itemHeaderTextClass: "tab-title",
-        itemHeaderActiveClass: () => "is-active",
-        itemHeaderDisabledClass: () => "is-disabled",
     },
     table: {
         override: true,
@@ -206,7 +210,7 @@ const bulmaConfig: OrugaOptions = {
     steps: {
         override: true,
         rootClass: "steps-wrapper",
-        stepsClass: (_: string, props: ComponentProps) => {
+        navClass: (_: string, props: ComponentProps) => {
             const classes = ["steps"];
             if (props.labelPosition === "left") classes.push("has-label-left");
             if (props.labelPosition === "right")
@@ -217,24 +221,24 @@ const bulmaConfig: OrugaOptions = {
         animatedClass: "is-animated",
         positionClass: "is-",
         sizeClass: "is-",
-        itemHeaderClass: "step",
-        itemHeaderVariantClass: "is-",
-        itemHeaderActiveClass: "is-active",
-        itemHeaderPreviousClass: "is-previous",
-        stepLinkClass: "step-link",
-        stepLinkLabelClass: "step-title",
-        stepLinkClickableClass: "is-clickable",
-        labelPosition: "is-",
-        stepMarkerClass: "step-marker",
-        stepMarkerRoundedClass: "is-rounded",
-        stepContentClass: "step-content",
-        stepContentTransitioningClass: "is-transitioning",
-        itemClass: "step-item",
-        stepNavigationClass: "step-navigation",
+        navItemClass: "step",
+        navItemVariantClass: "is-",
+        navItemActiveClass: "is-active",
+        navItemPreviousClass: "is-previous",
+        stepClass: "step-link",
+        stepLabelClass: "step-title",
+        stepClickableClass: "is-clickable",
+        markerClass: "step-marker",
+        markerRoundedClass: "is-rounded",
+        contentClass: "step-content",
+        transitioningClass: "is-transitioning",
+        stepPanelClass: "step-item",
+        navigationClass: "step-navigation",
     },
     button: {
         override: true,
         rootClass: "button",
+        wrapperClass: "button-wrapper",
         sizeClass: "is-",
         variantClass: "is-",
         roundedClass: "is-rounded",
@@ -244,12 +248,10 @@ const bulmaConfig: OrugaOptions = {
             if (!variant) return "is-outlined";
             return `is-${variant} is-outlined`;
         },
-
         invertedClass: (variant) => {
             if (!variant) return "is-inverted";
             return `is-${variant} is-inverted`;
         },
-        wrapperClass: "button-wrapper",
     },
     collapse: {
         override: true,
@@ -297,7 +299,7 @@ const bulmaConfig: OrugaOptions = {
         itemActiveClass: "is-active",
         itemDisabledClass: "is-disabled",
         mobileClass: "is-mobile-modal",
-        menuMobileOverlayClass: "background",
+        overlayClass: "background",
         positionClass: "is-",
         activeClass: "is-active",
         hoverableClass: "is-hoverable",
@@ -386,7 +388,6 @@ const bulmaConfig: OrugaOptions = {
         overlayClass: "sidebar-background",
         contentClass: "sidebar-content",
         activeClass: "is-active",
-        variantClass: "is-",
         positionClass: "is-",
         expandOnHoverClass: "is-expanded",
         fullheightClass: "is-fullheight",

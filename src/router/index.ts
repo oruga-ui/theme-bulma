@@ -11,6 +11,7 @@ import components from "@/components";
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
+        alias: "/home",
         name: "Home",
         component: Home,
     },
