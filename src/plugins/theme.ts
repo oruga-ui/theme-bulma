@@ -24,7 +24,7 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["control"];
-            if (props.icon) classes.push("has-icons-left");
+            if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
         },
         inputClass: "input",
@@ -42,7 +42,7 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: (_: string, props: ComponentProps) => {
             const classes = ["select", "control"];
-            if (props.size) classes.push(`is-${props.size}`);
+            if (isTrueish(props.size)) classes.push(`is-${props.size}`);
             if (isTrueish(props.rounded)) classes.push("is-rounded");
             if (isTrueish(props.multiple)) classes.push("is-multiple");
             if (isTrueish(props.disabled)) classes.push("is-disabled");
