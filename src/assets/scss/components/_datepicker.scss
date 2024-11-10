@@ -56,15 +56,25 @@ $datepicker-event-background-color: css.getVar("grey-light") !default;
         }
     }
 
-    // unset opacity when dropdow is disabled
-    .dropdown {
+    // dropdown override
+    .dropdown,
+    &.dropdown {
+        // unset opacity when dropdow is disabled
         &.is-disabled {
             opacity: 1;
         }
-    }
 
-    .dropdown-item {
-        font-size: inherit;
+        .dropdown-menu {
+            .dropdown-item {
+                @include css.register-vars(
+                    (
+                        "dropdown-item-background-l-delta": "transparent",
+                    )
+                );
+                font-size: inherit;
+                padding-inline-end: 1rem;
+            }
+        }
     }
 
     .datepicker-header {
@@ -72,9 +82,12 @@ $datepicker-event-background-color: css.getVar("grey-light") !default;
         margin-bottom: 0.875rem;
         border-bottom: 1px solid css.getVar("grey-lighter");
 
-        .pagination-previous,
-        .pagination-next {
-            border-width: css.getVar("button-border-width");
+        .pagination {
+            button.pagination-previous,
+            button.pagination-next {
+                border-width: css.getVar("button-border-width");
+                border-radius: css.getVar("control-radius");
+            }
         }
     }
 

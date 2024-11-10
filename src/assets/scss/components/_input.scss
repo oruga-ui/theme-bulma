@@ -1,7 +1,17 @@
+@use "utils/variables" as var;
+
 .control {
     display: inline-block;
 
     &.is-expanded {
         width: 100%;
+    }
+
+    > .icon {
+        @each $name, $value in var.$sizes-map {
+            &.is-#{$name} {
+                font-size: #{$value};
+            }
+        }
     }
 }

@@ -109,8 +109,10 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: "taginput control",
         containerClass: "taginput-container",
-        itemClass: "tag",
         closeClass: "delete is-small",
+        itemClass: "tag",
+        variantClass: "is-",
+        expandedClass: "is-expanded",
     },
     pagination: {
         override: true,
@@ -264,6 +266,10 @@ const bulmaConfig: OrugaOptions = {
         rootClass: "menu",
         listClass: "menu-list",
         listLabelClass: "menu-label",
+        itemButtonClass: "menu-item",
+        itemButtonActiveClass: "is-active",
+        itemButtonDisabledClass: "is-disabled",
+        itemSubmenuClass: "submenu",
     },
     skeleton: {
         override: true,
@@ -288,7 +294,6 @@ const bulmaConfig: OrugaOptions = {
     },
     dropdown: {
         override: true,
-        itemTag: "a",
         rootClass: "dropdown",
         triggerClass: "dropdown-trigger",
         menuClass: "dropdown-content dropdown-menu",
@@ -395,12 +400,14 @@ const bulmaConfig: OrugaOptions = {
         reduceClass: "is-mini",
         inlineClass: "is-inline",
         mobileClass: "is-",
+        scrollClipClass: "is-clipped",
     },
     loading: {
         fullPageClass: "is-full-page",
         overlayClass: "loading-overlay",
         iconClass: "icon",
         rootClass: "loading",
+        scrollClipClass: "is-clipped",
     },
     carousel: {
         override: true,

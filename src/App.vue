@@ -36,6 +36,7 @@ import components from "@/components";
 
     main {
         flex-grow: 1;
+        width: 100%;
         height: 100vh;
         padding: 2rem;
         padding-bottom: 6rem;

@@ -22,31 +22,31 @@ $steps-vertical-padding: 1em 0 !default;
 /* @docs */
 
 .steps-wrapper {
-    .steps {
-        @include css.register-vars(
-            (
-                "steps-size": #{var.$size-normal},
-                "steps-divider-height": #{$steps-divider-height},
-                "steps-details-background-color": #{$steps-details-background-color},
-            )
-        );
+    @include css.register-vars(
+        (
+            "steps-size": #{var.$size-normal},
+            "steps-divider-height": #{$steps-divider-height},
+            "steps-details-background-color": #{$steps-details-background-color},
+        )
+    );
 
+    // sizes
+    @each $name, $value in var.$sizes-map {
+        &.is-#{$name} {
+            @include css.register-vars(
+                (
+                    "steps-size": #{$value},
+                )
+            );
+        }
+    }
+
+    .steps {
         display: flex;
         flex-wrap: wrap;
         font-size: css.getVar("steps-size");
         min-height: calc(css.getVar("steps-size") * 2);
         list-style: none;
-
-        // sizes
-        @each $name, $value in var.$sizes-map {
-            &.is-#{$name} {
-                @include css.register-vars(
-                    (
-                        "steps-size": #{$value},
-                    )
-                );
-            }
-        }
 
         &.is-animated {
             .step {

@@ -276,7 +276,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
         }
     }
 
-    .tab-content {
+    .tabs-content {
         position: relative;
         overflow: visible;
         display: flex;
@@ -300,6 +300,7 @@ $tabs-toggle-link-focus-border-color: css.getVar(
     &.is-fullwidth {
         width: 100%;
 
+        .tab,
         .tab-link {
             width: 100%;
         }
@@ -318,8 +319,13 @@ $tabs-toggle-link-focus-border-color: css.getVar(
         flex-wrap: wrap;
 
         .tabs {
+            flex-grow: 0;
             flex-direction: column;
             border-bottom-color: transparent !important;
+
+            .tab-link {
+                width: 100%;
+            }
 
             &:not(.is-boxed) {
                 .tab:not(:has(+ .tab .tab-link.is-active)) .tab-link {
