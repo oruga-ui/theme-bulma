@@ -7,20 +7,19 @@
             color: rgba(css.getVar("grey"), 0.7);
         }
 
-        &:has(+ .icon) {
-            padding-right: css.getVar("input-height");
-        }
-    }
-
-    &.has-icons-left {
-        select {
+        &.has-icon-left {
             padding-left: css.getVar("input-height");
         }
+
+        &.has-icon-right {
+            padding-right: css.getVar("input-height");
+        }
     }
 
-    &.has-icons-right {
-        select {
-            padding-right: css.getVar("input-height");
+    // remove arrow if not has arrow
+    &:has(select:not(.has-arrow) + .icon) {
+        &::after {
+            display: none;
         }
     }
 

@@ -36,10 +36,11 @@ import components from "@/components";
 
     main {
         flex-grow: 1;
+        width: 100%;
         height: 100vh;
         padding: 2rem;
         padding-bottom: 6rem;
-        overflow-y: scroll;
+        padding-left: calc(var(--vp-sidebar-width) + 2rem);
 
         > section {
             padding: 1rem 0;
@@ -56,6 +57,8 @@ import components from "@/components";
     }
 
     #nav {
+        position: fixed;
+        left: 0;
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -84,7 +87,7 @@ import components from "@/components";
             font-size: 1rem;
 
             &.router-link-exact-active {
-                color: #2c3e50;
+                color: var(--vp-c-brand-1);
             }
         }
     }
@@ -97,7 +100,7 @@ import components from "@/components";
 }
 
 @media (max-width: 576px) {
-    #main {
+    #app {
         #nav {
             display: none;
         }

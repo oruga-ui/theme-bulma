@@ -2,6 +2,8 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
 
+@use "bulma/sass/components/dropdown" as dropodown;
+
 /* @docs */
 $dropdown-mobile-breakpoint: vars.$desktop !default;
 $dropdown-background-background-color: hsla(
@@ -44,6 +46,10 @@ $dropdown-z: 40 !default;
     }
 
     .dropdown-item {
+        @extend a;
+
+        cursor: pointer;
+
         &.is-disabled {
             cursor: not-allowed;
             opacity: css.getVar("dropdown-disabled-opacity");
@@ -86,6 +92,7 @@ $dropdown-z: 40 !default;
         position: static;
         display: inline-block;
         padding: 0;
+        overflow: auto;
         z-index: 0;
     }
 
@@ -176,23 +183,10 @@ $dropdown-z: 40 !default;
                 overflow-y: auto;
                 z-index: calc(css.getVar("dropdown-z") + 10);
 
-                > .dropdown-item,
-                > .has-link a {
+                > .dropdown-item {
                     padding: 1rem 1.5rem;
                 }
             }
         }
-    }
-
-    // polyfills for other stuff
-
-    .dropdown-menu .has-link a {
-        @extend .dropdown-item;
-        padding-right: 3rem;
-        white-space: nowrap;
-    }
-
-    .navbar-item {
-        height: 100%;
     }
 }
