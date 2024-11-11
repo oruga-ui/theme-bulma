@@ -24,6 +24,7 @@ $dropdown-z: 40 !default;
             "dropdown-disabled-opacity": #{$dropdown-disabled-opacity},
             "dropdown-gap": #{$dropdown-gap},
             "dropdown-z": #{$dropdown-z},
+            "dropdown-content-z": #{$dropdown-z},
         )
     );
 
@@ -92,6 +93,7 @@ $dropdown-z: 40 !default;
         display: inline-block;
         padding: 0;
         overflow: auto;
+        z-index: 0;
     }
 
     // position classes
