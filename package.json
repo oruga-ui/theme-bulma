@@ -7,7 +7,7 @@
   "main": "dist/bulma.cjs",
   "module": "dist/bulma.js",
   "unpkg": "dist/bulma.cjs",
-  "types": "dist/types/bulma.d.ts",
+  "types": "dist/types/theme.d.ts",
   "sideEffects": [
     "*.css",
     "*.scss"
