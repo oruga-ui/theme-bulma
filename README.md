@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <i><a href="https://bulma.io" target="_blank">Bulma</a> theme for <a href="https://oruga.io" target="_blank">Oruga</a></i>
+  <i><a href="https://bulma.io" target="_blank">Bulma</a> theme for <a href="https://oruga-ui.com" target="_blank">Oruga</a></i>
 </p>
 
 <p align="center">
