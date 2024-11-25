@@ -1,4 +1,5 @@
 @use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/form/shared" as form;
 @use "bulma/sass/utilities/mixins" as mixins;
 
 /* @docs */
@@ -201,7 +202,14 @@ $floating-in-height: 3.25em !default;
                 left: 0;
                 right: 0;
                 height: 0.375em;
-                background-color: css.getVar("input-background-l");
+                background-color: hsl(
+                    form.$input-h,
+                    form.$input-s,
+                    calc(
+                        form.$input-background-l +
+                            form.$input-background-l-delta
+                    )
+                );
                 z-index: -1;
             }
         }
