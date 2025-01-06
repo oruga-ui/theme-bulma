@@ -1,6 +1,6 @@
 {
   "name": "@oruga-ui/theme-bulma",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Bulma theme for Oruga",
   "license": "MIT",
   "type": "module",
@@ -34,7 +34,7 @@
     "@oruga-ui/oruga-next": "^0.9.0"
   },
   "dependencies": {
-    "bulma": "1.0.2"
+    "bulma": "1.0.3"
   },
   "devDependencies": {
     "@oruga-ui/examples": "0.9.1",
