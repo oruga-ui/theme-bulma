@@ -60,19 +60,6 @@ export default defineConfig(({ mode }) => {
             css: {
                 // rename default `style.css` to `bulma.css`
                 postcss: { to: "bulma.css" },
-                preprocessorOptions: {
-                    includePaths: ["node_modules"],
-                    scss: {
-                        // this can be removed with bulma update (https://github.com/jgthms/bulma/issues/3907)
-                        silenceDeprecations: [
-                            "mixed-decls",
-                            "color-functions",
-                            "global-builtin",
-                            "import",
-                            "legacy-js-api",
-                        ],
-                    },
-                },
             },
             plugins: [
                 // build types in dist/types
