@@ -7,7 +7,7 @@ import Oruga from "@oruga-ui/oruga-next";
 import Examples from "@oruga-ui/examples";
 
 // add examples styles
-import "@oruga-ui/examples/dist/style.css";
+import "@oruga-ui/examples/dist/examples.css";
 
 // add theme config
 import { bulmaConfig } from "./plugins/theme";
