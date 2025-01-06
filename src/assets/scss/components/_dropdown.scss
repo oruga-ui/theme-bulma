@@ -2,8 +2,6 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
 
-@use "bulma/sass/components/dropdown" as dropodown;
-
 /* @docs */
 $dropdown-mobile-breakpoint: vars.$desktop !default;
 $dropdown-background-background-color: hsla(
@@ -46,7 +44,15 @@ $dropdown-z: 40 !default;
     }
 
     .dropdown-item {
-        @extend a;
+        background-color: hsl(
+            #{css.getVar("dropdown-item-h")},
+            #{css.getVar("dropdown-item-s")},
+            calc(
+                #{css.getVar("dropdown-item-background-l")} + #{css.getVar(
+                        "dropdown-item-background-l-delta"
+                    )}
+            )
+        );
 
         cursor: pointer;
 
