@@ -1,0 +1,19 @@
+$primary: #0f0;
+$black: #000;
+
+// Bulma must come first, otherwise load order errors will happen
+@forward "bulma/sass" with (
+    // $primary gives us an easy visual indicator that styles are passing to the theme and bulma layers
+    $primary: $primary,
+    // $black tests for issues with load order in forward/use. since $black is used in initial variables, which is heavily used across the theme and bulma, it makes for a very effective test
+	$black: $black,
+);
+
+@forward "assets/scss/bulma.scss" with (
+    // this var passes just fine
+    $theme-bulma-custom-colors: (),
+    // these vars cause errors
+    $table-sticky-header-height: 200px,
+    $checkbox-size: 1.25em,
+    $datepicker-header-color: $primary,
+);
