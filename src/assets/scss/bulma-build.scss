@@ -1,3 +1,4 @@
-@forward "components/utils/all";
+// the bulma forward needs to come first, ensuring that bulma already exists when theme code references it
 @forward "bulma/sass";
+@forward "components/utils/all";
 @forward "bulma";
