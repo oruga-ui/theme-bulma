@@ -8,6 +8,8 @@ import Examples from "@oruga-ui/examples";
 
 // add examples styles
 import "@oruga-ui/examples/dist/examples.css";
+// import main bundle
+import "./main.scss";
 
 // add theme config
 import { bulmaConfig } from "./plugins/theme";

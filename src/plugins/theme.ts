@@ -1,8 +1,10 @@
 import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
+// disabling so styles are not automatically included. the user should be determining their approach to how to include styles in their own code. if the user wants to configure the theme and bulma they'll need a separate scss file so they can @use with params. if the user doesn't want to configure then they're much better served by using the static css output.
+// TODO : remove after discussion
 // import theme style
-import "../assets/scss/bulma-build.scss";
+//import "../assets/scss/bulma-build.scss";
 
 const bulmaConfig: OrugaOptions = {
     field: {

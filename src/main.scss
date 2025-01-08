@@ -1,0 +1,5 @@
+// main.scss is where you should pass values into the theme and down to bulma. depending on how complex you want to go, it may make sense to assemble your variables in a separate file so they can be reused elsewhere in your project, although this requires mirroring values in this file.
+
+@use "assets/scss/bulma-build.scss" with (
+    $primary: #0f0,
+);
