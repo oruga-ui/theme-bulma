@@ -3,4 +3,6 @@
     $primary: #f00,
     // $black tests for issues with load order in forward/use. since $black is used in initial variables, which is heavily used across the theme and bulma, it makes for a very effective test
 	$black: #000,
+    // $secondary is a theme var that gets merged into an existing bulma var ($colors), making it the weirdest thing in the library
+    $secondary: #00f,
 );

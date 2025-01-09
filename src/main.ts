@@ -12,10 +12,10 @@ import "@oruga-ui/examples/dist/examples.css";
 // Two entry points for testing. Use one or the other, not both.
 
 // import main bundle with combined theme + bulma
-//import "./main-combined.scss";
+import "./main-combined.scss";
 
 // import main bundle with combined theme + bulma
-import "./main-separated.scss";
+//import "./main-separated.scss";
 
 // add theme config
 import { bulmaConfig } from "./plugins/theme";

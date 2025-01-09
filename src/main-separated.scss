@@ -1,4 +1,5 @@
 $primary: #0f0;
+$secondary: #00f;
 $black: #000;
 
 // Bulma must come first, otherwise load order errors will happen
@@ -12,8 +13,9 @@ $black: #000;
 @forward "assets/scss/bulma.scss" with (
     // this var passes just fine
     $theme-bulma-custom-colors: (),
+    $secondary: $secondary,
     // these vars cause errors
-    $table-sticky-header-height: 200px,
-    $checkbox-size: 1.25em,
-    $datepicker-header-color: $primary,
+    //$table-sticky-header-height: 200px,
+    //$checkbox-size: 1.25em,
+    //$datepicker-header-color: $primary,
 );
