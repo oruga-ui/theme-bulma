@@ -1,0 +1,19 @@
+@use "sass:map";
+
+$speed-slow: 150ms !default;
+$speed-slower: 250ms !default;
+
+// oruga defines an extra secondary color
+$secondary: #6c757d !default;
+
+// alternative to focus-shadow-size
+$active-shadow-size: 0 0 0.5em !default;
+
+// renamed with theme-bulma prefix to avoid namespace collision with the @forward below
+$theme-bulma-custom-colors: () !default;
+
+$theme-bulma-custom-colors-merged: map.merge(
+    // merge our custom-colors with the overridable map
+    ("secondary": $secondary),
+    $theme-bulma-custom-colors
+);

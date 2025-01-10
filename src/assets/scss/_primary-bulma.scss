@@ -1,0 +1,6 @@
+// Forward allows defaults to flow into bulma?
+@use "theme-defaults" as td;
+
+@forward "bulma/sass" with (
+    $custom-colors: td.$theme-bulma-custom-colors-merged,
+);
