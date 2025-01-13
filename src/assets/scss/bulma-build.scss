@@ -1,3 +1,7 @@
+// Theme defaults must be explictly forwarded here, otherwise confusing error messages result from the lack of defaults.
+@forward "theme-defaults";
+// the primary bulma forward must come before all usage to prevent issues where usage appears before the with
 @forward "primary-bulma";
 @forward "components/utils/all";
+// Theme component scss
 @forward "bulma";
