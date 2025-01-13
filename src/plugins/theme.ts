@@ -1,12 +1,6 @@
 import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
-// disabling so styles are not automatically included. the user should be determining their approach to how to include styles in their own code. if the user wants to configure the theme and bulma they'll need a separate scss file so they can @use with params. if the user doesn't want to configure then they're much better served by using the static css output.
-// TODO : remove after discussion
-// Update: This is also the entrypoint for the main css bundle This does seem to cause trouble in the test build but I'm less sure it causes problems downstream We may need to add this directly to the rollup config etc TODO : figure it out
-// import theme style
-//import "../assets/scss/bulma-build.scss";
-
 const bulmaConfig: OrugaOptions = {
     field: {
         override: true,
