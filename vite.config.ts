@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
                 copyPublicDir: false,
                 minify: "terser",
                 lib: {
-                    entry: resolve(__dirname, "src/plugins/theme.ts"),
+                    entry: resolve(__dirname, "src/build.ts"),
                     name: "OrugaThemeBulma",
                     fileName: "bulma",
                     formats: ["es", "cjs", "umd"],
