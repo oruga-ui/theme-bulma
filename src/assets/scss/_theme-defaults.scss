@@ -12,6 +12,7 @@ $active-shadow-size: 0 0 0.5em !default;
 // renamed with theme-bulma prefix to avoid namespace collision with the @forward below
 $theme-bulma-custom-colors: () !default;
 
+// Merge any user-defined custom colors with the custom colors defined by the theme. This will be passes to Bulma as $custom-colors
 $theme-bulma-custom-colors-merged: map.merge(
     // merge our custom-colors with the overridable map
     ("secondary": $secondary),
