@@ -1,0 +1,5 @@
+// Theme defaults must be explictly forwarded here, otherwise confusing error messages result from the lack of defaults.
+@forward "theme-defaults";
+
+// Theme component scss
+@forward "bulma";
