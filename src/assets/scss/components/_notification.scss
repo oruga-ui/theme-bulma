@@ -1,16 +1,11 @@
 @use "bulma/sass/utilities/css-variables" as css;
-
-/* @docs */
-$notification-margin-bottom: 1.5rem !default;
-$notification-notices-padding: 2em !default;
-$notification-notices-z: 1000 !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .notices {
     @include css.register-vars(
         (
-            "notification-notices-padding": #{$notification-notices-padding},
-            "notification-notices-z": #{$notification-notices-z},
+            "notification-notices-padding": #{vars.$notification-notices-padding},
+            "notification-notices-z": #{vars.$notification-notices-z},
         )
     );
 
@@ -28,7 +23,7 @@ $notification-notices-z: 1000 !default;
     .notification {
         @include css.register-vars(
             (
-                "notification-margin-bottom": #{$notification-margin-bottom},
+                "notification-margin-bottom": #{vars.$notification-margin-bottom},
             )
         );
 

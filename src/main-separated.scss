@@ -19,6 +19,7 @@ $custom-colors: (
     'foo': $red
 );
 
+// TODO add prefixes
 // Pass any Bulma values you're like to override here
 @forward "bulma/sass" with (
     $primary: $green,
