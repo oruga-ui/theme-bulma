@@ -4,6 +4,7 @@
 @use "sass:map";
 
 @forward "./../../theme-defaults";
+@forward "bulma/sass/utilities/initial-variables";
 @use "bulma/sass/utilities/derived-variables" as vars;
 @forward "bulma/sass/utilities/derived-variables";
 @forward "./../../theme-derrived";
