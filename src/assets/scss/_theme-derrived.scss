@@ -63,3 +63,15 @@ $sidebar-background-background-color: hsla(
 $sidebar-shadow: css.getVar("shadow");
 
 $skeleton-border-radius: css.getVar("radius") !default;
+
+$slider-colors: dv.$colors !default;
+$slider-radius: css.getVar("radius") !default;
+$slider-background: css.getVar("grey-lighter") !default;
+$slider-color: css.getVar("primary") !default;
+$slider-track-border: 0px solid css.getVar("grey") !default;
+$slider-track-shadow: 0px 0px 0px css.getVar("grey") !default;
+$slider-thumb-background: css.getVar("scheme-main") !default;
+$slider-thumb-radius: css.getVar("radius") !default;
+$slider-thumb-border: 1px solid css.getVar("grey-light") !default;
+$slider-tick-radius: css.getVar("radius") !default;
+$slider-tick-background: css.getVar("grey-light") !default;
