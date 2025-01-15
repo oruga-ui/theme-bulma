@@ -1,26 +1,18 @@
 @use "sass:list";
 
 @use "utils/functions" as fn;
-@use "utils/variables" as var;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/mixins" as mixins;
 
-/* @docs */
-$radio-colors: var.$colors !default;
-$radio-active-background-color: css.getVar("primary") !default;
-$radio-border-color: css.getVar("grey") !default;
-$radio-size: 1.25em !default;
-$radio-shadow: css.getVar("shadow");
-/* @docs */
-
 .radio {
     @include css.register-vars(
         (
-            "radio-active-background-color": #{$radio-active-background-color},
-            "radio-border-color": #{$radio-border-color},
-            "radio-size": #{$radio-size},
-            "radio-shadow": #{$radio-shadow},
+            "radio-active-background-color": #{vars.$radio-active-background-color},
+            "radio-border-color": #{vars.$radio-border-color},
+            "radio-size": #{vars.$radio-size},
+            "radio-shadow": #{vars.$radio-shadow},
         )
     );
 
@@ -36,7 +28,7 @@ $radio-shadow: css.getVar("shadow");
         flex-shrink: 0;
         border-radius: 50%;
         border: 2px solid css.getVar("radio-border-color");
-        transition: background var.$speed-slow css.getVar("easing");
+        transition: background vars.$speed-slow css.getVar("easing");
         box-shadow: css.getVar("radio-shadow");
 
         &:before {
@@ -47,7 +39,7 @@ $radio-shadow: css.getVar("shadow");
             width: css.getVar("radio-size");
             height: css.getVar("radio-size");
             border-radius: 50%;
-            transition: transform var.$speed-slow css.getVar("easing");
+            transition: transform vars.$speed-slow css.getVar("easing");
             transform: scale(0);
             background: css.getVar("radio-active-background-color");
         }
@@ -108,7 +100,7 @@ $radio-shadow: css.getVar("shadow");
     }
 
     // variant colors
-    @each $name, $pair in $radio-colors {
+    @each $name, $pair in vars.$radio-colors {
         $color: list.nth($pair, 1);
 
         &.is-#{$name} {

@@ -47,3 +47,8 @@ $dropdown-background-background-color: hsla(
         #{css.getVar("scheme-invert-l")},
         0.86
 ) !default;
+
+$radio-colors: dv.$colors !default;
+$radio-active-background-color: css.getVar("primary") !default;
+$radio-border-color: css.getVar("grey") !default;
+$radio-shadow: css.getVar("shadow");
