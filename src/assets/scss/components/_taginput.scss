@@ -1,17 +1,13 @@
 @use "bulma/sass/form/input-textarea";
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;
-
-/* @docs */
-$taginput-height: 2em !default;
-$taginput-tag-size: 0.9em !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .taginput {
     @include css.register-vars(
         (
-            "taginput-height": #{$taginput-height},
-            "taginput-tag-size": #{$taginput-tag-size},
+            "taginput-height": #{vars.$taginput-height},
+            "taginput-tag-size": #{vars.$taginput-tag-size},
         )
     );
 
