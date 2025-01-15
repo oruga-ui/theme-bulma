@@ -1,28 +1,19 @@
 @use "sass:list";
 
 @use "utils/functions" as fn;
-@use "utils/variables" as var;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/mixins" as mixins;
 
-/* @docs */
-$switch-colors: var.$colors !default;
-$switch-width: 2.75em !default;
-$switch-padding: 0.2em !default;
-$switch-background-color: css.getVar("grey-light") !default;
-$switch-active-background-color: css.getVar("primary") !default;
-$switch-shadow: css.getVar("shadow");
-/* @docs */
-
 .switch {
     @include css.register-vars(
         (
-            "switch-width": #{$switch-width},
-            "switch-padding": #{$switch-padding},
-            "switch-active-background-color": #{$switch-active-background-color},
-            "switch-background-color": #{$switch-background-color},
-            "switch-shadow": #{$switch-shadow},
+            "switch-width": #{vars.$switch-width},
+            "switch-padding": #{vars.$switch-padding},
+            "switch-active-background-color": #{vars.$switch-active-background-color},
+            "switch-background-color": #{vars.$switch-background-color},
+            "switch-shadow": #{vars.$switch-shadow},
         )
     );
 
@@ -42,8 +33,8 @@ $switch-shadow: css.getVar("shadow");
         background: css.getVar("switch-background-color");
         border-radius: css.getVar("radius");
         transition:
-            background var.$speed-slow css.getVar("easing"),
-            box-shadow var.$speed-slow css.getVar("easing");
+            background vars.$speed-slow css.getVar("easing"),
+            box-shadow vars.$speed-slow css.getVar("easing");
         box-shadow: css.getVar("switch-shadow");
 
         &:before {
@@ -71,7 +62,7 @@ $switch-shadow: css.getVar("shadow");
                 0 3px 1px 0 rgba(0, 0, 0, 0.05),
                 0 2px 2px 0 rgba(0, 0, 0, 0.1),
                 0 3px 3px 0 rgba(0, 0, 0, 0.05);
-            transition: transform var.$speed-slow css.getVar("easing");
+            transition: transform vars.$speed-slow css.getVar("easing");
             will-change: transform;
             transform-origin: left;
         }
@@ -175,7 +166,7 @@ $switch-shadow: css.getVar("shadow");
     }
 
     // variant colors
-    @each $name, $pair in $switch-colors {
+    @each $name, $pair in vars.$switch-colors {
         $color: list.nth($pair, 1);
 
         &.is-#{$name}-passive {
