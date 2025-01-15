@@ -75,3 +75,15 @@ $slider-thumb-radius: css.getVar("radius") !default;
 $slider-thumb-border: 1px solid css.getVar("grey-light") !default;
 $slider-tick-radius: css.getVar("radius") !default;
 $slider-tick-background: css.getVar("grey-light") !default;
+
+$steps-colors: dv.$colors !default;
+$steps-mobile-breakpoint: iv.$tablet !default;
+$steps-marker-background: css.getVar("grey-light") !default;
+$steps-marker-color: css.getVar("scheme-main") !default;
+$steps-marker-border: 0.2em solid css.getVar("white") !default;
+$steps-default-color: css.getVar("grey-lighter") !default;
+$steps-previous-color: css.getVar("scheme-main") !default;
+$steps-previous-background: css.getVar("primary") !default;
+$steps-active-color: css.getVar("primary") !default;
+$steps-active-background: css.getVar("scheme-main") !default;
+$steps-details-background-color: css.getVar("body-background-color") !default;
