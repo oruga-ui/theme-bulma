@@ -3,6 +3,7 @@
 @use "bulma/sass/utilities/initial-variables" as iv;
 @use "bulma/sass/utilities/derived-variables" as dv;
 @use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/form/file" as file;
 
 $sizes-map: (
     "small": dv.$size-small,
@@ -108,3 +109,6 @@ $tooltip-colors: dv.$colors !default;
 $tooltip-border-radius: css.getVar("radius") !default;
 $tooltip-bg: css.getVar("scheme-main-bis") !default;
 $tooltip-color: css.getVar("text-body") !default;
+
+$upload-colors: file.$file-colors !default;
+$upload-border-color: css.getVar("grey-light") !default;
