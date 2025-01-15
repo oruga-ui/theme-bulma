@@ -8,6 +8,13 @@ $sizes-map: (
     "large": dv.$size-large,
 ) !default;
 
+$carousel-arrow-background: css.getVar("scheme-main") !default;
+$carousel-arrow-color: css.getVar("primary") !default;
+$carousel-indicator-background: rgba(css.getVar("scheme-invert"), 0.5) !default;
+$carousel-indicator-border: css.getVar("scheme-main") !default;
+$carousel-indicator-color: css.getVar("primary") !default;
+$carousel-overlay-background: rgba(css.getVar("scheme-invert"), 0.86) !default;
+
 $checkbox-colors: dv.$colors !default;
 $checkbox-border-color: css.getVar("grey") !default;
 $checkbox-border-radius: css.getVar("radius") !default;
