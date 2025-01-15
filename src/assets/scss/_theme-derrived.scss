@@ -92,3 +92,14 @@ $switch-colors: dv.$colors !default;
 $switch-background-color: css.getVar("grey-light") !default;
 $switch-active-background-color: css.getVar("primary") !default;
 $switch-shadow: css.getVar("shadow");
+
+$tabs-link-focus-border-bottom-color: css.getVar("tabs-link-hover-border-bottom-color") !default;
+$tabs-link-focus-active-border-bottom-color: css.getVar("tabs-link-active-border-bottom-color") !default;
+$tabs-boxed-link-focus-active-background-color: css.getVar("tabs-boxed-link-active-background-color") !default;
+$tabs-boxed-link-focus-background-color: css.getVar("tabs-boxed-link-hover-background-color") !default;
+$tabs-boxed-link-focus-active-border-bottom-color: css.getVar("tabs-boxed-link-active-border-bottom-color") !default;
+$tabs-boxed-link-focus-border-bottom-color: css.getVar("tabs-boxed-link-hover-border-bottom-color") !default;
+$tabs-toggle-link-focus-active-background-color: css.getVar("tabs-toggle-link-active-background-color") !default;
+$tabs-toggle-link-focus-background-color: css.getVar("tabs-toggle-link-hover-background-color") !default;
+$tabs-toggle-link-focus-active-border-color: css.getVar("tabs-toggle-link-active-border-color") !default;
+$tabs-toggle-link-focus-border-color: css.getVar("tabs-toggle-link-hover-border-color") !default;
