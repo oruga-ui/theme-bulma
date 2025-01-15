@@ -1,3 +1,5 @@
+// This file is home to variables which DO NOT reference bulma
+
 @use "sass:map";
 
 $speed-slow: 150ms !default;
@@ -36,4 +38,7 @@ $dropdown-disabled-opacity: 0.5 !default;
 $dropdown-gap: 0px !default;
 $dropdown-z: 40 !default;
 
+// Belongs to field
 $floating-in-height: 3.25em !default;
+
+$icon-spin-duration: 2s !default;

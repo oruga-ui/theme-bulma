@@ -1,8 +1,5 @@
 @use "bulma/sass/utilities/css-variables" as css;
-
-/* @docs */
-$icon-spin-duration: 2s !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 @keyframes icon-spin {
     0% {
@@ -19,7 +16,7 @@ $icon-spin-duration: 2s !default;
 .icon {
     @include css.register-vars(
         (
-            "icon-spin-duration": #{$icon-spin-duration},
+            "icon-spin-duration": #{vars.$icon-spin-duration},
         )
     );
 
