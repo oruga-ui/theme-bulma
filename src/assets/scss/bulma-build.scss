@@ -10,5 +10,7 @@
     $custom-colors: td.$theme-bulma-custom-colors-merged,
 );
 
+@forward "theme-derrived";
+
 // Theme component scss
 @forward "bulma";

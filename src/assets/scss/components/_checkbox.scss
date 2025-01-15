@@ -5,39 +5,23 @@
 @use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/css-variables" as css;
 
-/* @docs */
-$checkbox-size: 1.25em !default;
-$checkbox-colors: var.$colors !default;
-$checkbox-background-color: transparent !default;
-$checkbox-border-color: css.getVar("grey") !default;
-$checkbox-border-radius: css.getVar("radius") !default;
-$checkbox-border-width: 2px !default;
-$checkbox-checkmark-color: css.getVar("primary-invert") !default;
-$checkbox-focus-color: hsl(from css.getVar("grey") h s l / 80%) !default;
-$checkbox-active-focus-color: hsl(
-    from css.getVar("checkbox-active-background-color") h s l / 80%
-) !default;
-$checkbox-active-background-color: css.getVar("primary") !default;
-$checkbox-shadow: css.getVar("shadow");
-/* @docs */
-
 .checkbox {
     @include css.register-vars(
         (
-            "checkbox-background-color": #{$checkbox-background-color},
-            "checkbox-border-color": #{$checkbox-border-color},
-            "checkbox-border-radius": #{$checkbox-border-radius},
-            "checkbox-border-width": #{$checkbox-border-width},
-            "checkbox-size": #{$checkbox-size},
-            "checkbox-checkmark-color": #{$checkbox-checkmark-color},
-            "checkbox-focus-color": $checkbox-focus-color,
-            "checkbox-active-focus-color": $checkbox-active-focus-color,
-            "checkbox-active-background-color": #{$checkbox-active-background-color},
+            "checkbox-background-color": #{var.$checkbox-background-color},
+            "checkbox-border-color": #{var.$checkbox-border-color},
+            "checkbox-border-radius": #{var.$checkbox-border-radius},
+            "checkbox-border-width": #{var.$checkbox-border-width},
+            "checkbox-size": #{var.$checkbox-size},
+            "checkbox-checkmark-color": #{var.$checkbox-checkmark-color},
+            "checkbox-focus-color": var.$checkbox-focus-color,
+            "checkbox-active-focus-color": var.$checkbox-active-focus-color,
+            "checkbox-active-background-color": #{var.$checkbox-active-background-color},
             "checkbox-checked-background":
-                url(fn.checkmark($checkbox-checkmark-color)),
+                url(fn.checkmark(var.$checkbox-checkmark-color)),
             "checkbox-indeterminate-background":
-                url(fn.indeterminate($checkbox-checkmark-color)),
-            "checkbox-shadow": #{$checkbox-shadow},
+                url(fn.indeterminate(var.$checkbox-checkmark-color)),
+            "checkbox-shadow": #{var.$checkbox-shadow},
         )
     );
 
@@ -53,8 +37,8 @@ $checkbox-shadow: css.getVar("shadow");
         outline: none;
         appearance: none;
         font-size: inherit;
-        width: $checkbox-size;
-        height: $checkbox-size;
+        width: var.$checkbox-size;
+        height: var.$checkbox-size;
         flex-shrink: 0;
         border-radius: css.getVar("checkbox-border-radius");
         border: css.getVar("checkbox-border-width") solid
@@ -124,7 +108,7 @@ $checkbox-shadow: css.getVar("shadow");
     }
 
     // variant colors
-    @each $name, $pair in $checkbox-colors {
+    @each $name, $pair in var.$checkbox-colors {
         $color: list.nth($pair, 1);
         $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
 

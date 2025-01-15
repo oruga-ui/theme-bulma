@@ -28,5 +28,6 @@ $custom-colors: (
 
 @forward "assets/scss/component-only-build.scss" with (
     $speed-slower: $speed-slower,
+    $dropdown-content-max-height: 300px,
 );
 

@@ -6,10 +6,6 @@
 @forward "./../../theme-defaults";
 @use "bulma/sass/utilities/derived-variables" as vars;
 @forward "bulma/sass/utilities/derived-variables";
+@forward "./../../theme-derrived";
 
-$sizes-map: (
-    "small": vars.$size-small,
-    "normal": vars.$size-normal,
-    "medium": vars.$size-medium,
-    "large": vars.$size-large,
-) !default;
+

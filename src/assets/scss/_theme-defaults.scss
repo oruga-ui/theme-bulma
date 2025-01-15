@@ -18,3 +18,13 @@ $theme-bulma-custom-colors-merged: map.merge(
     ("secondary": $secondary),
     $theme-bulma-custom-colors
 );
+
+// It seems like we need ALL defaults to come before the primary bulma import?
+
+/* @docs */
+$dropdown-content-max-height: 200px !default;
+/* @docs */
+
+$checkbox-size: 1.25em !default;
+$checkbox-background-color: transparent !default;
+$checkbox-border-width: 2px !default;
