@@ -54,9 +54,10 @@ $notification-notices-z: 1000 !default;
 
 $radio-size: 1.25em !default;
 
-/* @docs */
 $sidebar-z: 40;
 $sidebar-width: 260px !default;
 $sidebar-height: 260px !default;
 $sidebar-mobile-width: 80px !default;
-/* @docs */
+
+$skeleton-duration: 1.5s !default;
+$skeleton-margin-top: 0.5rem !default;

@@ -61,3 +61,5 @@ $sidebar-background-background-color: hsla(
         0.86
 ) !default;
 $sidebar-shadow: css.getVar("shadow");
+
+$skeleton-border-radius: css.getVar("radius") !default;
