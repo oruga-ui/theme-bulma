@@ -103,3 +103,8 @@ $tabs-toggle-link-focus-active-background-color: css.getVar("tabs-toggle-link-ac
 $tabs-toggle-link-focus-background-color: css.getVar("tabs-toggle-link-hover-background-color") !default;
 $tabs-toggle-link-focus-active-border-color: css.getVar("tabs-toggle-link-active-border-color") !default;
 $tabs-toggle-link-focus-border-color: css.getVar("tabs-toggle-link-hover-border-color") !default;
+
+$tooltip-colors: dv.$colors !default;
+$tooltip-border-radius: css.getVar("radius") !default;
+$tooltip-bg: css.getVar("scheme-main-bis") !default;
+$tooltip-color: css.getVar("text-body") !default;
