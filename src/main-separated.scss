@@ -26,6 +26,7 @@ $custom-colors: (
     $custom-colors: $custom-colors,
 );
 
+// Pass any theme values you'd like to override here. Bulma values like $primary will be passed implicitly into the theme build and do not need to be passed.
 @forward "assets/scss/component-only-build.scss" with (
     $speed-slower: $speed-slower,
     $dropdown-content-max-height: 300px,
