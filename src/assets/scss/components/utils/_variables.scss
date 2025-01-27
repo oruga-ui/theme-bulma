@@ -5,7 +5,6 @@
 
 @forward "../../initial-defaults";
 @forward "bulma/sass/utilities/initial-variables";
-@use "bulma/sass/utilities/derived-variables" as vars;
 @forward "bulma/sass/utilities/derived-variables";
 @forward "../../derived-defaults";
 
