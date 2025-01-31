@@ -11,6 +11,7 @@
 );
 
 @forward "derived-defaults";
+@forward "component-defaults";
 
 // Theme component scss
 @forward "bulma";

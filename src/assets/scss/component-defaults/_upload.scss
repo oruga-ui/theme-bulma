@@ -1,0 +1,5 @@
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/form/file" as file;
+
+$upload-colors: file.$file-colors !default;
+$upload-border-color: css.getVar("grey-light") !default;

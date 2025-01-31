@@ -1,0 +1,7 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+$tooltip-colors: dv.$colors !default;
+$tooltip-border-radius: css.getVar("radius") !default;
+$tooltip-bg: css.getVar("scheme-main-bis") !default;
+$tooltip-color: css.getVar("text-body") !default;

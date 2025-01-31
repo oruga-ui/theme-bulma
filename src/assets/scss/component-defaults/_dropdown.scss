@@ -1,0 +1,10 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+$dropdown-mobile-breakpoint: iv.$desktop !default;
+$dropdown-background-background-color: hsla(
+        #{css.getVar("scheme-h")},
+        #{css.getVar("scheme-s")},
+        #{css.getVar("scheme-invert-l")},
+        0.86
+) !default;

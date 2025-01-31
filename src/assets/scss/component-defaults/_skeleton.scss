@@ -1,0 +1,3 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
+$skeleton-border-radius: css.getVar("radius") !default;
