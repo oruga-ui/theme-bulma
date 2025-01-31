@@ -1,8 +1,7 @@
-// This file is home to defaulted variables which DO NOT reference bulma
+// This file is home to defaulted variables which need to be passed to Bulma, or to general defaulted variables which are not part of a particular component
 
 @use "sass:map";
 
-/* @docs */
 $speed-slow: 150ms !default;
 $speed-slower: 250ms !default;
 
@@ -14,7 +13,6 @@ $active-shadow-size: 0 0 0.5em !default;
 
 // renamed with theme-bulma prefix to avoid namespace collision with the @forward below
 $theme-bulma-custom-colors: () !default;
-/* @docs */
 
 // Merge any user-defined custom colors with the custom colors defined by the theme. This will be passes to Bulma as $custom-colors
 // This is the one variable in this file which is not defaulted, but it collects defaulted values so it counts. It's going to be passed into bulma so it has to be here so it comes first
@@ -23,72 +21,3 @@ $theme-bulma-custom-colors-merged: map.merge(
     ("secondary": $secondary),
     $theme-bulma-custom-colors
 );
-
-/* @docs */
-$carousel-arrow-icon-spaced: 1.5rem !default;
-$carousel-arrow-top: 50% !default;
-$carousel-indicator-spaced: 0.5rem !default;
-$carousel-overlay-z: 40 !default;
-
-$checkbox-size: 1.25em !default;
-$checkbox-background-color: transparent !default;
-$checkbox-border-width: 2px !default;
-
-$dropdown-content-max-height: 200px !default;
-
-$dropdown-disabled-opacity: 0.5 !default;
-$dropdown-gap: 0px !default;
-$dropdown-z: 40 !default;
-
-// Belongs to field
-$floating-in-height: 3.25em !default;
-
-$icon-spin-duration: 2s !default;
-
-$loading-background-color: rgba(255, 255, 255, 0.5) !default;
-$loading-icon-size: 3em !default;
-$loading-icon-size-full-page: 5em !default;
-$loading-z: 29 !default;
-
-$notification-margin-bottom: 1.5rem !default;
-$notification-notices-padding: 2em !default;
-$notification-notices-z: 1000 !default;
-
-$radio-size: 1.25em !default;
-
-$sidebar-z: 40;
-$sidebar-width: 260px !default;
-$sidebar-height: 260px !default;
-$sidebar-mobile-width: 80px !default;
-
-$skeleton-duration: 1.5s !default;
-$skeleton-margin-top: 0.5rem !default;
-
-$slider-tick-label-size: 0.75rem !default;
-$slider-thumb-shadow: none !default;
-$slider-thumb-to-track-ratio: 2 !default;
-$slider-tick-to-track-ratio: 0.5 !default;
-$slider-tick-width: 3px !default;
-
-$steps-divider-height: 0.2em !default;
-$steps-vertical-padding: 1em 0 !default;
-
-$switch-width: 2.75em !default;
-$switch-padding: 0.2em !default;
-
-$table-sticky-header-height: 300px !default;
-
-$tabs-focused-outline: none !default;
-
-$taginput-height: 2em !default;
-$taginput-tag-size: 0.9em !default;
-
-$tooltip-arrow-size: 5px !default;
-$tooltip-arrow-margin: 2px !default;
-$tooltip-content-multiline-width: 300px !default;
-$tooltip-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2) !default;
-$tooltip-z: 38 !default;
-
-$upload-bg: transparent !default;
-$upload-draggable-padding: 0.5rem !default;
-/* @docs */
