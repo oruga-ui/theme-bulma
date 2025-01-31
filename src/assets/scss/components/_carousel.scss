@@ -2,34 +2,19 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
 
-/* @docs */
-$carousel-arrow-background: css.getVar("scheme-main") !default;
-$carousel-arrow-color: css.getVar("primary") !default;
-$carousel-arrow-icon-spaced: 1.5rem !default;
-$carousel-arrow-top: 50% !default;
-
-$carousel-indicator-background: rgba(css.getVar("scheme-invert"), 0.5) !default;
-$carousel-indicator-border: css.getVar("scheme-main") !default;
-$carousel-indicator-color: css.getVar("primary") !default;
-$carousel-indicator-spaced: 0.5rem !default;
-
-$carousel-overlay-background: rgba(css.getVar("scheme-invert"), 0.86) !default;
-$carousel-overlay-z: 40 !default;
-/* @docs */
-
 .carousel {
     @include css.register-vars(
         (
-            "carousel-arrow-background": #{$carousel-arrow-background},
-            "carousel-arrow-color": #{$carousel-arrow-color},
-            "carousel-arrow-icon-spaced": #{$carousel-arrow-icon-spaced},
-            "carousel-arrow-top": #{$carousel-arrow-top},
-            "carousel-indicator-background": #{$carousel-indicator-background},
-            "carousel-indicator-border": #{$carousel-indicator-border},
-            "carousel-indicator-color": #{$carousel-indicator-color},
-            "carousel-indicator-spaced": #{$carousel-indicator-spaced},
-            "carousel-overlay-background": #{$carousel-overlay-background},
-            "carousel-overlay-z": #{$carousel-overlay-z},
+            "carousel-arrow-background": #{var.$carousel-arrow-background},
+            "carousel-arrow-color": #{var.$carousel-arrow-color},
+            "carousel-arrow-icon-spaced": #{var.$carousel-arrow-icon-spaced},
+            "carousel-arrow-top": #{var.$carousel-arrow-top},
+            "carousel-indicator-background": #{var.$carousel-indicator-background},
+            "carousel-indicator-border": #{var.$carousel-indicator-border},
+            "carousel-indicator-color": #{var.$carousel-indicator-color},
+            "carousel-indicator-spaced": #{var.$carousel-indicator-spaced},
+            "carousel-overlay-background": #{var.$carousel-overlay-background},
+            "carousel-overlay-z": #{var.$carousel-overlay-z},
         )
     );
 

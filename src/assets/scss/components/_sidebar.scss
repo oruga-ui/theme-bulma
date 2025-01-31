@@ -1,34 +1,18 @@
 @use "sass:list";
 
-@use "utils/variables" as var;
-@use "bulma/sass/utilities/initial-variables" as vars;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$sidebar-colors: var.$colors !default;
-$sidebar-z: 40;
-$sidebar-background-background-color: hsla(
-    #{css.getVar("scheme-h")},
-    #{css.getVar("scheme-s")},
-    #{css.getVar("scheme-invert-l")},
-    0.86
-) !default;
-$sidebar-shadow: css.getVar("shadow");
-$sidebar-width: 260px !default;
-$sidebar-height: 260px !default;
-$sidebar-mobile-width: 80px !default;
-/* @docs */
 
 .sidebar {
     @include css.register-vars(
         (
-            "sidebar-z": #{$sidebar-z},
-            "sidebar-background-background-color": #{$sidebar-background-background-color},
-            "sidebar-shadow": #{$sidebar-shadow},
-            "sidebar-width": #{$sidebar-width},
-            "sidebar-height": #{$sidebar-height},
-            "sidebar-mobile-width": #{$sidebar-mobile-width},
+            "sidebar-z": #{vars.$sidebar-z},
+            "sidebar-background-background-color": #{vars.$sidebar-background-background-color},
+            "sidebar-shadow": #{vars.$sidebar-shadow},
+            "sidebar-width": #{vars.$sidebar-width},
+            "sidebar-height": #{vars.$sidebar-height},
+            "sidebar-mobile-width": #{vars.$sidebar-mobile-width},
         )
     );
 
@@ -38,10 +22,10 @@ $sidebar-mobile-width: 80px !default;
         width: css.getVar("sidebar-width");
         height: css.getVar("sidebar-height");
         position: fixed;
-        transition: width var.$speed-slow css.getVar("easing");
+        transition: width vars.$speed-slow css.getVar("easing");
         z-index: css.getVar("sidebar-z");
 
-        @each $name, $pair in $sidebar-colors {
+        @each $name, $pair in vars.$sidebar-colors {
             $color: list.nth($pair, 1);
 
             &.is-#{$name} {

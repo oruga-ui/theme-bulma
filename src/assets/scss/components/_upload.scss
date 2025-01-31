@@ -1,23 +1,16 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities/css-variables" as css;
-@use "bulma/sass/form/file" as file;
-
-/* @docs */
-$upload-colors: file.$file-colors !default;
-$upload-bg: transparent !default;
-$upload-draggable-padding: 0.5rem !default;
-$upload-border-color: css.getVar("grey-light") !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .upload {
     position: relative;
 
     @include css.register-vars(
         (
-            "upload-draggable-padding": #{$upload-draggable-padding},
-            "upload-bg": #{$upload-bg},
-            "upload-border-color": #{$upload-border-color},
+            "upload-draggable-padding": #{vars.$upload-draggable-padding},
+            "upload-bg": #{vars.$upload-bg},
+            "upload-border-color": #{vars.$upload-border-color},
         )
     );
 
@@ -40,7 +33,7 @@ $upload-border-color: css.getVar("grey-light") !default;
         border: 1px dashed css.getVar("upload-border-color");
         border-radius: css.getVar("radius-large");
 
-        @each $name, $pair in $upload-colors {
+        @each $name, $pair in vars.$upload-colors {
             $color: list.nth($pair, 1);
 
             &.is-#{$name} {

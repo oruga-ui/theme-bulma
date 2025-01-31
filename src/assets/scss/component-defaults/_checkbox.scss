@@ -1,0 +1,18 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$checkbox-size: 1.25em !default;
+$checkbox-background-color: transparent !default;
+$checkbox-border-width: 2px !default;
+$checkbox-colors: dv.$colors !default;
+$checkbox-border-color: css.getVar("grey") !default;
+$checkbox-border-radius: css.getVar("radius") !default;
+$checkbox-checkmark-color: css.getVar("primary-invert") !default;
+$checkbox-focus-color: hsl(from css.getVar("grey") h s l / 80%) !default;
+$checkbox-active-focus-color: hsl(
+        from css.getVar("checkbox-active-background-color") h s l / 80%
+) !default;
+$checkbox-active-background-color: css.getVar("primary") !default;
+$checkbox-shadow: css.getVar("shadow");
+/* @docs */

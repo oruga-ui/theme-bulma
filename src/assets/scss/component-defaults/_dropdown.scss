@@ -1,0 +1,16 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$dropdown-content-max-height: 200px !default;
+$dropdown-disabled-opacity: 0.5 !default;
+$dropdown-gap: 0px !default;
+$dropdown-z: 40 !default;
+$dropdown-mobile-breakpoint: iv.$desktop !default;
+$dropdown-background-background-color: hsla(
+        #{css.getVar("scheme-h")},
+        #{css.getVar("scheme-s")},
+        #{css.getVar("scheme-invert-l")},
+        0.86
+) !default;
+/* @docs */

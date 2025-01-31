@@ -1,0 +1,34 @@
+// This file tests configuring Bulma and the theme separately.
+// A real world version would likely be much more elaborate, but this should capture the basic idea enough to test the use case
+
+// Set up your own variables to pass in. This can be as eloborate as you'd like but you MUST NOT reference Bulma directly. Mixins etc are fair game but they have to be standalone code.
+$red: #f00;
+$green: #0f0;
+$blue: #00f;
+$black: #000;
+$dark-grey: #6c757d;
+$speed-slower: 1000ms;
+
+// The theme adds a secondary color variant and should allow the user to add additional color variants if they desire
+// In the full bulma build this can happen internally, but if the user wants separated styles they need to handle this themselves
+$custom-colors: (
+    // If you want to use secondary you must include this line
+    // When you pass secondary here you don't need to pass $secondary to the theme styles
+    'secondary': $blue,
+    // If you want to add additional custom colors do it like this
+    'foo': $red
+);
+
+// Pass any Bulma values you're like to override here
+@forward "bulma/sass" with (
+    $primary: $green,
+    $black: $black,
+    $custom-colors: $custom-colors,
+);
+
+// Pass any theme values you'd like to override here. Bulma values like $primary will be passed implicitly into the theme build and do not need to be passed.
+@forward "assets/scss/component-only-build.scss" with (
+    $speed-slower: $speed-slower,
+    $dropdown-content-max-height: 300px,
+);
+

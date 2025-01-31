@@ -1,28 +1,15 @@
-@use "bulma/sass/utilities/initial-variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$dropdown-mobile-breakpoint: vars.$desktop !default;
-$dropdown-background-background-color: hsla(
-    #{css.getVar("scheme-h")},
-    #{css.getVar("scheme-s")},
-    #{css.getVar("scheme-invert-l")},
-    0.86
-) !default;
-$dropdown-disabled-opacity: 0.5 !default;
-$dropdown-gap: 0px !default;
-$dropdown-z: 40 !default;
-/* @docs */
+@use "utils/variables" as var;
 
 .dropdown {
     @include css.register-vars(
         (
-            "dropdown-background-background-color": #{$dropdown-background-background-color},
-            "dropdown-disabled-opacity": #{$dropdown-disabled-opacity},
-            "dropdown-gap": #{$dropdown-gap},
-            "dropdown-z": #{$dropdown-z},
-            "dropdown-content-z": #{$dropdown-z},
+            "dropdown-background-background-color": #{var.$dropdown-background-background-color},
+            "dropdown-disabled-opacity": #{var.$dropdown-disabled-opacity},
+            "dropdown-gap": #{var.$dropdown-gap},
+            "dropdown-z": #{var.$dropdown-z},
+            "dropdown-content-z": #{var.$dropdown-z},
         )
     );
 
@@ -38,7 +25,7 @@ $dropdown-z: 40 !default;
         z-index: css.getVar("dropdown-z");
         cursor: pointer;
 
-        @include mixins.from($dropdown-mobile-breakpoint) {
+        @include mixins.from(var.$dropdown-mobile-breakpoint) {
             display: none;
         }
     }
@@ -173,7 +160,7 @@ $dropdown-z: 40 !default;
         }
     }
 
-    @include mixins.until($dropdown-mobile-breakpoint) {
+    @include mixins.until(var.$dropdown-mobile-breakpoint) {
         &.is-mobile-modal {
             > .dropdown-menu {
                 position: fixed;

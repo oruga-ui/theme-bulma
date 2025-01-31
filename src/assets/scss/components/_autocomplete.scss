@@ -1,14 +1,11 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$dropdown-content-max-height: 200px !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .autocomplete {
     @include css.register-vars(
         (
-            "dropdown-content-max-height": #{$dropdown-content-max-height},
+            "dropdown-content-max-height": #{vars.$dropdown-content-max-height},
         )
     );
 

@@ -1,0 +1,11 @@
+// This file is home to defaulted variables which DO reference bulma but are not part of a particular component
+
+@use "bulma/sass/utilities/derived-variables" as dv;
+
+$sizes-map: (
+    "small": dv.$size-small,
+    "normal": dv.$size-normal,
+    "medium": dv.$size-medium,
+    "large": dv.$size-large,
+) !default;
+

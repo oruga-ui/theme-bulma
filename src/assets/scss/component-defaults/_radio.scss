@@ -1,0 +1,10 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$radio-size: 1.25em !default;
+$radio-colors: dv.$colors !default;
+$radio-active-background-color: css.getVar("primary") !default;
+$radio-border-color: css.getVar("grey") !default;
+$radio-shadow: css.getVar("shadow");
+/* @docs */

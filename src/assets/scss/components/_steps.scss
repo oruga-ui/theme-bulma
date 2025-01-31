@@ -1,37 +1,20 @@
 @use "sass:list";
 
-@use "utils/variables" as var;
-@use "bulma/sass/utilities/initial-variables" as vars;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$steps-colors: var.$colors !default;
-$steps-mobile-breakpoint: vars.$tablet !default;
-$steps-marker-background: css.getVar("grey-light") !default;
-$steps-marker-color: css.getVar("scheme-main") !default;
-$steps-marker-border: 0.2em solid css.getVar("white") !default;
-$steps-default-color: css.getVar("grey-lighter") !default;
-$steps-previous-color: css.getVar("scheme-main") !default;
-$steps-previous-background: css.getVar("primary") !default;
-$steps-active-color: css.getVar("primary") !default;
-$steps-active-background: css.getVar("scheme-main") !default;
-$steps-divider-height: 0.2em !default;
-$steps-details-background-color: css.getVar("body-background-color") !default;
-$steps-vertical-padding: 1em 0 !default;
-/* @docs */
 
 .steps-wrapper {
     @include css.register-vars(
         (
-            "steps-size": #{var.$size-normal},
-            "steps-divider-height": #{$steps-divider-height},
-            "steps-details-background-color": #{$steps-details-background-color},
+            "steps-size": #{vars.$size-normal},
+            "steps-divider-height": #{vars.$steps-divider-height},
+            "steps-details-background-color": #{vars.$steps-details-background-color},
         )
     );
 
     // sizes
-    @each $name, $value in var.$sizes-map {
+    @each $name, $value in vars.$sizes-map {
         &.is-#{$name} {
             @include css.register-vars(
                 (
@@ -53,7 +36,7 @@ $steps-vertical-padding: 1em 0 !default;
                 &:not(:first-child),
                 &:only-child {
                     &::before {
-                        transition: background var.$speed-slow
+                        transition: background vars.$speed-slow
                             css.getVar("easing");
                     }
                 }
@@ -84,14 +67,14 @@ $steps-vertical-padding: 1em 0 !default;
     .step {
         @include css.register-vars(
             (
-                "steps-default-color": #{$steps-default-color},
-                "steps-active-color": #{$steps-active-color},
-                "steps-active-background": #{$steps-active-background},
-                "steps-previous-color": #{$steps-previous-color},
-                "steps-previous-background": #{$steps-previous-background},
-                "steps-marker-background": #{$steps-marker-background},
-                "steps-marker-color": #{$steps-marker-color},
-                "steps-marker-border": #{$steps-marker-border},
+                "steps-default-color": #{vars.$steps-default-color},
+                "steps-active-color": #{vars.$steps-active-color},
+                "steps-active-background": #{vars.$steps-active-background},
+                "steps-previous-color": #{vars.$steps-previous-color},
+                "steps-previous-background": #{vars.$steps-previous-background},
+                "steps-marker-background": #{vars.$steps-marker-background},
+                "steps-marker-color": #{vars.$steps-marker-color},
+                "steps-marker-border": #{vars.$steps-marker-border},
                 "steps-marker-border-color": #fff,
             )
         );
@@ -199,7 +182,7 @@ $steps-vertical-padding: 1em 0 !default;
         }
 
         // Override marker color per step
-        @each $name, $pair in $steps-colors {
+        @each $name, $pair in vars.$steps-colors {
             $color: list.nth($pair, 1);
             $color-invert: if(
                 list.length($pair) >= 2,
@@ -285,7 +268,7 @@ $steps-vertical-padding: 1em 0 !default;
     &.is-vertical {
         @include css.register-vars(
             (
-                "steps-vertical-padding": #{$steps-vertical-padding},
+                "steps-vertical-padding": #{vars.$steps-vertical-padding},
             )
         );
 
@@ -306,8 +289,7 @@ $steps-vertical-padding: 1em 0 !default;
                         &::before,
                         &::after {
                             left: calc(
-                                css.getVar("steps-size") -
-                                    (css.getVar("steps-divider-height") * 0.5)
+                                css.getVar("steps-size") - (css.getVar("steps-divider-height") * 0.5)
                             );
                         }
                     }
@@ -406,7 +388,7 @@ $steps-vertical-padding: 1em 0 !default;
         }
     }
 
-    @include mixins.until($steps-mobile-breakpoint) {
+    @include mixins.until(vars.$steps-mobile-breakpoint) {
         &:not(.is-vertical) {
             .step {
                 &:not(.is-active) {

@@ -1,0 +1,17 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$sidebar-z: 40;
+$sidebar-width: 260px !default;
+$sidebar-height: 260px !default;
+$sidebar-mobile-width: 80px !default;
+$sidebar-colors: dv.$colors !default;
+$sidebar-background-background-color: hsla(
+        #{css.getVar("scheme-h")},
+        #{css.getVar("scheme-s")},
+        #{css.getVar("scheme-invert-l")},
+        0.86
+) !default;
+$sidebar-shadow: css.getVar("shadow");
+/* @docs */

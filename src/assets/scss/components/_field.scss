@@ -1,10 +1,7 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/form/shared" as form;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$floating-in-height: 3.25em !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .field {
     &.is-grouped {
@@ -240,12 +237,12 @@ $floating-in-height: 3.25em !default;
                 &.timepicker {
                     .input {
                         padding-top: calc(
-                            #{$floating-in-height} / 2 - (
+                            #{vars.$floating-in-height} / 2 - (
                                     css.getVar("size-large") * 3 / 4
                                 ) / 2
                         );
                         padding-bottom: 1px;
-                        height: $floating-in-height;
+                        height: vars.$floating-in-height;
                     }
                 }
 
@@ -254,21 +251,21 @@ $floating-in-height: 3.25em !default;
                     .textarea,
                     select {
                         padding-top: calc(
-                            #{$floating-in-height} / 2 - (
+                            #{vars.$floating-in-height} / 2 - (
                                     css.getVar("size-large") * 3 / 4
                                 ) / 2
                         );
                         padding-bottom: 1px;
-                        height: $floating-in-height;
+                        height: vars.$floating-in-height;
                     }
 
                     .select:not([multiple]) {
-                        height: $floating-in-height;
+                        height: vars.$floating-in-height;
 
                         &.is-loading {
                             &::after {
                                 margin-top: calc(
-                                    #{$floating-in-height} / 2 - (
+                                    #{vars.$floating-in-height} / 2 - (
                                             css.getVar("size-large") * 3 / 4
                                         ) / 2
                                 );
@@ -285,7 +282,7 @@ $floating-in-height: 3.25em !default;
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
                         padding-top: calc(
-                            #{$floating-in-height} / 2 - (
+                            #{vars.$floating-in-height} / 2 - (
                                     css.getVar("size-large") * 3 / 4
                                 ) / 2 + (0.275em - 1px)
                         );
@@ -295,12 +292,12 @@ $floating-in-height: 3.25em !default;
                 &:not(.taginput) {
                     .is-left.icon,
                     .is-right.icon {
-                        height: $floating-in-height;
+                        height: vars.$floating-in-height;
                     }
 
                     .is-left.icon {
                         padding-top: calc(
-                            #{$floating-in-height} / 2 - (
+                            #{vars.$floating-in-height} / 2 - (
                                     css.getVar("size-large") * 3 / 4
                                 ) / 2
                         );
@@ -309,7 +306,7 @@ $floating-in-height: 3.25em !default;
 
                 &.is-loading::after {
                     margin-top: calc(
-                        #{$floating-in-height} / 2 - (
+                        #{vars.$floating-in-height} / 2 - (
                                 css.getVar("size-large") * 3 / 4
                             ) / 2
                     );
@@ -325,7 +322,7 @@ $floating-in-height: 3.25em !default;
                         .textarea,
                         select {
                             padding-top: calc(
-                                #{$floating-in-height} / 2 - (
+                                #{vars.$floating-in-height} / 2 - (
                                         css.getVar("size-large") * 3 / 4
                                     ) / 2
                             );
@@ -336,7 +333,7 @@ $floating-in-height: 3.25em !default;
                         .textarea,
                         select,
                         .button {
-                            height: $floating-in-height;
+                            height: vars.$floating-in-height;
                         }
                     }
                 }
@@ -348,7 +345,7 @@ $floating-in-height: 3.25em !default;
                 .control {
                     .input,
                     .button {
-                        height: $floating-in-height;
+                        height: vars.$floating-in-height;
                     }
                 }
             }

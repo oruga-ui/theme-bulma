@@ -1,0 +1,7 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$skeleton-duration: 1.5s !default;
+$skeleton-margin-top: 0.5rem !default;
+$skeleton-border-radius: css.getVar("radius") !default;
+/* @docs */

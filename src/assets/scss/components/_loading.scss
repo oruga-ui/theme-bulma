@@ -1,19 +1,13 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-
-/* @docs */
-$loading-background-color: rgba(255, 255, 255, 0.5) !default;
-$loading-icon-size: 3em !default;
-$loading-icon-size-full-page: 5em !default;
-$loading-z: 29 !default;
-/* @docs */
+@use "utils/variables" as vars;
 
 .loading {
     @include css.register-vars(
         (
-            "loading-background-color": #{$loading-background-color},
-            "loading-icon-size": #{$loading-icon-size},
-            "loading-z": #{$loading-z},
+            "loading-background-color": #{vars.$loading-background-color},
+            "loading-icon-size": #{vars.$loading-icon-size},
+            "loading-z": #{vars.$loading-z},
         )
     );
 
@@ -28,7 +22,7 @@ $loading-z: 29 !default;
     &.is-full-page {
         @include css.register-vars(
             (
-                "loading-icon-size": #{$loading-icon-size-full-page},
+                "loading-icon-size": #{vars.$loading-icon-size-full-page},
             )
         );
 

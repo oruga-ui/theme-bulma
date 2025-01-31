@@ -1,31 +1,19 @@
 @use "sass:list";
 
-@use "utils/variables" as var;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
-
-/* @docs */
-$tooltip-colors: var.$colors !default;
-$tooltip-arrow-size: 5px !default;
-$tooltip-arrow-margin: 2px !default;
-$tooltip-content-multiline-width: 300px !default;
-$tooltip-border-radius: css.getVar("radius") !default;
-$tooltip-bg: css.getVar("scheme-main-bis") !default;
-$tooltip-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2) !default;
-$tooltip-color: css.getVar("text-body") !default;
-$tooltip-z: 38 !default;
-/* @docs */
 
 .tooltip {
     @include css.register-vars(
         (
-            "tooltip-arrow-size": #{$tooltip-arrow-size},
-            "tooltip-arrow-margin": #{$tooltip-arrow-margin},
-            "tooltip-color": #{$tooltip-color},
-            "tooltip-bg": #{$tooltip-bg},
-            "tooltip-border-radius": #{$tooltip-border-radius},
-            "tooltip-shadow": #{$tooltip-shadow},
-            "tooltip-content-multiline-width": #{$tooltip-content-multiline-width},
-            "tooltip-z": #{$tooltip-z},
+            "tooltip-arrow-size": #{vars.$tooltip-arrow-size},
+            "tooltip-arrow-margin": #{vars.$tooltip-arrow-margin},
+            "tooltip-color": #{vars.$tooltip-color},
+            "tooltip-bg": #{vars.$tooltip-bg},
+            "tooltip-border-radius": #{vars.$tooltip-border-radius},
+            "tooltip-shadow": #{vars.$tooltip-shadow},
+            "tooltip-content-multiline-width": #{vars.$tooltip-content-multiline-width},
+            "tooltip-z": #{vars.$tooltip-z},
         )
     );
 
@@ -168,7 +156,7 @@ $tooltip-z: 38 !default;
     }
 
     // Modifiers
-    @each $name, $pair in $tooltip-colors {
+    @each $name, $pair in vars.$tooltip-colors {
         $color: list.nth($pair, 1);
         $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
 

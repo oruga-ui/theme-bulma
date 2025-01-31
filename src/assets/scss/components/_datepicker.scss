@@ -5,31 +5,18 @@
 @use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/css-variables" as css;
 
-/* @docs */
-$datepicker-colors: var.$colors !default;
-$datepicker-header-color: css.getVar("grey") !default;
-$datepicker-today-border: solid 1px rgba(css.getVar("primary"), 0.5) !default;
-$datepicker-item-color: css.getVar("grey-dark") !default;
-$datepicker-item-disabled-color: css.getVar("grey-light") !default;
-$datepicker-item-hover-color: css.getVar("scheme-invert") !default;
-$datepicker-item-hover-background-color: css.getVar("background") !default;
-$datepicker-item-selected-color: css.getVar("primary-invert") !default;
-$datepicker-item-selected-background-color: css.getVar("primary") !default;
-$datepicker-event-background-color: css.getVar("grey-light") !default;
-/* @docs */
-
 .datepicker {
     @include css.register-vars(
         (
-            "datepicker-header-color": #{$datepicker-header-color},
-            "datepicker-today-border": #{$datepicker-today-border},
-            "datepicker-item-color": #{$datepicker-item-color},
-            "datepicker-item-disabled-color": #{$datepicker-item-disabled-color},
-            "datepicker-item-hover-color": #{$datepicker-item-hover-color},
-            "datepicker-item-hover-background-color": #{$datepicker-item-hover-background-color},
-            "datepicker-item-selected-color": #{$datepicker-item-selected-color},
-            "datepicker-item-selected-background-color": #{$datepicker-item-selected-background-color},
-            "datepicker-event-background-color": #{$datepicker-event-background-color},
+            "datepicker-header-color": #{var.$datepicker-header-color},
+            "datepicker-today-border": #{var.$datepicker-today-border},
+            "datepicker-item-color": #{var.$datepicker-item-color},
+            "datepicker-item-disabled-color": #{var.$datepicker-item-disabled-color},
+            "datepicker-item-hover-color": #{var.$datepicker-item-hover-color},
+            "datepicker-item-hover-background-color": #{var.$datepicker-item-hover-background-color},
+            "datepicker-item-selected-color": #{var.$datepicker-item-selected-color},
+            "datepicker-item-selected-background-color": #{var.$datepicker-item-selected-background-color},
+            "datepicker-event-background-color": #{var.$datepicker-event-background-color},
         )
     );
 
@@ -250,7 +237,7 @@ $datepicker-event-background-color: css.getVar("grey-light") !default;
         .event {
             background-color: css.getVar("datepicker-event-background-color");
 
-            @each $name, $pair in $datepicker-colors {
+            @each $name, $pair in var.$datepicker-colors {
                 $color: list.nth($pair, 1);
 
                 &.is-#{$name} {
