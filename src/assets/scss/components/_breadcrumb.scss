@@ -1,0 +1,106 @@
+// @use "sass:list";
+
+// /* @docs */
+// $breadcrumb-color: black !default;
+// $breadcrumb-font-weight: 400 !default;
+// $breadcrumb-line-height: $base-line-height !default;
+// // $breadcrumb-margin-icon-to-text: 0.1875em !default;
+// $breadcrumb-margin: 0 !default;
+// $breadcrumb-item-margin: 5px !default;
+// $breadcrumb-item-icon-margin: 2px !default;
+// $breadcrumb-disabled-opacity: $base-disabled-opacity !default;
+// /* @docs */
+
+
+// .o-breadcrumb { 
+// 	display: flex;
+// 	align-items: center;
+	
+// 	.o-breadcrumb-item {
+// 		margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		color: var(--#{$prefix}breadcrumb-color, $breadcrumb-color);
+// 		font-weight: var(--#{$prefix}breadcrumb-font-weight, $breadcrumb-font-weight);
+// 		line-height: var(--#{$prefix}breadcrumb-line-height, $breadcrumb-line-height);
+// 		cursor: pointer;
+// 		text-decoration: none;
+
+// 		@each $name, $pair in $colors {
+// 			$color: list.nth($pair, 1);
+// 			&__#{$name} {
+// 				 // for a tags
+// 				&.active {
+//                     color: var(--#{$prefix}variant-#{$name}, $color);
+// 				}
+// 				// for router-link tag
+// 				&.router-link-active {
+//                     color: var(--#{$prefix}variant-#{$name}, $color);
+// 				}
+// 			}
+// 		}
+// 		&__icon {
+// 			margin-right: var(--#{$prefix}breadcrumb-item-icon-margin, $breadcrumb-item-icon-margin);
+// 			margin-left: var(--#{$prefix}breadcrumb-item-icon-margin, $breadcrumb-item-icon-margin);
+// 		}
+
+// 		&__disabled  {
+//             opacity: var(--#{$prefix}button-disabled-opacity, $breadcrumb-disabled-opacity);
+// 		    cursor: not-allowed;
+// 		    pointer-events: none;
+//             color: $grey;	
+// 		}
+// 	}
+
+// 	@each $name, $value in $sizes {
+// 		&__#{$name} {
+//             font-size: var(--#{$prefix}breadcrumb-font-size-#{$name},$value);
+// 		}
+// 	}
+
+// 	&__centered {
+// 		justify-content: center;
+// 	  }
+	
+// 	&__right {
+// 		justify-content: right;
+// 	}
+
+// 	&__has-arrow-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "→";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+// 	}
+// 	&__has-dot-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "∙";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+
+// 	}
+// 	&__has-slash-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "/";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+
+// 	}
+// 	&__has-bullet-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "•";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+// 	}
+// 	&__has-succeeds-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "⮞";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+// 	}
+// 	&__has-chevron-separator {
+// 		.o-breadcrumb-item:not(:first-child)::before {
+// 			content: "⮞";
+// 			margin-right: var(--#{$prefix}breadcrumb-item-margin, $breadcrumb-item-margin);
+// 		}
+// 	}
+
+// }
