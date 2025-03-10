@@ -1,8 +1,13 @@
-// This file is the scss entrypoint for users who want to include only theme styles
+/*******************************************
+*   Oruga Theme Bulma Component Only Build
+********************************************/
+
+// This file is the entrypoint for the components only build
+// It is also the scss entrypoint for users who want to include only theme styles
 
 // use theme derived variables
-@forward "derived-defaults";
+@forward "variables/derived-defaults";
 // use theme component variables
-@forward "component-defaults";
+@forward "variables/component-defaults";
 // use theme component styling
 @forward "oruga-theme";

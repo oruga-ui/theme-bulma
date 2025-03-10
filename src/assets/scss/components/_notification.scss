@@ -1,5 +1,5 @@
 @use "bulma/sass/utilities/css-variables" as css;
-@use "utils/variables" as vars;
+@use "../utils/variables" as vars;
 
 .notices {
     @include css.register-vars(

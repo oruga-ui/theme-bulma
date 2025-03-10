@@ -2,8 +2,8 @@
 *   Include all variables from Bulma and the theme
 *****************************************************/
 
-@forward "../../initial-defaults";
+@forward "../variables/initial-defaults";
 @forward "bulma/sass/utilities/initial-variables";
 @forward "bulma/sass/utilities/derived-variables";
-@forward "../../derived-defaults";
-@forward "../../component-defaults";
+@forward "../variables/derived-defaults";
+@forward "../variables/component-defaults";

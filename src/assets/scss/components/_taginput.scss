@@ -1,7 +1,7 @@
 @use "bulma/sass/form/input-textarea";
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;
-@use "utils/variables" as vars;
+@use "../utils/variables" as vars;
 
 .taginput {
     @include css.register-vars(
