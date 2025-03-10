@@ -28,8 +28,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint . --fix --quiet",
     "lint:style": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
-    "update": "ncu -u",
-    "pack:lib": "rm -rf dist && npm run build && echo \"$PWD/$(npm pack)\""
+    "update": "ncu -u"
   },
   "peerDependencies": {
     "@oruga-ui/oruga-next": "^0.9.0"
