@@ -48,7 +48,7 @@ Please note, this package can be used without importing any other Oruga styling 
 
 Bulma is a highly customizable CSS framework. From colors to typography, spacing and sizes, forms and layouts, all parts of Bulma can be customized by the user (see [Bulma Customization](https://bulma.io/documentation/customize/concepts/)).
 
-To use the examples below start by creating a custom sass/scss file like `main.scss` (you can call it anything) and import it instead of `bulma.css` like this:
+Using the following sample code below you **don't need** `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file (like `main.scss`) to customize Bulma and the theme variables.
 
 ```js
 import { createApp } from 'vue'
@@ -64,7 +64,11 @@ createApp(App)
     .mount('#app')
 ```
 
-Inside `main.scss` you need to include Bulma styles and theme styles. You have two options for doing it: **combined** or **separated**. The theme features a combined entrypoint which includes Bulma styles and theme styles. This is best for most customization use cases as it handles some messy variable scope issues. The separated entrypoint only includes theme styles without Bulma. This gives you full control over how you import Bulma and how much of it you import, but you'll have to deal with the messy scope problems mentioned earlier. Unless it's critical you only include part of Bulma the separate method is best avoided.
+Inside your own sass/scss file you need to include Bulma styles and theme styles. To overwrite sass variables with your own values, you have to use `@use` and the `with` keyword, which takes a Sass map.
+
+There are two ways of importing the theme style:
+- **combined** - The theme features a combined entrypoint which includes Bulma styles and theme styles. This is best for most customization use cases. 
+- **separated**- The separated entrypoint only contains theme styles without Bulma. This gives you full control over how and how much of Bulma you import, but you'll have to deal with the sass variable scoping yourself. Unless it's critical that you only include part of Bulma, the separate method is best avoided.
 
 #### The Combined Method
 
@@ -73,12 +77,14 @@ The combined method is fairly straitforward. Define custom variables and then pa
 If you need to add custom color variants with this method you must use the `$theme-bulma-custom-colors` variable.
 
 ```scss
-// set your color overrides
+// Option A: Include all styling (including bulma)
+
+// Set your color overrides
 $primary: #8c67ef;
 $red: #f00;
 $link: $primary;
 
-// add new colors to the colors map
+// Add new colors to the colors map
 $theme-bulma-custom-colors: ('tertiary': $red);
 
 // Include the Oruga Bulma theme with Bulma included
@@ -94,9 +100,13 @@ $theme-bulma-custom-colors: ('tertiary': $red);
 ```
 
 #### The Separated Method
-When using this method the main thing to be aware of is `$custom-colors`. In the combined method the theme will add Oruga's standard `secondary` color variant for you and you can add additional variants using `$theme-bulma-custom-colors`. Using the separate method you need to do this in your code instead using Bulma's `$custom-colors` var, which will be implicitly passed to the theme behind the scenes. 
+When using this method, you will lose the theme customisation for the Bulma variables.
+In the combined method the theme will add Oruga's standard `secondary` color variant for you and you can add additional variants using `$theme-bulma-custom-colors`. Using the separate method, you have to do this in your code instead using Bulma's `$custom-colors` var, which will be implicitly passed to the theme behind the scenes. 
+You have to be aware of importing Bulma, `@use "bulma/sass" with (...)` before any other Bulma usage. If you reference Bulma beforehand, for example to use a Bulma mixin to create a colour to pass to Bulma, you will get sass scope problems.
 
 ```scss
+// Option B: Include the Oruga theme and Bulma separately
+
 // Assemble color variables
 $red: #f00;
 $green: #0f0;
@@ -109,11 +119,11 @@ $speed-slower: 1000ms;
 $custom-colors: (
     // Add the standard Oruga secondary variant
     'secondary': $dark-grey,
-    // If you want to add additional custom colors add them here
+    // If you want to add additional custom colors to the colors map add them here
     'tertiary': $red
 );
 
-// Pass any Bulma vars you'd like to override here
+// Pass any Bulma variables you'd like to override here
 @use "bulma/sass" with (
     $red: $red,
     $blue: $blue,
@@ -123,13 +133,15 @@ $custom-colors: (
     $custom-colors: $custom-colors,
 );
 
-// Pass any theme vars you'd like to override here
+// Pass any theme variables you'd like to override here
 @use "@oruga-ui/theme-bulma/dist/scss/component-only-build.scss" with (
     $speed-slower: $speed-slower,
 );
+
+// Then add additional custom code here
+// ...
 ```
 
-The other thing to be aware of is when you're importing Bulma. `@use "bulma/sass" with (...)` **MUST** come before all other Bulma usage. This is where the messy scope issues come in. If you reference Bulma beforehand, for example to use a Bulma mixin to create a color to pass into Bulma, you're going to get SASS errors.
 
 ### Override default config
 
