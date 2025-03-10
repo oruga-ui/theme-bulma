@@ -1,0 +1,8 @@
+// This file is the scss entrypoint for users who want to include only theme styles
+
+// use theme derived variables
+@forward "derived-defaults";
+// use theme component variables
+@forward "component-defaults";
+// use theme component styling
+@forward "oruga-theme";

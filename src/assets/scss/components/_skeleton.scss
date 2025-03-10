@@ -1,11 +1,5 @@
-@use "utils/variables" as var;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
-
-/* @docs */
-$skeleton-border-radius: css.getVar("radius") !default;
-$skeleton-duration: 1.5s !default;
-$skeleton-margin-top: 0.5rem !default;
-/* @docs */
 
 /* @bulma docs */
 // --bulma-skeleton-background: var(--bulma-border);
@@ -18,9 +12,9 @@ $skeleton-margin-top: 0.5rem !default;
 .skeleton {
     @include css.register-vars(
         (
-            "skeleton-border-radius": #{$skeleton-border-radius},
-            "skeleton-duration": #{$skeleton-duration},
-            "skeleton-margin-top": #{$skeleton-margin-top},
+            "skeleton-border-radius": #{vars.$skeleton-border-radius},
+            "skeleton-duration": #{vars.$skeleton-duration},
+            "skeleton-margin-top": #{vars.$skeleton-margin-top},
         )
     );
 
@@ -56,7 +50,7 @@ $skeleton-margin-top: 0.5rem !default;
         }
 
         // sizes
-        @each $name, $value in var.$sizes-map {
+        @each $name, $value in vars.$sizes-map {
             &.is-#{$name} {
                 @include css.register-vars(
                     (

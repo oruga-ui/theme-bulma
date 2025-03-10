@@ -1,13 +1,7 @@
-@use "utils/variables" as var;
 @use "utils/functions" as fn;
-@use "bulma/sass/utilities/initial-variables" as vars;
+@use "utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-@use "bulma/sass/elements/table" as table;
-
-/* @docs */
-$table-sticky-header-height: 300px !default;
-/* @docs */
 
 @mixin table-cards {
     .table {
@@ -96,7 +90,7 @@ $table-sticky-header-height: 300px !default;
 .table-wrapper {
     @include css.register-vars(
         (
-            "table-sticky-header-height": #{$table-sticky-header-height},
+            "table-sticky-header-height": #{vars.$table-sticky-header-height},
         )
     );
     transition: opacity vars.$speed css.getVar("easing");
@@ -163,7 +157,7 @@ $table-sticky-header-height: 300px !default;
 
     .icon {
         transition:
-            transform var.$speed-slow css.getVar("easing"),
+            transform vars.$speed-slow css.getVar("easing"),
             opacity vars.$speed css.getVar("easing");
 
         &.is-desc {
@@ -263,7 +257,7 @@ $table-sticky-header-height: 300px !default;
 
                     &:checked {
                         background: css.getVar("table-row-active-color")
-                            url(fn.checkmark(var.$primary)) no-repeat center
+                            url(fn.checkmark(vars.$primary)) no-repeat center
                             center;
                     }
                 }

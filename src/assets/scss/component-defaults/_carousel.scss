@@ -1,0 +1,14 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$carousel-arrow-icon-spaced: 1.5rem !default;
+$carousel-arrow-top: 50% !default;
+$carousel-indicator-spaced: 0.5rem !default;
+$carousel-overlay-z: 40 !default;
+$carousel-arrow-background: css.getVar("scheme-main") !default;
+$carousel-arrow-color: css.getVar("primary") !default;
+$carousel-indicator-background: rgba(css.getVar("scheme-invert"), 0.5) !default;
+$carousel-indicator-border: css.getVar("scheme-main") !default;
+$carousel-indicator-color: css.getVar("primary") !default;
+$carousel-overlay-background: rgba(css.getVar("scheme-invert"), 0.86) !default;
+/* @docs */

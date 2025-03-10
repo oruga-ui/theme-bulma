@@ -1,0 +1,19 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$steps-divider-height: 0.2em !default;
+$steps-vertical-padding: 1em 0 !default;
+$steps-colors: dv.$colors !default;
+$steps-mobile-breakpoint: iv.$tablet !default;
+$steps-marker-background: css.getVar("grey-light") !default;
+$steps-marker-color: css.getVar("scheme-main") !default;
+$steps-marker-border: 0.2em solid css.getVar("white") !default;
+$steps-default-color: css.getVar("grey-lighter") !default;
+$steps-previous-color: css.getVar("scheme-main") !default;
+$steps-previous-background: css.getVar("primary") !default;
+$steps-active-color: css.getVar("primary") !default;
+$steps-active-background: css.getVar("scheme-main") !default;
+$steps-details-background-color: css.getVar("body-background-color") !default;
+/* @docs */
