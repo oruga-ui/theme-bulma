@@ -4,6 +4,7 @@
 /* @docs */
 $datepicker-colors: dv.$colors !default;
 $datepicker-header-color: css.getVar("grey") !default;
+$datepicker-header-spacer: 0.5em !default;
 $datepicker-today-border: solid 1px rgba(css.getVar("primary"), 0.5) !default;
 $datepicker-item-color: css.getVar("grey-dark") !default;
 $datepicker-item-disabled-color: css.getVar("grey-light") !default;

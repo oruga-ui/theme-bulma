@@ -5,94 +5,94 @@
 
 // Fade out
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 .fadeOut {
-    animation-name: fadeOut;
+  animation-name: fadeOut;
 }
 
 @keyframes fadeOutDown {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-    }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
 }
 
 .fadeOutDown {
-    animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
 }
 
 @keyframes fadeOutUp {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-        transform: translate3d(0, -100%, 0);
-    }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 }
 
 .fadeOutUp {
-    animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
 }
 
 // Fade In
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .fadeIn {
-    animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -100%, 0);
-    }
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
 
-    to {
-        opacity: 1;
-        transform: none;
-    }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .fadeInDown {
-    animation-name: fadeInDown;
+  animation-name: fadeInDown;
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-    }
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
 
-    to {
-        opacity: 1;
-        transform: none;
-    }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .fadeInUp {
-    animation-name: fadeInUp;
+  animation-name: fadeInUp;
 }
 
 /**
@@ -102,57 +102,57 @@
 // Fade
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity var.$speed-slow css.getVar("easing");
+  transition: opacity var.$speed-slow css.getVar("easing");
 }
 
 .fade-enter,
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 
 // Zoom In
 .zoom-in-enter-active,
 .zoom-in-leave-active {
-    transition: opacity var.$speed-slow css.getVar("easing");
+  transition: opacity var.$speed-slow css.getVar("easing");
 
-    .animation-content,
-    .animation-content {
-        transition: transform var.$speed-slow css.getVar("easing");
-    }
+  .animation-content,
+  .animation-content {
+    transition: transform var.$speed-slow css.getVar("easing");
+  }
 }
 
 .zoom-in-enter,
 .zoom-in-enter-from,
 .zoom-in-leave-active {
-    opacity: 0;
+  opacity: 0;
 
-    .animation-content,
-    .animation-content {
-        transform: scale(0.95);
-    }
+  .animation-content,
+  .animation-content {
+    transform: scale(0.95);
+  }
 }
 
 // Zoom Out
 .zoom-out-enter-active,
 .zoom-out-leave-active {
-    transition: opacity var.$speed-slow css.getVar("easing");
+  transition: opacity var.$speed-slow css.getVar("easing");
 
-    .animation-content,
-    .animation-content {
-        transition: transform var.$speed-slow css.getVar("easing");
-    }
+  .animation-content,
+  .animation-content {
+    transition: transform var.$speed-slow css.getVar("easing");
+  }
 }
 
 .zoom-out-enter,
 .zoom-out-enter-from,
 .zoom-out-leave-active {
-    opacity: 0;
+  opacity: 0;
 
-    .animation-content,
-    .animation-content {
-        transform: scale(1.05);
-    }
+  .animation-content,
+  .animation-content {
+    transform: scale(1.05);
+  }
 }
 
 // Slide
@@ -160,69 +160,67 @@
 .slide-next-leave-active,
 .slide-prev-enter-active,
 .slide-prev-leave-active {
-    transition: transform var.$speed-slower
-        cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform var.$speed-slower cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .slide-prev-leave-to,
 .slide-next-enter,
 .slide-next-enter-from {
-    transform: translate3d(-100%, 0, 0);
-    position: absolute;
-    width: 100%;
+  transform: translate3d(-100%, 0, 0);
+  position: absolute;
+  width: 100%;
 }
 
 .slide-prev-enter,
 .slide-prev-enter-from,
 .slide-next-leave-to {
-    transform: translate3d(100%, 0, 0);
-    position: absolute;
-    width: 100%;
+  transform: translate3d(100%, 0, 0);
+  position: absolute;
+  width: 100%;
 }
 
 .slide-down-enter-active,
 .slide-down-leave-active,
 .slide-up-enter-active,
 .slide-up-leave-active {
-    transition: transform var.$speed-slower
-        cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform var.$speed-slower cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .slide-down-enter,
 .slide-up-leave-to,
 .slide-down-enter-from {
-    transform: translate3d(0, -100%, 0);
-    position: absolute;
-    height: 100%;
+  transform: translate3d(0, -100%, 0);
+  position: absolute;
+  height: 100%;
 }
 
 .slide-up-enter,
 .slide-up-enter-from,
 .slide-down-leave-to {
-    transform: translate3d(0, 100%, 0);
-    position: absolute;
-    height: 100%;
+  transform: translate3d(0, 100%, 0);
+  position: absolute;
+  height: 100%;
 }
 
 .slide-enter-active {
-    transition: var.$speed-slow css.getVar("easing");
+  transition: var.$speed-slow css.getVar("easing");
 }
 
 .slide-leave-active {
-    transition: var.$speed-slow css.getVar("easing");
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition: var.$speed-slow css.getVar("easing");
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
 .slide-leave,
 .slide-enter-to,
 .slide-leave-from {
-    max-height: 100px;
-    overflow: hidden;
+  max-height: 100px;
+  overflow: hidden;
 }
 
 .slide-enter,
 .slide-enter-from,
 .slide-leave-to {
-    overflow: hidden;
-    max-height: 0;
+  overflow: hidden;
+  max-height: 0;
 }

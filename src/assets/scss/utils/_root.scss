@@ -2,9 +2,9 @@
 @use "bulma/sass/utilities/css-variables" as css;
 
 :root {
-    @include css.register-vars(
-        (
-            "active-shadow-size": #{var.$active-shadow-size},
-        )
-    );
+  @include css.register-vars(
+    (
+      "active-shadow-size": #{var.$active-shadow-size},
+    )
+  );
 }

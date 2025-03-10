@@ -1,186 +1,187 @@
-@use "../utils/variables" as var;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
+@use "../utils/variables" as vars;
 
 .carousel {
-    @include css.register-vars(
-        (
-            "carousel-arrow-background": #{var.$carousel-arrow-background},
-            "carousel-arrow-color": #{var.$carousel-arrow-color},
-            "carousel-arrow-icon-spaced": #{var.$carousel-arrow-icon-spaced},
-            "carousel-arrow-top": #{var.$carousel-arrow-top},
-            "carousel-indicator-background":
-                #{var.$carousel-indicator-background},
-            "carousel-indicator-border": #{var.$carousel-indicator-border},
-            "carousel-indicator-color": #{var.$carousel-indicator-color},
-            "carousel-indicator-spaced": #{var.$carousel-indicator-spaced},
-            "carousel-overlay-background": #{var.$carousel-overlay-background},
-            "carousel-overlay-z": #{var.$carousel-overlay-z},
-        )
-    );
+  @include css.register-vars(
+    (
+      "carousel-arrow-background": #{vars.$carousel-arrow-background},
+      "carousel-arrow-color": #{vars.$carousel-arrow-color},
+      "carousel-arrow-icon-spaced": #{vars.$carousel-arrow-icon-spaced},
+      "carousel-arrow-top": #{vars.$carousel-arrow-top},
+      "carousel-indicator-background": #{vars.$carousel-indicator-background},
+      "carousel-indicator-border": #{vars.$carousel-indicator-border},
+      "carousel-indicator-color": #{vars.$carousel-indicator-color},
+      "carousel-indicator-spaced": #{vars.$carousel-indicator-spaced},
+      "carousel-overlay-background": #{vars.$carousel-overlay-background},
+      "carousel-overlay-z": #{vars.$carousel-overlay-z},
+    )
+  );
 
-    @include mixins.unselectable;
+  @include mixins.unselectable;
 
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &.is-overlay {
+    @include mixins.overlay;
+
+    position: fixed;
+    background-color: css.getVar("carousel-overlay-background");
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    max-height: 100vh;
+    z-index: css.getVar("carousel-overlay-z");
+
+    .carousel-item img {
+      cursor: default;
+    }
+
+    .carousel-indicator.has-background {
+      background: transparent;
+    }
+  }
+
+  .carousel-scene {
     width: 100%;
+    position: relative;
 
-    &.is-overlay {
-        background-color: css.getVar("carousel-overlay-background");
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        display: flex;
-        max-height: 100vh;
-        position: fixed;
-        z-index: css.getVar("carousel-overlay-z");
+    .carousel-items {
+      display: flex;
 
-        .carousel-item img {
-            cursor: default;
+      &:hover .carousel-arrow.is-hovered {
+        @include mixins.tablet {
+          opacity: 1;
         }
+      }
 
-        .carousel-indicator.has-background {
-            background: transparent;
-        }
-    }
+      &:not(.is-dragging) {
+        transition: all vars.$speed-slower ease-out 0s;
+      }
 
-    .carousel-scene {
+      .carousel-item {
+        flex-shrink: 0;
         width: 100%;
-        position: relative;
+        border: 2px solid transparent;
+      }
+    }
+  }
 
-        .carousel-items {
-            display: flex;
+  .carousel-indicator {
+    width: 100%;
+    padding: css.getVar("carousel-indicator-spaced");
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            &:hover .carousel-arrow.is-hovered {
-                @include mixins.tablet {
-                    opacity: 1;
-                }
-            }
-
-            &:not(.is-dragging) {
-                transition: all var.$speed-slower ease-out 0s;
-            }
-
-            .carousel-item {
-                flex-shrink: 0;
-                width: 100%;
-                border: 2px solid transparent;
-            }
-        }
+    &.has-background {
+      background: css.getVar("carousel-indicator-background");
     }
 
-    .carousel-indicator {
-        width: 100%;
-        padding: css.getVar("carousel-indicator-spaced");
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &.has-custom {
+      @include mixins.overflow-touch;
 
-        &.has-background {
-            background: css.getVar("carousel-indicator-background");
-        }
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow: hidden;
+      overflow-x: auto;
 
-        &.has-custom {
-            @include mixins.overflow-touch;
+      &.is-small .indicator-item {
+        flex: 1 0 10%;
+      }
 
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            overflow: hidden;
-            overflow-x: auto;
-
-            &.is-small .indicator-item {
-                flex: 1 0 10%;
-            }
-
-            &.is-medium .indicator-item {
-                flex: 1 0 16.66667%;
-            }
-        }
-
-        &.is-inside {
-            position: absolute;
-
-            &.is-bottom {
-                bottom: 0;
-            }
-
-            &.is-top {
-                top: 0;
-            }
-        }
-
-        .indicator-item {
-            &:not(:last-child) {
-                margin-right: css.getVar("carousel-indicator-spaced");
-            }
-
-            .indicator-style.is-active,
-            .indicator-style.is-active:hover {
-                background: css.getVar("carousel-indicator-color");
-                border: 1px solid css.getVar("carousel-indicator-border");
-            }
-
-            .indicator-style {
-                display: block;
-                border: 1px solid css.getVar("carousel-indicator-color");
-                background: css.getVar("carousel-indicator-border");
-                outline: none;
-                transition: var.$speed-slow css.getVar("easing");
-
-                &.is-boxes {
-                    height: 10px;
-                    width: 10px;
-                }
-
-                &.is-dots {
-                    border-radius: css.getVar("radius-rounded");
-                    height: 10px;
-                    width: 10px;
-                }
-
-                &.is-lines {
-                    height: 5px;
-                    width: 25px;
-                }
-            }
-        }
+      &.is-medium .indicator-item {
+        flex: 1 0 16.66667%;
+      }
     }
+
+    &.is-inside {
+      position: absolute;
+    }
+
+    &.is-bottom {
+      bottom: 0;
+    }
+
+    &.is-top {
+      top: 0;
+    }
+
+    .indicator-item {
+      &:not(:last-child) {
+        margin-right: css.getVar("carousel-indicator-spaced");
+      }
+
+      .indicator-style.is-active,
+      .indicator-style.is-active:hover {
+        background: css.getVar("carousel-indicator-color");
+        border: 1px solid css.getVar("carousel-indicator-border");
+      }
+
+      .indicator-style {
+        display: block;
+        border: 1px solid css.getVar("carousel-indicator-color");
+        background: css.getVar("carousel-indicator-border");
+        outline: none;
+        transition: vars.$speed-slow css.getVar("easing");
+
+        &.is-boxes {
+          height: 10px;
+          width: 10px;
+        }
+
+        &.is-dots {
+          border-radius: css.getVar("radius-rounded");
+          height: 10px;
+          width: 10px;
+        }
+
+        &.is-lines {
+          height: 5px;
+          width: 25px;
+        }
+      }
+    }
+  }
 }
 
 .carousel-arrow {
-    transition: var.$speed-slow css.getVar("easing");
+  transition: vars.$speed-slow css.getVar("easing");
 
-    &.is-hovered {
-        opacity: 0;
+  &.is-hovered {
+    opacity: 0;
+  }
+
+  &.icon {
+    background: css.getVar("carousel-arrow-background");
+    color: css.getVar("carousel-arrow-color");
+    cursor: pointer;
+    border: 1px solid css.getVar("carousel-arrow-background");
+    border-radius: css.getVar("radius-rounded");
+    outline: 0;
+
+    &:hover {
+      border: 1px solid css.getVar("carousel-arrow-color");
+      opacity: 1;
     }
 
-    &.icon {
-        background: css.getVar("carousel-arrow-background");
-        color: css.getVar("carousel-arrow-color");
-        cursor: pointer;
-        border: 1px solid css.getVar("carousel-arrow-background");
-        border-radius: css.getVar("radius-rounded");
-        outline: 0;
-
-        &:hover {
-            border: 1px solid css.getVar("carousel-arrow-color");
-            opacity: 1;
-        }
-
-        &.has-icons-left,
-        &.has-icons-right {
-            position: absolute;
-            top: css.getVar("carousel-arrow-top");
-            transform: translateY(calc(-1 * css.getVar("carousel-arrow-top")));
-            z-index: 1;
-        }
-
-        &.has-icons-left {
-            left: css.getVar("carousel-arrow-icon-spaced");
-        }
-
-        &.has-icons-right {
-            right: css.getVar("carousel-arrow-icon-spaced");
-        }
+    &.has-icons-left,
+    &.has-icons-right {
+      position: absolute;
+      top: css.getVar("carousel-arrow-top");
+      transform: translateY(calc(-1 * css.getVar("carousel-arrow-top")));
+      z-index: 1;
     }
+
+    &.has-icons-left {
+      left: css.getVar("carousel-arrow-icon-spaced");
+    }
+
+    &.has-icons-right {
+      right: css.getVar("carousel-arrow-icon-spaced");
+    }
+  }
 }

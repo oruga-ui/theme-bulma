@@ -2,89 +2,93 @@
 @use "bulma/sass/utilities/controls" as controls;
 
 .timepicker {
-    .dropdown,
-    .dropdown-trigger {
-        @include css.register-vars(
-            (
-                "dropdown-menu-min-width": 0,
-            )
-        );
+  .dropdown,
+  .dropdown-trigger {
+    @include css.register-vars(
+      (
+        "dropdown-menu-min-width": 0,
+      )
+    );
 
-        width: 100%;
+    width: 100%;
 
-        .input[readonly] {
-            cursor: pointer;
-            box-shadow: css.getVar("input-shadow");
+    .input[readonly] {
+      cursor: pointer;
+      box-shadow: css.getVar("input-shadow");
 
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
-                box-shadow: css.getVar("input-focus-shadow-size")
-                    hsla(
-                        css.getVar("input-focus-h"),
-                        css.getVar("input-focus-s"),
-                        css.getVar("input-focus-l"),
-                        css.getVar("input-focus-shadow-alpha")
-                    );
-            }
+      &:focus,
+      &.is-focused,
+      &:active,
+      &.is-active {
+        box-shadow: css.getVar("input-focus-shadow-size")
+          hsla(
+            css.getVar("input-focus-h"),
+            css.getVar("input-focus-s"),
+            css.getVar("input-focus-l"),
+            css.getVar("input-focus-shadow-alpha")
+          );
+      }
+    }
+  }
+
+  // unset opacity when dropdow is disabled
+  .dropdown {
+    &.is-disabled {
+      opacity: 1;
+    }
+  }
+
+  .dropdown-item {
+    font-size: inherit;
+    padding: 0;
+    justify-content: center;
+    display: flex;
+
+    &:hover {
+      background-color: unset;
+    }
+  }
+
+  .timepicker-footer {
+    padding: 0 0.5rem 0 0.5rem;
+  }
+
+  .dropdown-content {
+    .control {
+      font-size: 1.25em;
+
+      &.select {
+        margin: 0 0.125em;
+
+        select {
+          font-weight: css.getVar("weight-semibold");
+          padding-right: css.getVar("control-padding-horizontal");
+          border: 0;
         }
-    }
 
-    // unset opacity when dropdow is disabled
-    .dropdown {
-        &.is-disabled {
-            opacity: 1;
+        &:after {
+          display: none;
         }
+      }
+
+      &.is-colon {
+        font-size: 1.7em;
+        line-height: 1.7em;
+      }
     }
+  }
 
-    .dropdown-item {
-        font-size: inherit;
-        padding: 0;
-        justify-content: center;
-        display: flex;
-    }
+  // sizes
 
-    .timepicker-footer {
-        padding: 0 0.5rem 0 0.5rem;
-    }
+  &.is-small {
+    @include controls.control-small;
+  }
 
-    .dropdown-content {
-        .control {
-            font-size: 1.25em;
+  &.is-medium {
+    @include controls.control-medium;
+  }
 
-            &.select {
-                margin: 0 0.125em;
-
-                select {
-                    font-weight: css.getVar("weight-semibold");
-                    padding-right: css.getVar("control-padding-horizontal");
-                    border: 0;
-                }
-
-                &:after {
-                    display: none;
-                }
-            }
-
-            &.is-colon {
-                font-size: 1.7em;
-                line-height: 1.7em;
-            }
-        }
-    }
-
-    // sizes
-
-    &.is-small {
-        @include controls.control-small;
-    }
-
-    &.is-medium {
-        @include controls.control-medium;
-    }
-
-    &.is-large {
-        @include controls.control-large;
-    }
+  &.is-large {
+    @include controls.control-large;
+  }
 }

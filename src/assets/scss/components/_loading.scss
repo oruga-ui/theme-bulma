@@ -3,48 +3,48 @@
 @use "../utils/variables" as vars;
 
 .loading {
+  @include css.register-vars(
+    (
+      "loading-background-color": #{vars.$loading-background-color},
+      "loading-icon-size": #{vars.$loading-icon-size},
+      "loading-z": #{vars.$loading-z},
+    )
+  );
+
+  @include mixins.overlay;
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+  z-index: css.getVar("loading-z");
+
+  &.is-full-page {
     @include css.register-vars(
-        (
-            "loading-background-color": #{vars.$loading-background-color},
-            "loading-icon-size": #{vars.$loading-icon-size},
-            "loading-z": #{vars.$loading-z},
-        )
+      (
+        "loading-icon-size": #{vars.$loading-icon-size-full-page},
+      )
     );
 
+    position: fixed;
+    z-index: 999;
+  }
+
+  .loading-overlay {
     @include mixins.overlay;
 
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    overflow: hidden;
-    z-index: css.getVar("loading-z");
+    background-color: css.getVar("loading-background-color");
+  }
 
-    &.is-full-page {
-        @include css.register-vars(
-            (
-                "loading-icon-size": #{vars.$loading-icon-size-full-page},
-            )
-        );
+  .icon {
+    @include css.register-vars(
+      (
+        "icon-spin-duration": 1s,
+      )
+    );
 
-        position: fixed;
-        z-index: 999;
-    }
-
-    .loading-overlay {
-        @include mixins.overlay;
-
-        background-color: css.getVar("loading-background-color");
-    }
-
-    .icon {
-        @include css.register-vars(
-            (
-                "icon-spin-duration": 1s,
-            )
-        );
-
-        position: absolute;
-        width: css.getVar("loading-icon-size");
-        height: css.getVar("loading-icon-size");
-    }
+    position: absolute;
+    width: css.getVar("loading-icon-size");
+    height: css.getVar("loading-icon-size");
+  }
 }

@@ -4,362 +4,358 @@
 @use "../utils/variables" as vars;
 
 .field {
-    &.is-grouped {
-        .field.is-expanded {
-            flex-grow: 1;
-            flex-shrink: 1;
-        }
+  &.is-grouped {
+    .field.is-expanded {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  &.has-addons {
+    .button {
+      &:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    .select {
+      &:not(:last-child) select {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child) select {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    .dropdown {
+      &:not(:last-child) .button {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child) .button {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    .datepicker {
+      &:not(:last-child) .input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child) .input {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+  }
+
+  // Nested control addons (for Autocomplete and Datepicker)
+  &.has-addons .control {
+    &:first-child .control {
+      .button,
+      .input,
+      .select select {
+        border-bottom-left-radius: css.getVar("input-radius");
+        border-top-left-radius: css.getVar("input-radius");
+      }
+    }
+
+    &:last-child .control {
+      .button,
+      .input,
+      .select select {
+        border-bottom-right-radius: css.getVar("input-radius");
+        border-top-right-radius: css.getVar("input-radius");
+      }
+    }
+
+    .control {
+      .button,
+      .input,
+      .select select {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.is-floating-label,
+  &.is-floating-in-label {
+    position: relative;
+
+    .label {
+      position: absolute;
+      left: 1em;
+      font-size: calc(css.getVar("size-normal") * 3 / 4);
+      background-color: transparent;
+      z-index: 5;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: calc(100% - 2em);
+      overflow: hidden;
+
+      &.is-small {
+        font-size: calc(css.getVar("size-small") * 3 / 4);
+      }
+
+      &.is-medium {
+        font-size: calc(css.getVar("size-medium") * 3 / 4);
+      }
+
+      &.is-large {
+        font-size: calc(css.getVar("size-large") * 3 / 4);
+      }
+    }
+
+    .taginput .counter {
+      float: none;
+      text-align: right;
     }
 
     &.has-addons {
-        .button {
-            &:not(:last-child) {
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-            &:not(:first-child) {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-            }
+      > .label {
+        + .control {
+          .button,
+          .input,
+          .select select {
+            border-bottom-left-radius: css.getVar("input-radius");
+            border-top-left-radius: css.getVar("input-radius");
+          }
         }
-
-        .select {
-            &:not(:last-child) select {
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-            &:not(:first-child) select {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-            }
-        }
-
-        .dropdown {
-            &:not(:last-child) .button {
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-            &:not(:first-child) .button {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-            }
-        }
-
-        .datepicker {
-            &:not(:last-child) .input {
-                border-bottom-right-radius: 0;
-                border-top-right-radius: 0;
-            }
-
-            &:not(:first-child) .input {
-                border-bottom-left-radius: 0;
-                border-top-left-radius: 0;
-            }
-        }
+      }
     }
 
-    // Nested control addons (for Autocomplete and Datepicker)
-    &.has-addons .control {
-        &:first-child .control {
-            .button,
-            .input,
-            .select select {
-                border-bottom-left-radius: css.getVar("input-radius");
-                border-top-left-radius: css.getVar("input-radius");
-            }
-        }
+    &.has-numberinput {
+      .label {
+        margin-left: calc(css.getVar("size-normal") * 3);
+      }
 
-        &:last-child .control {
-            .button,
-            .input,
-            .select select {
-                border-bottom-right-radius: css.getVar("input-radius");
-                border-top-right-radius: css.getVar("input-radius");
-            }
-        }
-
-        .control {
-            .button,
-            .input,
-            .select select {
-                border-radius: 0;
-            }
-        }
-    }
-
-    &.is-floating-label,
-    &.is-floating-in-label {
-        position: relative;
-
+      &.has-numberinput-is-small {
         .label {
-            position: absolute;
-            left: 1em;
-            font-size: calc(css.getVar("size-normal") * 3 / 4);
-            background-color: transparent;
-            z-index: 5;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: calc(100% - 2em);
-            overflow: hidden;
+          margin-left: calc(css.getVar("size-small") * 3);
+        }
+      }
 
-            &.is-small {
-                font-size: calc(css.getVar("size-small") * 3 / 4);
-            }
+      &.has-numberinput-is-medium {
+        .label {
+          margin-left: calc(css.getVar("size-medium") * 3);
+        }
+      }
 
-            &.is-medium {
-                font-size: calc(css.getVar("size-medium") * 3 / 4);
-            }
+      &.has-numberinput-is-large {
+        .label {
+          margin-left: calc(css.getVar("size-large") * 3);
+        }
+      }
+    }
 
-            &.is-large {
-                font-size: calc(css.getVar("size-large") * 3 / 4);
-            }
+    &.has-numberinput-compact {
+      .label {
+        margin-left: calc(css.getVar("size-normal") * 2.25);
+      }
+
+      &.has-numberinput-is-small {
+        .label {
+          margin-left: calc(css.getVar("size-small") * 2.25);
+        }
+      }
+
+      &.has-numberinput-is-medium {
+        .label {
+          margin-left: calc(css.getVar("size-medium") * 2.25);
+        }
+      }
+
+      &.has-numberinput-is-large {
+        .label {
+          margin-left: calc(css.getVar("size-large") * 2.25);
+        }
+      }
+    }
+  }
+
+  &.is-floating-label {
+    .label {
+      top: -0.775em;
+      padding-left: 0.125em;
+      padding-right: 0.125em;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0.775em;
+        left: 0;
+        right: 0;
+        height: 0.375em;
+        background-color: hsl(
+          form.$input-h,
+          form.$input-s,
+          calc(form.$input-background-l + form.$input-background-l-delta)
+        );
+        z-index: -1;
+      }
+    }
+
+    .input,
+    .textarea,
+    .select select {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .taginput .taginput-container {
+      padding-top: 0.475em;
+
+      &.is-focused {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.is-floating-in-label {
+    > .label {
+      top: 0.25em;
+
+      + .control {
+        &.datepicker,
+        &.timepicker {
+          .input {
+            padding-top: calc(
+              #{vars.$floating-in-height} / 2 -
+                (css.getVar("size-large") * 3 / 4) / 2
+            );
+            padding-bottom: 1px;
+            height: vars.$floating-in-height;
+          }
         }
 
-        .taginput .counter {
-            float: none;
-            text-align: right;
+        &:not(.datepicker):not(.timepicker):not(.taginput) {
+          .input,
+          .textarea,
+          select {
+            padding-top: calc(
+              #{vars.$floating-in-height} / 2 -
+                (css.getVar("size-large") * 3 / 4) / 2
+            );
+            padding-bottom: 1px;
+            height: vars.$floating-in-height;
+          }
+
+          .select:not([multiple]) {
+            height: vars.$floating-in-height;
+
+            &.is-loading {
+              &::after {
+                margin-top: calc(
+                  #{vars.$floating-in-height} / 2 -
+                    (css.getVar("size-large") * 3 / 4) / 2
+                );
+              }
+            }
+
+            &::after {
+              margin-top: 1px;
+            }
+          }
         }
 
-        &.has-addons {
-            > .label {
-                + .control {
-                    .button,
-                    .input,
-                    .select select {
-                        border-bottom-left-radius: css.getVar("input-radius");
-                        border-top-left-radius: css.getVar("input-radius");
-                    }
-                }
-            }
+        &.taginput {
+          .taginput-container {
+            // 0.275em - 1px _taginput.scss
+            padding-top: calc(
+              #{vars.$floating-in-height} / 2 -
+                (css.getVar("size-large") * 3 / 4) / 2 + (0.275em - 1px)
+            );
+          }
         }
 
-        &.has-numberinput {
-            .label {
-                margin-left: calc(css.getVar("size-normal") * 3);
-            }
+        &:not(.taginput) {
+          .is-left.icon,
+          .is-right.icon {
+            height: vars.$floating-in-height;
+          }
 
-            &.has-numberinput-is-small {
-                .label {
-                    margin-left: calc(css.getVar("size-small") * 3);
-                }
-            }
-
-            &.has-numberinput-is-medium {
-                .label {
-                    margin-left: calc(css.getVar("size-medium") * 3);
-                }
-            }
-
-            &.has-numberinput-is-large {
-                .label {
-                    margin-left: calc(css.getVar("size-large") * 3);
-                }
-            }
+          .is-left.icon {
+            padding-top: calc(
+              #{vars.$floating-in-height} / 2 -
+                (css.getVar("size-large") * 3 / 4) / 2
+            );
+          }
         }
 
-        &.has-numberinput-compact {
-            .label {
-                margin-left: calc(css.getVar("size-normal") * 2.25);
-            }
-
-            &.has-numberinput-is-small {
-                .label {
-                    margin-left: calc(css.getVar("size-small") * 2.25);
-                }
-            }
-
-            &.has-numberinput-is-medium {
-                .label {
-                    margin-left: calc(css.getVar("size-medium") * 2.25);
-                }
-            }
-
-            &.has-numberinput-is-large {
-                .label {
-                    margin-left: calc(css.getVar("size-large") * 2.25);
-                }
-            }
+        &.is-loading::after {
+          margin-top: calc(
+            #{vars.$floating-in-height} / 2 -
+              (css.getVar("size-large") * 3 / 4) / 2
+          );
         }
+      }
+
+      // With addons or grouped
+      + .field-body {
+        > .is-grouped,
+        > .has-addons {
+          .control {
+            .input,
+            .textarea,
+            select {
+              padding-top: calc(
+                #{vars.$floating-in-height} / 2 -
+                  (css.getVar("size-large") * 3 / 4) / 2
+              );
+              padding-bottom: 1px;
+            }
+
+            .input,
+            .textarea,
+            select,
+            .button {
+              height: vars.$floating-in-height;
+            }
+          }
+        }
+      }
+    }
+
+    &.has-numberinput {
+      .b-numberinput {
+        .control {
+          .input,
+          .button {
+            height: vars.$floating-in-height;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-grouped-right,
+  &.has-addons-right {
+    &.is-floating-in-label {
+      .label {
+        position: relative;
+        left: calc(3.25em + 2em);
+      }
     }
 
     &.is-floating-label {
-        .label {
-            top: -0.775em;
-            padding-left: 0.125em;
-            padding-right: 0.125em;
-
-            &:before {
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0.775em;
-                left: 0;
-                right: 0;
-                height: 0.375em;
-                background-color: hsl(
-                    form.$input-h,
-                    form.$input-s,
-                    calc(
-                        form.$input-background-l +
-                            form.$input-background-l-delta
-                    )
-                );
-                z-index: -1;
-            }
-        }
-
-        .input,
-        .textarea,
-        .select select {
-            &:focus {
-                box-shadow: none;
-            }
-        }
-
-        .taginput .taginput-container {
-            padding-top: 0.475em;
-
-            &.is-focused {
-                box-shadow: none;
-            }
-        }
+      .label {
+        position: relative;
+        left: calc(3.25em + 2em);
+      }
     }
-
-    &.is-floating-in-label {
-        > .label {
-            top: 0.25em;
-
-            + .control {
-                &.datepicker,
-                &.timepicker {
-                    .input {
-                        padding-top: calc(
-                            #{vars.$floating-in-height} / 2 -
-                                (css.getVar("size-large") * 3 / 4) / 2
-                        );
-                        padding-bottom: 1px;
-                        height: vars.$floating-in-height;
-                    }
-                }
-
-                &:not(.datepicker):not(.timepicker):not(.taginput) {
-                    .input,
-                    .textarea,
-                    select {
-                        padding-top: calc(
-                            #{vars.$floating-in-height} / 2 -
-                                (css.getVar("size-large") * 3 / 4) / 2
-                        );
-                        padding-bottom: 1px;
-                        height: vars.$floating-in-height;
-                    }
-
-                    .select:not([multiple]) {
-                        height: vars.$floating-in-height;
-
-                        &.is-loading {
-                            &::after {
-                                margin-top: calc(
-                                    #{vars.$floating-in-height} / 2 -
-                                        (css.getVar("size-large") * 3 / 4) / 2
-                                );
-                            }
-                        }
-
-                        &::after {
-                            margin-top: 1px;
-                        }
-                    }
-                }
-
-                &.taginput {
-                    .taginput-container {
-                        // 0.275em - 1px _taginput.scss
-                        padding-top: calc(
-                            #{vars.$floating-in-height} / 2 -
-                                (css.getVar("size-large") * 3 / 4) / 2 +
-                                (0.275em - 1px)
-                        );
-                    }
-                }
-
-                &:not(.taginput) {
-                    .is-left.icon,
-                    .is-right.icon {
-                        height: vars.$floating-in-height;
-                    }
-
-                    .is-left.icon {
-                        padding-top: calc(
-                            #{vars.$floating-in-height} / 2 -
-                                (css.getVar("size-large") * 3 / 4) / 2
-                        );
-                    }
-                }
-
-                &.is-loading::after {
-                    margin-top: calc(
-                        #{vars.$floating-in-height} / 2 -
-                            (css.getVar("size-large") * 3 / 4) / 2
-                    );
-                }
-            }
-
-            // With addons or grouped
-            + .field-body {
-                > .is-grouped,
-                > .has-addons {
-                    .control {
-                        .input,
-                        .textarea,
-                        select {
-                            padding-top: calc(
-                                #{vars.$floating-in-height} / 2 -
-                                    (css.getVar("size-large") * 3 / 4) / 2
-                            );
-                            padding-bottom: 1px;
-                        }
-
-                        .input,
-                        .textarea,
-                        select,
-                        .button {
-                            height: vars.$floating-in-height;
-                        }
-                    }
-                }
-            }
-        }
-
-        &.has-numberinput {
-            .b-numberinput {
-                .control {
-                    .input,
-                    .button {
-                        height: vars.$floating-in-height;
-                    }
-                }
-            }
-        }
-    }
-
-    &.is-grouped-right,
-    &.has-addons-right {
-        &.is-floating-in-label {
-            .label {
-                position: relative;
-                left: calc(3.25em + 2em);
-            }
-        }
-
-        &.is-floating-label {
-            .label {
-                position: relative;
-                left: calc(3.25em + 2em);
-            }
-        }
-    }
+  }
 }

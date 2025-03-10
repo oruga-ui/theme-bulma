@@ -5,127 +5,127 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 .sidebar {
-    @include css.register-vars(
+  @include css.register-vars(
+    (
+      "sidebar-z": #{vars.$sidebar-z},
+      "sidebar-background-background-color":
+        #{vars.$sidebar-background-background-color},
+      "sidebar-shadow": #{vars.$sidebar-shadow},
+      "sidebar-width": #{vars.$sidebar-width},
+      "sidebar-height": #{vars.$sidebar-height},
+      "sidebar-mobile-width": #{vars.$sidebar-mobile-width},
+    )
+  );
+
+  .sidebar-content {
+    background-color: css.getVar("background");
+    box-shadow: css.getVar("sidebar-shadow");
+    width: css.getVar("sidebar-width");
+    height: css.getVar("sidebar-height");
+    position: fixed;
+    transition: width vars.$speed-slow css.getVar("easing");
+    z-index: css.getVar("sidebar-z");
+
+    @each $name, $pair in vars.$sidebar-colors {
+      $color: list.nth($pair, 1);
+
+      &.is-#{$name} {
+        @include css.register-vars(
+          (
+            "sidebar-background-background-color": #{$color},
+          )
+        );
+      }
+    }
+
+    &.is-left {
+      @include css.register-vars(
         (
-            "sidebar-z": #{vars.$sidebar-z},
-            "sidebar-background-background-color":
-                #{vars.$sidebar-background-background-color},
-            "sidebar-shadow": #{vars.$sidebar-shadow},
-            "sidebar-width": #{vars.$sidebar-width},
-            "sidebar-height": #{vars.$sidebar-height},
-            "sidebar-mobile-width": #{vars.$sidebar-mobile-width},
+          "sidebar-height": 100%,
         )
+      );
+
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    &.is-right {
+      @include css.register-vars(
+        (
+          "sidebar-height": 100%,
+        )
+      );
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.is-top {
+      @include css.register-vars(
+        (
+          "sidebar-width": 100%,
+        )
+      );
+
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    &.is-bottom {
+      @include css.register-vars(
+        (
+          "sidebar-width": 100%,
+        )
+      );
+
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    &.is-fullwidth {
+      @include css.register-vars(
+        (
+          "sidebar-width": 100%,
+        )
+      );
+    }
+
+    &.is-fullheight {
+      @include css.register-vars(
+        (
+          "sidebar-height": 100%,
+        )
+      );
+    }
+
+    &.is-mini {
+      width: css.getVar("sidebar-mobile-width");
+
+      &.is-expanded:hover:not(.is-fullwidth) {
+        width: css.getVar("sidebar-width");
+      }
+    }
+  }
+
+  .sidebar-background {
+    @include mixins.overlay;
+
+    position: fixed;
+    background-color: css.getVar("sidebar-background-background-color");
+    z-index: css.getVar("sidebar-z");
+  }
+
+  &.is-inline .sidebar-content {
+    @include css.register-vars(
+      (
+        "sidebar-z": 0,
+      )
     );
 
-    .sidebar-content {
-        background-color: css.getVar("background");
-        box-shadow: css.getVar("sidebar-shadow");
-        width: css.getVar("sidebar-width");
-        height: css.getVar("sidebar-height");
-        position: fixed;
-        transition: width vars.$speed-slow css.getVar("easing");
-        z-index: css.getVar("sidebar-z");
-
-        @each $name, $pair in vars.$sidebar-colors {
-            $color: list.nth($pair, 1);
-
-            &.is-#{$name} {
-                @include css.register-vars(
-                    (
-                        "sidebar-background-background-color": #{$color},
-                    )
-                );
-            }
-        }
-
-        &.is-left {
-            @include css.register-vars(
-                (
-                    "sidebar-height": 100%,
-                )
-            );
-
-            top: 0;
-            left: 0;
-            bottom: 0;
-        }
-
-        &.is-right {
-            @include css.register-vars(
-                (
-                    "sidebar-height": 100%,
-                )
-            );
-
-            top: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        &.is-top {
-            @include css.register-vars(
-                (
-                    "sidebar-width": 100%,
-                )
-            );
-
-            top: 0;
-            right: 0;
-            left: 0;
-        }
-
-        &.is-bottom {
-            @include css.register-vars(
-                (
-                    "sidebar-width": 100%,
-                )
-            );
-
-            right: 0;
-            left: 0;
-            bottom: 0;
-        }
-
-        &.is-fullwidth {
-            @include css.register-vars(
-                (
-                    "sidebar-width": 100%,
-                )
-            );
-        }
-
-        &.is-fullheight {
-            @include css.register-vars(
-                (
-                    "sidebar-height": 100%,
-                )
-            );
-        }
-
-        &.is-mini {
-            width: css.getVar("sidebar-mobile-width");
-
-            &.is-expanded:hover:not(.is-fullwidth) {
-                width: css.getVar("sidebar-width");
-            }
-        }
-    }
-
-    .sidebar-background {
-        @include mixins.overlay;
-
-        position: fixed;
-        background-color: css.getVar("sidebar-background-background-color");
-        z-index: css.getVar("sidebar-z");
-    }
-
-    &.is-inline .sidebar-content {
-        @include css.register-vars(
-            (
-                "sidebar-z": 0,
-            )
-        );
-
-        position: relative;
-    }
+    position: relative;
+  }
 }

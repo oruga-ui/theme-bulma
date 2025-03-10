@@ -3,8 +3,8 @@
 @use "bulma/sass/utilities/derived-variables" as dv;
 
 $sizes-map: (
-    "small": dv.$size-small,
-    "normal": dv.$size-normal,
-    "medium": dv.$size-medium,
-    "large": dv.$size-large,
+  "small": dv.$size-small,
+  "normal": dv.$size-normal,
+  "medium": dv.$size-medium,
+  "large": dv.$size-large,
 ) !default;

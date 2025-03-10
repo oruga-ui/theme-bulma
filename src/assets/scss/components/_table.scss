@@ -4,328 +4,327 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 @mixin table-cards {
-    .table {
-        background-color: transparent;
-    }
+  .table {
+    background-color: transparent;
+  }
 
-    thead {
-        tr {
-            box-shadow: none;
-            border-width: 0;
-
-            th {
-                display: none;
-            }
-
-            .checkbox-cell {
-                display: block;
-                width: 100%;
-                text-align: right;
-                margin-bottom: 1rem;
-                border: 0;
-            }
-        }
-    }
-
-    tfoot {
-        th {
-            border: 0; // Disable is-bordered
-            display: inherit;
-        }
-    }
-
+  thead {
     tr {
-        // Card style — Cannot extend inside media query
-        box-shadow:
-            0 2px 3px rgba(css.getVar("black"), 0.1),
-            0 0 0 1px rgba(css.getVar("black"), 0.1);
-        max-width: 100%;
-        position: relative;
+      box-shadow: none;
+      border-width: 0;
+
+      th {
+        display: none;
+      }
+
+      .checkbox-cell {
         display: block;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 1rem;
+        border: 0;
+      }
+    }
+  }
 
-        td {
-            border: 0; // Disable is-bordered
-            display: inherit;
+  tfoot {
+    th {
+      border: 0; // Disable is-bordered
+      display: inherit;
+    }
+  }
 
-            &:last-child {
-                border-bottom: 0;
-            }
-        }
+  tr {
+    // Card style — Cannot extend inside media query
+    box-shadow:
+      0 2px 3px rgba(css.getVar("black"), 0.1),
+      0 0 0 1px rgba(css.getVar("black"), 0.1);
+    max-width: 100%;
+    position: relative;
+    display: block;
 
-        &:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-        // Disables is-*
-        &:not([class*="is-"]) {
-            background: css.getVar("table-background-color");
+    td {
+      border: 0; // Disable is-bordered
+      display: inherit;
 
-            &:hover {
-                background-color: css.getVar("table-background-color");
-            }
-        }
-
-        &.detail {
-            margin-top: -1rem;
-        }
+      &:last-child {
+        border-bottom: 0;
+      }
     }
 
-    tr:not(.detail):not(.is-empty):not(.table-footer) {
-        td {
-            display: flex;
-            width: auto;
-            justify-content: space-between;
-            text-align: right;
-            border-bottom: 1px solid css.getVar("background");
-
-            &:before {
-                content: attr(data-label);
-                font-weight: css.getVar("weight-semibold");
-                padding-right: 0.5em;
-                text-align: left;
-            }
-        }
+    &:not(:last-child) {
+      margin-bottom: 1rem;
     }
+    // Disables is-*
+    &:not([class*="is-"]) {
+      background: css.getVar("table-background-color");
+
+      &:hover {
+        background-color: css.getVar("table-background-color");
+      }
+    }
+
+    &.detail {
+      margin-top: -1rem;
+    }
+  }
+
+  tr:not(.detail):not(.is-empty):not(.table-footer) {
+    td {
+      display: flex;
+      width: auto;
+      justify-content: space-between;
+      text-align: right;
+      border-bottom: 1px solid css.getVar("background");
+
+      &:before {
+        content: attr(data-label);
+        font-weight: css.getVar("weight-semibold");
+        padding-right: 0.5em;
+        text-align: left;
+      }
+    }
+  }
 }
 
 .table-wrapper {
-    @include css.register-vars(
-        (
-            "table-sticky-header-height": #{vars.$table-sticky-header-height},
-        )
-    );
-    transition: opacity vars.$speed css.getVar("easing");
+  @include css.register-vars(
+    (
+      "table-sticky-header-height": #{vars.$table-sticky-header-height},
+    )
+  );
+  transition: opacity vars.$speed css.getVar("easing");
 
-    .table-mobile-sort {
-        @include mixins.tablet {
-            display: none;
-        }
-
-        // addition
-        .button {
-            background-color: css.getVar("primary");
-            color: css.getVar("primary-invert-l");
-        }
+  .table-mobile-sort {
+    @include mixins.tablet {
+      display: none;
     }
 
-    .table-inner {
-        position: relative;
-
-        @include mixins.touch {
-            overflow-x: auto;
-        }
-
-        .table {
-            margin-bottom: 0;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 1.5rem;
-        }
-
-        &.has-sticky-header {
-            height: css.getVar("table-sticky-header-height");
-            overflow-y: auto;
-
-            &.is-mobile {
-                @include mixins.mobile {
-                    height: initial !important;
-                    overflow-y: initial !important;
-                }
-            }
-
-            tr:first-child {
-                th {
-                    position: -webkit-sticky;
-                    position: sticky;
-                    top: 0;
-                    z-index: 2;
-                    background: css.getVar("table-background-color");
-                }
-            }
-        }
-
-        &.is-mobile {
-            @include mixins.mobile {
-                @include table-cards;
-            }
-        }
-
-        &.is-card-list {
-            @include table-cards;
-        }
+    // addition
+    .button {
+      background-color: css.getVar("primary");
+      color: css.getVar("primary-invert-l");
     }
+  }
 
-    .icon {
-        transition:
-            transform vars.$speed-slow css.getVar("easing"),
-            opacity vars.$speed css.getVar("easing");
+  .table-inner {
+    position: relative;
 
-        &.is-desc {
-            transform: rotate(180deg);
-        }
-
-        &.is-expanded {
-            transform: rotate(90deg);
-        }
+    @include mixins.touch {
+      overflow-x: auto;
     }
 
     .table {
-        width: 100%;
-        border: 1px solid transparent;
-        border-radius: css.getVar("radius");
-        border-collapse: separate;
-
-        th {
-            font-weight: css.getVar("weight-semibold");
-
-            .th-wrap {
-                display: flex;
-                align-items: center;
-
-                .icon {
-                    margin-left: 0.5rem;
-                    margin-right: 0;
-                    font-size: 1rem;
-                }
-            }
-
-            &.is-right {
-                flex-direction: row-reverse;
-                text-align: right;
-
-                .icon {
-                    margin-left: 0;
-                    margin-right: 0.5rem;
-                }
-            }
-
-            &.is-centered {
-                justify-content: center;
-                text-align: center;
-            }
-
-            &.is-current-sort {
-                border-color: css.getVar("grey");
-                font-weight: css.getVar("weight-bold");
-            }
-
-            &.is-sortable:hover {
-                border-color: css.getVar("grey");
-            }
-
-            &.is-sortable {
-                cursor: pointer;
-
-                > span {
-                    position: relative;
-                }
-            }
-
-            .sort-icon,
-            .multi-sort-cancel-icon {
-                position: absolute;
-                bottom: 50%;
-                left: 100%;
-                transform: translateY(50%);
-            }
-
-            .multi-sort-cancel-icon {
-                margin-left: 10px;
-            }
-
-            &.is-sticky {
-                position: -webkit-sticky;
-                position: sticky;
-                left: 0;
-                z-index: 3 !important;
-                background: css.getVar("table-head-background-color");
-            }
-
-            &.th-checkbox {
-                width: 40px;
-            }
-
-            &.th-chevron-cell {
-                width: 40px;
-            }
-        }
-
-        tr {
-            &.is-selected {
-                .check {
-                    border-color: css.getVar("table-row-active-color");
-
-                    &:checked {
-                        background: css.getVar("table-row-active-color")
-                            url(fn.checkmark(vars.$primary)) no-repeat center
-                            center;
-                    }
-                }
-            }
-
-            &.is-empty:hover {
-                background-color: transparent;
-            }
-
-            &.detail {
-                box-shadow: inset 0 1px 3px css.getVar("grey-lighter");
-                background: css.getVar("scheme-main-bis");
-            }
-        }
-
-        td {
-            &.is-sticky {
-                position: -webkit-sticky;
-                position: sticky;
-                left: 0;
-                z-index: 1;
-                background: css.getVar("table-background-color");
-            }
-        }
-
-        .chevron-cell {
-            vertical-align: middle;
-        }
-
-        .checkbox-cell {
-            width: 40px;
-
-            .checkbox {
-                vertical-align: middle;
-
-                .check {
-                    transition: none;
-                }
-            }
-        }
-
-        &.is-bordered {
-            th.is-current-sort,
-            th.is-sortable:hover {
-                border-color: css.getVar("grey-lighter");
-                background: css.getVar("background");
-            }
-        }
-
-        &.is-striped {
-            tbody {
-                tr:not(.is-selected) {
-                    &:nth-child(even) {
-                        td {
-                            &.is-sticky {
-                                background: css.getVar(
-                                    "table-striped-row-even-background-color"
-                                );
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        &:focus {
-            border-color: css.getVar("link");
-            box-shadow: 0 0 0 0.125em rgba(css.getVar("link"), 0.25);
-        }
+      margin-bottom: 0;
     }
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    &.has-sticky-header {
+      height: css.getVar("table-sticky-header-height");
+      overflow-y: auto;
+
+      &.is-mobile {
+        @include mixins.mobile {
+          height: initial !important;
+          overflow-y: initial !important;
+        }
+      }
+
+      tr:first-child {
+        th {
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          z-index: 2;
+          background: css.getVar("table-background-color");
+        }
+      }
+    }
+
+    &.is-mobile {
+      @include mixins.mobile {
+        @include table-cards;
+      }
+    }
+
+    &.is-card-list {
+      @include table-cards;
+    }
+  }
+
+  .icon {
+    transition:
+      transform vars.$speed-slow css.getVar("easing"),
+      opacity vars.$speed css.getVar("easing");
+
+    &.is-desc {
+      transform: rotate(180deg);
+    }
+
+    &.is-expanded {
+      transform: rotate(90deg);
+    }
+  }
+
+  .table {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: css.getVar("radius");
+    border-collapse: separate;
+
+    th {
+      font-weight: css.getVar("weight-semibold");
+
+      .th-wrap {
+        display: flex;
+        align-items: center;
+
+        .icon {
+          margin-left: 0.5rem;
+          margin-right: 0;
+          font-size: 1rem;
+        }
+      }
+
+      &.is-right {
+        flex-direction: row-reverse;
+        text-align: right;
+
+        .icon {
+          margin-left: 0;
+          margin-right: 0.5rem;
+        }
+      }
+
+      &.is-centered {
+        justify-content: center;
+        text-align: center;
+      }
+
+      &.is-current-sort {
+        border-color: css.getVar("grey");
+        font-weight: css.getVar("weight-bold");
+      }
+
+      &.is-sortable:hover {
+        border-color: css.getVar("grey");
+      }
+
+      &.is-sortable {
+        cursor: pointer;
+
+        > span {
+          position: relative;
+        }
+      }
+
+      .sort-icon,
+      .multi-sort-cancel-icon {
+        position: absolute;
+        bottom: 50%;
+        left: 100%;
+        transform: translateY(50%);
+      }
+
+      .multi-sort-cancel-icon {
+        margin-left: 10px;
+      }
+
+      &.is-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 3 !important;
+        background: css.getVar("table-head-background-color");
+      }
+
+      &.th-checkbox {
+        width: 40px;
+      }
+
+      &.th-chevron-cell {
+        width: 40px;
+      }
+    }
+
+    tr {
+      &.is-selected {
+        .check {
+          border-color: css.getVar("table-row-active-color");
+
+          &:checked {
+            background: css.getVar("table-row-active-color")
+              url(fn.checkmark(vars.$primary)) no-repeat center center;
+          }
+        }
+      }
+
+      &.is-empty:hover {
+        background-color: transparent;
+      }
+
+      &.detail {
+        box-shadow: inset 0 1px 3px css.getVar("grey-lighter");
+        background: css.getVar("scheme-main-bis");
+      }
+    }
+
+    td {
+      &.is-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: css.getVar("table-background-color");
+      }
+    }
+
+    .chevron-cell {
+      vertical-align: middle;
+    }
+
+    .checkbox-cell {
+      width: 40px;
+
+      .checkbox {
+        vertical-align: middle;
+
+        .check {
+          transition: none;
+        }
+      }
+    }
+
+    &.is-bordered {
+      th.is-current-sort,
+      th.is-sortable:hover {
+        border-color: css.getVar("grey-lighter");
+        background: css.getVar("background");
+      }
+    }
+
+    &.is-striped {
+      tbody {
+        tr:not(.is-selected) {
+          &:nth-child(even) {
+            td {
+              &.is-sticky {
+                background: css.getVar(
+                  "table-striped-row-even-background-color"
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:focus {
+      border-color: css.getVar("link");
+      box-shadow: 0 0 0 0.125em rgba(css.getVar("link"), 0.25);
+    }
+  }
 }

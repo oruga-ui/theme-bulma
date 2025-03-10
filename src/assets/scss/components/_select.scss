@@ -2,36 +2,36 @@
 @use "bulma/sass/utilities/controls" as controls;
 
 .select {
-    select {
-        &.is-empty {
-            color: rgba(css.getVar("grey"), 0.7);
-        }
-
-        &.has-icon-left {
-            padding-left: css.getVar("input-height");
-        }
-
-        &.has-icon-right {
-            padding-right: css.getVar("input-height");
-        }
+  select {
+    &.is-empty {
+      color: rgba(css.getVar("grey"), 0.7);
     }
 
-    // remove arrow if not has arrow
-    &:has(select:not(.has-arrow) + .icon) {
-        &::after {
-            display: none;
-        }
+    &.has-icon-left {
+      padding-left: css.getVar("input-height");
     }
 
-    .icon {
-        pointer-events: none;
-        position: absolute;
-        top: 0;
-        width: css.getVar("input-height");
-        height: css.getVar("input-height");
-
-        &.is-right {
-            right: 0;
-        }
+    &.has-icon-right {
+      padding-right: css.getVar("input-height");
     }
+  }
+
+  // remove arrow if not has arrow
+  &:has(select:not(.has-arrow) + .icon) {
+    &::after {
+      display: none;
+    }
+  }
+
+  .icon {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: css.getVar("input-height");
+    height: css.getVar("input-height");
+
+    &.is-right {
+      right: 0;
+    }
+  }
 }

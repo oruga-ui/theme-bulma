@@ -4,47 +4,62 @@
 @use "../utils/variables" as vars;
 
 .taginput {
-    @include css.register-vars(
-        (
-            "taginput-height": #{vars.$taginput-height},
-            "taginput-tag-size": #{vars.$taginput-tag-size},
-        )
-    );
+  @include css.register-vars(
+    (
+      "taginput-height": #{vars.$taginput-height},
+      "taginput-tag-size": #{vars.$taginput-tag-size},
+    )
+  );
 
-    .taginput-container {
-        @extend %input-textarea;
+  &.is-small .tag {
+    @include controls.control-small;
+  }
 
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        padding: 0;
-        height: auto;
-        cursor: text;
+  &.is-medium .tag {
+    @include controls.control-medium;
+  }
 
-        > .tag {
-            margin: 0.25em;
-            font-size: css.getVar("taginput-tag-size");
-            height: css.getVar("taginput-height");
+  &.is-large .tag {
+    @include controls.control-large;
+  }
 
-            .icon.delete {
-                margin-left: 0.275rem;
-            }
-        }
+  .taginput-container {
+    @extend %input-textarea;
 
-        .autocomplete {
-            flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+    height: auto;
+    cursor: text;
+  }
 
-            input {
-                height: css.getVar("taginput-height");
-                margin-top: 0.275em;
-                margin-bottom: 0.275em;
-                padding-top: 0;
-                padding-bottom: 0;
-                border: none;
-                box-shadow: none;
-                min-width: 8em;
-            }
-        }
+  .tag {
+    margin: 0.25em;
+    font-size: css.getVar("taginput-tag-size");
+    height: css.getVar("taginput-height");
+
+    .icon.delete {
+      margin-left: 0.275rem;
+
+      > svg {
+        display: none;
+      }
     }
+  }
+
+  .autocomplete {
+    flex: 1;
+
+    input {
+      height: css.getVar("taginput-height");
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &:has(input[disabled]) {
+    background-color: css.getVar("input-disabled-background-color");
+  }
 }
