@@ -11,7 +11,8 @@
         (
             "switch-width": #{vars.$switch-width},
             "switch-padding": #{vars.$switch-padding},
-            "switch-active-background-color": #{vars.$switch-active-background-color},
+            "switch-active-background-color":
+                #{vars.$switch-active-background-color},
             "switch-background-color": #{vars.$switch-background-color},
             "switch-shadow": #{vars.$switch-shadow},
         )
@@ -46,16 +47,20 @@
                     (
                         css.getVar("switch-width") - css.getVar(
                                 "switch-padding"
-                            ) * 2
-                    ) / 2
+                            ) *
+                            2
+                    ) /
+                    2
             );
             height: calc(
                 /* stylelint-disable-next-line scss/operator-no-newline-after */
                     (
                         css.getVar("switch-width") - css.getVar(
                                 "switch-padding"
-                            ) * 2
-                    ) * 0.5
+                            ) *
+                            2
+                    ) *
+                    0.5
             );
             background: css.getVar("background");
             box-shadow:

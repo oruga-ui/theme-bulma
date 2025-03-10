@@ -8,16 +8,26 @@
         @include css.register-vars(
             (
                 "tabs-focused-outline": #{vars.$tabs-focused-outline},
-                "tabs-link-focus-border-bottom-color": #{vars.$tabs-link-focus-border-bottom-color},
-                "tabs-link-focus-active-border-bottom-color": #{vars.$tabs-link-focus-active-border-bottom-color},
-                "tabs-boxed-link-focus-border-bottom-color": #{vars.$tabs-boxed-link-focus-border-bottom-color},
-                "tabs-boxed-link-focus-background-color": #{vars.$tabs-boxed-link-focus-background-color},
-                "tabs-boxed-link-focus-active-background-color": #{vars.$tabs-boxed-link-focus-active-background-color},
-                "tabs-boxed-link-focus-active-border-bottom-color": #{vars.$tabs-boxed-link-focus-active-border-bottom-color},
-                "tabs-toggle-link-focus-background-color": #{vars.$tabs-toggle-link-focus-background-color},
-                "tabs-toggle-link-focus-border-color": #{vars.$tabs-toggle-link-focus-border-color},
-                "tabs-toggle-link-focus-active-background-color": #{vars.$tabs-toggle-link-focus-active-background-color},
-                "tabs-toggle-link-focus-active-border-color": #{vars.$tabs-toggle-link-focus-active-border-color},
+                "tabs-link-focus-border-bottom-color":
+                    #{vars.$tabs-link-focus-border-bottom-color},
+                "tabs-link-focus-active-border-bottom-color":
+                    #{vars.$tabs-link-focus-active-border-bottom-color},
+                "tabs-boxed-link-focus-border-bottom-color":
+                    #{vars.$tabs-boxed-link-focus-border-bottom-color},
+                "tabs-boxed-link-focus-background-color":
+                    #{vars.$tabs-boxed-link-focus-background-color},
+                "tabs-boxed-link-focus-active-background-color":
+                    #{vars.$tabs-boxed-link-focus-active-background-color},
+                "tabs-boxed-link-focus-active-border-bottom-color":
+                    #{vars.$tabs-boxed-link-focus-active-border-bottom-color},
+                "tabs-toggle-link-focus-background-color":
+                    #{vars.$tabs-toggle-link-focus-background-color},
+                "tabs-toggle-link-focus-border-color":
+                    #{vars.$tabs-toggle-link-focus-border-color},
+                "tabs-toggle-link-focus-active-background-color":
+                    #{vars.$tabs-toggle-link-focus-active-background-color},
+                "tabs-toggle-link-focus-active-border-color":
+                    #{vars.$tabs-toggle-link-focus-active-border-color},
             )
         );
 

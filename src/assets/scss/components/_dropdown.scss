@@ -5,7 +5,8 @@
 .dropdown {
     @include css.register-vars(
         (
-            "dropdown-background-background-color": #{var.$dropdown-background-background-color},
+            "dropdown-background-background-color":
+                #{var.$dropdown-background-background-color},
             "dropdown-disabled-opacity": #{var.$dropdown-disabled-opacity},
             "dropdown-gap": #{var.$dropdown-gap},
             "dropdown-z": #{var.$dropdown-z},
@@ -35,9 +36,8 @@
             #{css.getVar("dropdown-item-h")},
             #{css.getVar("dropdown-item-s")},
             calc(
-                #{css.getVar("dropdown-item-background-l")} + #{css.getVar(
-                        "dropdown-item-background-l-delta"
-                    )}
+                #{css.getVar("dropdown-item-background-l")} +
+                    #{css.getVar("dropdown-item-background-l-delta")}
             )
         );
 

@@ -9,7 +9,8 @@
 .radio {
     @include css.register-vars(
         (
-            "radio-active-background-color": #{vars.$radio-active-background-color},
+            "radio-active-background-color":
+                #{vars.$radio-active-background-color},
             "radio-border-color": #{vars.$radio-border-color},
             "radio-size": #{vars.$radio-size},
             "radio-shadow": #{vars.$radio-shadow},

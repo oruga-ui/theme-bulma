@@ -11,7 +11,7 @@ $checkbox-border-radius: css.getVar("radius") !default;
 $checkbox-checkmark-color: css.getVar("primary-invert") !default;
 $checkbox-focus-color: hsl(from css.getVar("grey") h s l / 80%) !default;
 $checkbox-active-focus-color: hsl(
-        from css.getVar("checkbox-active-background-color") h s l / 80%
+    from css.getVar("checkbox-active-background-color") h s l / 80%
 ) !default;
 $checkbox-active-background-color: css.getVar("primary") !default;
 $checkbox-shadow: css.getVar("shadow");

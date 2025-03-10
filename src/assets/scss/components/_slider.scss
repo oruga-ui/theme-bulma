@@ -165,7 +165,8 @@
                         css.getVar("slider-size") /
                             css.getVar("slider-thumb-to-track-ratio") *
                             css.getVar("slider-tick-to-track-ratio")
-                    ) / 2 + 2px
+                    ) /
+                    2 + 2px
             );
             left: 50%;
             transform: translateX(-50%);

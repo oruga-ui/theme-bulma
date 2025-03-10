@@ -4,7 +4,8 @@
 .notices {
     @include css.register-vars(
         (
-            "notification-notices-padding": #{vars.$notification-notices-padding},
+            "notification-notices-padding":
+                #{vars.$notification-notices-padding},
             "notification-notices-z": #{vars.$notification-notices-z},
         )
     );
@@ -23,7 +24,8 @@
     .notification {
         @include css.register-vars(
             (
-                "notification-margin-bottom": #{vars.$notification-margin-bottom},
+                "notification-margin-bottom":
+                    #{vars.$notification-margin-bottom},
             )
         );
 

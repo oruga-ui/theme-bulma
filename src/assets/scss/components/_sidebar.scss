@@ -8,7 +8,8 @@
     @include css.register-vars(
         (
             "sidebar-z": #{vars.$sidebar-z},
-            "sidebar-background-background-color": #{vars.$sidebar-background-background-color},
+            "sidebar-background-background-color":
+                #{vars.$sidebar-background-background-color},
             "sidebar-shadow": #{vars.$sidebar-shadow},
             "sidebar-width": #{vars.$sidebar-width},
             "sidebar-height": #{vars.$sidebar-height},

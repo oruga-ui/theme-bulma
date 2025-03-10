@@ -237,9 +237,8 @@
                 &.timepicker {
                     .input {
                         padding-top: calc(
-                            #{vars.$floating-in-height} / 2 - (
-                                    css.getVar("size-large") * 3 / 4
-                                ) / 2
+                            #{vars.$floating-in-height} / 2 -
+                                (css.getVar("size-large") * 3 / 4) / 2
                         );
                         padding-bottom: 1px;
                         height: vars.$floating-in-height;
@@ -251,9 +250,8 @@
                     .textarea,
                     select {
                         padding-top: calc(
-                            #{vars.$floating-in-height} / 2 - (
-                                    css.getVar("size-large") * 3 / 4
-                                ) / 2
+                            #{vars.$floating-in-height} / 2 -
+                                (css.getVar("size-large") * 3 / 4) / 2
                         );
                         padding-bottom: 1px;
                         height: vars.$floating-in-height;
@@ -265,9 +263,8 @@
                         &.is-loading {
                             &::after {
                                 margin-top: calc(
-                                    #{vars.$floating-in-height} / 2 - (
-                                            css.getVar("size-large") * 3 / 4
-                                        ) / 2
+                                    #{vars.$floating-in-height} / 2 -
+                                        (css.getVar("size-large") * 3 / 4) / 2
                                 );
                             }
                         }
@@ -282,9 +279,9 @@
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
                         padding-top: calc(
-                            #{vars.$floating-in-height} / 2 - (
-                                    css.getVar("size-large") * 3 / 4
-                                ) / 2 + (0.275em - 1px)
+                            #{vars.$floating-in-height} / 2 -
+                                (css.getVar("size-large") * 3 / 4) / 2 +
+                                (0.275em - 1px)
                         );
                     }
                 }
@@ -297,18 +294,16 @@
 
                     .is-left.icon {
                         padding-top: calc(
-                            #{vars.$floating-in-height} / 2 - (
-                                    css.getVar("size-large") * 3 / 4
-                                ) / 2
+                            #{vars.$floating-in-height} / 2 -
+                                (css.getVar("size-large") * 3 / 4) / 2
                         );
                     }
                 }
 
                 &.is-loading::after {
                     margin-top: calc(
-                        #{vars.$floating-in-height} / 2 - (
-                                css.getVar("size-large") * 3 / 4
-                            ) / 2
+                        #{vars.$floating-in-height} / 2 -
+                            (css.getVar("size-large") * 3 / 4) / 2
                     );
                 }
             }
@@ -322,9 +317,8 @@
                         .textarea,
                         select {
                             padding-top: calc(
-                                #{vars.$floating-in-height} / 2 - (
-                                        css.getVar("size-large") * 3 / 4
-                                    ) / 2
+                                #{vars.$floating-in-height} / 2 -
+                                    (css.getVar("size-large") * 3 / 4) / 2
                             );
                             padding-bottom: 1px;
                         }

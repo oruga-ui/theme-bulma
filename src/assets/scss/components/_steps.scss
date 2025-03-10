@@ -9,7 +9,8 @@
         (
             "steps-size": #{vars.$size-normal},
             "steps-divider-height": #{vars.$steps-divider-height},
-            "steps-details-background-color": #{vars.$steps-details-background-color},
+            "steps-details-background-color":
+                #{vars.$steps-details-background-color},
         )
     );
 
@@ -151,10 +152,12 @@
             @include css.register-vars(
                 (
                     "steps-marker-color": css.getVar("steps-active-color"),
-                    "steps-marker-background":
-                        css.getVar("steps-active-background"),
-                    "steps-marker-border-color":
-                        css.getVar("steps-active-color"),
+                    "steps-marker-background": css.getVar(
+                            "steps-active-background"
+                        ),
+                    "steps-marker-border-color": css.getVar(
+                            "steps-active-color"
+                        ),
                 )
             );
 
@@ -167,8 +170,9 @@
             @include css.register-vars(
                 (
                     "steps-marker-color": css.getVar("steps-previous-color"),
-                    "steps-marker-background":
-                        css.getVar("steps-previous-background"),
+                    "steps-marker-background": css.getVar(
+                            "steps-previous-background"
+                        ),
                 )
             );
         }
@@ -289,7 +293,8 @@
                         &::before,
                         &::after {
                             left: calc(
-                                css.getVar("steps-size") - (css.getVar("steps-divider-height") * 0.5)
+                                css.getVar("steps-size") -
+                                    (css.getVar("steps-divider-height") * 0.5)
                             );
                         }
                     }

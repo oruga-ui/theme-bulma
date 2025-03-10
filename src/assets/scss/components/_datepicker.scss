@@ -11,12 +11,17 @@
             "datepicker-header-color": #{var.$datepicker-header-color},
             "datepicker-today-border": #{var.$datepicker-today-border},
             "datepicker-item-color": #{var.$datepicker-item-color},
-            "datepicker-item-disabled-color": #{var.$datepicker-item-disabled-color},
+            "datepicker-item-disabled-color":
+                #{var.$datepicker-item-disabled-color},
             "datepicker-item-hover-color": #{var.$datepicker-item-hover-color},
-            "datepicker-item-hover-background-color": #{var.$datepicker-item-hover-background-color},
-            "datepicker-item-selected-color": #{var.$datepicker-item-selected-color},
-            "datepicker-item-selected-background-color": #{var.$datepicker-item-selected-background-color},
-            "datepicker-event-background-color": #{var.$datepicker-event-background-color},
+            "datepicker-item-hover-background-color":
+                #{var.$datepicker-item-hover-background-color},
+            "datepicker-item-selected-color":
+                #{var.$datepicker-item-selected-color},
+            "datepicker-item-selected-background-color":
+                #{var.$datepicker-item-selected-background-color},
+            "datepicker-event-background-color":
+                #{var.$datepicker-event-background-color},
         )
     );
 

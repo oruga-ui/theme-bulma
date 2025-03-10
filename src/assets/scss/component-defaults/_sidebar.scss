@@ -8,10 +8,10 @@ $sidebar-height: 260px !default;
 $sidebar-mobile-width: 80px !default;
 $sidebar-colors: dv.$colors !default;
 $sidebar-background-background-color: hsla(
-        #{css.getVar("scheme-h")},
-        #{css.getVar("scheme-s")},
-        #{css.getVar("scheme-invert-l")},
-        0.86
+    #{css.getVar("scheme-h")},
+    #{css.getVar("scheme-s")},
+    #{css.getVar("scheme-invert-l")},
+    0.86
 ) !default;
 $sidebar-shadow: css.getVar("shadow");
 /* @docs */
