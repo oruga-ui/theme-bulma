@@ -1,0 +1,15 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$datepicker-colors: dv.$colors !default;
+$datepicker-header-color: css.getVar("grey") !default;
+$datepicker-today-border: solid 1px rgba(css.getVar("primary"), 0.5) !default;
+$datepicker-item-color: css.getVar("grey-dark") !default;
+$datepicker-item-disabled-color: css.getVar("grey-light") !default;
+$datepicker-item-hover-color: css.getVar("scheme-invert") !default;
+$datepicker-item-hover-background-color: css.getVar("background") !default;
+$datepicker-item-selected-color: css.getVar("primary-invert") !default;
+$datepicker-item-selected-background-color: css.getVar("primary") !default;
+$datepicker-event-background-color: css.getVar("grey-light") !default;
+/* @docs */

@@ -1,0 +1,14 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$tooltip-arrow-size: 5px !default;
+$tooltip-arrow-margin: 2px !default;
+$tooltip-content-multiline-width: 300px !default;
+$tooltip-shadow: 0 1px 2px 1px rgba(0, 1, 0, 0.2) !default;
+$tooltip-z: 38 !default;
+$tooltip-colors: dv.$colors !default;
+$tooltip-border-radius: css.getVar("radius") !default;
+$tooltip-bg: css.getVar("scheme-main-bis") !default;
+$tooltip-color: css.getVar("text-body") !default;
+/* @docs */

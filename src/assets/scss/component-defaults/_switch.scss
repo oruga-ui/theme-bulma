@@ -1,0 +1,11 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$switch-width: 2.75em !default;
+$switch-padding: 0.2em !default;
+$switch-colors: dv.$colors !default;
+$switch-background-color: css.getVar("grey-light") !default;
+$switch-active-background-color: css.getVar("primary") !default;
+$switch-shadow: css.getVar("shadow");
+/* @docs */

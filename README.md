@@ -134,7 +134,7 @@ $custom-colors: (
 );
 
 // Pass any theme variables you'd like to override here
-@use "@oruga-ui/theme-bulma/dist/scss/component-only-build.scss" with (
+@use "@oruga-ui/theme-bulma/dist/scss/components-build.scss" with (
     $speed-slower: $speed-slower,
 );
 

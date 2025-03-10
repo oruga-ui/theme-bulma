@@ -1,0 +1,9 @@
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/form/file" as file;
+
+/* @docs */
+$upload-bg: transparent !default;
+$upload-draggable-padding: 0.5rem !default;
+$upload-colors: file.$file-colors !default;
+$upload-border-color: css.getVar("grey-light") !default;
+/* @docs */
