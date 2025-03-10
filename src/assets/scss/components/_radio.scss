@@ -1,6 +1,6 @@
 @use "sass:list";
 
-@use "utils/functions" as fn;
+@use "../utils/functions" as fn;
 @use "../utils/variables" as vars;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;

@@ -1,7 +1,7 @@
 @use "sass:list";
 @use "sass:color";
 
-@use "utils/variables" as var;
+@use "../utils/variables" as var;
 @use "bulma/sass/utilities/controls" as controls;
 @use "bulma/sass/utilities/css-variables" as css;
 
