@@ -1,5 +1,14 @@
-@forward "./components/utils/all";
+/************************
+*   Oruga Theme Bulma 
+*************************/
 
+// Globals, utility and functions
+@forward "utils/animations";
+@forward "utils/functions";
+@forward "utils/utility";
+@forward "utils/root";
+
+// Oruga components
 @forward "./components/autocomplete";
 @forward "./components/button";
 @forward "./components/carousel";

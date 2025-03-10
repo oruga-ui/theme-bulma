@@ -1,7 +1,7 @@
 @use "bulma/sass/components/tabs"; // include tabs component to extend from
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-@use "utils/variables" as vars;
+@use "../utils/variables" as vars;
 
 .tabs-wrapper {
     .tabs {

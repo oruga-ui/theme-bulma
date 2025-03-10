@@ -1,7 +1,7 @@
 @use "sass:list";
 
 @use "bulma/sass/utilities/css-variables" as css;
-@use "utils/variables" as vars;
+@use "../utils/variables" as vars;
 
 .upload {
     position: relative;

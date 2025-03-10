@@ -1,9 +1,13 @@
+/***********************************
+*   Oruga Theme Bulma Full Build
+************************************/
+
 // This file is the entrypoint for the main css build (bulma.css)
 // It is also the scss entrypoint for users who want to configure Bulma and the theme together
 
 // theme defaults must be explictly forwarded here, otherwise confusing error messages result from the lack of defaults.
-@forward "initial-defaults";
-@use "initial-defaults" as td;
+@forward "variables/initial-defaults";
+@use "variables/initial-defaults" as td;
 
 // the primary bulma forward must come before all usage to prevent issues where usage appears before the with() statement
 @forward "bulma/sass" with (
