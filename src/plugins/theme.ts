@@ -12,7 +12,7 @@ const bulmaConfig: OrugaOptions = {
         bodyClass: "field-body",
         addonsClass: "has-addons",
         groupedClass: "is-grouped",
-        mobileClass: "is-grouped-multiline",
+        multilineClass: "is-grouped-multiline",
         horizontalClass: "is-horizontal",
         horizontalLabelClass: "field-label",
         horizontalBodyClass: "field-body",
