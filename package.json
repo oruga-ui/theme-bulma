@@ -26,7 +26,7 @@
     "dev": "vite --force",
     "serve": "vite preview",
     "build": "vue-tsc --noEmit && vite build",
-    "lint": "eslint . --fix --quiet --ignore-path .gitignore",
+    "lint": "eslint . --fix --quiet",
     "lint:style": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
     "update": "ncu -u"
   },
