@@ -5,7 +5,17 @@ import prettierPlugin from "eslint-plugin-prettier/recommended";
 import typescriptConfig from "@vue/eslint-config-typescript";
 import prettierConfig from "@vue/eslint-config-prettier";
 
+import { includeIgnoreFile } from "@eslint/compat";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const gitignorePath = path.resolve(__dirname, ".gitignore");
+
 export default [
+  // include ignore .gitignore patterns
+  includeIgnoreFile(gitignorePath),
   // add more generic rulesets here
   ...vuePlugin.configs["flat/recommended"],
   ...typescriptConfig(),
