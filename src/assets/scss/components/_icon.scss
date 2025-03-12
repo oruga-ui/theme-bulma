@@ -2,28 +2,28 @@
 @use "../utils/variables" as vars;
 
 @keyframes icon-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
 
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
 }
 
 .icon {
-  @include css.register-vars(
-    (
-      "icon-spin-duration": #{vars.$icon-spin-duration},
-    )
-  );
+    @include css.register-vars(
+        (
+            "icon-spin-duration": #{vars.$icon-spin-duration},
+        )
+    );
 
-  &.is-spin {
-    animation-name: icon-spin;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-duration: css.getVar("icon-spin-duration");
-  }
+    &.is-spin {
+        animation-name: icon-spin;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: css.getVar("icon-spin-duration");
+    }
 }

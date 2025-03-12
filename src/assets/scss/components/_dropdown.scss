@@ -3,198 +3,200 @@
 @use "../utils/variables" as vars;
 
 .dropdown {
-  @include css.register-vars(
-    (
-      "dropdown-background-background-color":
-        #{vars.$dropdown-background-background-color},
-      "dropdown-disabled-opacity": #{vars.$dropdown-disabled-opacity},
-      "dropdown-gap": #{vars.$dropdown-gap},
-      "dropdown-z": #{vars.$dropdown-z},
-      "dropdown-content-z": #{vars.$dropdown-z},
-    )
-  );
-
-  .background {
-    @include mixins.overlay;
-
-    position: fixed;
-    background-color: css.getVar("dropdown-background-background-color");
-    z-index: css.getVar("dropdown-z");
-    cursor: pointer;
-  }
-
-  .dropdown-item {
-    background-color: hsl(
-      #{css.getVar("dropdown-item-h")},
-      #{css.getVar("dropdown-item-s")},
-      calc(
-        #{css.getVar("dropdown-item-background-l")} +
-          #{css.getVar("dropdown-item-background-l-delta")}
-      )
+    @include css.register-vars(
+        (
+            "dropdown-background-background-color":
+                #{vars.$dropdown-background-background-color},
+            "dropdown-disabled-opacity": #{vars.$dropdown-disabled-opacity},
+            "dropdown-gap": #{vars.$dropdown-gap},
+            "dropdown-z": #{vars.$dropdown-z},
+            "dropdown-content-z": #{vars.$dropdown-z},
+        )
     );
 
-    cursor: pointer;
+    .background {
+        @include mixins.overlay;
+
+        position: fixed;
+        background-color: css.getVar("dropdown-background-background-color");
+        z-index: css.getVar("dropdown-z");
+        cursor: pointer;
+    }
+
+    .dropdown-item {
+        background-color: hsl(
+            #{css.getVar("dropdown-item-h")},
+            #{css.getVar("dropdown-item-s")},
+            calc(
+                #{css.getVar("dropdown-item-background-l")} +
+                    #{css.getVar("dropdown-item-background-l-delta")}
+            )
+        );
+
+        cursor: pointer;
+
+        &.is-disabled {
+            cursor: not-allowed;
+            opacity: css.getVar("dropdown-disabled-opacity");
+
+            &:hover {
+                background: inherit;
+                color: inherit;
+            }
+        }
+
+        &.is-active {
+            @include css.register-vars(
+                (
+                    "dropdown-item-h": css.getVar("primary-h"),
+                    "dropdown-item-s": css.getVar("primary-s"),
+                    "dropdown-item-l": css.getVar("primary-l"),
+                    "dropdown-item-background-l": css.getVar("primary-l"),
+                    "dropdown-item-color-l": css.getVar("primary-invert-l"),
+                )
+            );
+        }
+
+        &.is-focused,
+        &:hover {
+            @include css.register-vars(
+                (
+                    "dropdown-item-background-l-delta": css.getVar(
+                            "dropdown-item-hover-background-l-delta"
+                        ),
+                    "dropdown-item-border-l-delta": css.getVar(
+                            "dropdown-item-hover-border-l-delta"
+                        ),
+                )
+            );
+        }
+    }
+
+    &.is-hoverable {
+        .background {
+            display: none;
+        }
+    }
 
     &.is-disabled {
-      cursor: not-allowed;
-      opacity: css.getVar("dropdown-disabled-opacity");
+        opacity: css.getVar("dropdown-disabled-opacity");
+        cursor: not-allowed;
 
-      &:hover {
-        background: inherit;
-        color: inherit;
-      }
+        .dropdown-trigger {
+            pointer-events: none;
+        }
     }
 
-    &.is-active {
-      @include css.register-vars(
-        (
-          "dropdown-item-h": css.getVar("primary-h"),
-          "dropdown-item-s": css.getVar("primary-s"),
-          "dropdown-item-l": css.getVar("primary-l"),
-          "dropdown-item-background-l": css.getVar("primary-l"),
-          "dropdown-item-color-l": css.getVar("primary-invert-l"),
-        )
-      );
+    &.is-inline .dropdown-menu {
+        position: static;
+        display: inline-block;
+        padding: 0;
+        overflow: auto;
+        z-index: 0;
     }
 
-    &.is-focused,
-    &:hover {
-      @include css.register-vars(
-        (
-          "dropdown-item-background-l-delta": css.getVar(
-              "dropdown-item-hover-background-l-delta"
-            ),
-          "dropdown-item-border-l-delta": css.getVar(
-              "dropdown-item-hover-border-l-delta"
-            ),
-        )
-      );
+    // position classes
+    &.is-top .dropdown-menu {
+        top: auto;
+        right: auto;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
+        left: 50%;
+        transform: translateX(-50%);
     }
-  }
 
-  &.is-hoverable {
-    .background {
-      display: none;
+    &.is-left .dropdown-menu {
+        top: 50%;
+        right: calc(100% + css.getVar("dropdown-gap"));
+        bottom: auto;
+        left: auto;
+        transform: translateY(-50%);
     }
-  }
 
-  &.is-disabled {
-    opacity: css.getVar("dropdown-disabled-opacity");
-    cursor: not-allowed;
-
-    .dropdown-trigger {
-      pointer-events: none;
+    &.is-bottom .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        left: 50%;
+        bottom: auto;
+        right: auto;
+        transform: translateX(-50%);
     }
-  }
 
-  &.is-inline .dropdown-menu {
-    position: static;
-    display: inline-block;
-    padding: 0;
-    overflow: auto;
-    z-index: 0;
-  }
-
-  // position classes
-  &.is-top .dropdown-menu {
-    top: auto;
-    right: auto;
-    bottom: calc(100% + css.getVar("dropdown-gap"));
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.is-left .dropdown-menu {
-    top: 50%;
-    right: calc(100% + css.getVar("dropdown-gap"));
-    bottom: auto;
-    left: auto;
-    transform: translateY(-50%);
-  }
-
-  &.is-bottom .dropdown-menu {
-    top: calc(100% + css.getVar("dropdown-gap"));
-    left: 50%;
-    bottom: auto;
-    right: auto;
-    transform: translateX(-50%);
-  }
-
-  &.is-right .dropdown-menu {
-    top: 50%;
-    right: auto;
-    bottom: auto;
-    left: calc(100% + css.getVar("dropdown-gap"));
-    transform: translateY(-50%);
-  }
-
-  &.is-top-right .dropdown-menu {
-    top: auto;
-    right: 0;
-    bottom: calc(100% + css.getVar("dropdown-gap"));
-    left: auto;
-  }
-
-  &.is-top-left .dropdown-menu {
-    top: auto;
-    right: auto;
-    bottom: calc(100% + css.getVar("dropdown-gap"));
-    left: 0;
-  }
-
-  &.is-bottom-right .dropdown-menu {
-    top: calc(100% + css.getVar("dropdown-gap"));
-    right: 0;
-    bottom: auto;
-    left: auto;
-  }
-
-  &.is-bottom-left .dropdown-menu {
-    top: calc(100% + css.getVar("dropdown-gap"));
-    right: auto;
-    bottom: auto;
-    left: 0;
-  }
-
-  &.is-expanded {
-    width: 100%;
-
-    &.is-modal .dropdown-menu,
-    .dropdown-menu,
-    .dropdown-trigger {
-      width: 100%;
+    &.is-right .dropdown-menu {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: calc(100% + css.getVar("dropdown-gap"));
+        transform: translateY(-50%);
     }
-  }
 
-  &.is-modal {
-    > .dropdown-menu {
-      @include css.register-vars(
-        (
-          "dropdown-modal-width": #{vars.$dropdown-modal-width},
-          "dropdown-modal-min-width": #{vars.$dropdown-modal-min-width},
-          "dropdown-modal-max-width": #{vars.$dropdown-modal-max-width},
-        )
-      );
-
-      position: fixed;
-      top: 25%;
-      left: 50%;
-      bottom: auto;
-      right: auto;
-      transform: translateX(-50%);
-      width: clamp(
-        css.getVar("dropdown-modal-min-width"),
-        css.getVar("dropdown-modal-width"),
-        css.getVar("dropdown-modal-max-width")
-      );
-      max-height: calc(100vh - 120px);
-      white-space: normal;
-      overflow-y: auto;
-      z-index: calc(css.getVar("dropdown-z") + 10);
-
-      > .dropdown-item {
-        padding: 1rem 1.5rem;
-      }
+    &.is-top-right .dropdown-menu {
+        top: auto;
+        right: 0;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
+        left: auto;
     }
-  }
+
+    &.is-top-left .dropdown-menu {
+        top: auto;
+        right: auto;
+        bottom: calc(100% + css.getVar("dropdown-gap"));
+        left: 0;
+    }
+
+    &.is-bottom-right .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        right: 0;
+        bottom: auto;
+        left: auto;
+    }
+
+    &.is-bottom-left .dropdown-menu {
+        top: calc(100% + css.getVar("dropdown-gap"));
+        right: auto;
+        bottom: auto;
+        left: 0;
+    }
+
+    &.is-expanded {
+        width: 100%;
+
+        &.is-modal .dropdown-menu,
+        .dropdown-menu,
+        .dropdown-trigger {
+            width: 100%;
+        }
+    }
+
+    &.is-modal {
+        > .dropdown-menu {
+            @include css.register-vars(
+                (
+                    "dropdown-modal-width": #{vars.$dropdown-modal-width},
+                    "dropdown-modal-min-width":
+                        #{vars.$dropdown-modal-min-width},
+                    "dropdown-modal-max-width":
+                        #{vars.$dropdown-modal-max-width},
+                )
+            );
+
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            transform: translateX(-50%);
+            width: clamp(
+                css.getVar("dropdown-modal-min-width"),
+                css.getVar("dropdown-modal-width"),
+                css.getVar("dropdown-modal-max-width")
+            );
+            max-height: calc(100vh - 120px);
+            white-space: normal;
+            overflow-y: auto;
+            z-index: calc(css.getVar("dropdown-z") + 10);
+
+            > .dropdown-item {
+                padding: 1rem 1.5rem;
+            }
+        }
+    }
 }

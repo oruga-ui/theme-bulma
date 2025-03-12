@@ -6,117 +6,121 @@
 @use "../utils/variables" as vars;
 
 .checkbox {
-  @include css.register-vars(
-    (
-      "checkbox-background-color": #{vars.$checkbox-background-color},
-      "checkbox-border-color": #{vars.$checkbox-border-color},
-      "checkbox-border-radius": #{vars.$checkbox-border-radius},
-      "checkbox-border-width": #{vars.$checkbox-border-width},
-      "checkbox-size": #{vars.$checkbox-size},
-      "checkbox-checkmark-color": #{vars.$checkbox-checkmark-color},
-      "checkbox-focus-color": vars.$checkbox-focus-color,
-      "checkbox-active-focus-color": vars.$checkbox-active-focus-color,
-      "checkbox-active-background-color":
-        #{vars.$checkbox-active-background-color},
-      "checkbox-checked-background": url(fn.checkmark(
-          vars.$checkbox-checkmark-color
-        )),
-      "checkbox-indeterminate-background": url(fn.indeterminate(
-          vars.$checkbox-checkmark-color
-        )),
-      "checkbox-shadow": #{vars.$checkbox-shadow},
-    )
-  );
-
-  .check {
-    outline: none;
-    appearance: none;
-    font-size: inherit;
-    width: vars.$checkbox-size;
-    height: vars.$checkbox-size;
-    flex-shrink: 0;
-    border-radius: css.getVar("checkbox-border-radius");
-    border: css.getVar("checkbox-border-width") solid
-      css.getVar("checkbox-border-color");
-    transition: background vars.$speed-slow css.getVar("easing");
-    background: css.getVar("checkbox-background-color");
-    box-shadow: css.getVar("checkbox-shadow");
-
-    &:checked {
-      border-color: css.getVar("checkbox-active-background-color");
-      background: css.getVar("checkbox-active-background-color")
-        css.getVar("checkbox-checked-background") no-repeat center center;
-    }
-
-    &:indeterminate {
-      border-color: css.getVar("checkbox-active-background-color");
-      background: css.getVar("checkbox-active-background-color")
-        css.getVar("checkbox-indeterminate-background") no-repeat center center;
-    }
-
-    &:hover:not(:disabled) {
-      border-color: css.getVar("checkbox-active-background-color");
-    }
-
-    &:focus {
-      &.check {
-        box-shadow: css.getVar("active-shadow-size")
-          css.getVar("checkbox-focus-color");
-      }
-
-      &:checked.check {
-        box-shadow: css.getVar("active-shadow-size")
-          css.getVar("checkbox-active-focus-color");
-      }
-    }
-  }
-
-  .control-label {
-    padding-left: css.getVar("control-padding-horizontal");
-  }
-
-  &.button {
-    display: flex;
-  }
-
-  &.is-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  // size variants
-
-  @include controls.control;
-
-  &.is-small {
-    @include controls.control-small;
-  }
-
-  &.is-medium {
-    @include controls.control-medium;
-  }
-
-  &.is-large {
-    @include controls.control-large;
-  }
-
-  // variant colors
-  @each $name, $pair in vars.$checkbox-colors {
-    $color: list.nth($pair, 1);
-    $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
-
-    &.is-#{$name} {
-      @include css.register-vars(
+    @include css.register-vars(
         (
-          "checkbox-active-background-color": #{$color},
-          "checkbox-checked-background": url(fn.checkmark($color-invert)),
-          "checkbox-indeterminate-background": url(fn.indeterminate(
-              $color-invert
-            )),
-          "checkbox-focus-color": #{$color},
-          "checkbox-active-focus-color": #{$color},
+            "checkbox-background-color": #{vars.$checkbox-background-color},
+            "checkbox-border-color": #{vars.$checkbox-border-color},
+            "checkbox-border-radius": #{vars.$checkbox-border-radius},
+            "checkbox-border-width": #{vars.$checkbox-border-width},
+            "checkbox-size": #{vars.$checkbox-size},
+            "checkbox-checkmark-color": #{vars.$checkbox-checkmark-color},
+            "checkbox-focus-color": vars.$checkbox-focus-color,
+            "checkbox-active-focus-color": vars.$checkbox-active-focus-color,
+            "checkbox-active-background-color":
+                #{vars.$checkbox-active-background-color},
+            "checkbox-checked-background": url(fn.checkmark(
+                    vars.$checkbox-checkmark-color
+                )),
+            "checkbox-indeterminate-background": url(fn.indeterminate(
+                    vars.$checkbox-checkmark-color
+                )),
+            "checkbox-shadow": #{vars.$checkbox-shadow},
         )
-      );
+    );
+
+    .check {
+        outline: none;
+        appearance: none;
+        font-size: inherit;
+        width: vars.$checkbox-size;
+        height: vars.$checkbox-size;
+        flex-shrink: 0;
+        border-radius: css.getVar("checkbox-border-radius");
+        border: css.getVar("checkbox-border-width") solid
+            css.getVar("checkbox-border-color");
+        transition: background vars.$speed-slow css.getVar("easing");
+        background: css.getVar("checkbox-background-color");
+        box-shadow: css.getVar("checkbox-shadow");
+
+        &:checked {
+            border-color: css.getVar("checkbox-active-background-color");
+            background: css.getVar("checkbox-active-background-color")
+                css.getVar("checkbox-checked-background") no-repeat center
+                center;
+        }
+
+        &:indeterminate {
+            border-color: css.getVar("checkbox-active-background-color");
+            background: css.getVar("checkbox-active-background-color")
+                css.getVar("checkbox-indeterminate-background") no-repeat center
+                center;
+        }
+
+        &:hover:not(:disabled) {
+            border-color: css.getVar("checkbox-active-background-color");
+        }
+
+        &:focus {
+            &.check {
+                box-shadow: css.getVar("active-shadow-size")
+                    css.getVar("checkbox-focus-color");
+            }
+
+            &:checked.check {
+                box-shadow: css.getVar("active-shadow-size")
+                    css.getVar("checkbox-active-focus-color");
+            }
+        }
     }
-  }
+
+    .control-label {
+        padding-left: css.getVar("control-padding-horizontal");
+    }
+
+    &.button {
+        display: flex;
+    }
+
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    // size variants
+
+    @include controls.control;
+
+    &.is-small {
+        @include controls.control-small;
+    }
+
+    &.is-medium {
+        @include controls.control-medium;
+    }
+
+    &.is-large {
+        @include controls.control-large;
+    }
+
+    // variant colors
+    @each $name, $pair in vars.$checkbox-colors {
+        $color: list.nth($pair, 1);
+        $color-invert: if(list.length($pair) >= 2, list.nth($pair, 2), null);
+
+        &.is-#{$name} {
+            @include css.register-vars(
+                (
+                    "checkbox-active-background-color": #{$color},
+                    "checkbox-checked-background": url(fn.checkmark(
+                            $color-invert
+                        )),
+                    "checkbox-indeterminate-background": url(fn.indeterminate(
+                            $color-invert
+                        )),
+                    "checkbox-focus-color": #{$color},
+                    "checkbox-active-focus-color": #{$color},
+                )
+            );
+        }
+    }
 }

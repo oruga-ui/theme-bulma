@@ -1,13 +1,13 @@
 @use "bulma/sass/utilities/css-variables" as css;
 
 .menu {
-  .menu-item {
-    &.is-disabled {
-      @include css.register-vars(
-        (
-          "menu-item-background-l-delta": -10%,
-        )
-      );
+    .menu-item {
+        &.is-disabled {
+            @include css.register-vars(
+                (
+                    "menu-item-background-l-delta": -10%,
+                )
+            );
+        }
     }
-  }
 }

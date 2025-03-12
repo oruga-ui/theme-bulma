@@ -11,22 +11,22 @@ $speed-slower: 1000ms;
 // The theme adds a secondary color variant and should allow the user to add additional color variants if they desire
 // In the full bulma build this can happen internally, but if the user wants separated styles they need to handle this themselves
 $custom-colors: (
-  // If you want to use secondary you must include this line
-  // When you pass secondary here you don't need to pass $secondary to the theme styles
-  "secondary": $secondary,
-  "dark-grey": $dark-grey,
-  // If you want to add additional custom colors do it like this
-  "foo": $red
+    // If you want to use secondary you must include this line
+    // When you pass secondary here you don't need to pass $secondary to the theme styles
+    "secondary": $secondary,
+    "dark-grey": $dark-grey,
+    // If you want to add additional custom colors do it like this
+    "foo": $red
 );
 
 // Pass any Bulma values you're like to override here
 @forward "bulma/sass" with (
-  $black: $black,
-  $custom-colors: $custom-colors
+    $black: $black,
+    $custom-colors: $custom-colors
 );
 
 // Pass any theme values you'd like to override here. Bulma values like $primary will be passed implicitly into the theme build and do not need to be passed.
 @forward "assets/scss/components-build.scss" with (
-  $speed-slower: $speed-slower,
-  $dropdown-content-max-height: 300px
+    $speed-slower: $speed-slower,
+    $dropdown-content-max-height: 300px
 );

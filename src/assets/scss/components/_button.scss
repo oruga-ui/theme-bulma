@@ -2,28 +2,28 @@
 
 /* @docs */
 $button-shadow: css.getVar("focus-shadow-size")
-  hsla(
-    css.getVar("button-h"),
-    css.getVar("button-s"),
-    css.getVar("button-l"),
-    css.getVar("focus-shadow-alpha")
-  );
+    hsla(
+        css.getVar("button-h"),
+        css.getVar("button-s"),
+        css.getVar("button-l"),
+        css.getVar("focus-shadow-alpha")
+    );
 /* @docs */
 
 .button {
-  @include css.register-vars(
-    (
-      "button-shadow": #{$button-shadow},
-      "button-l": css.getVar("button-color-l"),
-    )
-  );
+    @include css.register-vars(
+        (
+            "button-shadow": #{$button-shadow},
+            "button-l": css.getVar("button-color-l"),
+        )
+    );
 
-  .button-wrapper {
-    display: inline-flex;
-    justify-content: center;
-  }
+    .button-wrapper {
+        display: inline-flex;
+        justify-content: center;
+    }
 
-  &:focus {
-    box-shadow: css.getVar("button-shadow");
-  }
+    &:focus {
+        box-shadow: css.getVar("button-shadow");
+    }
 }

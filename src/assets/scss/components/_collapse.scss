@@ -1,14 +1,14 @@
 .collapse {
-  &-trigger {
-    cursor: pointer;
-    display: inline-block;
+    &-trigger {
+        cursor: pointer;
+        display: inline-block;
 
-    &.is-expanded {
-      width: 100%;
+        &.is-expanded {
+            width: 100%;
+        }
     }
-  }
 
-  &-content {
-    display: inherit;
-  }
+    &-content {
+        display: inherit;
+    }
 }

@@ -7,150 +7,169 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 .switch {
-  @include css.register-vars(
-    (
-      "switch-width": #{vars.$switch-width},
-      "switch-padding": #{vars.$switch-padding},
-      "switch-active-background-color": #{vars.$switch-active-background-color},
-      "switch-background-color": #{vars.$switch-background-color},
-      "switch-shadow": #{vars.$switch-shadow},
-    )
-  );
+    @include css.register-vars(
+        (
+            "switch-width": #{vars.$switch-width},
+            "switch-padding": #{vars.$switch-padding},
+            "switch-active-background-color":
+                #{vars.$switch-active-background-color},
+            "switch-background-color": #{vars.$switch-background-color},
+            "switch-shadow": #{vars.$switch-shadow},
+        )
+    );
 
-  @include mixins.unselectable;
+    @include mixins.unselectable;
 
-  cursor: pointer;
-
-  input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    font-size: inherit;
-    width: css.getVar("switch-width");
-    padding: css.getVar("switch-padding");
-    background: css.getVar("switch-background-color");
-    border-radius: css.getVar("radius");
-    transition:
-      background vars.$speed-slow css.getVar("easing"),
-      box-shadow vars.$speed-slow css.getVar("easing");
-    box-shadow: css.getVar("switch-shadow");
 
-    &:before {
-      content: "";
-      display: block;
-      font-size: inherit;
-      border-radius: css.getVar("radius");
-      width: calc(
-        (css.getVar("switch-width") - css.getVar("switch-padding") * 2) / 2
-      );
-      height: calc(
-        (css.getVar("switch-width") - css.getVar("switch-padding") * 2) * 0.5
-      );
-      background: css.getVar("background");
-      box-shadow:
-        0 3px 1px 0 rgba(0, 0, 0, 0.05),
-        0 2px 2px 0 rgba(0, 0, 0, 0.1),
-        0 3px 3px 0 rgba(0, 0, 0, 0.05);
-      transition: transform vars.$speed-slow css.getVar("easing");
-      will-change: transform;
-      transform-origin: left;
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        font-size: inherit;
+        width: css.getVar("switch-width");
+        padding: css.getVar("switch-padding");
+        background: css.getVar("switch-background-color");
+        border-radius: css.getVar("radius");
+        transition:
+            background vars.$speed-slow css.getVar("easing"),
+            box-shadow vars.$speed-slow css.getVar("easing");
+        box-shadow: css.getVar("switch-shadow");
+
+        &:before {
+            content: "";
+            display: block;
+            font-size: inherit;
+            border-radius: css.getVar("radius");
+            width: calc(
+                (
+                        css.getVar("switch-width") - css.getVar(
+                                "switch-padding"
+                            ) *
+                            2
+                    ) /
+                    2
+            );
+            height: calc(
+                (
+                        css.getVar("switch-width") - css.getVar(
+                                "switch-padding"
+                            ) *
+                            2
+                    ) *
+                    0.5
+            );
+            background: css.getVar("background");
+            box-shadow:
+                0 3px 1px 0 rgba(0, 0, 0, 0.05),
+                0 2px 2px 0 rgba(0, 0, 0, 0.1),
+                0 3px 3px 0 rgba(0, 0, 0, 0.05);
+            transition: transform vars.$speed-slow css.getVar("easing");
+            will-change: transform;
+            transform-origin: left;
+        }
+
+        &:checked {
+            background: css.getVar("switch-active-background-color");
+
+            &:before {
+                transform: translate3d(100%, 0, 0);
+            }
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+            box-shadow: css.getVar("active-shadow-size")
+                hsl(from (css.getVar("switch-background-color") h s l / 80%));
+
+            &:checked {
+                box-shadow: css.getVar("active-shadow-size")
+                    hsl(
+                        from
+                            (
+                                css.getVar("switch-active-background-color") h s
+                                    l / 80%
+                            )
+                    );
+            }
+        }
     }
 
-    &:checked {
-      background: css.getVar("switch-active-background-color");
-
-      &:before {
-        transform: translate3d(100%, 0, 0);
-      }
+    &:hover {
+        input[type="checkbox"]:checked {
+            background: hsl(
+                from (css.getVar("switch-active-background-color") h s l / 90%)
+            );
+        }
     }
 
-    &:focus,
-    &:active {
-      outline: none;
-      box-shadow: css.getVar("active-shadow-size")
-        hsl(from (css.getVar("switch-background-color") h s l / 80%));
+    &.has-left-label {
+        flex-direction: row-reverse;
 
-      &:checked {
-        box-shadow: css.getVar("active-shadow-size")
-          hsl(from (css.getVar("switch-active-background-color") h s l / 80%));
-      }
-    }
-  }
-
-  &:hover {
-    input[type="checkbox"]:checked {
-      background: hsl(
-        from (css.getVar("switch-active-background-color") h s l / 90%)
-      );
-    }
-  }
-
-  &.has-left-label {
-    flex-direction: row-reverse;
-
-    .control-label {
-      padding-right: css.getVar("control-padding-horizontal");
-    }
-  }
-
-  &:not(.has-left-label) {
-    .control-label {
-      padding-left: css.getVar("control-padding-horizontal");
-    }
-  }
-
-  &.is-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    color: css.getVar("input-disabled-color");
-  }
-
-  &.is-rounded input {
-    border-radius: css.getVar("radius-rounded");
-
-    &:before {
-      border-radius: css.getVar("radius-rounded");
-    }
-  }
-
-  // sizes
-
-  @include controls.control;
-
-  &.is-small {
-    @include controls.control-small;
-  }
-
-  &.is-medium {
-    @include controls.control-medium;
-  }
-
-  &.is-large {
-    @include controls.control-large;
-  }
-
-  // variant colors
-  @each $name, $pair in vars.$switch-colors {
-    $color: list.nth($pair, 1);
-
-    &.is-#{$name}-passive {
-      @include css.register-vars(
-        (
-          "switch-background-color": #{$color},
-        )
-      );
+        .control-label {
+            padding-right: css.getVar("control-padding-horizontal");
+        }
     }
 
-    &.is-#{$name} {
-      @include css.register-vars(
-        (
-          "switch-active-background-color": #{$color},
-        )
-      );
+    &:not(.has-left-label) {
+        .control-label {
+            padding-left: css.getVar("control-padding-horizontal");
+        }
     }
-  }
+
+    &.is-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        color: css.getVar("input-disabled-color");
+    }
+
+    &.is-rounded input {
+        border-radius: css.getVar("radius-rounded");
+
+        &:before {
+            border-radius: css.getVar("radius-rounded");
+        }
+    }
+
+    // sizes
+
+    @include controls.control;
+
+    &.is-small {
+        @include controls.control-small;
+    }
+
+    &.is-medium {
+        @include controls.control-medium;
+    }
+
+    &.is-large {
+        @include controls.control-large;
+    }
+
+    // variant colors
+    @each $name, $pair in vars.$switch-colors {
+        $color: list.nth($pair, 1);
+
+        &.is-#{$name}-passive {
+            @include css.register-vars(
+                (
+                    "switch-background-color": #{$color},
+                )
+            );
+        }
+
+        &.is-#{$name} {
+            @include css.register-vars(
+                (
+                    "switch-active-background-color": #{$color},
+                )
+            );
+        }
+    }
 }

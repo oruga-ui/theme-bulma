@@ -1,13 +1,13 @@
 .modal {
-  > .is-full-screen,
-  > .is-full-screen > .modal-card {
-    width: 100%;
-    height: 100%;
-    max-height: 100vh;
-    margin: 0;
-  }
+    > .is-full-screen,
+    > .is-full-screen > .modal-card {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        margin: 0;
+    }
 
-  .modal-content {
-    width: auto;
-  }
+    .modal-content {
+        width: auto;
+    }
 }

@@ -11,9 +11,9 @@ $carousel-indicator-background: rgba(css.getVar("scheme-invert"), 0.5) !default;
 $carousel-indicator-border: css.getVar("scheme-main") !default;
 $carousel-indicator-color: css.getVar("primary") !default;
 $carousel-overlay-background: hsla(
-  css.getVar(scheme-h),
-  css.getVar(scheme-s),
-  css.getVar(scheme-invert-l),
-  0.86
+    css.getVar(scheme-h),
+    css.getVar(scheme-s),
+    css.getVar(scheme-invert-l),
+    0.86
 );
 /* @docs */

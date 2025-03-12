@@ -18,21 +18,21 @@ import "./main-separated.scss";
 import { bulmaConfig } from "./plugins/theme";
 
 createApp(App)
-  .use(router)
-  .use(Oruga, {
-    iconPack: "fas",
-    iconComponent: "vue-fontawesome",
-    customIconPacks: {
-      fas: {
-        sizes: {
-          default: "",
-          small: "sm",
-          medium: "lg",
-          large: "xl",
+    .use(router)
+    .use(Oruga, {
+        iconPack: "fas",
+        iconComponent: "vue-fontawesome",
+        customIconPacks: {
+            fas: {
+                sizes: {
+                    default: "",
+                    small: "sm",
+                    medium: "lg",
+                    large: "xl",
+                },
+            },
         },
-      },
-    },
-    ...bulmaConfig,
-  })
-  .use(Examples)
-  .mount("#app");
+        ...bulmaConfig,
+    })
+    .use(Examples)
+    .mount("#app");

@@ -7,107 +7,112 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 .radio {
-  @include css.register-vars(
-    (
-      "radio-active-background-color": #{vars.$radio-active-background-color},
-      "radio-border-color": #{vars.$radio-border-color},
-      "radio-size": #{vars.$radio-size},
-      "radio-shadow": #{vars.$radio-shadow},
-    )
-  );
-
-  @include mixins.unselectable;
-
-  .check {
-    outline: none;
-    appearance: none;
-    // font-size is changed by user agent to lower size
-    font-size: inherit;
-    width: css.getVar("radio-size");
-    height: css.getVar("radio-size");
-    flex-shrink: 0;
-    border-radius: 50%;
-    border: 2px solid css.getVar("radio-border-color");
-    transition: background vars.$speed-slow css.getVar("easing");
-    box-shadow: css.getVar("radio-shadow");
-
-    &:before {
-      content: "";
-      position: absolute;
-      left: calc(css.getVar("radio-size") * 0.55);
-      top: calc(css.getVar("radio-size") * 0.45);
-      width: css.getVar("radio-size");
-      height: css.getVar("radio-size");
-      border-radius: 50%;
-      transition: transform vars.$speed-slow css.getVar("easing");
-      transform: scale(0);
-      background: css.getVar("radio-active-background-color");
-    }
-
-    &:focus {
-      box-shadow: css.getVar("active-shadow-size")
-        hsl(from (css.getVar("radio-border-color") h s l / 80%));
-    }
-
-    &:checked {
-      @include css.register-vars(
+    @include css.register-vars(
         (
-          "radio-border-color": #{css.getVar("radio-active-background-color")},
+            "radio-active-background-color":
+                #{vars.$radio-active-background-color},
+            "radio-border-color": #{vars.$radio-border-color},
+            "radio-size": #{vars.$radio-size},
+            "radio-shadow": #{vars.$radio-shadow},
         )
-      );
+    );
 
-      &:before {
-        transform: scale(0.5);
-      }
+    @include mixins.unselectable;
+
+    .check {
+        outline: none;
+        appearance: none;
+        // font-size is changed by user agent to lower size
+        font-size: inherit;
+        width: css.getVar("radio-size");
+        height: css.getVar("radio-size");
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 2px solid css.getVar("radio-border-color");
+        transition: background vars.$speed-slow css.getVar("easing");
+        box-shadow: css.getVar("radio-shadow");
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: calc(css.getVar("radio-size") * 0.55);
+            top: calc(css.getVar("radio-size") * 0.45);
+            width: css.getVar("radio-size");
+            height: css.getVar("radio-size");
+            border-radius: 50%;
+            transition: transform vars.$speed-slow css.getVar("easing");
+            transform: scale(0);
+            background: css.getVar("radio-active-background-color");
+        }
+
+        &:focus {
+            box-shadow: css.getVar("active-shadow-size")
+                hsl(from (css.getVar("radio-border-color") h s l / 80%));
+        }
+
+        &:checked {
+            @include css.register-vars(
+                (
+                    "radio-border-color": #{css.getVar(
+                            "radio-active-background-color"
+                        )},
+                )
+            );
+
+            &:before {
+                transform: scale(0.5);
+            }
+        }
+
+        &:hover:not(:disabled) {
+            @include css.register-vars(
+                (
+                    "radio-border-color": #{css.getVar(
+                            "radio-active-background-color"
+                        )},
+                )
+            );
+            border-color: css.getVar("radio-border-color");
+        }
     }
 
-    &:hover:not(:disabled) {
-      @include css.register-vars(
-        (
-          "radio-border-color": #{css.getVar("radio-active-background-color")},
-        )
-      );
-      border-color: css.getVar("radio-border-color");
+    .control-label {
+        padding-left: css.getVar("control-padding-horizontal");
     }
-  }
 
-  .control-label {
-    padding-left: css.getVar("control-padding-horizontal");
-  }
-
-  &.is-disabled {
-    opacity: 0.5;
-  }
-
-  // sizes
-
-  @include controls.control;
-
-  &.is-small {
-    @include controls.control-small;
-  }
-
-  &.is-medium {
-    @include controls.control-medium;
-  }
-
-  &.is-large {
-    @include controls.control-large;
-  }
-
-  // variant colors
-  @each $name, $pair in vars.$radio-colors {
-    $color: list.nth($pair, 1);
-
-    &.is-#{$name} {
-      @include css.register-vars(
-        (
-          "radio-active-background-color": #{$color},
-          "radio-checked-background": url(fn.checkmark($color)),
-          "radio-border-color": #{$color},
-          "radio-active-focus-color": #{$color},
-        )
-      );
+    &.is-disabled {
+        opacity: 0.5;
     }
-  }
+
+    // sizes
+
+    @include controls.control;
+
+    &.is-small {
+        @include controls.control-small;
+    }
+
+    &.is-medium {
+        @include controls.control-medium;
+    }
+
+    &.is-large {
+        @include controls.control-large;
+    }
+
+    // variant colors
+    @each $name, $pair in vars.$radio-colors {
+        $color: list.nth($pair, 1);
+
+        &.is-#{$name} {
+            @include css.register-vars(
+                (
+                    "radio-active-background-color": #{$color},
+                    "radio-checked-background": url(fn.checkmark($color)),
+                    "radio-border-color": #{$color},
+                    "radio-active-focus-color": #{$color},
+                )
+            );
+        }
+    }
 }

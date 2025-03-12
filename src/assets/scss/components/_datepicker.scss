@@ -6,313 +6,325 @@
 @use "../utils/variables" as vars;
 
 .datepicker {
-  @include css.register-vars(
-    (
-      "datepicker-header-color": #{vars.$datepicker-header-color},
-      "datepicker-today-border": #{vars.$datepicker-today-border},
-      "datepicker-item-color": #{vars.$datepicker-item-color},
-      "datepicker-item-disabled-color": #{vars.$datepicker-item-disabled-color},
-      "datepicker-item-hover-color": #{vars.$datepicker-item-hover-color},
-      "datepicker-item-hover-background-color":
-        #{vars.$datepicker-item-hover-background-color},
-      "datepicker-item-selected-color": #{vars.$datepicker-item-selected-color},
-      "datepicker-item-selected-background-color":
-        #{vars.$datepicker-item-selected-background-color},
-      "datepicker-event-background-color":
-        #{vars.$datepicker-event-background-color},
-      "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
-    )
-  );
+    @include css.register-vars(
+        (
+            "datepicker-header-color": #{vars.$datepicker-header-color},
+            "datepicker-today-border": #{vars.$datepicker-today-border},
+            "datepicker-item-color": #{vars.$datepicker-item-color},
+            "datepicker-item-disabled-color":
+                #{vars.$datepicker-item-disabled-color},
+            "datepicker-item-hover-color": #{vars.$datepicker-item-hover-color},
+            "datepicker-item-hover-background-color":
+                #{vars.$datepicker-item-hover-background-color},
+            "datepicker-item-selected-color":
+                #{vars.$datepicker-item-selected-color},
+            "datepicker-item-selected-background-color":
+                #{vars.$datepicker-item-selected-background-color},
+            "datepicker-event-background-color":
+                #{vars.$datepicker-event-background-color},
+            "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
+        )
+    );
 
-  .dropdown,
-  .dropdown-trigger {
-    width: 100%;
-
-    .input[readonly] {
-      cursor: pointer;
-      box-shadow: css.getVar("input-shadow");
-
-      &:focus,
-      &.is-focused,
-      &:active,
-      &.is-active {
-        box-shadow: css.getVar("input-focus-shadow-size")
-          hsla(
-            css.getVar("input-focus-h"),
-            css.getVar("input-focus-s"),
-            css.getVar("input-focus-l"),
-            css.getVar("input-focus-shadow-alpha")
-          );
-      }
-    }
-  }
-
-  // dropdown override
-  .dropdown,
-  &.dropdown {
-    // unset opacity when dropdow is disabled
-    &.is-disabled {
-      opacity: 1;
-    }
-
-    .dropdown-menu {
-      .dropdown-item {
-        @include css.register-vars(
-          (
-            "dropdown-item-background-l-delta": "transparent",
-          )
-        );
-        font-size: inherit;
-        padding-inline-end: 1rem;
-      }
-    }
-  }
-
-  .datepicker-header {
-    padding-bottom: 0.75rem;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid css.getVar("grey-lighter");
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: css.getVar("datepicker-header-spacer");
-    min-width: max-content;
-
-    button {
-      border-width: css.getVar("button-border-width");
-      border-radius: css.getVar("control-radius");
-    }
-
-    .button-previous {
-      order: 1;
-    }
-
-    .button-next {
-      order: 3;
-    }
-
-    .select-list {
-      order: 2;
-      display: inline-flex;
-      gap: inherit;
-    }
-  }
-
-  .datepicker-footer {
-    margin-top: 0.875rem;
-    padding-top: 0.875rem;
-    border-top: 1px solid css.getVar("grey-lighter");
-  }
-
-  .datepicker-table {
-    display: table;
-    margin: 0 auto 0 auto;
-
-    // day name header row
-    .datepicker-header {
-      display: table-header-group;
-
-      .datepicker-cell {
-        color: css.getVar("datepicker-header-color");
-        font-weight: css.getVar("weight-semibold");
-      }
-    }
-
-    .datepicker-body {
-      display: table-row-group;
-
-      .datepicker-row {
-        display: table-row;
-      }
-
-      &.has-events {
-        .datepicker-cell {
-          padding: 0.3rem 0.75rem 0.75rem;
-        }
-      }
-    }
-  }
-
-  .datepicker-cell {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-    border-radius: css.getVar("radius");
-    padding: 0.5rem 0.75rem;
-
-    &.is-unselectable {
-      color: css.getVar("datepicker-item-disabled-color");
-    }
-
-    &.is-today {
-      border: css.getVar("datepicker-today-border");
-    }
-
-    &.is-week-number {
-      cursor: default;
-    }
-
-    &.is-selectable {
-      color: css.getVar("datepicker-item-color");
-
-      &:hover:not(.is-selected):not(.is-first-hovered):not(.is-last-hovered),
-      &:focus:not(.is-selected):not(.is-first-hovered):not(.is-last-hovered) {
-        background-color: css.getVar("datepicker-item-hover-background-color");
-        color: css.getVar("datepicker-item-hover-color");
-        cursor: pointer;
-      }
-
-      &.is-first-hovered {
-        background-color: css.getVar("grey");
-        color: css.getVar("grey-lighter");
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
-
-      &.is-within-hovered {
-        background-color: css.getVar("datepicker-item-hover-background-color");
-        color: css.getVar("datepicker-item-hover-color");
-        border-radius: 0;
-      }
-
-      &.is-last-hovered {
-        background-color: css.getVar("grey");
-        color: css.getVar("grey-lighter");
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-    }
-
-    &.is-selected {
-      overflow: hidden;
-    }
-
-    &.is-selected:not(.is-first-hovered):not(.is-within-hovered):not(
-        .is-last-hovered
-      ) {
-      background-color: css.getVar("datepicker-item-selected-background-color");
-      color: css.getVar("datepicker-item-selected-color");
-
-      &.is-first-selected:not(.is-first-hovered):not(.is-within-hovered):not(
-          .is-last-hovered
-        ) {
-        background-color: css.getVar(
-          "datepicker-item-selected-background-color"
-        );
-        color: css.getVar("datepicker-item-selected-color");
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-      }
-
-      &.is-within-selected:not(.is-first-hovered):not(.is-within-hovered):not(
-          .is-last-hovered
-        ) {
-        background-color: rgba(
-          css.getVar("datepicker-item-selected-background-color"),
-          0.5
-        );
-        border-radius: 0;
-      }
-
-      &.is-last-selected:not(.is-first-hovered):not(.is-within-hovered):not(
-          .is-last-hovered
-        ) {
-        background-color: css.getVar(
-          "datepicker-item-selected-background-color"
-        );
-        color: css.getVar("datepicker-item-selected-color");
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-      }
-    }
-
-    &.is-nearby:not(.is-selected) {
-      color: css.getVar("grey-light");
-    }
-
-    &.has-event {
-      position: relative;
-    }
-  }
-
-  .events {
-    bottom: 0.425rem;
-    display: flex;
-    justify-content: center;
-    left: 0;
-    padding: 0 0.35rem;
-    position: absolute;
-    width: 100%;
-
-    .event {
-      background-color: css.getVar("datepicker-event-background-color");
-
-      @each $name, $pair in vars.$datepicker-colors {
-        $color: list.nth($pair, 1);
-
-        &.is-#{$name} {
-          background-color: $color;
-        }
-      }
-
-      &.is-dots {
-        border-radius: 50%;
-        height: 0.35em;
-        margin: 0 0.1em;
-        width: 0.35em;
-      }
-
-      &.is-bars {
-        height: 0.25em;
+    .dropdown,
+    .dropdown-trigger {
         width: 100%;
-      }
-    }
-  }
 
-  .datepicker-months {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 17rem;
+        .input[readonly] {
+            cursor: pointer;
+            box-shadow: css.getVar("input-shadow");
+
+            &:focus,
+            &.is-focused,
+            &:active,
+            &.is-active {
+                box-shadow: css.getVar("input-focus-shadow-size")
+                    hsla(
+                        css.getVar("input-focus-h"),
+                        css.getVar("input-focus-s"),
+                        css.getVar("input-focus-l"),
+                        css.getVar("input-focus-shadow-alpha")
+                    );
+            }
+        }
+    }
+
+    // dropdown override
+    .dropdown,
+    &.dropdown {
+        // unset opacity when dropdow is disabled
+        &.is-disabled {
+            opacity: 1;
+        }
+
+        .dropdown-menu {
+            .dropdown-item {
+                @include css.register-vars(
+                    (
+                        "dropdown-item-background-l-delta": "transparent",
+                    )
+                );
+                font-size: inherit;
+                padding-inline-end: 1rem;
+            }
+        }
+    }
+
+    .datepicker-header {
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid css.getVar("grey-lighter");
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: css.getVar("datepicker-header-spacer");
+        min-width: max-content;
+
+        button {
+            border-width: css.getVar("button-border-width");
+            border-radius: css.getVar("control-radius");
+        }
+
+        .button-previous {
+            order: 1;
+        }
+
+        .button-next {
+            order: 3;
+        }
+
+        .select-list {
+            order: 2;
+            display: inline-flex;
+            gap: inherit;
+        }
+    }
+
+    .datepicker-footer {
+        margin-top: 0.875rem;
+        padding-top: 0.875rem;
+        border-top: 1px solid css.getVar("grey-lighter");
+    }
+
+    .datepicker-table {
+        display: table;
+        margin: 0 auto 0 auto;
+
+        // day name header row
+        .datepicker-header {
+            display: table-header-group;
+
+            .datepicker-cell {
+                color: css.getVar("datepicker-header-color");
+                font-weight: css.getVar("weight-semibold");
+            }
+        }
+
+        .datepicker-body {
+            display: table-row-group;
+
+            .datepicker-row {
+                display: table-row;
+            }
+
+            &.has-events {
+                .datepicker-cell {
+                    padding: 0.3rem 0.75rem 0.75rem;
+                }
+            }
+        }
+    }
 
     .datepicker-cell {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 33.33%;
-      height: 2.5rem;
-    }
-  }
+        text-align: center;
+        vertical-align: middle;
+        display: table-cell;
+        border-radius: css.getVar("radius");
+        padding: 0.5rem 0.75rem;
 
-  @media screen and (min-width: css.getVar("desktop")) {
-    .footer-horizontal-timepicker {
-      border: none;
-      padding-left: 10px;
-      margin-left: 5px;
-      display: flex;
+        &.is-unselectable {
+            color: css.getVar("datepicker-item-disabled-color");
+        }
+
+        &.is-today {
+            border: css.getVar("datepicker-today-border");
+        }
+
+        &.is-week-number {
+            cursor: default;
+        }
+
+        &.is-selectable {
+            color: css.getVar("datepicker-item-color");
+
+            &:hover:not(.is-selected):not(.is-first-hovered):not(
+                    .is-last-hovered
+                ),
+            &:focus:not(.is-selected):not(.is-first-hovered):not(
+                    .is-last-hovered
+                ) {
+                background-color: css.getVar(
+                    "datepicker-item-hover-background-color"
+                );
+                color: css.getVar("datepicker-item-hover-color");
+                cursor: pointer;
+            }
+
+            &.is-first-hovered {
+                background-color: css.getVar("grey");
+                color: css.getVar("grey-lighter");
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            &.is-within-hovered {
+                background-color: css.getVar(
+                    "datepicker-item-hover-background-color"
+                );
+                color: css.getVar("datepicker-item-hover-color");
+                border-radius: 0;
+            }
+
+            &.is-last-hovered {
+                background-color: css.getVar("grey");
+                color: css.getVar("grey-lighter");
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+
+        &.is-selected {
+            overflow: hidden;
+        }
+
+        &.is-selected:not(.is-first-hovered):not(.is-within-hovered):not(
+                .is-last-hovered
+            ) {
+            background-color: css.getVar(
+                "datepicker-item-selected-background-color"
+            );
+            color: css.getVar("datepicker-item-selected-color");
+
+            &.is-first-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: css.getVar(
+                    "datepicker-item-selected-background-color"
+                );
+                color: css.getVar("datepicker-item-selected-color");
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+            }
+
+            &.is-within-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: rgba(
+                    css.getVar("datepicker-item-selected-background-color"),
+                    0.5
+                );
+                border-radius: 0;
+            }
+
+            &.is-last-selected:not(.is-first-hovered):not(
+                    .is-within-hovered
+                ):not(.is-last-hovered) {
+                background-color: css.getVar(
+                    "datepicker-item-selected-background-color"
+                );
+                color: css.getVar("datepicker-item-selected-color");
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+
+        &.is-nearby:not(.is-selected) {
+            color: css.getVar("grey-light");
+        }
+
+        &.has-event {
+            position: relative;
+        }
     }
 
-    .dropdown-horizonal-timepicker {
-      display: flex;
+    .events {
+        bottom: 0.425rem;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        padding: 0 0.35rem;
+        position: absolute;
+        width: 100%;
+
+        .event {
+            background-color: css.getVar("datepicker-event-background-color");
+
+            @each $name, $pair in vars.$datepicker-colors {
+                $color: list.nth($pair, 1);
+
+                &.is-#{$name} {
+                    background-color: $color;
+                }
+            }
+
+            &.is-dots {
+                border-radius: 50%;
+                height: 0.35em;
+                margin: 0 0.1em;
+                width: 0.35em;
+            }
+
+            &.is-bars {
+                height: 0.25em;
+                width: 100%;
+            }
+        }
     }
 
-    .content-horizonal-timepicker {
-      border-right: 1px solid #dbdbdb;
-    }
-  }
+    .datepicker-months {
+        display: inline-flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 17rem;
 
-  // datetimepicker overrides
-  .timepicker {
-    display: flex;
-    justify-content: center;
-
-    .dropdown {
-      @include css.register-vars(
-        (
-          "dropdown-content-shadow": "transparent",
-        )
-      );
-      width: inherit;
+        .datepicker-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 33.33%;
+            height: 2.5rem;
+        }
     }
-  }
+
+    @media screen and (min-width: css.getVar("desktop")) {
+        .footer-horizontal-timepicker {
+            border: none;
+            padding-left: 10px;
+            margin-left: 5px;
+            display: flex;
+        }
+
+        .dropdown-horizonal-timepicker {
+            display: flex;
+        }
+
+        .content-horizonal-timepicker {
+            border-right: 1px solid #dbdbdb;
+        }
+    }
+
+    // datetimepicker overrides
+    .timepicker {
+        display: flex;
+        justify-content: center;
+
+        .dropdown {
+            @include css.register-vars(
+                (
+                    "dropdown-content-shadow": "transparent",
+                )
+            );
+            width: inherit;
+        }
+    }
 }

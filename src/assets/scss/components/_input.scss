@@ -5,53 +5,53 @@
 @use "../utils/variables" as vars;
 
 .control {
-  display: inline-block;
+    display: inline-block;
 
-  &.is-expanded {
-    width: 100%;
-  }
-
-  > .icon {
-    @each $name, $value in vars.$sizes-map {
-      &.is-#{$name} {
-        font-size: #{$value};
-      }
+    &.is-expanded {
+        width: 100%;
     }
-  }
 
-  // size variants
-  &.is-small > input,
-  &.is-small > textarea {
-    @include controls.control-small;
-  }
-
-  &.is-medium > input,
-  &.is-medium > textarea {
-    @include controls.control-medium;
-  }
-
-  &.is-large > input,
-  &.is-large > textarea {
-    @include controls.control-large;
-  }
-
-  // variant colors
-  @each $name, $pair in vars.$input-colors {
-    &.is-#{$name} {
-      > input,
-      > textarea {
-        @include css.register-vars(
-          (
-            "input-h": #{css.getVar($name + "-h")},
-            "input-s": #{css.getVar($name + "-s")},
-            "input-l": #{css.getVar($name + "-l")},
-            "input-focus-h": #{css.getVar($name + "-h")},
-            "input-focus-s": #{css.getVar($name + "-s")},
-            "input-focus-l": #{css.getVar($name + "-l")},
-            "input-border-l": #{css.getVar($name + "-l")},
-          )
-        );
-      }
+    > .icon {
+        @each $name, $value in vars.$sizes-map {
+            &.is-#{$name} {
+                font-size: #{$value};
+            }
+        }
     }
-  }
+
+    // size variants
+    &.is-small > input,
+    &.is-small > textarea {
+        @include controls.control-small;
+    }
+
+    &.is-medium > input,
+    &.is-medium > textarea {
+        @include controls.control-medium;
+    }
+
+    &.is-large > input,
+    &.is-large > textarea {
+        @include controls.control-large;
+    }
+
+    // variant colors
+    @each $name, $pair in vars.$input-colors {
+        &.is-#{$name} {
+            > input,
+            > textarea {
+                @include css.register-vars(
+                    (
+                        "input-h": #{css.getVar($name + "-h")},
+                        "input-s": #{css.getVar($name + "-s")},
+                        "input-l": #{css.getVar($name + "-l")},
+                        "input-focus-h": #{css.getVar($name + "-h")},
+                        "input-focus-s": #{css.getVar($name + "-s")},
+                        "input-focus-l": #{css.getVar($name + "-l")},
+                        "input-border-l": #{css.getVar($name + "-l")},
+                    )
+                );
+            }
+        }
+    }
 }

@@ -4,62 +4,62 @@
 @use "../utils/variables" as vars;
 
 .taginput {
-  @include css.register-vars(
-    (
-      "taginput-height": #{vars.$taginput-height},
-      "taginput-tag-size": #{vars.$taginput-tag-size},
-    )
-  );
+    @include css.register-vars(
+        (
+            "taginput-height": #{vars.$taginput-height},
+            "taginput-tag-size": #{vars.$taginput-tag-size},
+        )
+    );
 
-  &.is-small .tag {
-    @include controls.control-small;
-  }
-
-  &.is-medium .tag {
-    @include controls.control-medium;
-  }
-
-  &.is-large .tag {
-    @include controls.control-large;
-  }
-
-  .taginput-container {
-    @extend %input-textarea;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 0;
-    height: auto;
-    cursor: text;
-  }
-
-  .tag {
-    margin: 0.25em;
-    font-size: css.getVar("taginput-tag-size");
-    height: css.getVar("taginput-height");
-
-    .icon.delete {
-      margin-left: 0.275rem;
-
-      > svg {
-        display: none;
-      }
+    &.is-small .tag {
+        @include controls.control-small;
     }
-  }
 
-  .autocomplete {
-    flex: 1;
-
-    input {
-      height: css.getVar("taginput-height");
-      border: none;
-      box-shadow: none;
+    &.is-medium .tag {
+        @include controls.control-medium;
     }
-  }
 
-  &:has(input[disabled]) {
-    background-color: css.getVar("input-disabled-background-color");
-  }
+    &.is-large .tag {
+        @include controls.control-large;
+    }
+
+    .taginput-container {
+        @extend %input-textarea;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 0;
+        height: auto;
+        cursor: text;
+    }
+
+    .tag {
+        margin: 0.25em;
+        font-size: css.getVar("taginput-tag-size");
+        height: css.getVar("taginput-height");
+
+        .icon.delete {
+            margin-left: 0.275rem;
+
+            > svg {
+                display: none;
+            }
+        }
+    }
+
+    .autocomplete {
+        flex: 1;
+
+        input {
+            height: css.getVar("taginput-height");
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    &:has(input[disabled]) {
+        background-color: css.getVar("input-disabled-background-color");
+    }
 }
