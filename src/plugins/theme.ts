@@ -90,7 +90,6 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: "switch",
         inputClass: "check",
-        trackClass: "check",
         positionClass: (value) => `has-${value}-label`,
         roundedClass: "is-rounded",
         labelClass: "control-label",
