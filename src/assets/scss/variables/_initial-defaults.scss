@@ -16,10 +16,10 @@ $theme-bulma-custom-colors: () !default;
 
 // Merge any user-defined custom colors with the custom colors defined by the theme. This will be passes to Bulma as $custom-colors
 // This is the one variable in this file which is not defaulted, but it collects defaulted values so it counts. It's going to be passed into bulma so it has to be here so it comes first
+// merge our custom-colors with the overridable map
 $theme-bulma-custom-colors-merged: map.merge(
-    // merge our custom-colors with the overridable map
     (
-            "secondary": $secondary,
-        ),
+        "secondary": $secondary,
+    ),
     $theme-bulma-custom-colors
 );

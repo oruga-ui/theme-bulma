@@ -9,5 +9,7 @@
 @forward "variables/derived-defaults";
 // use theme component variables
 @forward "variables/component-defaults";
+// use theme variables
+@forward "variables/initial-defaults";
 // use theme component styling
 @forward "oruga-theme";

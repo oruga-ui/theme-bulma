@@ -1,22 +1,18 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
-@use "../utils/variables" as var;
+@use "../utils/variables" as vars;
 
 .dropdown {
     @include css.register-vars(
         (
             "dropdown-background-background-color":
-                #{var.$dropdown-background-background-color},
-            "dropdown-disabled-opacity": #{var.$dropdown-disabled-opacity},
-            "dropdown-gap": #{var.$dropdown-gap},
-            "dropdown-z": #{var.$dropdown-z},
-            "dropdown-content-z": #{var.$dropdown-z},
+                #{vars.$dropdown-background-background-color},
+            "dropdown-disabled-opacity": #{vars.$dropdown-disabled-opacity},
+            "dropdown-gap": #{vars.$dropdown-gap},
+            "dropdown-z": #{vars.$dropdown-z},
+            "dropdown-content-z": #{vars.$dropdown-z},
         )
     );
-
-    & + .dropdown {
-        margin-left: 0.5em;
-    }
 
     .background {
         @include mixins.overlay;
@@ -25,10 +21,6 @@
         background-color: css.getVar("dropdown-background-background-color");
         z-index: css.getVar("dropdown-z");
         cursor: pointer;
-
-        @include mixins.from(var.$dropdown-mobile-breakpoint) {
-            display: none;
-        }
     }
 
     .dropdown-item {
@@ -61,6 +53,20 @@
                     "dropdown-item-l": css.getVar("primary-l"),
                     "dropdown-item-background-l": css.getVar("primary-l"),
                     "dropdown-item-color-l": css.getVar("primary-invert-l"),
+                )
+            );
+        }
+
+        &.is-focused,
+        &:hover {
+            @include css.register-vars(
+                (
+                    "dropdown-item-background-l-delta": css.getVar(
+                            "dropdown-item-hover-background-l-delta"
+                        ),
+                    "dropdown-item-border-l-delta": css.getVar(
+                            "dropdown-item-hover-border-l-delta"
+                        ),
                 )
             );
         }
@@ -153,32 +159,43 @@
     &.is-expanded {
         width: 100%;
 
-        &.is-mobile-modal .dropdown-menu,
+        &.is-modal .dropdown-menu,
         .dropdown-menu,
         .dropdown-trigger {
             width: 100%;
         }
     }
 
-    @include mixins.until(var.$dropdown-mobile-breakpoint) {
-        &.is-mobile-modal {
-            > .dropdown-menu {
-                position: fixed;
-                top: 25%;
-                left: 50%;
-                bottom: auto;
-                right: auto;
-                transform: translateX(-50%);
-                width: calc(100vw - 40px);
-                max-width: 460px;
-                max-height: calc(100vh - 120px);
-                white-space: normal;
-                overflow-y: auto;
-                z-index: calc(css.getVar("dropdown-z") + 10);
+    &.is-modal {
+        > .dropdown-menu {
+            @include css.register-vars(
+                (
+                    "dropdown-modal-width": #{vars.$dropdown-modal-width},
+                    "dropdown-modal-min-width":
+                        #{vars.$dropdown-modal-min-width},
+                    "dropdown-modal-max-width":
+                        #{vars.$dropdown-modal-max-width},
+                )
+            );
 
-                > .dropdown-item {
-                    padding: 1rem 1.5rem;
-                }
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            bottom: auto;
+            right: auto;
+            transform: translateX(-50%);
+            width: clamp(
+                css.getVar("dropdown-modal-min-width"),
+                css.getVar("dropdown-modal-width"),
+                css.getVar("dropdown-modal-max-width")
+            );
+            max-height: calc(100vh - 120px);
+            white-space: normal;
+            overflow-y: auto;
+            z-index: calc(css.getVar("dropdown-z") + 10);
+
+            > .dropdown-item {
+                padding: 1rem 1.5rem;
             }
         }
     }

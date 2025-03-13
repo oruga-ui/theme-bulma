@@ -13,6 +13,10 @@
         }
     }
 
+    button.is-rounded {
+        border-radius: css.getVar("radius-rounded");
+    }
+
     &.is-simple {
         justify-content: normal;
 

@@ -43,26 +43,6 @@
                 }
             }
         }
-
-        &.has-label-right,
-        &.has-label-left {
-            .step-title {
-                background-color: css.getVar("steps-details-background-color");
-                padding: 0.2em;
-            }
-        }
-
-        &.has-label-right {
-            .step-link {
-                flex-direction: row;
-            }
-        }
-
-        &.has-label-left {
-            .step-link {
-                flex-direction: row-reverse;
-            }
-        }
     }
 
     .step {
@@ -80,6 +60,8 @@
             )
         );
 
+        background: none;
+        border: none;
         margin-top: 0;
         position: relative;
         flex-grow: 1;
@@ -87,6 +69,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
 
         &::before,
         &::after {
@@ -185,6 +168,26 @@
             }
         }
 
+        &.label-bottom {
+            flex-direction: column;
+        }
+
+        &.label-right {
+            flex-direction: row;
+        }
+
+        &.label-left {
+            flex-direction: row-reverse;
+        }
+
+        &.label-right,
+        &.label-left {
+            .step-title {
+                background-color: css.getVar("steps-details-background-color");
+                padding: 0 0.25em;
+            }
+        }
+
         // Override marker color per step
         @each $name, $pair in vars.$steps-colors {
             $color: list.nth($pair, 1);
@@ -204,15 +207,6 @@
                 );
             }
         }
-    }
-
-    .step-link {
-        background: none;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
     }
 
     .step-marker {
@@ -262,7 +256,7 @@
             overflow: hidden;
         }
 
-        .step-item {
+        .step-panel {
             flex-shrink: 0;
             flex-basis: auto;
             text-align: center;
@@ -284,42 +278,38 @@
             height: 100%;
             flex-direction: column;
 
-            &.has-label-right {
-                .step {
-                    justify-content: flex-start;
+            .step.label-right {
+                justify-content: flex-start;
 
-                    &:not(:first-child),
-                    &:only-child {
-                        &::before,
-                        &::after {
-                            left: calc(
-                                css.getVar("steps-size") -
-                                    (css.getVar("steps-divider-height") * 0.5)
-                            );
-                        }
+                &:not(:first-child),
+                &:only-child {
+                    &::before,
+                    &::after {
+                        left: calc(
+                            css.getVar("steps-size") -
+                                (css.getVar("steps-divider-height") * 0.5)
+                        );
                     }
                 }
             }
 
-            &.has-label-left {
-                .step {
-                    justify-content: flex-end;
+            .step.label-left {
+                justify-content: flex-start;
 
-                    &:not(:first-child),
-                    &:only-child {
-                        &::before,
-                        &::after {
-                            left: auto;
-                            right: calc(
-                                css.getVar("steps-size") -
-                                    (css.getVar("steps-divider-height") * 0.5)
-                            );
-                        }
+                &:not(:first-child),
+                &:only-child {
+                    &::before,
+                    &::after {
+                        left: auto;
+                        right: calc(
+                            css.getVar("steps-size") -
+                                (css.getVar("steps-divider-height") * 0.5)
+                        );
                     }
                 }
             }
 
-            &:not(.has-label-right):not(.has-label-left) {
+            .step:not(.label-right):not(.label-left) {
                 .step-title {
                     background-color: css.getVar(
                         "steps-details-background-color"

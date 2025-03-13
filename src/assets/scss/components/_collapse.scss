@@ -2,6 +2,10 @@
     &-trigger {
         cursor: pointer;
         display: inline-block;
+
+        &.is-expanded {
+            width: 100%;
+        }
     }
 
     &-content {

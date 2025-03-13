@@ -22,14 +22,16 @@
 
     cursor: pointer;
 
-    .check {
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
         display: flex;
         align-items: center;
         flex-shrink: 0;
+        font-size: inherit;
         width: css.getVar("switch-width");
-        height: calc(
-            css.getVar("switch-width") * 0.5 + css.getVar("switch-padding")
-        );
         padding: css.getVar("switch-padding");
         background: css.getVar("switch-background-color");
         border-radius: css.getVar("radius");
@@ -41,10 +43,10 @@
         &:before {
             content: "";
             display: block;
+            font-size: inherit;
             border-radius: css.getVar("radius");
             width: calc(
-                /* stylelint-disable-next-line scss/operator-no-newline-after */
-                    (
+                (
                         css.getVar("switch-width") - css.getVar(
                                 "switch-padding"
                             ) *
@@ -53,8 +55,7 @@
                     2
             );
             height: calc(
-                /* stylelint-disable-next-line scss/operator-no-newline-after */
-                    (
+                (
                         css.getVar("switch-width") - css.getVar(
                                 "switch-padding"
                             ) *
@@ -71,16 +72,8 @@
             will-change: transform;
             transform-origin: left;
         }
-    }
 
-    input[type="checkbox"] {
-        position: absolute;
-        left: 0;
-        opacity: 0;
-        outline: none;
-        z-index: -1;
-
-        &:checked + .check {
+        &:checked {
             background: css.getVar("switch-active-background-color");
 
             &:before {
@@ -91,15 +84,10 @@
         &:focus,
         &:active {
             outline: none;
+            box-shadow: css.getVar("active-shadow-size")
+                hsl(from (css.getVar("switch-background-color") h s l / 80%));
 
-            + .check {
-                box-shadow: css.getVar("active-shadow-size")
-                    hsl(
-                        from (css.getVar("switch-background-color") h s l / 80%)
-                    );
-            }
-
-            &:checked + .check {
+            &:checked {
                 box-shadow: css.getVar("active-shadow-size")
                     hsl(
                         from
@@ -113,24 +101,10 @@
     }
 
     &:hover {
-        .check {
-            background: hsl(
-                from (css.getVar("switch-background-color") h s l / 90%)
-            );
-        }
-
-        input[type="checkbox"]:checked + .check {
+        input[type="checkbox"]:checked {
             background: hsl(
                 from (css.getVar("switch-active-background-color") h s l / 90%)
             );
-        }
-    }
-
-    .check.is-rounded {
-        border-radius: css.getVar("radius-rounded");
-
-        &:before {
-            border-radius: css.getVar("radius-rounded");
         }
     }
 
@@ -152,6 +126,14 @@
         opacity: 0.5;
         cursor: not-allowed;
         color: css.getVar("input-disabled-color");
+    }
+
+    &.is-rounded input {
+        border-radius: css.getVar("radius-rounded");
+
+        &:before {
+            border-radius: css.getVar("radius-rounded");
+        }
     }
 
     // sizes

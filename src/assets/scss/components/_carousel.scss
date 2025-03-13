@@ -1,21 +1,21 @@
-@use "../utils/variables" as var;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/mixins" as mixins;
+@use "../utils/variables" as vars;
 
 .carousel {
     @include css.register-vars(
         (
-            "carousel-arrow-background": #{var.$carousel-arrow-background},
-            "carousel-arrow-color": #{var.$carousel-arrow-color},
-            "carousel-arrow-icon-spaced": #{var.$carousel-arrow-icon-spaced},
-            "carousel-arrow-top": #{var.$carousel-arrow-top},
+            "carousel-arrow-background": #{vars.$carousel-arrow-background},
+            "carousel-arrow-color": #{vars.$carousel-arrow-color},
+            "carousel-arrow-icon-spaced": #{vars.$carousel-arrow-icon-spaced},
+            "carousel-arrow-top": #{vars.$carousel-arrow-top},
             "carousel-indicator-background":
-                #{var.$carousel-indicator-background},
-            "carousel-indicator-border": #{var.$carousel-indicator-border},
-            "carousel-indicator-color": #{var.$carousel-indicator-color},
-            "carousel-indicator-spaced": #{var.$carousel-indicator-spaced},
-            "carousel-overlay-background": #{var.$carousel-overlay-background},
-            "carousel-overlay-z": #{var.$carousel-overlay-z},
+                #{vars.$carousel-indicator-background},
+            "carousel-indicator-border": #{vars.$carousel-indicator-border},
+            "carousel-indicator-color": #{vars.$carousel-indicator-color},
+            "carousel-indicator-spaced": #{vars.$carousel-indicator-spaced},
+            "carousel-overlay-background": #{vars.$carousel-overlay-background},
+            "carousel-overlay-z": #{vars.$carousel-overlay-z},
         )
     );
 
@@ -26,13 +26,15 @@
     width: 100%;
 
     &.is-overlay {
+        @include mixins.overlay;
+
+        position: fixed;
         background-color: css.getVar("carousel-overlay-background");
         align-items: center;
         flex-direction: column;
         justify-content: center;
         display: flex;
         max-height: 100vh;
-        position: fixed;
         z-index: css.getVar("carousel-overlay-z");
 
         .carousel-item img {
@@ -58,7 +60,7 @@
             }
 
             &:not(.is-dragging) {
-                transition: all var.$speed-slower ease-out 0s;
+                transition: all vars.$speed-slower ease-out 0s;
             }
 
             .carousel-item {
@@ -99,14 +101,14 @@
 
         &.is-inside {
             position: absolute;
+        }
 
-            &.is-bottom {
-                bottom: 0;
-            }
+        &.is-bottom {
+            bottom: 0;
+        }
 
-            &.is-top {
-                top: 0;
-            }
+        &.is-top {
+            top: 0;
         }
 
         .indicator-item {
@@ -125,7 +127,7 @@
                 border: 1px solid css.getVar("carousel-indicator-color");
                 background: css.getVar("carousel-indicator-border");
                 outline: none;
-                transition: var.$speed-slow css.getVar("easing");
+                transition: vars.$speed-slow css.getVar("easing");
 
                 &.is-boxes {
                     height: 10px;
@@ -148,7 +150,7 @@
 }
 
 .carousel-arrow {
-    transition: var.$speed-slow css.getVar("easing");
+    transition: vars.$speed-slow css.getVar("easing");
 
     &.is-hovered {
         opacity: 0;

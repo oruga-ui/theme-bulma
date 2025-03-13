@@ -11,6 +11,18 @@
         )
     );
 
+    &.is-small .tag {
+        @include controls.control-small;
+    }
+
+    &.is-medium .tag {
+        @include controls.control-medium;
+    }
+
+    &.is-large .tag {
+        @include controls.control-large;
+    }
+
     .taginput-container {
         @extend %input-textarea;
 
@@ -21,30 +33,33 @@
         padding: 0;
         height: auto;
         cursor: text;
+    }
 
-        > .tag {
-            margin: 0.25em;
-            font-size: css.getVar("taginput-tag-size");
+    .tag {
+        margin: 0.25em;
+        font-size: css.getVar("taginput-tag-size");
+        height: css.getVar("taginput-height");
+
+        .icon.delete {
+            margin-left: 0.275rem;
+
+            > svg {
+                display: none;
+            }
+        }
+    }
+
+    .autocomplete {
+        flex: 1;
+
+        input {
             height: css.getVar("taginput-height");
-
-            .icon.delete {
-                margin-left: 0.275rem;
-            }
+            border: none;
+            box-shadow: none;
         }
+    }
 
-        .autocomplete {
-            flex: 1;
-
-            input {
-                height: css.getVar("taginput-height");
-                margin-top: 0.275em;
-                margin-bottom: 0.275em;
-                padding-top: 0;
-                padding-bottom: 0;
-                border: none;
-                box-shadow: none;
-                min-width: 8em;
-            }
-        }
+    &:has(input[disabled]) {
+        background-color: css.getVar("input-disabled-background-color");
     }
 }

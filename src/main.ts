@@ -21,13 +21,14 @@ createApp(App)
     .use(router)
     .use(Oruga, {
         iconPack: "fas",
+        iconComponent: "vue-fontawesome",
         customIconPacks: {
             fas: {
                 sizes: {
                     default: "",
-                    small: "fa-sm",
-                    medium: "fa-lg",
-                    large: "fa-2x",
+                    small: "sm",
+                    medium: "lg",
+                    large: "xl",
                 },
             },
         },

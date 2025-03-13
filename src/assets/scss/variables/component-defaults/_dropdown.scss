@@ -13,4 +13,7 @@ $dropdown-background-background-color: hsla(
     #{css.getVar("scheme-invert-l")},
     0.86
 ) !default;
+$dropdown-modal-width: 75%;
+$dropdown-modal-min-width: 25%;
+$dropdown-modal-max-width: calc(100vw - 40px);
 /* @docs */
