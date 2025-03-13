@@ -2,6 +2,9 @@
 
 @use "sass:map";
 
+// adds :root variables also as :host
+$enable-host: true !default;
+
 $speed-slow: 150ms !default;
 $speed-slower: 250ms !default;
 
