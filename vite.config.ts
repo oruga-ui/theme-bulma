@@ -65,6 +65,7 @@ export default defineConfig(({ mode }) => {
                 // build types in dist/types
                 dts({
                     outDir: "./dist/types",
+                    entryRoot: "src/plugins",
                     include: ["src/plugins/theme.ts"],
                 }),
                 // copy assets into dist
