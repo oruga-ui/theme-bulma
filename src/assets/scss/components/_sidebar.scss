@@ -103,6 +103,7 @@
 
         &.is-mini {
             width: css.getVar("sidebar-mobile-width");
+            transition: width vars.$speed-slow css.getVar("easing");
 
             &.is-expanded:hover:not(.is-fullwidth) {
                 width: css.getVar("sidebar-width");
