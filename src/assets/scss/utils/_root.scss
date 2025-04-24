@@ -8,3 +8,9 @@
         )
     );
 }
+
+@if var.$enable-host {
+    :host {
+        @extend :root;
+    }
+}

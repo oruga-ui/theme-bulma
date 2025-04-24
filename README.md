@@ -124,7 +124,6 @@ $custom-colors: (
 );
 
 // Pass any Bulma variables you'd like to override here
-// You can also use different Bulma versions here like bulma/versions/bulma-no-dark-mode
 @use "bulma/sass" with (
     $red: $red,
     $blue: $blue,
@@ -143,15 +142,6 @@ $custom-colors: (
 // ...
 ```
 
-##### Enable Hosts in the Separate Method
-
-Please note that `$enable-hosts` is intentionally not included in the component build to preserve the ability to use alternate bulma versions like `bulma-no-dark-mode`. If you'd like to use the separate method and you'd like to use this feature, just add the following lines right before you @use components-build.scss in the example above.
-
-```scss
-:host {
-    @extend :root;
-}
-```
 
 ### Override default config
 

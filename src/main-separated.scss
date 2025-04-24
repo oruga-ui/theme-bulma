@@ -20,7 +20,7 @@ $custom-colors: (
 );
 
 // Pass any Bulma values you're like to override here
-@forward "bulma/sass" with (
+@forward "bulma/versions/bulma-no-dark-mode" with (
     $black: $black,
     $custom-colors: $custom-colors
 );
@@ -28,5 +28,5 @@ $custom-colors: (
 // Pass any theme values you'd like to override here. Bulma values like $primary will be passed implicitly into the theme build and do not need to be passed.
 @forward "assets/scss/components-build.scss" with (
     $speed-slower: $speed-slower,
-    $dropdown-content-max-height: 300px
+    $dropdown-content-max-height: 300px,
 );
