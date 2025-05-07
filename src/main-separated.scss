@@ -19,7 +19,7 @@ $custom-colors: (
 );
 
 // Pass any Bulma values you're like to override here
-@forward "bulma/sass" with (
+@forward "bulma/versions/bulma-no-dark-mode" with (
     $black: $black,
     $custom-colors: $custom-colors
 );
