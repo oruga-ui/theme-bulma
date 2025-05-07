@@ -54,4 +54,17 @@
             }
         }
     }
+
+    // Re-creates the left icon style of https://github.com/jgthms/bulma/blob/main/sass/form/tools.scss#L275 to fit Oruga-style markup
+    &.has-icons-left .icon {
+        &:has(+ .input:hover),
+        &:has(+ .select:hover) {
+            color: css.getVar("input-icon-hover-color");
+        }
+  
+        &:has(+ .input:focus),
+        &:has(+ .select:focus) {
+            color: css.getVar("input-icon-focus-color");
+        }
+    }
 }
