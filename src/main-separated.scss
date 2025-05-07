@@ -26,5 +26,5 @@ $custom-colors: (
 
 // Pass any theme values you'd like to override here. Bulma values like $primary will be passed implicitly into the theme build and do not need to be passed.
 @forward "assets/scss/components-build.scss" with (
-    $dropdown-content-max-height: 300px,
+    $dropdown-content-max-height: 300px
 );
