@@ -23,7 +23,6 @@
         width: css.getVar("sidebar-width");
         height: css.getVar("sidebar-height");
         position: fixed;
-        transition: width vars.$speed-slow css.getVar("easing");
         z-index: css.getVar("sidebar-z");
 
         @each $name, $pair in vars.$sidebar-colors {
@@ -104,6 +103,7 @@
 
         &.is-mini {
             width: css.getVar("sidebar-mobile-width");
+            transition: width vars.$speed-slow css.getVar("easing");
 
             &.is-expanded:hover:not(.is-fullwidth) {
                 width: css.getVar("sidebar-width");
