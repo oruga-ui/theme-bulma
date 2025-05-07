@@ -1,29 +1,17 @@
 @use "bulma/sass/utilities/css-variables" as css;
 
-/* @docs */
-$button-shadow: css.getVar("focus-shadow-size")
-    hsla(
-        css.getVar("button-h"),
-        css.getVar("button-s"),
-        css.getVar("button-l"),
-        css.getVar("focus-shadow-alpha")
-    );
-/* @docs */
-
 .button {
     @include css.register-vars(
         (
-            "button-shadow": #{$button-shadow},
             "button-l": css.getVar("button-color-l"),
+            "focus-h": css.getVar("button-h"),
+            "focus-s": css.getVar("button-s"),
+            "focus-l": css.getVar("button-l"),
         )
     );
 
     .button-wrapper {
         display: inline-flex;
         justify-content: center;
-    }
-
-    &:focus {
-        box-shadow: css.getVar("button-shadow");
     }
 }
