@@ -16,3 +16,6 @@
 
 // use the oruga bulma theme
 @forward "components-build";
+
+// tweaks bulma css to better support web components, primarily to support oruga docs
+@forward 'utils/host';
