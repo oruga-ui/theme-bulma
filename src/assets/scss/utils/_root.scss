@@ -1,7 +1,7 @@
 @use "variables" as var;
 @use "bulma/sass/utilities/css-variables" as css;
 
-:root {
+#{var.$theme-bulma-variables-host} {
     @include css.register-vars(
         (
             "active-shadow-size": #{var.$active-shadow-size},

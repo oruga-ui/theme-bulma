@@ -1,8 +1,0 @@
-@use "variables" as var;
-@use "bulma/sass";
-
-@if var.$enable-host {
-    :host {
-        @extend :root;
-    }
-}

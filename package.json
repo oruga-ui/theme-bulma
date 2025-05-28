@@ -34,7 +34,7 @@
     "@oruga-ui/oruga-next": "^0.10.0"
   },
   "dependencies": {
-    "bulma": "1.0.3"
+    "bulma": "1.0.4"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
