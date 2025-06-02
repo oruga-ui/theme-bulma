@@ -1,5 +1,5 @@
 /************************
-*   Oruga Theme Bulma 
+*   Oruga Theme Bulma
 *************************/
 
 // Globals, utility and functions
@@ -10,6 +10,7 @@
 
 // Oruga components
 @forward "./components/autocomplete";
+@forward "./components/breadcrumb";
 @forward "./components/button";
 @forward "./components/carousel";
 @forward "./components/checkbox";

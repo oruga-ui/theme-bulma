@@ -1,0 +1,19 @@
+@use "sass:list";
+
+@use "../utils/variables" as vars;
+@use "bulma/sass/utilities/css-variables" as css;
+@use "bulma/sass/utilities/mixins" as mixins;
+
+.breadcrumb {
+    @each $name, $pair in vars.$sidebar-colors {
+        $color: list.nth($pair, 1);
+
+        &.is-#{$name} {
+            @include css.register-vars(
+                    (
+                        "breadcrumb-item-color": #{$color},
+                    )
+            );
+        }
+    }
+}
