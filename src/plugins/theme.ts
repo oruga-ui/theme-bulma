@@ -443,6 +443,10 @@ const bulmaConfig: OrugaOptions = {
     tag: {
         override: true,
         rootClass: "tag",
+        variantClass: "is-",
+        variant: "",
+        sizeClass: "is-",
+        size: "",
     },
 };
 
