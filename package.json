@@ -31,15 +31,15 @@
     "update": "ncu -u"
   },
   "peerDependencies": {
-    "@oruga-ui/oruga-next": "^0.10.0"
+    "@oruga-ui/oruga-next": "^0.10.6"
   },
   "dependencies": {
-    "bulma": "1.0.3"
+    "bulma": "1.0.4"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.7",
-    "@oruga-ui/examples": "0.10.0",
-    "@oruga-ui/oruga-next": "0.10.0",
+    "@oruga-ui/examples": "0.10.6",
+    "@oruga-ui/oruga-next": "0.10.6",
     "@types/node": "^22.13.10",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",

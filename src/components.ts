@@ -24,6 +24,7 @@ export default [
     "Switch",
     "Table",
     "Tabs",
+    "Tag",
     "Taginput",
     "Timepicker",
     "Tooltip",

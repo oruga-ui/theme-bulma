@@ -440,6 +440,10 @@ const bulmaConfig: OrugaOptions = {
         disabledClass: "is-disabled",
         hoveredClass: "is-hovered",
     },
+    tag: {
+        override: true,
+        rootClass: "tag",
+    },
 };
 
 export { bulmaConfig, bulmaConfig as config };
