@@ -129,7 +129,8 @@ const bulmaConfig: OrugaOptions = {
         variantClass: "is-",
         variant: "",
         sizeClass: "is-",
-        size: "",closeClass: "delete is-small",
+        size: "",
+        closeClass: "delete is-small",
     },
     taginput: {
         override: true,
