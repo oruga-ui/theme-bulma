@@ -123,6 +123,14 @@ const bulmaConfig: OrugaOptions = {
         itemEmptyClass: "is-disabled",
         itemGroupTitleClass: "has-text-weight-bold",
     },
+    tag: {
+        override: true,
+        rootClass: "tag",
+        variantClass: "is-",
+        variant: "",
+        sizeClass: "is-",
+        size: "",closeClass: "delete is-small",
+    },
     taginput: {
         override: true,
         rootClass: "taginput control",
@@ -438,14 +446,6 @@ const bulmaConfig: OrugaOptions = {
         expandedClass: "is-expanded",
         disabledClass: "is-disabled",
         hoveredClass: "is-hovered",
-    },
-    tag: {
-        override: true,
-        rootClass: "tag",
-        variantClass: "is-",
-        variant: "",
-        sizeClass: "is-",
-        size: "",
     },
 };
 
