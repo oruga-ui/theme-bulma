@@ -123,6 +123,15 @@ const bulmaConfig: OrugaOptions = {
         itemEmptyClass: "is-disabled",
         itemGroupTitleClass: "has-text-weight-bold",
     },
+    tag: {
+        override: true,
+        rootClass: "tag",
+        variantClass: "is-",
+        sizeClass: "is-",
+        roundedClass: "is-rounded",
+        badgeClass: "badge",
+        closeClass: "delete is-small",
+    },
     taginput: {
         override: true,
         rootClass: "taginput control",

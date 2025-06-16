@@ -14,4 +14,8 @@
         display: inline-flex;
         justify-content: center;
     }
+
+    &:has(.tag.badge) {
+        position: relative;
+    }
 }
