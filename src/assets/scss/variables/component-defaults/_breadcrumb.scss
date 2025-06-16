@@ -1,0 +1,5 @@
+@use "bulma/sass/utilities/derived-variables" as dv;
+
+/* @docs */
+$breadcrumb-colors: dv.$colors !default;
+/* @docs */

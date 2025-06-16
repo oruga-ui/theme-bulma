@@ -448,6 +448,16 @@ const bulmaConfig: OrugaOptions = {
         disabledClass: "is-disabled",
         hoveredClass: "is-hovered",
     },
+    breadcrumb: {
+        override: true,
+        rootClass: "breadcrumb",
+        variantClass: "is-",
+        sizeClass: "is-",
+        positionClass: "is-",
+        itemClass: "",
+        activeClass: "is-active",
+        disabledClass: "is-disabled",
+    },
 };
 
 export { bulmaConfig, bulmaConfig as config };

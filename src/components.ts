@@ -1,5 +1,6 @@
 export default [
     "Autocomplete",
+    "Breadcrumb",
     "Button",
     "Carousel",
     "Checkbox",
