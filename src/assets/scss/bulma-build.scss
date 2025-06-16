@@ -11,7 +11,8 @@
 
 // the primary bulma forward must come before all usage to prevent issues where usage appears before the with() statement
 @forward "bulma/sass" with (
-    $custom-colors: td.$theme-bulma-custom-colors-merged
+    $custom-colors: td.$theme-bulma-custom-colors-merged,
+    $variables-host: td.$theme-bulma-variables-host,
 );
 
 // use the oruga bulma theme
