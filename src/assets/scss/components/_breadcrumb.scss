@@ -5,6 +5,13 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 .breadcrumb {
+    li {
+        // define seprator
+        &:not(:first-child)::before {
+            content: var(--seperator, "/");
+        }
+    }
+
     @each $name, $pair in vars.$breadcrumb-colors {
         $color: list.nth($pair, 1);
 
