@@ -127,7 +127,6 @@ const bulmaConfig: OrugaOptions = {
         override: true,
         rootClass: "taginput control",
         containerClass: "taginput-container",
-        closeClass: "delete is-small",
         itemClass: "tag",
         sizeClass: "is-",
         variantClass: "is-",
