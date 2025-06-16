@@ -1,0 +1,14 @@
+.tag {
+    &.badge {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    &:empty {
+        width: 1em;
+        height: 1em;
+        padding: 0.75em;
+    }
+}

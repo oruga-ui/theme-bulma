@@ -130,6 +130,8 @@ const bulmaConfig: OrugaOptions = {
         variant: "",
         sizeClass: "is-",
         size: "",
+        roundedClass: "is-rounded",
+        badgeClass: "badge",
         closeClass: "delete is-small",
     },
     taginput: {
