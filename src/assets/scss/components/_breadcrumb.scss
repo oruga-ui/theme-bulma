@@ -5,14 +5,14 @@
 @use "bulma/sass/utilities/mixins" as mixins;
 
 .breadcrumb {
-    @each $name, $pair in vars.$sidebar-colors {
+    @each $name, $pair in vars.$breadcrumb-colors {
         $color: list.nth($pair, 1);
 
         &.is-#{$name} {
             @include css.register-vars(
-                    (
-                        "breadcrumb-item-color": #{$color},
-                    )
+                (
+                    "breadcrumb-item-color": #{$color},
+                )
             );
         }
     }

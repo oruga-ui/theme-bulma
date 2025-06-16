@@ -444,17 +444,10 @@ const bulmaConfig: OrugaOptions = {
         rootClass: "breadcrumb",
         variantClass: "is-",
         sizeClass: "is-",
-        size: "",
         positionClass: "is-",
-        variant: "",
-    },
-    breadcrumbItem: {
-        override: true,
         itemClass: "",
         activeClass: "is-active",
         disabledClass: "is-disabled",
-        sizeClass: "is-",
-        size: "",
     },
 };
 
