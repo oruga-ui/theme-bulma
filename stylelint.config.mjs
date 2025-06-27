@@ -1,14 +1,11 @@
+/**
+ * @see https://stylelint.io/user-guide/configure
+ * @type {import('stylelint').Config}
+ */
 export default {
-  extends: [
-    "stylelint-config-recommended",
-    "stylelint-config-recommended-scss",
-    "stylelint-prettier/recommended",
-  ],
-  plugins: ["stylelint-prettier", "stylelint-scss"],
   ignoreFiles: ["**/.*", "**/dist"],
+  extends: ["stylelint-config-recommended-scss"],
   rules: {
-    "scss/operator-no-newline-after": [true, { severity: "warning" }],
-    "scss/at-extend-no-missing-placeholder": null,
     "no-duplicate-selectors": [true, { severity: "warning" }],
     "no-descending-specificity": [true, { severity: "warning" }],
     "rule-empty-line-before": [
@@ -26,6 +23,8 @@ export default {
         ignoreAtRules: ["if", "else"],
       },
     ],
-    "prettier/prettier": [true, { endOfLine: "auto" }],
+    // SCSS
+    "scss/operator-no-newline-after": [true, { severity: "warning" }],
+    "scss/at-extend-no-missing-placeholder": null,
   },
 };
