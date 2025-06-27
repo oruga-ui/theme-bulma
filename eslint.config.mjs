@@ -34,8 +34,6 @@ export default [
   // add prettier configs
   prettierConfig,
 
-  prettierConfig,
-
   // your modifications
   {
     rules: {
