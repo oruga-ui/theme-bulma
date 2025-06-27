@@ -1,24 +1,11 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     },
-    "types": [
-      "node",
-      "vite/client",
-      "./node_modules/@oruga-ui/oruga-next/volar"
-    ]
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "eslint.config.*",
-    "stylelint.config.*",
-    "prettier.config.*",
-    "vite.config.*"
+    {
+      "path": "./tsconfig.app.json"
+    }
   ]
 }
