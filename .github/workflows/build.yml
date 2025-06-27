@@ -2,12 +2,12 @@ name: Build Theme
 on:
   push:
     branches:
-      - develop
       - main
+      - develop
   pull_request:
     branches:
-      - develop
       - main
+      - develop
 jobs:
   build:
     runs-on: ubuntu-latest
