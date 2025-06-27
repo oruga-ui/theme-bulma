@@ -1,4 +1,4 @@
-name: Build Theme
+name: Lint Check
 on:
   push:
     branches:
@@ -9,18 +9,17 @@ on:
       - main
       - develop
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 24
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node '22.x'
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
           registry-url: "https://registry.npmjs.org"
+          cache: "npm"
       - name: Install dependencies 📦
-        run: npm install
-      - name: Run build lib 🛠️
-        run: npm run build
+        run: npm ci
+      - name: Run lint check 🧐
+        run: npm run test:lint
