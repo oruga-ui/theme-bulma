@@ -1,9 +1,13 @@
 name: Lint commits
 on:
   push:
-    branches: [develop]
+    branches:
+      - develop
+      - main
   pull_request:
-    branches: [develop]
+    branches:
+      - develop
+      - main
 jobs:
   lint-commits:
     runs-on: ubuntu-latest
