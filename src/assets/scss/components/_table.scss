@@ -55,6 +55,7 @@
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
+
         // Disables is-*
         &:not([class*="is-"]) {
             background: css.getVar("table-background-color");
@@ -114,10 +115,6 @@
             overflow-x: auto;
         }
 
-        .table {
-            margin-bottom: 0;
-        }
-
         &:not(:last-child) {
             margin-bottom: 1.5rem;
         }
@@ -133,13 +130,17 @@
                 }
             }
 
-            tr:first-child {
+            thead {
                 th {
                     position: -webkit-sticky;
                     position: sticky;
                     top: 0;
                     z-index: 2;
                     background: css.getVar("table-background-color");
+
+                    &.is-sticky {
+                        z-index: 3;
+                    }
                 }
             }
         }
@@ -233,14 +234,6 @@
                 margin-left: 10px;
             }
 
-            &.is-sticky {
-                position: -webkit-sticky;
-                position: sticky;
-                left: 0;
-                z-index: 3 !important;
-                background: css.getVar("table-head-background-color");
-            }
-
             &.th-checkbox {
                 width: 40px;
             }
@@ -273,6 +266,7 @@
             }
         }
 
+        th,
         td {
             &.is-sticky {
                 position: -webkit-sticky;
