@@ -218,6 +218,7 @@ const bulmaConfig: OrugaOptions = {
         thSortIconClass: "th-wrap sort-icon",
         thUnselectableClass: "is-unselectable",
         thStickyClass: "is-sticky",
+        tdStickyClass: "is-sticky",
         thCheckboxClass: "th-checkbox",
         thDetailedClass: "th-chevron-cell",
         tdDetailedChevronClass: "chevron-cell",
