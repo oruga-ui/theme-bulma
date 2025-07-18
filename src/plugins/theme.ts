@@ -215,7 +215,7 @@ const bulmaConfig: OrugaOptions = {
         trDetailedClass: "is-detailed",
         thSortableClass: "is-sortable",
         thCurrentSortClass: "is-current-sort",
-        thSortIconClass: "th-wrap sort-icon",
+        thSortIconClass: "sort-icon",
         thUnselectableClass: "is-unselectable",
         thStickyClass: "is-sticky",
         tdStickyClass: "is-sticky",
