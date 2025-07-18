@@ -216,18 +216,13 @@
 
             &.is-sortable {
                 cursor: pointer;
-
-                > span {
-                    position: relative;
-                }
+                position: relative;
             }
 
             .sort-icon,
             .multi-sort-cancel-icon {
                 position: absolute;
-                bottom: 50%;
-                left: 100%;
-                transform: translateY(50%);
+                right: 0.5em;
             }
 
             .multi-sort-cancel-icon {
