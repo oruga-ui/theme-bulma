@@ -53,19 +53,17 @@ export default defineConfig(({ mode }) => {
             build: {
                 emptyOutDir: true,
                 copyPublicDir: false,
-                minify: "terser",
                 lib: {
                     entry: resolve(__dirname, "src/build.ts"),
                     name: "OrugaThemeBulma",
-                    fileName: "bulma",
-                    formats: ["es", "cjs", "umd"],
+                    fileName: "theme",
+                    cssFileName: "theme",
                 },
                 rollupOptions: {
                     // make sure to externalize deps that shouldn't be bundled
                     // into your library
                     external: ["vue", /oruga\/.*/],
                     output: {
-                        assetFileNames: "bulma.[ext]",
                         // Provide global variables to use in the UMD build
                         // for externalized deps
                         globals: {
@@ -73,10 +71,6 @@ export default defineConfig(({ mode }) => {
                         },
                     },
                 },
-            },
-            css: {
-                // rename default `style.css` to `bulma.css`
-                postcss: { to: "bulma.css" },
             },
         };
     }

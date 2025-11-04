@@ -1,8 +1,8 @@
-/***********************************
-*   Oruga Theme Bulma Full Build
-************************************/
+/**********************
+*   Theme Full Build
+***********************/
 
-// This file is the entrypoint for the main css build (bulma.css)
+// This file is the entrypoint for the main css build (theme.css)
 // It is also the scss entrypoint for users who want to configure Bulma and the theme together
 
 // theme defaults must be explictly forwarded here, otherwise confusing error messages result from the lack of defaults.
@@ -15,5 +15,5 @@
     $variables-host: td.$theme-bulma-variables-host
 );
 
-// use the oruga bulma theme
+// import theme styles
 @forward "components-build";

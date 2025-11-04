@@ -1,7 +1,7 @@
 // This file tests configuring Bulma and the theme from the theme
 // A real world version would likely be much more elaborate, but this should capture the basic idea enough to test the use case.
 
-@use "assets/scss/bulma-build.scss" with (
+@use "assets/scss/theme-build.scss" with (
     $primary: #0f0,
     $secondary: #00f,
     $theme-bulma-custom-colors: (
