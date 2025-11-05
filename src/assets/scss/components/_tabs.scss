@@ -299,10 +299,10 @@
     &.is-vertical {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
 
         .tabs {
             flex-grow: 0;
+            flex-shrink: 0;
             flex-direction: column;
             border-bottom-color: transparent !important;
         }
