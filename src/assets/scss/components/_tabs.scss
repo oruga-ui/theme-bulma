@@ -41,6 +41,7 @@
     .tab {
         @extend a !optional; // add button bulma `tabs a` styling
         height: 100%;
+        min-height: -webkit-fill-available;
 
         &:hover,
         &:focus {
@@ -299,6 +300,10 @@
     &.is-vertical {
         display: flex;
         flex-direction: row;
+
+        .tab {
+            min-height: unset;
+        }
 
         .tabs {
             flex-grow: 0;
