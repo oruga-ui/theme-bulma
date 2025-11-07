@@ -37,15 +37,15 @@
     "update": "ncu -u"
   },
   "peerDependencies": {
-    "@oruga-ui/oruga-next": "^0.12.0-pre.3"
+    "@oruga-ui/oruga-next": "^0.12.0"
   },
   "dependencies": {
     "bulma": "1.0.4"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
-    "@oruga-ui/examples": "^0.12.0-pre.3",
-    "@oruga-ui/oruga-next": "^0.12.0-pre.3",
+    "@oruga-ui/examples": "^0.12.0",
+    "@oruga-ui/oruga-next": "^0.12.0",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.10.0",
     "@vitejs/plugin-vue": "6.0.1",
@@ -64,7 +64,7 @@
     "stylelint-config-recommended-scss": "^16.0.2",
     "terser": "^5.43.1",
     "typescript": "5.9.3",
-    "vite": "^7.1.12",
+    "vite": "^7.2.2",
     "vite-plugin-banner": "^0.8.1",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-static-copy": "^3.1.4",
