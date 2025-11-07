@@ -4,14 +4,21 @@
   "description": "Bulma theme for Oruga",
   "license": "MIT",
   "type": "module",
-  "main": "dist/bulma.cjs",
-  "module": "dist/bulma.js",
-  "unpkg": "dist/bulma.cjs",
+  "main": "dist/theme.cjs",
+  "module": "dist/theme.js",
+  "unpkg": "dist/theme.cjs",
   "types": "dist/types/theme.d.ts",
   "sideEffects": [
     "*.css",
     "*.scss"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/theme.js"
+    },
+    "./style.css": "./dist/theme.css",
+    "./style.scss": "./dist/scss/theme.scss"
+  },
   "files": [
     "dist"
   ],
@@ -62,7 +69,6 @@
     "sass": "1.93.3",
     "stylelint": "^16.25.0",
     "stylelint-config-recommended-scss": "^16.0.2",
-    "terser": "^5.43.1",
     "typescript": "5.9.3",
     "vite": "^7.2.2",
     "vite-plugin-banner": "^0.8.1",

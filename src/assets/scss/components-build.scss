@@ -1,6 +1,6 @@
-/*******************************************
-*   Oruga Theme Bulma Component Only Build
-********************************************/
+/*********************************
+*   Theme Component Only Build
+**********************************/
 
 // This file is the entrypoint for the components only build
 // It is also the scss entrypoint for users who want to include only theme styles
@@ -12,4 +12,4 @@
 // use theme variables
 @forward "variables/initial-defaults";
 // use theme component styling
-@forward "oruga-theme";
+@forward "./theme";

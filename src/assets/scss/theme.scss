@@ -1,14 +1,14 @@
-/************************
-*   Oruga Theme Bulma
-*************************/
+/******************
+*   Theme Styles
+*******************/
 
-// Globals, utility and functions
+// import globals, helpers and functions
 @forward "utils/animations";
 @forward "utils/functions";
 @forward "utils/utility";
 @forward "utils/root";
 
-// Oruga components
+// import theme components
 @forward "./components/autocomplete";
 @forward "./components/breadcrumb";
 @forward "./components/button";

@@ -34,7 +34,7 @@ import App from "./App.vue";
 import Oruga from "@oruga-ui/oruga-next";
 import { bulmaConfig } from "@oruga-ui/theme-bulma";
 
-import "@oruga-ui/theme-bulma/dist/bulma.css";
+import "@oruga-ui/theme-bulma/dist/theme.css";
 
 createApp(App).use(Oruga, bulmaConfig).mount("#app");
 ```
@@ -86,7 +86,7 @@ $theme-bulma-custom-colors: (
 );
 
 // Include the Oruga Bulma theme with Bulma included
-@use "@oruga-ui/theme-bulma/dist/scss/bulma-build" with (
+@use "@oruga-ui/theme-bulma/dist/scss/theme-build" with (
     $family-primary: '"Nunito", sans-serif',
     $primary: $primary,
     $link: $link,
@@ -151,7 +151,7 @@ import { createApp } from "vue";
 import Oruga from "@oruga-ui/oruga-next";
 import { bulmaConfig } from "@oruga-ui/theme-bulma";
 
-import "@oruga-ui/theme-bulma/dist/bulma.css";
+import "@oruga-ui/theme-bulma/dist/theme.css";
 
 const customBulmaConfig = {
     ...bulmaConfig,
@@ -182,4 +182,4 @@ Logo designed by [rubjo](https://github.com/rubjo)
 
 ## License
 
-Code released under [MIT](https://github.com/oruga-ui/theme-bulma/blob/master/LICENSE) license.
+Code released under [MIT](https://github.com/oruga-ui/theme-bulma/blob/main/LICENSE) license.
