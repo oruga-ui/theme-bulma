@@ -11,4 +11,23 @@
         height: 1em;
         padding: 0.75em;
     }
+
+    button.delete {
+        background-color: transparent;
+        align-items: center;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+
+    button.delete:not(:has(.icon)) {
+        width: unset;
+        min-width: unset;
+        max-width: unset;
+        height: unset;
+        min-height: unset;
+        max-height: unset;
+    }
 }

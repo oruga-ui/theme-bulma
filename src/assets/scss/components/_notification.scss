@@ -29,6 +29,8 @@
             )
         );
 
+        display: inline-flex;
+        flex-direction: row-reverse;
         pointer-events: auto;
         max-width: 600px;
 
@@ -45,6 +47,10 @@
         &.is-top-left,
         &.is-bottom-left {
             align-self: flex-start;
+        }
+
+        button.delete + .media {
+            padding-right: calc(css.getVar("notification-notices-padding") / 2);
         }
     }
 

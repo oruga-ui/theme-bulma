@@ -1,4 +1,4 @@
-import type { OrugaOptions, ComponentProps } from "@oruga-ui/oruga-next";
+import type { OrugaOptions } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
 const bulmaConfig: OrugaOptions = {
@@ -19,12 +19,12 @@ const bulmaConfig: OrugaOptions = {
     },
     input: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
+        rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["control"];
             if (isTrueish(props.icon)) classes.push("has-icons-left");
             return classes.join(" ");
         },
-        inputClass: (_: string, props: ComponentProps) => {
+        inputClass: (_: string, props: Record<string, any>) => {
             const classes = ["input"];
             if (isTrueish(props.type == "textarea")) classes.push("textarea");
             return classes.join(" ");
@@ -41,7 +41,7 @@ const bulmaConfig: OrugaOptions = {
     },
     select: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
+        rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["select", "control"];
             if (isTrueish(props.size)) classes.push(`is-${props.size}`);
             if (isTrueish(props.rounded)) classes.push("is-rounded");
@@ -121,7 +121,7 @@ const bulmaConfig: OrugaOptions = {
         rootClass: "autocomplete control",
         itemClass: "dropdown-item",
         itemEmptyClass: "is-disabled",
-        itemGroupTitleClass: "has-text-weight-bold",
+        itemGroupClass: "has-text-weight-bold",
     },
     tag: {
         override: true,
@@ -143,7 +143,7 @@ const bulmaConfig: OrugaOptions = {
     },
     pagination: {
         override: true,
-        rootClass: (_: string, props: ComponentProps) => {
+        rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["pagination"];
             if (props.rounded) classes.push("is-rounded");
             return classes.join(" ");
@@ -329,7 +329,7 @@ const bulmaConfig: OrugaOptions = {
         prevButtonClass: "button-prev",
         nextButtonClass: "button-next",
         listsClass: "select-list",
-        tableBodyClass: (_: string, props: ComponentProps) => {
+        tableBodyClass: (_: string, props: Record<string, any>) => {
             const classes = ["datepicker-body"];
             if (props.events) classes.push(`has-events`);
             return classes.join(" ");
@@ -402,17 +402,17 @@ const bulmaConfig: OrugaOptions = {
         rootClass: "sidebar",
         overlayClass: "sidebar-background",
         contentClass: "sidebar-content",
+        contentMobileClass: "is-",
         activeClass: "is-active",
         positionClass: "is-",
-        expandOnHoverClass: "is-expanded",
         fullheightClass: "is-fullheight",
         fullwidthClass: "is-fullwidth",
-        reduceClass: "is-mini",
         inlineClass: "is-inline",
         mobileClass: "is-",
         scrollClipClass: "is-clipped",
     },
     loading: {
+        override: true,
         fullPageClass: "is-full-page",
         overlayClass: "loading-overlay",
         iconClass: "icon",
@@ -443,11 +443,11 @@ const bulmaConfig: OrugaOptions = {
     upload: {
         override: true,
         rootClass: "upload control",
-        draggableClass: "upload-draggable",
         variantClass: "is-",
         expandedClass: "is-expanded",
         disabledClass: "is-disabled",
-        hoveredClass: "is-hovered",
+        draggableClass: "upload-draggable",
+        draggableHoveredClass: "is-hovered",
     },
     breadcrumb: {
         override: true,
