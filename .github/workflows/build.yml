@@ -1,4 +1,4 @@
-name: Build Theme
+name: Build Package
 on:
   push:
     branches:
