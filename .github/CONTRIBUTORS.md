@@ -7,7 +7,3 @@ Thank you to everyone involved for improving this project, day by day 💚
   src="https://contrib.rocks/image?repo=oruga-ui/theme-bulma"
   />
 </a>
-
-## Extra contributions
-
-- [Rubjo](https://github.com/rubjo)
