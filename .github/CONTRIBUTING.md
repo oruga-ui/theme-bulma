@@ -1,4 +1,4 @@
-> Thanks for contributing!
+> Thanks for being interested in contributing to this project!
 
 # Raising an Issue
 
@@ -7,6 +7,7 @@
 
 # Submitting a Pull Request
 
+- Before you start working, it's better to open an issue to discuss first.
 - The current developed version is in the `main` branch. The theme does not have a dedicated `develop` branch
 - Include **screenshots** or animated GIFs in your pull request whenever needed (if visual changes)
 - It's OK to have multiple small commits as you work on the PR - we will let GitHub automatically squash it before merging
@@ -20,18 +21,30 @@
 - **Use .scss extension**
 - **Use kebab-case**
 
+### Transitions / Animations GPU-based only
+
+The only properties that uses hardware acceleration are:
+
+- transform
+- opacity
+- filter
+
+These are two great articles about it: https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108 and https://www.sitepoint.com/introduction-to-hardware-acceleration-css-animations/.
+
 # Development Setup
 
 You need at least [Node.js](http://nodejs.org/) **version 22**.
 The local setup contains every example of the main Oruga documentation page.
 
-After cloning the repository, install the dependencies:
+## Install
+
+Clone this repo to your local machine and install the dependencies:
 
 ```bash
 $ npm install
 ```
 
-## Link the main repo locally
+### Link the main repo locally
 
 To link the main Oruga packages locally, build both the `oruga` and the `examples` package in the Oruga repo.  
 Then run `npm run link ../oruga/packages/oruga ../oruga/packages/examples` in the theme repo to link the build output of the main Oruga packages.
