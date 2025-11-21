@@ -14,10 +14,13 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/theme.js"
+      "import": "./dist/theme.js",
+      "types": "./dist/types/theme.d.ts"
     },
     "./style.css": "./dist/theme.css",
-    "./style.scss": "./dist/scss/theme.scss"
+    "./style.scss": "./dist/scss/theme.scss",
+    "./scss/*.scss": "./dist/scss/*.scss",
+    "./dist/scss/*.scss": "./dist/scss/*.scss"
   },
   "files": [
     "dist"

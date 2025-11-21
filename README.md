@@ -34,7 +34,7 @@ import App from "./App.vue";
 import Oruga from "@oruga-ui/oruga-next";
 import { bulmaConfig } from "@oruga-ui/theme-bulma";
 
-import "@oruga-ui/theme-bulma/dist/theme.css";
+import "@oruga-ui/theme-bulma/style.css";
 
 createApp(App).use(Oruga, bulmaConfig).mount("#app");
 ```
@@ -45,7 +45,7 @@ Please note, this package can be used without importing any other Oruga styling 
 
 Bulma is a highly customizable CSS framework. From colors to typography, spacing and sizes, forms and layouts, all parts of Bulma can be customized by the user (see [Bulma Customization](https://bulma.io/documentation/customize/concepts/)).
 
-Using the following sample code below you **don't need** `import '@oruga-ui/theme-bulma/dist/bulma.css'` but you have to add a custom sass/scss file (like `main.scss`) to customize Bulma and the theme variables.
+Using the following sample code below you **don't need** `import '@oruga-ui/theme-bulma/style.css'` but you have to add a custom sass/scss file (like `main.scss`) to customize Bulma and the theme variables.
 
 ```js
 import { createApp } from "vue";
@@ -86,7 +86,7 @@ $theme-bulma-custom-colors: (
 );
 
 // Include the Oruga Bulma theme with Bulma included
-@use "@oruga-ui/theme-bulma/dist/scss/theme-build" with (
+@use "@oruga-ui/theme-bulma/scss/theme-build" with (
     $family-primary: '"Nunito", sans-serif',
     $primary: $primary,
     $link: $link,
@@ -133,7 +133,7 @@ $custom-colors: (
 );
 
 // Pass any theme variables you'd like to override here
-@use "@oruga-ui/theme-bulma/dist/scss/components-build.scss" with (
+@use "@oruga-ui/theme-bulma/scss/components-build.scss" with (
     $speed-slower: $speed-slower
 );
 
@@ -151,7 +151,7 @@ import { createApp } from "vue";
 import Oruga from "@oruga-ui/oruga-next";
 import { bulmaConfig } from "@oruga-ui/theme-bulma";
 
-import "@oruga-ui/theme-bulma/dist/theme.css";
+import "@oruga-ui/theme-bulma/style.css";
 
 const customBulmaConfig = {
     ...bulmaConfig,
