@@ -12,7 +12,7 @@ import "@oruga-ui/examples/dist/examples.css";
 // these imports are for testing different ways of including theme/bulma styles
 // use one or the other. do not use both.
 //import "./main-combined.scss";
-import "./main-separated.scss";
+import "./main-combined.scss";
 
 // add theme config
 import { bulmaConfig } from "./plugins/theme";
