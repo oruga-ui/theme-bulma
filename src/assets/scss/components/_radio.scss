@@ -19,15 +19,28 @@
 
     @include mixins.unselectable;
 
+    &.control {
+        display: inline-flex;
+        align-items: center;
+        
+        .control-label {
+            padding-left: css.getVar("control-padding-horizontal");
+            padding-right: css.getVar("control-padding-horizontal");
+            cursor: pointer;
+        }
+    }
+
     .check {
-        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
-        // font-size is changed by user agent to lower size
+        outline: none;
+        cursor: pointer;
         font-size: inherit;
         width: css.getVar("radio-size");
         height: css.getVar("radio-size");
         flex-shrink: 0;
-        border-radius: 50%;
+        border-radius: 50% !important;
         border: 2px solid css.getVar("radio-border-color");
         transition: background vars.$speed-slow css.getVar("easing");
         box-shadow: css.getVar("radio-shadow");
@@ -35,8 +48,8 @@
         &:before {
             content: "";
             position: absolute;
-            left: calc(css.getVar("radio-size") * 0.55);
-            top: calc(css.getVar("radio-size") * 0.45);
+            left: 0;
+            top: 0;
             width: css.getVar("radio-size");
             height: css.getVar("radio-size");
             border-radius: 50%;
@@ -76,28 +89,22 @@
         }
     }
 
-    .control-label {
-        padding-left: css.getVar("control-padding-horizontal");
-    }
-
     &.is-disabled {
         opacity: 0.5;
+        color: css.getVar("input-disabled-color");
+
+        &, 
+        input[disabled],
+        .control-label {
+            cursor: unset;
+        }
     }
 
-    // sizes
-
-    @include controls.control;
-
-    &.is-small {
-        @include controls.control-small;
-    }
-
-    &.is-medium {
-        @include controls.control-medium;
-    }
-
-    &.is-large {
-        @include controls.control-large;
+    // size variants
+    @each $name, $value in vars.$sizes-map {
+        &.is-#{$name} {
+            font-size: #{$value};
+        }
     }
 
     // variant colors
