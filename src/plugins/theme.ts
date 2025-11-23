@@ -70,7 +70,7 @@ const bulmaConfig: OrugaOptions = {
     },
     checkbox: {
         override: true,
-        rootClass: "checkbox",
+        rootClass: "checkbox control",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
@@ -79,7 +79,7 @@ const bulmaConfig: OrugaOptions = {
     },
     radio: {
         override: true,
-        rootClass: "radio",
+        rootClass: "radio control",
         disabledClass: "is-disabled",
         inputClass: "check",
         labelClass: "control-label",
@@ -88,7 +88,7 @@ const bulmaConfig: OrugaOptions = {
     },
     switch: {
         override: true,
-        rootClass: "switch",
+        rootClass: "switch control",
         inputClass: "check",
         positionClass: (value) => `has-${value}-label`,
         roundedClass: "is-rounded",
