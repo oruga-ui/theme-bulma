@@ -198,6 +198,11 @@
                     margin-left: 0;
                     margin-right: 0.5rem;
                 }
+
+                .sort-icon {
+                    right: unset;
+                    left: 0.5em;
+                }
             }
 
             &.is-centered {
