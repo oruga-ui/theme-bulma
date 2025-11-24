@@ -33,7 +33,7 @@ const bulmaConfig: OrugaOptions = {
         roundedClass: "is-rounded",
         variantClass: "is-",
         sizeClass: "is-",
-        expandedClass: "is-expanded is-fullwidth",
+        expandedClass: "is-expanded",
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         counterClass: "help counter",
@@ -52,7 +52,7 @@ const bulmaConfig: OrugaOptions = {
             return classes.join(" ");
         },
         variantClass: "is-",
-        expandedClass: "is-expanded",
+        expandedClass: "is-expanded is-fullwidth",
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         placeholderClass: "is-empty",
