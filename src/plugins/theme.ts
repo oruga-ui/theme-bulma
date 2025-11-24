@@ -33,7 +33,7 @@ const bulmaConfig: OrugaOptions = {
         roundedClass: "is-rounded",
         variantClass: "is-",
         sizeClass: "is-",
-        expandedClass: "is-expanded",
+        expandedClass: "is-expanded is-fullwidth",
         iconLeftClass: "is-left",
         iconRightClass: "is-right",
         counterClass: "help counter",
