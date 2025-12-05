@@ -59,7 +59,6 @@
                 "tabs-link-active-border-bottom-color"
             );
             color: css.getVar("tabs-link-active-color");
-            margin-bottom: 0;
 
             &:focus {
                 border-bottom-color: css.getVar(
