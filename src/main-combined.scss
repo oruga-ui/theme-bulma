@@ -10,10 +10,10 @@ $dark-grey: #6c757d;
 @use "assets/scss/theme-build.scss" with (
     $secondary: rgb(0, 103, 134),
     $theme-bulma-custom-colors: (
-      "dark-grey": $dark-grey, 
+        "dark-grey": $dark-grey,
         // If you want to add additional custom colors do it like this
         "foo": $red,
     ),
     $black: $black,
-    $dropdown-content-max-height: 300px,
+    $dropdown-content-max-height: 300px
 );
