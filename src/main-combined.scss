@@ -1,16 +1,19 @@
 // This file tests configuring Bulma and the theme from the theme
 // A real world version would likely be much more elaborate, but this should capture the basic idea enough to test the use case.
 
+// Set up your own variables to pass in. This can be as eloborate as you'd like but you MUST NOT reference Bulma directly. Mixins etc are fair game but they have to be standalone code.
+$red: #f00;
+$black: #000;
+$secondary: rgb(0, 103, 134);
+$dark-grey: #6c757d;
+
 @use "assets/scss/theme-build.scss" with (
-    $primary: #0f0,
-    $secondary: #00f,
+    $secondary: rgb(0, 103, 134),
     $theme-bulma-custom-colors: (
-        "fooooo": #f00,
+        "dark-grey": $dark-grey,
+        // If you want to add additional custom colors do it like this
+        "foo": $red,
     ),
-    $black: #000,
-    $dropdown-content-max-height: 300px,
-    // breaks
-    //$carousel-arrow-color: #f00,
-    $checkbox-size: 2em,
-    $checkbox-border-radius: 0
+    $black: $black,
+    $dropdown-content-max-height: 300px
 );
