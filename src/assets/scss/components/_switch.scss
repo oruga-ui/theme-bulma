@@ -20,19 +20,27 @@
 
     @include mixins.unselectable;
 
-    cursor: pointer;
+    &.control {
+        display: inline-flex;
+        align-items: center;
 
-    input[type="checkbox"] {
+        .control-label {
+            padding-left: css.getVar("control-padding-horizontal");
+            padding-right: css.getVar("control-padding-horizontal");
+            cursor: pointer;
+        }
+    }
+
+    .check {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        outline: none;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        flex-shrink: 0;
         font-size: inherit;
         width: css.getVar("switch-width");
         padding: css.getVar("switch-padding");
+        flex-shrink: 0;
         background: css.getVar("switch-background-color");
         border-radius: css.getVar("radius");
         transition:
@@ -110,22 +118,17 @@
 
     &.has-left-label {
         flex-direction: row-reverse;
-
-        .control-label {
-            padding-right: css.getVar("control-padding-horizontal");
-        }
-    }
-
-    &:not(.has-left-label) {
-        .control-label {
-            padding-left: css.getVar("control-padding-horizontal");
-        }
     }
 
     &.is-disabled {
         opacity: 0.5;
-        cursor: not-allowed;
         color: css.getVar("input-disabled-color");
+
+        &,
+        input[disabled],
+        .control-label {
+            cursor: unset;
+        }
     }
 
     &.is-rounded input {
@@ -136,20 +139,11 @@
         }
     }
 
-    // sizes
-
-    @include controls.control;
-
-    &.is-small {
-        @include controls.control-small;
-    }
-
-    &.is-medium {
-        @include controls.control-medium;
-    }
-
-    &.is-large {
-        @include controls.control-large;
+    // size variants
+    @each $name, $value in vars.$sizes-map {
+        &.is-#{$name} {
+            font-size: #{$value};
+        }
     }
 
     // variant colors

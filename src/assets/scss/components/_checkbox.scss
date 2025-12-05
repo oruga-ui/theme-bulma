@@ -28,12 +28,26 @@
         )
     );
 
+    &.control {
+        display: inline-flex;
+        align-items: center;
+
+        .control-label {
+            padding-left: css.getVar("control-padding-horizontal");
+            padding-right: css.getVar("control-padding-horizontal");
+            cursor: pointer;
+        }
+    }
+
     .check {
-        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
+        outline: none;
+        cursor: pointer;
         font-size: inherit;
-        width: vars.$checkbox-size;
-        height: vars.$checkbox-size;
+        width: css.getVar("checkbox-size");
+        height: css.getVar("checkbox-size");
         flex-shrink: 0;
         border-radius: css.getVar("checkbox-border-radius");
         border: css.getVar("checkbox-border-width") solid
@@ -73,33 +87,22 @@
         }
     }
 
-    .control-label {
-        padding-left: css.getVar("control-padding-horizontal");
-    }
-
-    &.button {
-        display: flex;
-    }
-
     &.is-disabled {
         opacity: 0.5;
-        cursor: not-allowed;
+        color: css.getVar("input-disabled-color");
+
+        &,
+        input[disabled],
+        .control-label {
+            cursor: unset;
+        }
     }
 
     // size variants
-
-    @include controls.control;
-
-    &.is-small {
-        @include controls.control-small;
-    }
-
-    &.is-medium {
-        @include controls.control-medium;
-    }
-
-    &.is-large {
-        @include controls.control-large;
+    @each $name, $value in vars.$sizes-map {
+        &.is-#{$name} {
+            font-size: #{$value};
+        }
     }
 
     // variant colors
