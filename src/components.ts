@@ -7,6 +7,7 @@ export default [
     "Collapse",
     "Datepicker",
     "Datetimepicker",
+    "Dialog",
     "Dropdown",
     "Field",
     "Icon",
