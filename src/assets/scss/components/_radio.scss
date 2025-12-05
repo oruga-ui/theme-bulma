@@ -22,7 +22,7 @@
     &.control {
         display: inline-flex;
         align-items: center;
-        
+
         .control-label {
             padding-left: css.getVar("control-padding-horizontal");
             padding-right: css.getVar("control-padding-horizontal");
@@ -93,7 +93,7 @@
         opacity: 0.5;
         color: css.getVar("input-disabled-color");
 
-        &, 
+        &,
         input[disabled],
         .control-label {
             cursor: unset;

@@ -23,7 +23,7 @@
     &.control {
         display: inline-flex;
         align-items: center;
-        
+
         .control-label {
             padding-left: css.getVar("control-padding-horizontal");
             padding-right: css.getVar("control-padding-horizontal");
@@ -31,7 +31,7 @@
         }
     }
 
-    .check {    
+    .check {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -120,12 +120,11 @@
         flex-direction: row-reverse;
     }
 
-
     &.is-disabled {
         opacity: 0.5;
         color: css.getVar("input-disabled-color");
 
-        &, 
+        &,
         input[disabled],
         .control-label {
             cursor: unset;
