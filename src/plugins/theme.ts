@@ -98,6 +98,36 @@ const bulmaConfig: OrugaOptions = {
         passiveVariantClass: "is-",
         disabledClass: "is-disabled",
     },
+    dialog: {
+        override: true,
+        rootClass: "dialog modal",
+        activeClass: "is-active",
+        mobileClass: undefined,
+        teleportClass: "is-teleported",
+        fullScreenClass: "is-fullscreen",
+        backdropClass: undefined,
+        wrapperClass: "modal-content modal-card",
+        textPositionClass: (position: string) => {
+            if (position === "left") return "has-text-left";
+            else if (position === "center") return "has-text-centered";
+            else if (position === "right") return "hast-text-right";
+        },
+        headerClass: "modal-card-head",
+        titleClass: "modal-card-title",
+        closeClass: "modal-close is-large",
+        closeIconSize: "medium",
+        subtitleClass: "modal-card-subtitle",
+        bodyClass: "modal-card-body",
+        contentClass: undefined,
+        figureClass: "image",
+        footerClass: "modal-card-foot",
+        footerPositionClass: (position: string) => {
+            if (position === "left") return "is-justify-content-flex-start";
+            if (position === "center") return "is-justify-content-center";
+            if (position === "right") return "is-justify-content-flex-end";
+        },
+        scrollClipClass: "is-clipped",
+    },
     dropdown: {
         override: true,
         rootClass: "dropdown",

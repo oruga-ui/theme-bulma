@@ -1,0 +1,61 @@
+@use "bulma/sass/components/modal"; // include modal component to extend from
+@use "bulma/sass/utilities/css-variables" as css;
+
+
+.dialog {
+    // override browser default appearance
+    background-color: transparent;
+    border-width: 0;
+    
+    &::backdrop {
+        @extend .modal-background;
+    }
+
+    // inner classes
+    .modal-card{
+        &-head{
+            flex-direction: column;
+            align-items: start;
+
+            & > .modal-close {
+                position: absolute;
+
+                &:before,
+                &:after, {
+                    display: none;
+                }
+            }
+        }
+
+        &-body{
+            &:first-child {
+                border-start-start-radius: css.getVar("modal-card-head-radius");
+                border-start-end-radius:  css.getVar("modal-card-head-radius");
+            }
+
+            &:last-child{
+                border-end-start-radius: css.getVar("modal-card-foot-radius");
+                border-end-end-radius: css.getVar("modal-card-foot-radius");
+            }
+        }
+
+        &-foot{
+            gap: 0.5rem;
+        }
+    }
+
+    
+   &.is-fullscreen {
+        width: 100vw;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        margin: 0;
+
+        & > .modal-content {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
