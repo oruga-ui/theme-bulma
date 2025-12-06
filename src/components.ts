@@ -12,6 +12,7 @@ export default [
     "Field",
     "Icon",
     "Input",
+    "Listbox",
     "Loading",
     "Menu",
     "Modal",

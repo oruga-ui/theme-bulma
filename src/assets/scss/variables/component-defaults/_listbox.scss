@@ -1,0 +1,10 @@
+// @use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/css-variables" as css;
+
+/* @docs */
+$listbox-disabled-opacity: 0.5 !default;
+$listbox-item-hover-background-color: css.getVar(
+    "panel-block-hover-background-color"
+) !default;
+$listbox-item-active-background-color: css.getVar("primary") !default;
+/* @docs */
