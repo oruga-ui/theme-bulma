@@ -26,18 +26,18 @@
     }
 
     .panel-list {
-        &:only-child{
-            border-radius: css.getVar("panel-radius") ;
+        &:only-child {
+            border-radius: css.getVar("panel-radius");
         }
 
-        &:first-child{
-            border-top-left-radius: css.getVar("panel-radius") ;
-            border-top-right-radius: css.getVar("panel-radius") ;
+        &:first-child {
+            border-top-left-radius: css.getVar("panel-radius");
+            border-top-right-radius: css.getVar("panel-radius");
         }
 
-        &:last-child{
-            border-bottom-left-radius: css.getVar("panel-radius") ;
-            border-bottom-right-radius: css.getVar("panel-radius") ;
+        &:last-child {
+            border-bottom-left-radius: css.getVar("panel-radius");
+            border-bottom-right-radius: css.getVar("panel-radius");
         }
 
         &:not(:last-child) {
