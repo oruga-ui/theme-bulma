@@ -11,8 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 24
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node
