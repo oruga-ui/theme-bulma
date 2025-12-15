@@ -81,12 +81,12 @@ $red: #f00;
 $link: $primary;
 
 // Add new colors to the colors map
-$theme-bulma-custom-colors: (
+$custom-colors: (
     "tertiary": $red,
 );
 
 // Include the Oruga Bulma theme with Bulma included
-@use "@oruga-ui/theme-bulma/scss/theme-build" with (
+@use "@oruga-ui/theme-bulma/scss/theme-build.scss" with (
     $family-primary: '"Nunito", sans-serif',
     $primary: $primary,
     $link: $link,
