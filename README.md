@@ -86,7 +86,7 @@ $theme-bulma-custom-colors: (
 );
 
 // Include the Oruga Bulma theme with Bulma included
-@use "@oruga-ui/theme-bulma/scss/theme-build" with (
+@use "@oruga-ui/theme-bulma/dist/scss/theme-build" with (
     $family-primary: '"Nunito", sans-serif',
     $primary: $primary,
     $link: $link,
@@ -133,7 +133,7 @@ $custom-colors: (
 );
 
 // Pass any theme variables you'd like to override here
-@use "@oruga-ui/theme-bulma/scss/components-build.scss" with (
+@use "@oruga-ui/theme-bulma/dist/scss/components-build.scss" with (
     $speed-slower: $speed-slower
 );
 
