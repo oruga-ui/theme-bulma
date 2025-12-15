@@ -81,7 +81,7 @@ $red: #f00;
 $link: $primary;
 
 // Add new colors to the colors map
-$theme-bulma-custom-colors: (
+$custom-colors: (
     "tertiary": $red,
 );
 
