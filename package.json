@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.2",
+    "@eslint/js": "^10.0.1",
     "@oruga-ui/examples": "^0.12.6",
     "@oruga-ui/oruga-next": "^0.12.6",
     "@tsconfig/node22": "^22.0.5",
