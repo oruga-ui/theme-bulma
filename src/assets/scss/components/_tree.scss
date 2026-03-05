@@ -1,0 +1,48 @@
+@use "bulma/sass/utilities/css-variables" as css;
+
+.tree {
+    .tree-toggle-icon {
+        cursor: pointer;
+    }
+
+    .tree-item {
+        &:focus-visible,
+        &.focused {
+            outline: unset;
+        }
+
+        &:not(&:has(.tree-toggle-icon)) {
+            cursor: pointer;
+        }
+
+        &.is-active > .menu-item {
+            @include css.register-vars(
+                (
+                    "menu-item-h": css.getVar("menu-item-selected-h"),
+                    "menu-item-s": css.getVar("menu-item-selected-s"),
+                    "menu-item-l": css.getVar("menu-item-selected-l"),
+                    "menu-item-background-l": css.getVar(
+                            "menu-item-selected-background-l"
+                        ),
+                    "menu-item-color-l": css.getVar(
+                            "menu-item-selected-color-l"
+                        ),
+                )
+            );
+        }
+
+        &.is-disabled {
+            @include css.register-vars(
+                (
+                    "menu-item-background-l-delta": -10%,
+                )
+            );
+        }
+    }
+
+    .submenu {
+        margin-inline-start: calc(
+            0.75em + var(--bulma-menu-nested-list-margin)
+        );
+    }
+}

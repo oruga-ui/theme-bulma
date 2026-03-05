@@ -31,5 +31,6 @@ export default [
     "Taginput",
     "Timepicker",
     "Tooltip",
+    "Tree",
     "Upload",
 ];
