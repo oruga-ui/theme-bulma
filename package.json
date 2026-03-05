@@ -47,15 +47,15 @@
     "update": "ncu -u"
   },
   "peerDependencies": {
-    "@oruga-ui/oruga-next": "^0.12.0"
+    "@oruga-ui/oruga-next": "^0.13.0-pre.2"
   },
   "dependencies": {
     "bulma": "1.0.4"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.0",
-    "@oruga-ui/examples": "^0.12.3",
-    "@oruga-ui/oruga-next": "^0.12.3",
+    "@oruga-ui/examples": "^0.13.0-pre.2",
+    "@oruga-ui/oruga-next": "^0.13.0-pre.2",
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "6.0.2",
