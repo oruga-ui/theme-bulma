@@ -1,7 +1,7 @@
-import type { OrugaOptions } from "@oruga-ui/oruga-next";
+import type { OrugaConfig } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
-const bulmaConfig: OrugaOptions = {
+const bulmaConfig: OrugaConfig = {
     field: {
         override: true,
         rootClass: "field",
@@ -104,7 +104,7 @@ const bulmaConfig: OrugaOptions = {
         activeClass: "is-active",
         mobileClass: undefined,
         teleportClass: "is-teleported",
-        fullScreenClass: "is-fullscreen",
+        fullscreenClass: "is-fullscreen",
         backdropClass: undefined,
         wrapperClass: "modal-content modal-card",
         textPositionClass: (position: string) => {
@@ -180,7 +180,7 @@ const bulmaConfig: OrugaOptions = {
         },
         sizeClass: "is-",
         simpleClass: "is-simple",
-        orderClass: "is-",
+        positionClass: "is-",
         roundedClass: "is-rounded",
         listClass: "pagination-list",
         buttonClass: "pagination-link",
@@ -244,14 +244,13 @@ const bulmaConfig: OrugaOptions = {
         trSelectedClass: "is-selected",
         trDetailedClass: "is-detailed",
         thSortableClass: "is-sortable",
-        thCurrentSortClass: "is-current-sort",
+        thSortedClass: "is-current-sort",
         thSortIconClass: "sort-icon",
-        thUnselectableClass: "is-unselectable",
         thStickyClass: "is-sticky",
         tdStickyClass: "is-sticky",
         thCheckboxClass: "th-checkbox",
         thDetailedClass: "th-chevron-cell",
-        tdDetailedChevronClass: "chevron-cell",
+        tdDetailClass: "chevron-cell",
         thPositionClass: "is-",
         tdPositionClass: "has-text-",
         mobileClass: "is-mobile",
@@ -452,7 +451,6 @@ const bulmaConfig: OrugaOptions = {
         itemDisabledClass: "is-disabled",
         itemFocusedClass: "is-focused",
         itemSelectedClass: "is-active",
-        itemClickableClass: "is-clickable",
         filterClass: "list-item panel-block",
         emptyClass: "list-item panel-block is-disabled",
         headerClass: "list-item panel-block",
