@@ -11,7 +11,7 @@
             outline: unset;
         }
 
-        &:not(&:has(.tree-toggle-icon)){
+        &:not(&:has(.tree-toggle-icon)) {
             cursor: pointer;
         }
 
@@ -21,8 +21,12 @@
                     "menu-item-h": css.getVar("menu-item-selected-h"),
                     "menu-item-s": css.getVar("menu-item-selected-s"),
                     "menu-item-l": css.getVar("menu-item-selected-l"),
-                    "menu-item-background-l": css.getVar("menu-item-selected-background-l"),
-                    "menu-item-color-l":  css.getVar("menu-item-selected-color-l"),
+                    "menu-item-background-l": css.getVar(
+                            "menu-item-selected-background-l"
+                        ),
+                    "menu-item-color-l": css.getVar(
+                            "menu-item-selected-color-l"
+                        ),
                 )
             );
         }
@@ -37,6 +41,8 @@
     }
 
     .submenu {
-       margin-inline-start: calc(0.75em + var(--bulma-menu-nested-list-margin));
+        margin-inline-start: calc(
+            0.75em + var(--bulma-menu-nested-list-margin)
+        );
     }
 }
