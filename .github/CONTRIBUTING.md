@@ -33,7 +33,7 @@ These are two great articles about it: https://medium.com/outsystems-experts/how
 
 # Development Setup
 
-You need at least [Node.js](http://nodejs.org/) **version 22**.
+You need at least [Node.js](http://nodejs.org/) **version 24**.
 The local setup contains every example of the main Oruga documentation page.
 
 ## Install
