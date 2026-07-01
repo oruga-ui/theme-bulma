@@ -2,6 +2,7 @@
 @use "sass:color";
 
 @use "bulma/sass/utilities/controls" as controls;
+@use "bulma/sass/utilities/mixins" as mixins;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "../utils/variables" as vars;
 
@@ -296,7 +297,7 @@
         }
     }
 
-    @media screen and (min-width: css.getVar("desktop")) {
+    @include mixins.desktop {
         .footer-horizontal-timepicker {
             border: none;
             padding-left: 10px;
