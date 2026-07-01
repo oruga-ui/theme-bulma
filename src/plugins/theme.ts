@@ -2,8 +2,8 @@ import type { OrugaConfig } from "@oruga-ui/oruga-next";
 import { isTrueish } from "@oruga-ui/oruga-next";
 
 const bulmaConfig: OrugaConfig = {
+    override: true,
     field: {
-        override: true,
         rootClass: "field",
         labelClass: "label",
         labelSizeClass: "is-",
@@ -18,7 +18,6 @@ const bulmaConfig: OrugaConfig = {
         horizontalBodyClass: "field-body",
     },
     input: {
-        override: true,
         rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["control"];
             if (isTrueish(props.icon)) classes.push("has-icons-left");
@@ -40,7 +39,6 @@ const bulmaConfig: OrugaConfig = {
         hasIconRightClass: "has-icons-right",
     },
     select: {
-        override: true,
         rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["select", "control"];
             if (isTrueish(props.size)) classes.push(`is-${props.size}`);
@@ -61,7 +59,6 @@ const bulmaConfig: OrugaConfig = {
         arrowedClass: "has-arrow",
     },
     icon: {
-        override: true,
         rootClass: "icon",
         variantClass: "has-text-",
         sizeClass: "is-",
@@ -69,7 +66,6 @@ const bulmaConfig: OrugaConfig = {
         spinClass: "is-spin",
     },
     checkbox: {
-        override: true,
         rootClass: "checkbox control",
         disabledClass: "is-disabled",
         inputClass: "check",
@@ -78,7 +74,6 @@ const bulmaConfig: OrugaConfig = {
         sizeClass: "is-",
     },
     radio: {
-        override: true,
         rootClass: "radio control",
         disabledClass: "is-disabled",
         inputClass: "check",
@@ -87,7 +82,6 @@ const bulmaConfig: OrugaConfig = {
         sizeClass: "is-",
     },
     switch: {
-        override: true,
         rootClass: "switch control",
         inputClass: "check",
         positionClass: (value) => `has-${value}-label`,
@@ -99,7 +93,6 @@ const bulmaConfig: OrugaConfig = {
         disabledClass: "is-disabled",
     },
     dialog: {
-        override: true,
         rootClass: "dialog modal",
         activeClass: "is-active",
         mobileClass: undefined,
@@ -129,7 +122,6 @@ const bulmaConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     dropdown: {
-        override: true,
         rootClass: "dropdown",
         triggerClass: "dropdown-trigger",
         menuClass: "dropdown-content dropdown-menu",
@@ -145,14 +137,12 @@ const bulmaConfig: OrugaConfig = {
         hoverableClass: "is-hoverable",
     },
     autocomplete: {
-        override: true,
         rootClass: "autocomplete control",
         itemClass: "dropdown-item",
         itemEmptyClass: "is-disabled",
         itemGroupClass: "has-text-weight-bold",
     },
     tag: {
-        override: true,
         rootClass: "tag",
         variantClass: "is-",
         sizeClass: "is-",
@@ -161,7 +151,6 @@ const bulmaConfig: OrugaConfig = {
         closeClass: "delete is-small",
     },
     taginput: {
-        override: true,
         rootClass: "taginput control",
         containerClass: "taginput-container",
         itemClass: "tag",
@@ -170,7 +159,6 @@ const bulmaConfig: OrugaConfig = {
         expandedClass: "is-expanded",
     },
     pagination: {
-        override: true,
         rootClass: (_: string, props: Record<string, any>) => {
             const classes = ["pagination"];
             if (props.rounded) classes.push("is-rounded");
@@ -189,7 +177,6 @@ const bulmaConfig: OrugaConfig = {
         infoClass: "info",
     },
     slider: {
-        override: true,
         rootClass: "slider",
         disabledClass: "is-disabled",
         trackClass: "slider-track",
@@ -205,7 +192,6 @@ const bulmaConfig: OrugaConfig = {
         tickClass: "slider-tick",
     },
     tabs: {
-        override: true,
         rootClass: "tabs-wrapper",
         contentClass: "tabs-content",
         multilineClass: "is-multiline",
@@ -226,7 +212,6 @@ const bulmaConfig: OrugaConfig = {
         transitioningClass: "is-transitioning",
     },
     table: {
-        override: true,
         rootClass: "table-wrapper",
         wrapperClass: "table-inner",
         tableClass: "table",
@@ -255,7 +240,6 @@ const bulmaConfig: OrugaConfig = {
         mobileSortClass: "table-mobile-sort",
     },
     tooltip: {
-        override: true,
         rootClass: "tooltip",
         contentClass: "tooltip-content",
         triggerClass: "tooltip-trigger",
@@ -266,7 +250,6 @@ const bulmaConfig: OrugaConfig = {
         teleportClass: "is-teleported",
     },
     steps: {
-        override: true,
         rootClass: "steps-wrapper",
         listClass: "steps",
         verticalClass: "is-vertical",
@@ -289,7 +272,6 @@ const bulmaConfig: OrugaConfig = {
         navigationClass: "step-navigation",
     },
     button: {
-        override: true,
         rootClass: "button",
         wrapperClass: "button-wrapper",
         sizeClass: "is-",
@@ -307,14 +289,12 @@ const bulmaConfig: OrugaConfig = {
         },
     },
     collapse: {
-        override: true,
         rootClass: "collapse",
         triggerClass: "collapse-trigger",
         expandedClass: "is-expanded",
         contentClass: "collapse-content",
     },
     menu: {
-        override: true,
         rootClass: "menu",
         listClass: "menu-list",
         labelClass: "menu-label",
@@ -324,7 +304,6 @@ const bulmaConfig: OrugaConfig = {
         itemSubmenuClass: "submenu",
     },
     skeleton: {
-        override: true,
         rootClass: "skeleton",
         animatedClass: "is-animated",
         positionClass: "is-",
@@ -333,7 +312,6 @@ const bulmaConfig: OrugaConfig = {
         itemClass: "skeleton-block",
     },
     notification: {
-        override: true,
         rootClass: "notification",
         wrapperClass: "media",
         contentClass: "media-content",
@@ -345,7 +323,6 @@ const bulmaConfig: OrugaConfig = {
         variantClass: "is-",
     },
     datepicker: {
-        override: true,
         rootClass: "datepicker",
         headerClass: "datepicker-header",
         contentClass: "datepicker-overlay",
@@ -399,7 +376,6 @@ const bulmaConfig: OrugaConfig = {
         monthEventVariantClass: "is-",
     },
     timepicker: {
-        override: true,
         rootClass: "timepicker",
         contentClass: "timepicker-overlay",
         separatorClass: "is-colon control",
@@ -410,12 +386,10 @@ const bulmaConfig: OrugaConfig = {
         },
     },
     datetimepicker: {
-        override: true,
         datepickerWrapperClass: "datepicker-wrapper",
         timepickerWrapperClass: "timepicker-wrapper",
     },
     modal: {
-        override: true,
         rootClass: "modal",
         activeClass: "is-active",
         overlayClass: "modal-background",
@@ -425,7 +399,6 @@ const bulmaConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     sidebar: {
-        override: true,
         rootClass: "sidebar",
         overlayClass: "sidebar-background",
         contentClass: "sidebar-content",
@@ -439,7 +412,6 @@ const bulmaConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     listbox: {
-        override: true,
         rootClass: "listbox panel",
         selectableClass: "selectable",
         multipleClass: "multiple",
@@ -455,7 +427,6 @@ const bulmaConfig: OrugaConfig = {
         footerClass: "list-item panel-block",
     },
     loading: {
-        override: true,
         fullPageClass: "is-full-page",
         overlayClass: "loading-overlay",
         iconClass: "icon",
@@ -463,7 +434,6 @@ const bulmaConfig: OrugaConfig = {
         scrollClipClass: "is-clipped",
     },
     carousel: {
-        override: true,
         rootClass: "carousel",
         overlayClass: "is-overlay",
         wrapperClass: "carousel-scene",
@@ -484,7 +454,6 @@ const bulmaConfig: OrugaConfig = {
         itemActiveClass: "is-active",
     },
     breadcrumb: {
-        override: true,
         rootClass: "breadcrumb",
         variantClass: "is-",
         sizeClass: "is-",
@@ -494,7 +463,6 @@ const bulmaConfig: OrugaConfig = {
         disabledClass: "is-disabled",
     },
     tree: {
-        override: true,
         rootClass: "tree menu",
         listClass: "menu-list",
         disabledClass: "is-disabled",
@@ -508,7 +476,6 @@ const bulmaConfig: OrugaConfig = {
         subtreeClass: "submenu",
     },
     upload: {
-        override: true,
         rootClass: "upload control",
         variantClass: "is-",
         expandedClass: "is-expanded",
