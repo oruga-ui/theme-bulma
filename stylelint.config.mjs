@@ -1,11 +1,14 @@
 /**
  * @see https://stylelint.io/user-guide/configure
- * @type {import('stylelint').Config}
  */
 export default {
   ignoreFiles: ["**/.*", "**/dist"],
-  extends: ["stylelint-config-recommended-scss"],
+  extends: [
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recommended-vue/scss",
+  ],
   rules: {
+    // CSS
     "no-duplicate-selectors": [true, { severity: "warning" }],
     "no-descending-specificity": [true, { severity: "warning" }],
     "rule-empty-line-before": [

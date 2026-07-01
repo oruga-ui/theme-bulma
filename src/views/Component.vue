@@ -1,5 +1,6 @@
 <script setup lang="ts">
 defineProps({
+    /** oruga component name */
     component: { type: String, required: true },
 });
 </script>

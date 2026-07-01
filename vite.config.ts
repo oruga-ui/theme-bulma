@@ -9,13 +9,12 @@ import { resolve } from "path";
 
 import pkg from "./package.json" with { type: "json" };
 
+/**
+ * Generate a licence file banner with the given package version.
+ * @param version package version
+ * @returns file banner string
+ */
 function generate(version: string): string {
-    const preview_build = process.env.ORUGA_PREVIEW_BUILD;
-
-    if (preview_build) {
-        version = `${version} (build ${preview_build})`;
-    }
-
     return `/*! Oruga Bulma Theme v${version} | MIT License | github.com/oruga-ui/theme-bulma */`;
 }
 

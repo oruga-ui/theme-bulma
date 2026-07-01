@@ -1,30 +1,31 @@
 <script setup lang="ts">
 import components from "@/components";
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
     <div id="app">
         <aside id="nav">
-            <router-link to="/" class="theme-label">
+            <RouterLink to="/" class="theme-label">
                 <img
                     class="image__oruga"
                     src="https://raw.githubusercontent.com/oruga-ui/theme-bulma/master/public/logo.svg"
                     alt="Logo Oruga Theme Bulma" />
                 <b>Oruga Bulma Theme</b>
-            </router-link>
+            </RouterLink>
 
             <hr />
 
-            <router-link
+            <RouterLink
                 v-for="component in components"
                 :key="component"
                 :to="{ name: component }">
                 {{ component }}
-            </router-link>
+            </RouterLink>
         </aside>
 
         <main class="main">
-            <router-view />
+            <RouterView />
         </main>
     </div>
 </template>
