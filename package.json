@@ -38,15 +38,15 @@
     "dev": "vite --force",
     "serve": "vite preview",
     "build": "vite build",
-    "lint": "run-s lint:eslint lint:prettier lint:stylelint",
+    "lint": "run-s lint:eslint lint:stylelint  lint:prettier",
     "lint:eslint": "eslint . --fix",
     "lint:prettier": "prettier --write .",
-    "lint:stylelint": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
+    "lint:stylelint": "stylelint **/*.{css,scss,vue} --fix --ignore-path .gitignore",
     "test:ts": "vue-tsc --build --noEmit",
-    "test:lint": "run-s test:eslint test:prettier test:stylelint",
+    "test:lint": "run-s test:eslint test:stylelint test:prettier",
     "test:eslint": "eslint .",
     "test:prettier": "prettier --check .",
-    "test:stylelint": "stylelint **/*.{css,scss} --ignore-path .gitignore",
+    "test:stylelint": "stylelint **/*.{css,scss,vue} --ignore-path .gitignore",
     "update": "ncu -u"
   },
   "peerDependencies": {
@@ -69,13 +69,17 @@
     "conventional-changelog-conventionalcommits": "^10.2.0",
     "core-js": "^3.49.0",
     "eslint": "^10.6.0",
+    "eslint-plugin-compat": "^7.0.2",
+    "eslint-plugin-jsdoc": "^63.0.10",
     "eslint-plugin-vue": "^10.9.2",
+    "jiti": "^2.7.0",
     "npm-check-updates": "^22.2.9",
     "npm-run-all2": "^9.0.2",
     "prettier": "^3.9.4",
     "sass": "1.101.0",
     "stylelint": "^17.14.0",
     "stylelint-config-recommended-scss": "^17.0.1",
+    "stylelint-config-recommended-vue": "^1.6.1",
     "typescript": "6.0.3",
     "vite": "^8.1.2",
     "vite-plugin-banner": "^0.8.1",
@@ -84,5 +88,9 @@
     "vue": "3.5.35",
     "vue-router": "5.1.0",
     "vue-tsc": "3.3.6"
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not op_mini all"
+  ]
 }
