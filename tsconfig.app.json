@@ -1,7 +1,8 @@
 {
   "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "composite": true,
+
     "paths": {
       "@/*": ["./src/*"]
     },
