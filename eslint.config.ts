@@ -52,12 +52,47 @@ export default defineConfigWithVueTs(
             // Vue
             "vue/padding-line-between-blocks": ["error", "always"],
             "vue/multi-word-component-names": ["off"],
+            "vue/padding-line-between-tags": [
+                "error",
+                [{ blankLine: "consistent", prev: "*", next: "*" }],
+            ],
             "vue/no-empty-component-block": "error",
             "vue/block-order": [
                 "error",
                 { order: ["script", "template", "style"] },
             ],
             "vue/block-lang": ["error", { script: { lang: "ts" } }],
+            "vue/block-tag-newline": "error",
+            "vue/component-api-style": ["error", ["script-setup"]],
+            "vue/component-name-in-template-casing": "error",
+            "vue/define-emits-declaration": ["error", "type-literal"],
+            "vue/define-macros-order": [
+                "error",
+                {
+                    order: [
+                        "defineOptions",
+                        "defineProps",
+                        "defineEmits",
+                        "defineSlots",
+                    ],
+                    defineExposeLast: false,
+                },
+            ],
+            "vue/html-button-has-type": [
+                "error",
+                {
+                    button: true,
+                    submit: false,
+                    reset: false,
+                },
+            ],
+            "vue/html-comment-content-spacing": "error",
+            "vue/html-self-closing": [
+                "warn",
+                {
+                    html: { void: "always" },
+                },
+            ],
             "vue/html-closing-bracket-newline": [
                 "error",
                 {
@@ -69,6 +104,23 @@ export default defineConfigWithVueTs(
                     },
                 },
             ],
+            "vue/no-duplicate-attr-inheritance": "error",
+            "vue/no-undef-components": "error",
+            "vue/no-undef-directives": "error",
+            "vue/no-undef-properties": "error",
+            "vue/prefer-use-template-ref": "error",
+            "vue/require-macro-variable-name": [
+                "error",
+                {
+                    defineProps: "props",
+                    defineEmits: "emits",
+                    defineSlots: "slots",
+                    useSlots: "slots",
+                    useAttrs: "attrs",
+                },
+            ],
+            "vue/require-prop-comment": "warn",
+            "vue/require-typed-object-prop": "warn",
         },
     },
 );
