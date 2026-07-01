@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
             plugins: [
                 // build types in dist/types
                 dts({
-                    tsconfigPath: "./tsconfig.app.json",
+                    tsconfigPath: "./tsconfig.lib.json",
                     outDir: "./dist/types",
                     entryRoot: "src/plugins",
                     include: ["src/plugins/theme.ts"],
