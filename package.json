@@ -37,11 +37,12 @@
   "scripts": {
     "dev": "vite --force",
     "serve": "vite preview",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "lint": "run-s lint:eslint lint:prettier lint:stylelint",
     "lint:eslint": "eslint . --fix",
     "lint:prettier": "prettier --write .",
     "lint:stylelint": "stylelint **/*.{css,scss} --fix --ignore-path .gitignore",
+    "test:ts": "vue-tsc --build --noEmit",
     "test:lint": "run-s test:eslint test:prettier test:stylelint",
     "test:eslint": "eslint .",
     "test:prettier": "prettier --check .",
