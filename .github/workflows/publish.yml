@@ -1,10 +1,12 @@
-name: Node.js Package
+name: Publish Package
 on:
   release:
     types: [created]
+
 permissions:
   id-token: write # Required for OIDC
   contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
