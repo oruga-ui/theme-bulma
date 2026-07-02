@@ -2,15 +2,19 @@
 @use "sass:color";
 
 @use "bulma/sass/utilities/controls" as controls;
-@use "bulma/sass/utilities/mixins" as mixins;
 @use "bulma/sass/utilities/css-variables" as css;
 @use "../utils/variables" as vars;
 
 .datepicker {
     @include css.register-vars(
         (
+            "datepicker-overlay-box-shadow":
+                #{vars.$datepicker-overlay-box-shadow},
+            "datepicker-overlay-radius": #{vars.$datepicker-overlay-radius},
+
             "datepicker-header-color": #{vars.$datepicker-header-color},
-            "datepicker-today-border": #{vars.$datepicker-today-border},
+            "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
+
             "datepicker-item-color": #{vars.$datepicker-item-color},
             "datepicker-item-disabled-color":
                 #{vars.$datepicker-item-disabled-color},
@@ -21,54 +25,37 @@
                 #{vars.$datepicker-item-selected-color},
             "datepicker-item-selected-background-color":
                 #{vars.$datepicker-item-selected-background-color},
+
             "datepicker-event-background-color":
                 #{vars.$datepicker-event-background-color},
-            "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
+            "datepicker-today-border": #{vars.$datepicker-today-border},
         )
     );
 
-    .dropdown,
-    .dropdown-trigger {
-        width: 100%;
+    .input[readonly] {
+        cursor: pointer;
+        box-shadow: css.getVar("input-shadow");
 
-        .input[readonly] {
-            cursor: pointer;
-            box-shadow: css.getVar("input-shadow");
-
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
-                box-shadow: css.getVar("input-focus-shadow-size")
-                    hsla(
-                        css.getVar("input-focus-h"),
-                        css.getVar("input-focus-s"),
-                        css.getVar("input-focus-l"),
-                        css.getVar("input-focus-shadow-alpha")
-                    );
-            }
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active {
+            box-shadow: css.getVar("input-focus-shadow-size")
+                hsla(
+                    css.getVar("input-focus-h"),
+                    css.getVar("input-focus-s"),
+                    css.getVar("input-focus-l"),
+                    css.getVar("input-focus-shadow-alpha")
+                );
         }
     }
 
-    // dropdown override
-    .dropdown,
-    &.dropdown {
-        // unset opacity when dropdow is disabled
-        &.is-disabled {
-            opacity: 1;
-        }
-
-        .dropdown-menu {
-            .dropdown-item {
-                @include css.register-vars(
-                    (
-                        "dropdown-item-background-l-delta": "transparent",
-                    )
-                );
-                font-size: inherit;
-                padding-inline-end: 1rem;
-            }
-        }
+    &-overlay {
+        width: fit-content;
+        border-width: 0;
+        border-radius: css.getVar("datepicker-overlay-radius");
+        box-shadow: css.getVar("datepicker-overlay-box-shadow");
+        padding: calc(css.getVar("datepicker-header-spacer") * 2);
     }
 
     .datepicker-header {
@@ -297,34 +284,13 @@
         }
     }
 
-    @include mixins.desktop {
-        .footer-horizontal-timepicker {
-            border: none;
-            padding-left: 10px;
-            margin-left: 5px;
-            display: flex;
-        }
-
-        .dropdown-horizonal-timepicker {
-            display: flex;
-        }
-
-        .content-horizonal-timepicker {
-            border-right: 1px solid #dbdbdb;
-        }
-    }
-
     // datetimepicker overrides
     .timepicker {
         display: flex;
         justify-content: center;
 
-        .dropdown {
-            @include css.register-vars(
-                (
-                    "dropdown-content-shadow": "transparent",
-                )
-            );
+        &-overlay {
+            box-shadow: unset;
             width: inherit;
         }
     }

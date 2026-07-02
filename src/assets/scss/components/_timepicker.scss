@@ -1,81 +1,72 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "bulma/sass/utilities/controls" as controls;
+@use "../utils/variables" as vars;
 
 .timepicker {
-    .dropdown,
-    .dropdown-trigger {
-        @include css.register-vars(
-            (
-                "dropdown-menu-min-width": 0,
-            )
-        );
+    // use same vars like datepicker here
+    @include css.register-vars(
+        (
+            "datepicker-overlay-box-shadow":
+                #{vars.$datepicker-overlay-box-shadow},
+            "datepicker-overlay-radius": #{vars.$datepicker-overlay-radius},
+            "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
+        )
+    );
 
-        width: 100%;
+    .input[readonly] {
+        cursor: pointer;
+        box-shadow: css.getVar("input-shadow");
 
-        .input[readonly] {
-            cursor: pointer;
-            box-shadow: css.getVar("input-shadow");
-
-            &:focus,
-            &.is-focused,
-            &:active,
-            &.is-active {
-                box-shadow: css.getVar("input-focus-shadow-size")
-                    hsla(
-                        css.getVar("input-focus-h"),
-                        css.getVar("input-focus-s"),
-                        css.getVar("input-focus-l"),
-                        css.getVar("input-focus-shadow-alpha")
-                    );
-            }
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active {
+            box-shadow: css.getVar("input-focus-shadow-size")
+                hsla(
+                    css.getVar("input-focus-h"),
+                    css.getVar("input-focus-s"),
+                    css.getVar("input-focus-l"),
+                    css.getVar("input-focus-shadow-alpha")
+                );
         }
     }
 
-    // unset opacity when dropdow is disabled
-    .dropdown {
-        &.is-disabled {
-            opacity: 1;
+    .select {
+        margin: 0 0.125em;
+
+        select {
+            font-weight: css.getVar("weight-semibold");
+            padding-right: css.getVar("control-padding-horizontal");
+            border: 0;
+        }
+
+        &:after {
+            display: none !important;
         }
     }
 
-    .dropdown-item {
-        font-size: inherit;
-        padding: 0;
-        justify-content: center;
-        display: flex;
+    &-overlay {
+        width: fit-content;
+        border-width: 0;
+        border-radius: css.getVar("datepicker-overlay-radius");
+        box-shadow: css.getVar("datepicker-overlay-box-shadow");
+        padding: css.getVar("datepicker-header-spacer");
+        font-size: 1.25em;
 
-        &:hover {
-            background-color: unset;
+        &:not([popover]),
+        &:popover-open {
+            display: flex;
+            gap: calc(css.getVar("datepicker-header-spacer") / 2);
         }
+    }
+
+    &-colon {
+        font-size: 1.5em;
+        line-height: 1;
     }
 
     .timepicker-footer {
-        padding: 0 0.5rem 0 0.5rem;
-    }
-
-    .dropdown-content {
-        .control {
-            font-size: 1.25em;
-
-            &.select {
-                margin: 0 0.125em;
-
-                select {
-                    font-weight: css.getVar("weight-semibold");
-                    padding-right: css.getVar("control-padding-horizontal");
-                    border: 0;
-                }
-
-                &:after {
-                    display: none;
-                }
-            }
-
-            &.is-colon {
-                font-size: 1.7em;
-                line-height: 1.7em;
-            }
-        }
+        padding: 0 0.5rem;
     }
 
     // sizes

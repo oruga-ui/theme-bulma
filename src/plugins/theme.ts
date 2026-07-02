@@ -124,7 +124,7 @@ const bulmaConfig: OrugaConfig = {
     dropdown: {
         rootClass: "dropdown",
         triggerClass: "dropdown-trigger",
-        menuClass: "dropdown-content dropdown-menu",
+        menuClass: "dropdown-menu dropdown-content",
         disabledClass: "is-disabled",
         expandedClass: "is-expanded",
         itemClass: "dropdown-item",
@@ -132,13 +132,12 @@ const bulmaConfig: OrugaConfig = {
         itemFocusedClass: "is-focused",
         itemDisabledClass: "is-disabled",
         modalClass: "is-modal",
-        overlayClass: "background",
+        overlayClass: "has-overlay",
         activeClass: "is-active",
         hoverableClass: "is-hoverable",
     },
     autocomplete: {
         rootClass: "autocomplete control",
-        itemClass: "dropdown-item",
         itemEmptyClass: "is-disabled",
         itemGroupClass: "has-text-weight-bold",
     },
@@ -324,8 +323,10 @@ const bulmaConfig: OrugaConfig = {
     },
     datepicker: {
         rootClass: "datepicker",
-        headerClass: "datepicker-header",
+        triggerClass: "datepicker-trigger",
         contentClass: "datepicker-overlay",
+        headerClass: "datepicker-header",
+
         footerClass: "datepicker-footer",
         tableClass: "datepicker-table",
         tableHeadClass: "datepicker-header",
@@ -378,7 +379,7 @@ const bulmaConfig: OrugaConfig = {
     timepicker: {
         rootClass: "timepicker",
         contentClass: "timepicker-overlay",
-        separatorClass: "is-colon control",
+        separatorClass: "timepicker-colon",
         footerClass: "timepicker-footer",
         sizeClass: "is-",
         selectClasses: {
