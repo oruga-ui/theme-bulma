@@ -6,11 +6,6 @@
     }
 
     .tree-item {
-        &:focus-visible,
-        &.focused {
-            outline: unset;
-        }
-
         &:not(&:has(.tree-toggle-icon)) {
             cursor: pointer;
         }

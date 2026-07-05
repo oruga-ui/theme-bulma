@@ -11,6 +11,8 @@
             "datepicker-overlay-box-shadow":
                 #{vars.$datepicker-overlay-box-shadow},
             "datepicker-overlay-radius": #{vars.$datepicker-overlay-radius},
+            "datepicker-overlay-background-color":
+                #{vars.$datepicker-overlay-background-color},
 
             "datepicker-header-color": #{vars.$datepicker-header-color},
             "datepicker-header-spacer": #{vars.$datepicker-header-spacer},
@@ -56,6 +58,12 @@
         border-radius: css.getVar("datepicker-overlay-radius");
         box-shadow: css.getVar("datepicker-overlay-box-shadow");
         padding: calc(css.getVar("datepicker-header-spacer") * 2);
+    }
+
+    &-backdrop {
+        &::backdrop {
+            background-color: css.getVar("datepicker-overlay-background-color");
+        }
     }
 
     .datepicker-header {

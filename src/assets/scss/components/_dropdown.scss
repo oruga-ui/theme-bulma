@@ -13,10 +13,10 @@
     );
 
     &-menu {
-        top: unset;
-        left: unset;
-        right: unset;
-        bottom: unset;
+        // revert menu position because of popover api usage
+        position: fixed;
+        top: revert;
+
         border-width: 0;
         padding-left: 0;
         padding-right: 0;
@@ -24,6 +24,10 @@
 
     &-content {
         max-height: css.getVar("dropdown-content-max-height");
+
+        &:popover-open {
+            display: block;
+        }
     }
 
     &-item {
@@ -75,7 +79,7 @@
         }
     }
 
-    &.has-overlay .dropdown-menu {
+    &-backdrop .dropdown-menu {
         cursor: pointer;
 
         &::backdrop {

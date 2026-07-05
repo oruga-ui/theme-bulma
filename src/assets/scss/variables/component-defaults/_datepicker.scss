@@ -6,6 +6,12 @@ $datepicker-colors: dv.$colors !default;
 
 $datepicker-overlay-box-shadow: css.getVar("shadow") !default;
 $datepicker-overlay-radius: css.getVar("radius") !default;
+$datepicker-overlay-background-color: hsla(
+    #{css.getVar("scheme-h")},
+    #{css.getVar("scheme-s")},
+    #{css.getVar("scheme-invert-l")},
+    0.86
+) !default;
 
 $datepicker-header-color: css.getVar("grey") !default;
 $datepicker-header-spacer: 0.5em !default;
