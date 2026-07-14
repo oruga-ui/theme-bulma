@@ -79,22 +79,6 @@
         }
     }
 
-    &-backdrop .dropdown-menu {
-        cursor: pointer;
-
-        &::backdrop {
-            background-color: css.getVar(
-                "dropdown-background-background-color"
-            );
-        }
-    }
-
-    &.is-hoverable {
-        .background {
-            display: none;
-        }
-    }
-
     &.is-disabled {
         opacity: css.getVar("dropdown-disabled-opacity");
         cursor: not-allowed;
@@ -111,36 +95,41 @@
             width: 100%;
         }
 
-        &.is-modal .dropdown-menu,
         .dropdown-menu {
             width: anchor-size(width);
         }
     }
 
-    &.is-modal {
-        > .dropdown-menu {
-            @include css.register-vars(
-                (
-                    "dropdown-modal-width": #{vars.$dropdown-modal-width},
-                    "dropdown-modal-min-width":
-                        #{vars.$dropdown-modal-min-width},
-                    "dropdown-modal-max-width":
-                        #{vars.$dropdown-modal-max-width},
-                )
-            );
+    .is-modal {
+        @include css.register-vars(
+            (
+                "dropdown-modal-width": #{vars.$dropdown-modal-width},
+                "dropdown-modal-min-width": #{vars.$dropdown-modal-min-width},
+                "dropdown-modal-max-width": #{vars.$dropdown-modal-max-width},
+            )
+        );
 
-            width: clamp(
-                css.getVar("dropdown-modal-min-width"),
-                css.getVar("dropdown-modal-width"),
-                css.getVar("dropdown-modal-max-width")
-            );
-            max-height: calc(100vh - 120px);
-            white-space: normal;
-            overflow-y: auto;
+        width: clamp(
+            css.getVar("dropdown-modal-min-width"),
+            css.getVar("dropdown-modal-width"),
+            css.getVar("dropdown-modal-max-width")
+        );
+        max-height: calc(100vh - 120px);
+        white-space: normal;
+        overflow-y: auto;
 
-            > .dropdown-item {
-                padding: 1rem 1.5rem;
-            }
+        > .dropdown-item {
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    .has-backdrop {
+        cursor: pointer;
+
+        &::backdrop {
+            background-color: css.getVar(
+                "dropdown-background-background-color"
+            );
         }
     }
 }

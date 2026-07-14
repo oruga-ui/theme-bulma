@@ -44,7 +44,8 @@
         margin-bottom: var(--bulma-control-padding-vertical);
         margin-top: var(--bulma-control-padding-vertical);
 
-        .icon.delete {
+        button.delete {
+            font-size: 0.75em;
             margin-left: 0.275rem;
 
             > svg {

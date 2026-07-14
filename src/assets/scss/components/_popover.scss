@@ -34,6 +34,17 @@
         background-color: css.getVar("popover-background-color");
         border-radius: css.getVar("popover-border-radius");
         box-shadow: css.getVar("popover-shadow");
+
+        // make space for close icon
+        &:has(.popover-close):not(:has(.popover-header)) {
+            padding-right: 2rem;
+        }
+    }
+
+    &-close {
+        position: absolute;
+        top: 0.35em;
+        right: 0.25em;
     }
 
     &-backdrop {

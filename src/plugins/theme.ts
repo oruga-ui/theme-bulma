@@ -5,7 +5,6 @@ const bulmaConfig: OrugaConfig = {
     override: true,
     button: {
         rootClass: "button",
-        wrapperClass: "button-wrapper",
         sizeClass: "is-",
         variantClass: "is-",
         roundedClass: "is-rounded",
@@ -63,8 +62,12 @@ const bulmaConfig: OrugaConfig = {
         messageVariantClass: "is-",
         bodyClass: "field-body",
         addonsClass: "has-addons",
-        groupedClass: "is-grouped",
-        multilineClass: "is-grouped-multiline",
+        groupedClass: (_, props) => {
+            const classes = ["is-grouped"];
+            if (!props.block) classes.push("is-grouped-multiline");
+            return classes;
+        },
+        blockClass: "is-block",
         horizontalClass: "is-horizontal",
         horizontalLabelClass: "field-label",
         horizontalBodyClass: "field-body",
@@ -146,14 +149,14 @@ const bulmaConfig: OrugaConfig = {
     },
     dropdown: {
         rootClass: "dropdown",
-        modalClass: "is-modal",
-        overlayClass: "dropdown-backdrop",
-        // activeClass: "is-active",
         hoverableClass: "is-hoverable",
         disabledClass: "is-disabled",
         expandedClass: "is-expanded",
         triggerClass: "dropdown-trigger",
-        menuClass: "dropdown-menu dropdown-content",
+        menuClass: "dropdown-menu",
+        contentClass: "dropdown-content",
+        contentModalClass: "is-modal",
+        contentBackdropClass: "has-backdrop",
         itemClass: "dropdown-item",
         itemSelectedClass: "is-active",
         itemFocusedClass: "is-focused",
@@ -184,7 +187,7 @@ const bulmaConfig: OrugaConfig = {
         rootClass: "datepicker",
         triggerClass: "datepicker-trigger",
         contentClass: "datepicker-overlay",
-        modalClass: "datepicker-backdrop",
+        contentBackdropClass: "datepicker-backdrop",
         headerClass: "datepicker-header",
         footerClass: "datepicker-footer",
         tableClass: "datepicker-table",
@@ -238,7 +241,7 @@ const bulmaConfig: OrugaConfig = {
     timepicker: {
         rootClass: "timepicker",
         contentClass: "timepicker-overlay",
-        modalClass: "timepicker-backdrop",
+        contentBackdropClass: "timepicker-backdrop",
         separatorClass: "timepicker-colon",
         footerClass: "timepicker-footer",
         sizeClass: "is-",
@@ -325,7 +328,10 @@ const bulmaConfig: OrugaConfig = {
         rootClass: "popover",
         triggerClass: "popover-trigger",
         contentClass: "popover-content",
-        backdropClass: "popover-backdrop",
+        contentBackdropClass: "popover-backdrop",
+        headerClass: "popover-header",
+        bodyClass: "popover-body",
+        closeClass: "popover-close",
         scrollClipClass: "is-clipped",
     },
     tabs: {

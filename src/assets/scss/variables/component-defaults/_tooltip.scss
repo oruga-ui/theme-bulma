@@ -10,5 +10,9 @@ $tooltip-z: 38 !default;
 $tooltip-colors: dv.$colors !default;
 $tooltip-border-radius: css.getVar("radius") !default;
 $tooltip-bg: css.getVar("scheme-main-bis") !default;
-$tooltip-color: css.getVar("text-body") !default;
+$tooltip-color: hsl(
+    css.getVar("black-h"),
+    css.getVar("black-s"),
+    css.getVar("black-l")
+) !default;
 /* @docs */

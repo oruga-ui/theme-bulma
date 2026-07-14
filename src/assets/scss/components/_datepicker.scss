@@ -66,7 +66,7 @@
         }
     }
 
-    .datepicker-header {
+    &-header {
         padding-bottom: 0.75rem;
         margin-bottom: 0.75rem;
         border-bottom: 1px solid css.getVar("grey-lighter");
@@ -96,13 +96,13 @@
         }
     }
 
-    .datepicker-footer {
+    &-footer {
         margin-top: 0.875rem;
         padding-top: 0.875rem;
         border-top: 1px solid css.getVar("grey-lighter");
     }
 
-    .datepicker-table {
+    &-table {
         display: table;
         margin: 0 auto 0 auto;
 
@@ -115,23 +115,23 @@
                 font-weight: css.getVar("weight-semibold");
             }
         }
+    }
 
-        .datepicker-body {
-            display: table-row-group;
+    &-body {
+        display: table-row-group;
 
-            .datepicker-row {
-                display: table-row;
-            }
+        .datepicker-row {
+            display: table-row;
+        }
 
-            &.has-events {
-                .datepicker-cell {
-                    padding: 0.3rem 0.75rem 0.75rem;
-                }
+        &.has-events {
+            .datepicker-cell {
+                padding: 0.3rem 0.75rem 0.75rem;
             }
         }
     }
 
-    .datepicker-cell {
+    &-cell {
         text-align: center;
         vertical-align: middle;
         display: table-cell;
@@ -277,7 +277,7 @@
         }
     }
 
-    .datepicker-months {
+    &-months {
         display: inline-flex;
         flex-wrap: wrap;
         flex-direction: row;
