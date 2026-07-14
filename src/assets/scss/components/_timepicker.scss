@@ -63,7 +63,7 @@
         }
     }
 
-    &-backdrop {
+    .has-backdrop {
         &::backdrop {
             background-color: css.getVar("datepicker-overlay-background-color");
         }

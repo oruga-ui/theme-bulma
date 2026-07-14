@@ -60,7 +60,7 @@
         padding: calc(css.getVar("datepicker-header-spacer") * 2);
     }
 
-    &-backdrop {
+    .has-backdrop {
         &::backdrop {
             background-color: css.getVar("datepicker-overlay-background-color");
         }
