@@ -30,6 +30,7 @@ const bulmaConfig: OrugaConfig = {
     },
     collapse: {
         rootClass: "collapse",
+        positionClass: "is-",
         triggerClass: "collapse-trigger",
         expandedClass: "is-expanded",
         contentClass: "collapse-content",
