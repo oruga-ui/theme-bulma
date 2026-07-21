@@ -20,8 +20,14 @@ $datepicker-item-color: css.getVar("grey-dark") !default;
 $datepicker-item-disabled-color: css.getVar("grey-light") !default;
 $datepicker-item-hover-color: css.getVar("scheme-invert") !default;
 $datepicker-item-hover-background-color: css.getVar("background") !default;
+$datepicker-item-hover-within-background-color: css.getVar(
+    "grey-lighter"
+) !default;
 $datepicker-item-selected-color: css.getVar("primary-invert") !default;
 $datepicker-item-selected-background-color: css.getVar("primary") !default;
+$datepicker-item-selected-within-background-color: css.getVar(
+    "primary-85"
+) !default;
 
 $datepicker-event-background-color: css.getVar("grey-light") !default;
 $datepicker-today-border: solid 1px rgba(css.getVar("primary"), 0.5) !default;

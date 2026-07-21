@@ -23,10 +23,14 @@
             "datepicker-item-hover-color": #{vars.$datepicker-item-hover-color},
             "datepicker-item-hover-background-color":
                 #{vars.$datepicker-item-hover-background-color},
+            "datepicker-item-hover-within-background-color":
+                #{vars.$datepicker-item-hover-within-background-color},
             "datepicker-item-selected-color":
                 #{vars.$datepicker-item-selected-color},
             "datepicker-item-selected-background-color":
                 #{vars.$datepicker-item-selected-background-color},
+            "datepicker-item-selected-within-background-color":
+                #{vars.$datepicker-item-selected-within-background-color},
 
             "datepicker-event-background-color":
                 #{vars.$datepicker-event-background-color},
@@ -152,6 +156,7 @@
 
         &.is-selectable {
             color: css.getVar("datepicker-item-color");
+            cursor: pointer;
 
             &:hover:not(.is-selected):not(.is-first-hovered):not(
                     .is-last-hovered
@@ -168,14 +173,14 @@
 
             &.is-first-hovered {
                 background-color: css.getVar("grey");
-                color: css.getVar("grey-lighter");
+                color: css.getVar("datepicker-item-hover-background-color");
                 border-bottom-right-radius: 0;
                 border-top-right-radius: 0;
             }
 
             &.is-within-hovered {
                 background-color: css.getVar(
-                    "datepicker-item-hover-background-color"
+                    "datepicker-item-hover-within-background-color"
                 );
                 color: css.getVar("datepicker-item-hover-color");
                 border-radius: 0;
@@ -183,7 +188,7 @@
 
             &.is-last-hovered {
                 background-color: css.getVar("grey");
-                color: css.getVar("grey-lighter");
+                color: css.getVar("datepicker-item-hover-background-color");
                 border-bottom-left-radius: 0;
                 border-top-left-radius: 0;
             }
@@ -215,9 +220,8 @@
             &.is-within-selected:not(.is-first-hovered):not(
                     .is-within-hovered
                 ):not(.is-last-hovered) {
-                background-color: rgba(
-                    css.getVar("datepicker-item-selected-background-color"),
-                    0.5
+                background-color: css.getVar(
+                    "datepicker-item-selected-within-background-color"
                 );
                 border-radius: 0;
             }
