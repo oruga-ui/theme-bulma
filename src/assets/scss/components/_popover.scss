@@ -1,0 +1,57 @@
+@use "sass:list";
+
+@use "../utils/variables" as vars;
+@use "bulma/sass/utilities/css-variables" as css;
+
+.popover {
+    @include css.register-vars(
+        (
+            "popover-margin": #{vars.$popover-margin},
+            "popover-padding": #{vars.$popover-padding},
+            "popover-color": #{vars.$popover-color},
+            "popover-background-color": #{vars.$popover-background-color},
+            "popover-border-radius": #{vars.$popover-border-radius},
+            "popover-shadow": #{vars.$popover-shadow},
+            "popover-overlay-background-color":
+                #{vars.$popover-overlay-background-color},
+        )
+    );
+
+    position: relative;
+    display: inline-flex;
+
+    &-trigger {
+        width: 100%;
+    }
+
+    &-content {
+        white-space: nowrap;
+        border-width: 0;
+        line-height: 1.5;
+        padding: css.getVar("popover-padding");
+        margin: css.getVar("popover-margin");
+        color: css.getVar("popover-color");
+        background-color: css.getVar("popover-background-color");
+        border-radius: css.getVar("popover-border-radius");
+        box-shadow: css.getVar("popover-shadow");
+
+        // make space for close icon
+        &:has(.popover-close):not(:has(.popover-header)) {
+            padding-right: 2rem;
+        }
+    }
+
+    &-close {
+        position: absolute;
+        top: 0.35em;
+        right: 0.25em;
+    }
+
+    .has-backdrop {
+        margin: auto;
+
+        &::backdrop {
+            background-color: css.getVar("popover-overlay-background-color");
+        }
+    }
+}

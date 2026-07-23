@@ -5,8 +5,6 @@
 $dropdown-content-max-height: 200px !default;
 $dropdown-disabled-opacity: 0.5 !default;
 $dropdown-gap: 0px !default;
-$dropdown-z: 40 !default;
-$dropdown-mobile-breakpoint: iv.$desktop !default;
 $dropdown-background-background-color: hsla(
     #{css.getVar("scheme-h")},
     #{css.getVar("scheme-s")},

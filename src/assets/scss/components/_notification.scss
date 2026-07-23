@@ -1,6 +1,31 @@
 @use "bulma/sass/utilities/css-variables" as css;
 @use "../utils/variables" as vars;
 
+.notification {
+    @include css.register-vars(
+        (
+            "notification-icon-margin-right":
+                #{vars.$notification-icon-margin-right},
+            "notification-margin-bottom": #{vars.$notification-margin-bottom},
+        )
+    );
+
+    display: inline-flex;
+
+    > .icon {
+        margin-right: css.getVar("notification-icon-margin-right");
+    }
+
+    &-content:has(+ .delete) {
+        padding-right: calc(css.getVar("notification-icon-margin-right") * 2);
+    }
+
+    .delete {
+        // hide close icon component
+        font-size: 0;
+    }
+}
+
 .notices {
     @include css.register-vars(
         (
@@ -22,17 +47,17 @@
     z-index: css.getVar("notification-notices-z");
 
     .notification {
-        @include css.register-vars(
-            (
-                "notification-margin-bottom":
-                    #{vars.$notification-margin-bottom},
-            )
-        );
-
-        display: inline-flex;
-        flex-direction: row-reverse;
+        align-items: center;
         pointer-events: auto;
         max-width: 600px;
+
+        .icon {
+            @include css.register-vars(
+                (
+                    "icon-dimensions-large": 2rem,
+                )
+            );
+        }
 
         &.is-top,
         &.is-bottom {
@@ -47,10 +72,6 @@
         &.is-top-left,
         &.is-bottom-left {
             align-self: flex-start;
-        }
-
-        button.delete + .media {
-            padding-right: calc(css.getVar("notification-notices-padding") / 2);
         }
     }
 
@@ -75,9 +96,4 @@
     &.has-custom-container {
         position: absolute;
     }
-}
-
-.notification .delete {
-    // hide close icon component
-    font-size: 0;
 }
