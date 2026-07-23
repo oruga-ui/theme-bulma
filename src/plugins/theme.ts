@@ -65,10 +65,10 @@ const bulmaConfig: OrugaConfig = {
         addonsClass: "has-addons",
         groupedClass: (_, props) => {
             const classes = ["is-grouped"];
-            if (!props.block) classes.push("is-grouped-multiline");
+            if (!props.nowrap) classes.push("is-grouped-multiline");
             return classes;
         },
-        blockClass: "is-block",
+        nowrapClass: "is-nowrap",
         horizontalClass: "is-horizontal",
         horizontalLabelClass: "field-label",
         horizontalBodyClass: "field-body",
@@ -186,6 +186,7 @@ const bulmaConfig: OrugaConfig = {
     },
     datepicker: {
         rootClass: "datepicker",
+        inlineClass: "show-inline",
         triggerClass: "datepicker-trigger",
         contentClass: "datepicker-overlay",
         contentBackdropClass: "has-backdrop",
@@ -241,6 +242,7 @@ const bulmaConfig: OrugaConfig = {
     },
     timepicker: {
         rootClass: "timepicker",
+        inlineClass: "show-inline",
         contentClass: "timepicker-overlay",
         contentBackdropClass: "has-backdrop",
         separatorClass: "timepicker-colon",
@@ -259,10 +261,10 @@ const bulmaConfig: OrugaConfig = {
         disabledClass: "is-disabled",
         trackClass: "slider-track",
         fillClass: "slider-fill",
+        fillVariantClass: "is-",
         thumbWrapperClass: "slider-thumb-wrapper",
         thumbWrapperDraggingClass: "is-dragging",
         thumbRoundedClass: "is-rounded",
-        variantClass: "is-",
         sizeClass: "is-",
         thumbClass: "slider-thumb",
         tickLabelClass: "slider-tick-label",
@@ -396,8 +398,9 @@ const bulmaConfig: OrugaConfig = {
     },
     notification: {
         rootClass: "notification",
-        wrapperClass: "media",
-        contentClass: "media-content",
+        contentClass: "media",
+        headerClass: "meida-header",
+        bodyClass: "media-content",
         iconClass: "media-left",
         closeClass: "delete",
         positionClass: "is-",
@@ -421,8 +424,8 @@ const bulmaConfig: OrugaConfig = {
         teleportClass: "is-teleported",
         fullscreenClass: "is-fullscreen",
         backdropClass: undefined,
-        wrapperClass: "modal-content modal-card",
-        textPositionClass: (position: string) => {
+        contentClass: "modal-content modal-card",
+        contentPositionClass: (position: string) => {
             if (position === "left") return "has-text-left";
             else if (position === "center") return "has-text-centered";
             else if (position === "right") return "hast-text-right";
@@ -433,7 +436,6 @@ const bulmaConfig: OrugaConfig = {
         closeIconSize: "medium",
         subtitleClass: "modal-card-subtitle",
         bodyClass: "modal-card-body",
-        contentClass: undefined,
         figureClass: "image",
         footerClass: "modal-card-foot",
         footerPositionClass: (position: string) => {
@@ -496,8 +498,8 @@ const bulmaConfig: OrugaConfig = {
         variantClass: "is-",
         expandedClass: "is-expanded",
         disabledClass: "is-disabled",
-        draggableClass: "upload-draggable",
-        draggableHoveredClass: "is-hovered",
+        dragzoneClass: "dragzone",
+        dragzoneHoveredClass: "is-hovered",
     },
 };
 
