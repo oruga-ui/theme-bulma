@@ -143,7 +143,7 @@ $custom-colors: (
 
 ### Override default config
 
-In case you want to replace the default style of a component you can override or add new classes changing `bulmaConfig`; more details about components customization on https://oruga-ui.com/documentation/customisation.html
+In case you want to replace the default style of a component you can override or add new classes changing `bulmaConfig`; more details about components customization on https://oruga-ui.com/documentation/configuration.html
 
 ```js
 import { createApp } from "vue";
