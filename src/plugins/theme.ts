@@ -329,7 +329,6 @@ const bulmaConfig: OrugaConfig = {
     },
     popover: {
         rootClass: "popover",
-        triggerClass: "popover-trigger",
         contentClass: "popover-content",
         contentBackdropClass: "has-backdrop",
         headerClass: "popover-header",
