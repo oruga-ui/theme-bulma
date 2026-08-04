@@ -8,7 +8,7 @@
 
     @include css.register-vars(
         (
-            "upload-draggable-padding": #{vars.$upload-draggable-padding},
+            "upload-dragzone-padding": #{vars.$upload-dragzone-padding},
             "upload-bg": #{vars.$upload-bg},
             "upload-border-color": #{vars.$upload-border-color},
         )
@@ -26,9 +26,9 @@
         z-index: -1;
     }
 
-    .upload-draggable {
+    .dragzone {
         cursor: pointer;
-        padding: css.getVar("upload-draggable-padding");
+        padding: css.getVar("upload-dragzone-padding");
         background-color: css.getVar("upload-bg");
         border: 1px dashed css.getVar("upload-border-color");
         border-radius: css.getVar("radius-large");
@@ -37,7 +37,7 @@
     @each $name, $pair in vars.$upload-colors {
         $color: list.nth($pair, 1);
 
-        &.is-#{$name} .upload-draggable {
+        &.is-#{$name} .dragzone {
             @include css.register-vars(
                 (
                     "upload-border-color": #{$color},
@@ -59,7 +59,7 @@
     &.is-expanded {
         width: 100%;
 
-        .upload-draggable {
+        .upload-dragzone {
             width: 100%;
         }
     }

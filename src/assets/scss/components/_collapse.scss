@@ -1,14 +1,43 @@
 .collapse {
     &-trigger {
         cursor: pointer;
-        display: inline-block;
 
         &.is-expanded {
             width: 100%;
         }
     }
 
-    &-content {
-        display: inherit;
+    &.is-top {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    &:is(details) {
+        interpolate-size: allow-keywords;
+
+        /* Chromium / Firefox */
+        summary {
+            list-style: none;
+        }
+
+        /* Webkit */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* This won't work yet */
+        &::details-content {
+            overflow: hidden;
+            height: 0;
+            /* Enable transitioning of `content-visibility` */
+            transition:
+                height 0.3s,
+                content-visibility 0.3s;
+            transition-behavior: allow-discrete;
+        }
+
+        &[open]::details-content {
+            height: auto;
+        }
     }
 }

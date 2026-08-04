@@ -1,29 +1,36 @@
 @use "bulma/sass/utilities/css-variables" as css;
-@use "bulma/sass/utilities/mixins" as mixins;
 @use "../utils/variables" as vars;
 
 .dropdown {
     @include css.register-vars(
         (
+            "dropdown-content-max-height": #{vars.$dropdown-content-max-height},
             "dropdown-background-background-color":
                 #{vars.$dropdown-background-background-color},
             "dropdown-disabled-opacity": #{vars.$dropdown-disabled-opacity},
             "dropdown-gap": #{vars.$dropdown-gap},
-            "dropdown-z": #{vars.$dropdown-z},
-            "dropdown-content-z": #{vars.$dropdown-z},
         )
     );
 
-    .background {
-        @include mixins.overlay;
-
+    &-menu {
+        // revert menu position because of popover api usage
         position: fixed;
-        background-color: css.getVar("dropdown-background-background-color");
-        z-index: css.getVar("dropdown-z");
-        cursor: pointer;
+        top: revert;
+
+        border-width: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    .dropdown-item {
+    &-content {
+        max-height: css.getVar("dropdown-content-max-height");
+
+        &:popover-open {
+            display: block;
+        }
+    }
+
+    &-item {
         background-color: hsl(
             #{css.getVar("dropdown-item-h")},
             #{css.getVar("dropdown-item-s")},
@@ -72,12 +79,6 @@
         }
     }
 
-    &.is-hoverable {
-        .background {
-            display: none;
-        }
-    }
-
     &.is-disabled {
         opacity: css.getVar("dropdown-disabled-opacity");
         cursor: not-allowed;
@@ -87,116 +88,48 @@
         }
     }
 
-    &.is-inline .dropdown-menu {
-        position: static;
-        display: inline-block;
-        padding: 0;
-        overflow: auto;
-        z-index: 0;
-    }
-
-    // position classes
-    &.is-top .dropdown-menu {
-        top: auto;
-        right: auto;
-        bottom: calc(100% + css.getVar("dropdown-gap"));
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    &.is-left .dropdown-menu {
-        top: 50%;
-        right: calc(100% + css.getVar("dropdown-gap"));
-        bottom: auto;
-        left: auto;
-        transform: translateY(-50%);
-    }
-
-    &.is-bottom .dropdown-menu {
-        top: calc(100% + css.getVar("dropdown-gap"));
-        left: 50%;
-        bottom: auto;
-        right: auto;
-        transform: translateX(-50%);
-    }
-
-    &.is-right .dropdown-menu {
-        top: 50%;
-        right: auto;
-        bottom: auto;
-        left: calc(100% + css.getVar("dropdown-gap"));
-        transform: translateY(-50%);
-    }
-
-    &.is-top-right .dropdown-menu {
-        top: auto;
-        right: 0;
-        bottom: calc(100% + css.getVar("dropdown-gap"));
-        left: auto;
-    }
-
-    &.is-top-left .dropdown-menu {
-        top: auto;
-        right: auto;
-        bottom: calc(100% + css.getVar("dropdown-gap"));
-        left: 0;
-    }
-
-    &.is-bottom-right .dropdown-menu {
-        top: calc(100% + css.getVar("dropdown-gap"));
-        right: 0;
-        bottom: auto;
-        left: auto;
-    }
-
-    &.is-bottom-left .dropdown-menu {
-        top: calc(100% + css.getVar("dropdown-gap"));
-        right: auto;
-        bottom: auto;
-        left: 0;
-    }
-
     &.is-expanded {
         width: 100%;
 
-        &.is-modal .dropdown-menu,
-        .dropdown-menu,
         .dropdown-trigger {
             width: 100%;
         }
+
+        .dropdown-menu {
+            width: anchor-size(width);
+        }
     }
 
-    &.is-modal {
-        > .dropdown-menu {
-            @include css.register-vars(
-                (
-                    "dropdown-modal-width": #{vars.$dropdown-modal-width},
-                    "dropdown-modal-min-width":
-                        #{vars.$dropdown-modal-min-width},
-                    "dropdown-modal-max-width":
-                        #{vars.$dropdown-modal-max-width},
-                )
-            );
+    .is-modal {
+        @include css.register-vars(
+            (
+                "dropdown-modal-width": #{vars.$dropdown-modal-width},
+                "dropdown-modal-min-width": #{vars.$dropdown-modal-min-width},
+                "dropdown-modal-max-width": #{vars.$dropdown-modal-max-width},
+            )
+        );
 
-            position: fixed;
-            top: 25%;
-            left: 50%;
-            bottom: auto;
-            right: auto;
-            transform: translateX(-50%);
-            width: clamp(
-                css.getVar("dropdown-modal-min-width"),
-                css.getVar("dropdown-modal-width"),
-                css.getVar("dropdown-modal-max-width")
-            );
-            max-height: calc(100vh - 120px);
-            white-space: normal;
-            overflow-y: auto;
-            z-index: calc(css.getVar("dropdown-z") + 10);
+        width: clamp(
+            css.getVar("dropdown-modal-min-width"),
+            css.getVar("dropdown-modal-width"),
+            css.getVar("dropdown-modal-max-width")
+        );
+        max-height: calc(100vh - 120px);
+        white-space: normal;
+        overflow-y: auto;
 
-            > .dropdown-item {
-                padding: 1rem 1.5rem;
-            }
+        > .dropdown-item {
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    .has-backdrop {
+        cursor: pointer;
+
+        &::backdrop {
+            background-color: css.getVar(
+                "dropdown-background-background-color"
+            );
         }
     }
 }

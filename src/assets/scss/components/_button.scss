@@ -10,10 +10,8 @@
         )
     );
 
-    .button-wrapper {
-        display: inline-flex;
-        justify-content: center;
-    }
+    display: inline-flex;
+    justify-content: center;
 
     &:has(.tag.badge) {
         position: relative;

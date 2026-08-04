@@ -18,6 +18,7 @@ export default [
     "Modal",
     "Notification",
     "Pagination",
+    "Popover",
     "Radio",
     "Select",
     "Sidebar",
