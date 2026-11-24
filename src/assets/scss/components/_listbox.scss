@@ -48,6 +48,14 @@
                 border-bottom: css.getVar("panel-item-border");
             }
         }
+
+        .list-item {
+            .control {
+                flex-grow: 0;
+                flex-shrink: 0;
+                width: auto;
+            }
+        }
     }
 
     &.selectable {
